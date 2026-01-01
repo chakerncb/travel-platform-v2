@@ -55,48 +55,11 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Get the restaurant roles for this user.
+     * Get the user's full name.
      */
-    public function restaurantRoles()
+    public function getNameAttribute(): string
     {
-        return $this->hasMany(RestaurantUsersRole::class, 'user_id');
-    }
-
-    /**
-     * Check if user has owner role for a specific restaurant.
-     */
-    public function isOwnerOf($restaurantId)
-    {
-        return $this->restaurantRoles()
-            ->whereHas('restaurantRole', function ($query) {
-                $query->where('name', 'Owner');
-            })
-            ->where('restaurant_id', $restaurantId)
-            ->exists();
-    }
-
-    /**
-     * Check if user has owner role for any restaurant.
-     */
-    public function isOwner()
-    {
-        return $this->restaurantRoles()
-            ->whereHas('restaurantRole', function ($query) {
-                $query->where('name', 'Owner');
-            })
-            ->exists();
-    }
-
-    public function restaurantId()
-    {
-        // get the first restaurant id where the user has an owner role
-        $ownerRole = $this->restaurantRoles()
-            ->whereHas('restaurantRole', function ($query) {
-                $query->where('name', 'Owner');
-            })
-            ->first();
-            
-        return $ownerRole ? $ownerRole->restaurant_id : null;
+        return trim("{$this->f_name} {$this->l_name}") ?: 'User';
     }
 
     /**
