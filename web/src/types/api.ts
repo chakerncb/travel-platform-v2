@@ -1,0 +1,523 @@
+// Pagination Types
+export interface PaginatedResponse<T> {
+  data: T[];
+  links: {
+    first: string | null;
+    last: string | null;
+    prev: string | null;
+    next: string | null;
+  };
+  meta: {
+    current_page: number;
+    from: number | null;
+    last_page: number;
+    path: string;
+    per_page: number;
+    to: number | null;
+    total: number;
+  };
+}
+
+// Enums
+export enum DestinationType {
+  City = 'City',
+  Region = 'Region',
+  NaturalSite = 'NaturalSite',
+  Landmark = 'Landmark'
+}
+
+export enum TourType {
+  PrePackaged = 'PrePackaged',
+  CustomRequest = 'CustomRequest'
+}
+
+export enum TourStatus {
+  Draft = 'Draft',
+  Published = 'Published',
+  Archived = 'Archived',
+  PendingApproval = 'PendingApproval'
+}
+
+export enum DifficultyLevel {
+  Easy = 'Easy',
+  Moderate = 'Moderate',
+  Challenging = 'Challenging',
+  Difficult = 'Difficult'
+}
+
+export enum BookingStatus {
+  Pending = 'Pending',
+  Confirmed = 'Confirmed',
+  Cancelled = 'Cancelled',
+  Completed = 'Completed'
+}
+
+// Destination Types
+export interface DestinationDto {
+  destinationId: string;
+  name: string;
+  nameAr?: string;
+  nameFr?: string;
+  slug: string;
+  destinationType?: DestinationType;
+  country: string;
+  latitude?: number;
+  longitude?: number;
+  nearestAirportCode?: string;
+  airportDistanceKm?: number;
+  description?: string;
+  shortDescription?: string;
+  thumbnailUrl?: string;
+  coverImageUrl?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  popularityScore: number;
+  isFeatured: boolean;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CreateDestinationDto {
+  name: string;
+  nameAr?: string;
+  nameFr?: string;
+  slug: string;
+  destinationType?: DestinationType;
+  country?: string;
+  latitude?: number;
+  longitude?: number;
+  nearestAirportCode?: string;
+  airportDistanceKm?: number;
+  description?: string;
+  shortDescription?: string;
+  thumbnailUrl?: string;
+  coverImageUrl?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  isFeatured?: boolean;
+}
+
+export interface UpdateDestinationDto {
+  destinationId?: string;
+  name?: string;
+  nameAr?: string;
+  nameFr?: string;
+  slug?: string;
+  destinationType?: DestinationType;
+  country?: string;
+  latitude?: number;
+  longitude?: number;
+  nearestAirportCode?: string;
+  airportDistanceKm?: number;
+  description?: string;
+  shortDescription?: string;
+  thumbnailUrl?: string;
+  coverImageUrl?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  popularityScore?: number;
+  isFeatured?: boolean;
+  isActive?: boolean;
+}
+
+// Hotel Types
+export interface HotelDto {
+  hotelId: string;
+  amadeusHotelId?: string;
+  bookingComId?: string;
+  name: string;
+  nameAr?: string;
+  starRating?: number;
+  destinationId?: string;
+  address?: string;
+  city?: string;
+  latitude?: number;
+  longitude?: number;
+  phone?: string;
+  email?: string;
+  websiteUrl?: string;
+  description?: string;
+  amenities?: string;
+  thumbnailUrl?: string;
+  galleryUrls?: string;
+  priceFrom?: number;
+  currency: string;
+  rating: number;
+  totalReviews: number;
+  dataSource?: string;
+  isVirtual: boolean;
+  lastSyncedAt?: string;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CreateHotelDto {
+  amadeusHotelId?: string;
+  bookingComId?: string;
+  name: string;
+  nameAr?: string;
+  starRating?: number;
+  destinationId?: string;
+  address?: string;
+  city?: string;
+  latitude?: number;
+  longitude?: number;
+  phone?: string;
+  email?: string;
+  websiteUrl?: string;
+  description?: string;
+  amenities?: string;
+  thumbnailUrl?: string;
+  galleryUrls?: string;
+  priceFrom?: number;
+  currency?: string;
+  dataSource?: string;
+  isVirtual?: boolean;
+}
+
+export interface UpdateHotelDto {
+  amadeusHotelId?: string;
+  bookingComId?: string;
+  name?: string;
+  nameAr?: string;
+  starRating?: number;
+  destinationId?: string;
+  address?: string;
+  city?: string;
+  latitude?: number;
+  longitude?: number;
+  phone?: string;
+  email?: string;
+  websiteUrl?: string;
+  description?: string;
+  amenities?: string;
+  thumbnailUrl?: string;
+  galleryUrls?: string;
+  priceFrom?: number;
+  currency?: string;
+  dataSource?: string;
+  isVirtual?: boolean;
+  isActive?: boolean;
+}
+
+export interface HotelSearchParams {
+  city?: string;
+  minStarRating?: number;
+  maxPrice?: number;
+  name?: string;
+}
+
+// Tour Types
+// Backend API Response (snake_case)
+export interface TourApiResponse {
+  id: number;
+  type: string;
+  title: string;
+  description?: string;
+  short_description?: string;
+  price: string;
+  duration_days: number;
+  max_group_size: number;
+  difficulty_level: string;
+  start_date?: string;
+  end_date?: string;
+  is_active: boolean;
+  is_eco_friendly: boolean;
+  included_services?: string[];
+  excluded_services?: string[];
+  destinations?: any[];
+  hotels?: any[];
+  reviews_count: number;
+  average_rating?: number;
+  created_at: string;
+  updated_at: string;
+}
+
+// Frontend DTO (for backwards compatibility)
+export interface TourDto {
+  tourId: string;
+  agencyId?: string;
+  title: string;
+  slug: string;
+  description?: string;
+  tourType?: TourType;
+  primaryDestinationId?: string;
+  primaryDestinationName?: string;
+  durationDays?: number;
+  durationNights?: number;
+  pricePerPerson?: number;
+  currency: string;
+  priceIncludes?: string[];
+  priceExcludes?: string[];
+  minParticipants: number;
+  maxParticipants: number;
+  difficultyLevel?: DifficultyLevel;
+  ageRestriction?: string;
+  fitnessRequirement?: string;
+  coverImageUrl?: string;
+  galleryUrls?: string[];
+  videoUrl?: string;
+  itinerary?: string;
+  features?: string[];
+  languages?: string[];
+  status: TourStatus;
+  rating: number;
+  totalReviews: number;
+  totalBookings: number;
+  isFeatured: boolean;
+  availableFrom?: string;
+  availableTo?: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt?: string;
+  destinations?: TourDestinationDto[];
+}
+export interface TourDestinationDto {
+  destinationId: string;
+  name?: string;
+  city?: string;
+  country?: string;
+  dayNumber?: number;
+  durationHours?: number;
+  orderIndex?: number;
+  imageUrl?: string;
+  imageAlt?: string;
+}
+
+export interface TourHotelDto {
+  hotelId: string;
+  checkInDate?: string;
+  checkOutDate?: string;
+  numberOfNights?: number;
+  roomsCount?: number;
+  roomType?: string;
+}
+
+export interface CreateTourRequestDto {
+  agencyId?: string;
+  title: string;
+  slug: string;
+  description?: string;
+  tourType?: TourType;
+  primaryDestinationId?: string;
+  durationDays?: number;
+  durationNights?: number;
+  pricePerPerson?: number;
+  currency?: string;
+  priceIncludes?: string[];
+  priceExcludes?: string[];
+  minParticipants?: number;
+  maxParticipants?: number;
+  difficultyLevel?: DifficultyLevel;
+  ageRestriction?: string;
+  fitnessRequirement?: string;
+  coverImageUrl?: string;
+  galleryUrls?: string[];
+  videoUrl?: string;
+  itinerary?: string;
+  features?: string[];
+  languages?: string[];
+  isFeatured?: boolean;
+  availableFrom?: string;
+  availableTo?: string;
+  destinations?: TourDestinationDto[];
+  hotels?: TourHotelDto[];
+}
+
+export interface UpdateTourRequestDto {
+  title?: string;
+  slug?: string;
+  description?: string;
+  tourType?: TourType;
+  primaryDestinationId?: string;
+  durationDays?: number;
+  durationNights?: number;
+  pricePerPerson?: number;
+  currency?: string;
+  priceIncludes?: string[];
+  priceExcludes?: string[];
+  minParticipants?: number;
+  maxParticipants?: number;
+  difficultyLevel?: DifficultyLevel;
+  ageRestriction?: string;
+  fitnessRequirement?: string;
+  coverImageUrl?: string;
+  galleryUrls?: string[];
+  videoUrl?: string;
+  itinerary?: string;
+  features?: string[];
+  languages?: string[];
+  status?: TourStatus;
+  isFeatured?: boolean;
+  availableFrom?: string;
+  availableTo?: string;
+  destinations?: TourDestinationDto[];
+  hotels?: TourHotelDto[];
+}
+
+export interface CustomTourRequestDto {
+  title: string;
+  description?: string;
+  durationDays: number;
+  durationNights: number;
+  adultsCount: number;
+  childrenCount?: number;
+  infantsCount?: number;
+  preferredStartDate: string;
+  destinationIds: string[];
+  hotelIds?: string[];
+  specialRequirements?: string;
+  budgetPerPerson?: number;
+}
+
+// Travel Agency Types
+export interface TravelAgencyDto {
+  agencyId: string;
+  userId: string;
+  agencyName: string;
+  businessLicense?: string;
+  description?: string;
+  logoUrl?: string;
+  websiteUrl?: string;
+  address?: string;
+  city?: string;
+  stateProvince?: string;
+  country: string;
+  phone?: string;
+  commissionRate: number;
+  rating: number;
+  totalBookings: number;
+  isVerified: boolean;
+  verificationDate?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CreateTravelAgencyDto {
+  agencyName: string;
+  businessLicense: string;
+  description?: string;
+  logoUrl?: string;
+  websiteUrl?: string;
+  address?: string;
+  city?: string;
+  stateProvince?: string;
+  country?: string;
+  phone?: string;
+  commissionRate?: number;
+}
+
+export interface UpdateTravelAgencyDto {
+  agencyName?: string;
+  businessLicense?: string;
+  description?: string;
+  logoUrl?: string;
+  websiteUrl?: string;
+  address?: string;
+  city?: string;
+  stateProvince?: string;
+  country?: string;
+  phone?: string;
+  commissionRate?: number;
+}
+
+// User and Authentication Types
+export interface UserDto {
+  id?: string;
+  f_name?: string;
+  l_name?: string;
+  email?: string;
+  phone?: string;
+  address?: string;
+  is_admin?: boolean;
+  email_verified_at?: string;
+  created_at?: string;
+  updated_at?: string;
+  // For backwards compatibility
+  userName?: string;
+  phoneNumber?: string;
+  role?: string;
+  status?: boolean;
+  imageUrl?: string;
+  isIntern?: boolean;
+}
+
+export interface LoginDto {
+  email: string;
+  password: string;
+}
+
+export interface RegisterDto {
+  f_name: string;
+  l_name: string;
+  email: string;
+  password: string;
+  phone: string;
+  address?: string;
+}
+
+export interface UpdateUserDto {
+  firstName?: string;
+  lastName?: string;
+  phoneNumber?: string;
+}
+
+export interface ChangePasswordDto {
+  currentPassword: string;
+  newPassword: string;
+}
+
+export interface ForgotPasswordDto {
+  email: string;
+}
+
+export interface ResetPasswordDto {
+  email: string;
+  token: string;
+  newPassword: string;
+}
+
+// Image Types
+export interface ImageDto {
+  imageId: string;
+  fileUrl: string;
+  fileName?: string;
+  fileSize?: number;
+  width?: number;
+  height?: number;
+  mimeType?: string;
+  isPrimary: boolean;
+  displayOrder: number;
+  altText?: string;
+  caption?: string;
+  source?: string;
+  createdAt: string;
+}
+
+// API Response Types
+export interface ApiResponse<T> {
+  data?: T;
+  message?: string;
+  error?: string;
+  errors?: { [key: string]: string[] };
+}
+
+export interface PaginatedResponse<T> {
+  items: T[];
+  pageNumber: number;
+  pageSize: number;
+  totalPages: number;
+  totalCount: number;
+  hasPreviousPage: boolean;
+  hasNextPage: boolean;
+}
+
+export interface QueryParams {
+  pageNumber?: number;
+  pageSize?: number;
+  sortBy?: string;
+  sortOrder?: 'asc' | 'desc';
+  search?: string;
+}

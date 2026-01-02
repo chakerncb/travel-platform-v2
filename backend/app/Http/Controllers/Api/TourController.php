@@ -15,7 +15,7 @@ class TourController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Tour::with(['destinations', 'hotels'])
+        $query = Tour::with(['destinations.images', 'hotels'])
             ->withCount('reviews')
             ->withAvg('reviews', 'rating');
 
@@ -134,7 +134,7 @@ class TourController extends Controller
             }
         }
 
-        return new TourResource($tour->load(['destinations', 'hotels']));
+        return new TourResource($tour->load(['destinations.images', 'hotels']));
     }
 
     /**
@@ -142,7 +142,7 @@ class TourController extends Controller
      */
     public function show(string $id)
     {
-        $tour = Tour::with(['destinations', 'hotels'])
+        $tour = Tour::with(['destinations.images', 'hotels'])
             ->withCount('reviews')
             ->withAvg('reviews', 'rating')
             ->findOrFail($id);
@@ -206,7 +206,7 @@ class TourController extends Controller
             }
         }
 
-        return new TourResource($tour->load(['destinations', 'hotels']));
+        return new TourResource($tour->load(['destinations.images', 'hotels']));
     }
 
     /**

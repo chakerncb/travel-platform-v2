@@ -32,6 +32,9 @@ class TourResource extends JsonResource
             'excluded_services' => $this->excluded_services,
             'destinations' => $this->whenLoaded('destinations', function () {
                 return $this->destinations->map(function ($destination) {
+                    $primaryImage = $destination->images()->where('is_primary', true)->first();
+                    $firstImage = $primaryImage ?? $destination->images()->first();
+                    
                     return [
                         'id' => $destination->id,
                         'name' => $destination->name,
@@ -39,6 +42,8 @@ class TourResource extends JsonResource
                         'country' => $destination->country,
                         'days_at_destination' => $destination->pivot->days_at_destination,
                         'order' => $destination->pivot->order,
+                        'image_url' => $firstImage ? asset('storage/' . $firstImage->image_path) : null,
+                        'image_alt' => $firstImage?->alt_text ?? $destination->name,
                     ];
                 });
             }),

@@ -28,6 +28,12 @@ Route::get('/email/verify/{id}/{hash}', 'App\Http\Controllers\AuthController@Ema
 
 Route::post('/email/resend', 'App\Http\Controllers\AuthController@resendVerificationEmail')->middleware(['auth:sanctum'])->name('verification.send');
 
+// Unsplash API routes
+Route::prefix('unsplash')->group(function () {
+    Route::get('/search', [App\Http\Controllers\UnsplashController::class, 'search']);
+    Route::post('/download', [App\Http\Controllers\UnsplashController::class, 'download']);
+});
+
 // Public API routes (no authentication required)
 Route::prefix('v1')->group(function () {
     // Destinations

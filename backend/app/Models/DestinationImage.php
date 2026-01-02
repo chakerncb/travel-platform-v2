@@ -16,6 +16,9 @@ class DestinationImage extends Model
         'alt_text',
         'is_primary',
         'order',
+        'photographer_name',
+        'photographer_url',
+        'source_url',
     ];
 
     protected $casts = [

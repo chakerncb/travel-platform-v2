@@ -2,12 +2,14 @@
 
 namespace App\Filament\Resources\Destinations\Schemas;
 
+use Filament\Actions\Action;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Actions;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
@@ -86,6 +88,9 @@ class DestinationForm
                 
                 Section::make('Images')
                     ->schema([
+                        \App\Filament\Forms\Components\UnsplashPicker::make('unsplash_picker')
+                            ->label(''),
+                        
                         Repeater::make('images')
                             ->relationship('images')
                             ->schema([
