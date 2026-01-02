@@ -10,8 +10,8 @@ export default function News1() {
 				<div className="container">
 					<div className="row align-items-end">
 						<div className="col-md-6 mb-30 wow fadeInLeft">
-							<h2 className="neutral-1000">News, Tips  Guides</h2>
-							<p className="text-xl-medium neutral-500">Favorite destinations based on customer reviews</p>
+							<h2 className="neutral-1000">Sustainable Travel Guides</h2>
+							<p className="text-xl-medium neutral-500">Eco-friendly tips and destinations for conscious travelers</p>
 						</div>
 						<div className="col-md-6 mb-30 wow fadeInRight">
 							<div className="d-flex justify-content-center justify-content-md-end"><Link className="btn btn-black-lg" href="#">View More

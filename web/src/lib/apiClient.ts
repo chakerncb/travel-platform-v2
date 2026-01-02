@@ -3,6 +3,11 @@ import { getSession } from 'next-auth/react';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
 
+// Laravel API response wrapper
+interface ApiResponse<T> {
+  data: T;
+}
+
 // Create axios instance with default config
 const apiClient: AxiosInstance = axios.create({
   baseURL: API_URL,
@@ -79,8 +84,9 @@ export async function apiRequest<T>(
   config: AxiosRequestConfig
 ): Promise<T> {
   try {
-    const response = await apiClient.request<T>(config);
-    return response.data;
+    const response = await apiClient.request<ApiResponse<T>>(config);
+    // Laravel wraps responses in { data: ... }, so we unwrap it
+    return response.data.data;
   } catch (error) {
     throw error;
   }

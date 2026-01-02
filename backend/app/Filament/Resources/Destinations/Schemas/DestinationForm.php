@@ -99,6 +99,7 @@ class DestinationForm
                                         FileUpload::make('image_path')
                                             ->label('Image')
                                             ->image()
+                                            ->disk('public')
                                             ->directory('destinations')
                                             ->required()
                                             ->maxSize(5120)

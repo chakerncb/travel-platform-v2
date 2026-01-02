@@ -14,8 +14,8 @@ export const tourService = {
    * Get all tours
    */
   getAll: async (): Promise<TourApiResponse[]> => {
-    const response = await api.get<PaginatedResponse<TourApiResponse>>('/v1/tours');
-    return response.data;
+    const response = await api.get<TourApiResponse[]>('/v1/tours');
+    return response;
   },
 
   /**
@@ -29,8 +29,7 @@ export const tourService = {
    * Get featured tours
    */
   getFeatured: async (limit?: number): Promise<TourApiResponse[]> => {
-    const response = await api.get<PaginatedResponse<TourApiResponse>>('/v1/tours');
-    const tours = response.data;
+    const tours = await api.get<TourApiResponse[]>('/v1/tours');
     const featured = tours
       .filter(t => t.is_active)
       .sort((a, b) => (b.average_rating || 0) - (a.average_rating || 0));
@@ -41,11 +40,11 @@ export const tourService = {
   /**
    * Get tours by destination
    */
-  getByDestination: async (destinationId: string): Promise<TourApiResponse[]> => {
-    const response = await api.get<PaginatedResponse<TourApiResponse>>('/v1/tours');
-    const tours = response.data;
+  getByDestination: async (destinationId: string): Promise<TourDto[]> => {
+    const tours = await api.get<TourDto[]>('/v1/tours');
     return tours.filter(t => 
-      t.is_active
+      t.is_active && 
+      t.destinations?.some(d => d.id === parseInt(destinationId))
     );
   },
 

@@ -2,7 +2,8 @@ import { api } from '@/src/lib/apiClient';
 import { 
   DestinationDto, 
   CreateDestinationDto, 
-  UpdateDestinationDto 
+  UpdateDestinationDto,
+  PaginatedResponse
 } from '@/src/types/api';
 
 export const destinationService = {
@@ -10,7 +11,8 @@ export const destinationService = {
    * Get all destinations
    */
   getAll: async (): Promise<DestinationDto[]> => {
-    return api.get<DestinationDto[]>('/v1/destinations');
+    const destinations = await api.get<DestinationDto[]>('/v1/destinations');
+    return destinations;
   },
 
   /**
@@ -25,21 +27,24 @@ export const destinationService = {
    */
   getFeatured: async (): Promise<DestinationDto[]> => {
     const destinations = await api.get<DestinationDto[]>('/v1/destinations');
-    return destinations.filter(d => d.isFeatured);
+    // Filter for active destinations only since is_featured doesn't exist in API
+    return destinations.filter(d => d.is_active);
   },
 
   /**
    * Search destinations
    */
   search: async (query: string): Promise<DestinationDto[]> => {
-    return api.get<DestinationDto[]>(`/v1/destinations?search=${encodeURIComponent(query)}`);
+    const destinations = await api.get<DestinationDto[]>(`/v1/destinations?search=${encodeURIComponent(query)}`);
+    return destinations;
   },
 
   /**
    * Get destinations by country
    */
   getByCountry: async (country: string): Promise<DestinationDto[]> => {
-    return api.get<DestinationDto[]>(`/v1/destinations?country=${encodeURIComponent(country)}`);
+    const destinations = await api.get<DestinationDto[]>(`/v1/destinations?country=${encodeURIComponent(country)}`);
+    return destinations;
   },
 
   // Admin endpoints

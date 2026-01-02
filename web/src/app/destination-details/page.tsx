@@ -3,8 +3,90 @@ import { swiperGroup1,swiperGroupAnimate } from "@/src/util/swiperOption"
 import { Swiper, SwiperSlide } from "swiper/react"
 import Layout from "@/src/components/layout/Layout"
 import Link from "next/link"
+import { useSearchParams } from 'next/navigation'
+import { useDestination } from '@/src/hooks/useDestination'
+import { useToursByDestination } from '@/src/hooks/useToursByDestination'
+import { useHotelsByCity } from '@/src/hooks/useHotelsByCity'
+import { destinationService } from '@/src/services/destinationService'
 import CategoryFilter from '@/src/components/elements/CategoryFilter'
+import { useState, useEffect, useMemo } from 'react'
+import { DestinationDto } from '@/src/types/api'
 export default function Destination5() {
+    const searchParams = useSearchParams()
+    const destinationId = searchParams.get('id')
+    
+    const { data: destination, loading: loadingDestination, error: errorDestination } = useDestination(destinationId)
+    const { data: tours, loading: loadingTours } = useToursByDestination(destinationId)
+    const { data: hotels, loading: loadingHotels } = useHotelsByCity(destination?.city || destination?.country || null)
+    const [allDestinations, setAllDestinations] = useState<DestinationDto[]>([])
+    const [loadingDestinations, setLoadingDestinations] = useState(true)
+
+    useEffect(() => {
+        const fetchDestinations = async () => {
+            try {
+                const destinations = await destinationService.getAll()
+                setAllDestinations(destinations)
+            } catch (error) {
+                console.error('Error fetching destinations:', error)
+            } finally {
+                setLoadingDestinations(false)
+            }
+        }
+        fetchDestinations()
+    }, [])
+
+    const relatedDestinations = useMemo(() => {
+        if (!destination || !allDestinations?.length) return []
+        
+        const filtered = allDestinations.filter(d => 
+            d.id !== destination.id && d.is_active
+        )
+        
+        // Sort: same city first, then same country
+        const sorted = filtered.sort((a, b) => {
+            const aMatchesCity = a.city === destination.city && destination.city
+            const bMatchesCity = b.city === destination.city && destination.city
+            const aMatchesCountry = a.country === destination.country
+            const bMatchesCountry = b.country === destination.country
+            
+            if (aMatchesCity && !bMatchesCity) return -1
+            if (!aMatchesCity && bMatchesCity) return 1
+            if (aMatchesCountry && !bMatchesCountry) return -1
+            if (!aMatchesCountry && bMatchesCountry) return 1
+            return 0
+        })
+        
+        return sorted.slice(0, 8)
+    }, [destination, allDestinations])
+
+    if (loadingDestination) {
+        return (
+            <Layout headerStyle={1} footerStyle={1}>
+                <div className="container" style={{ minHeight: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div className="text-center">
+                        <h3>Loading destination...</h3>
+                    </div>
+                </div>
+            </Layout>
+        )
+    }
+
+    if (errorDestination || !destination) {
+        return (
+            <Layout headerStyle={1} footerStyle={1}>
+                <div className="container" style={{ minHeight: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div className="text-center">
+                        <h3>Destination not found</h3>
+                        <p className="text-xl-medium neutral-500">The destination you're looking for doesn't exist.</p>
+                        <Link href="/destination-4" className="btn btn-black-lg mt-3">
+                            Browse Destinations
+                        </Link>
+                    </div>
+                </div>
+            </Layout>
+        )
+    }
+
 
     return (
         <>
@@ -22,11 +104,11 @@ export default function Destination5() {
                                     <svg width={7} height={12} viewBox="0 0 7 12" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M1 11L6 6L1 1" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                                     </svg></span></li>
-                                <li> <Link href="/destination-4">Europe</Link><span className="arrow-right">
+                                <li> <Link href="/destination-4">{destination.country}</Link><span className="arrow-right">
                                     <svg width={7} height={12} viewBox="0 0 7 12" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M1 11L6 6L1 1" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                                     </svg></span></li>
-                                <li> <span className="text-breadcrumb">Paris</span></li>
+                                <li> <span className="text-breadcrumb">{destination.name}</span></li>
                             </ul>
                         </div>
                     </section>
@@ -36,8 +118,31 @@ export default function Destination5() {
                                 <div className="box-swiper">
                                     <div className="swiper-container swiper-group-1">
                                         <Swiper {...swiperGroup1}>
-                                            <SwiperSlide><img src="/assets/imgs/page/destination/banner13.png" alt="Travile" /></SwiperSlide>
-                                            <SwiperSlide><img src="/assets/imgs/page/destination/banner13.png" alt="Travile" /></SwiperSlide>
+                                            {destination.images && destination.images.length > 0 ? (
+                                                destination.images
+                                                    .sort((a, b) => a.order - b.order)
+                                                    .map((image) => (
+                                                        <SwiperSlide key={image.id}>
+                                                            <div style={{ width: '100%', height: '600px', overflow: 'hidden' }}>
+                                                                <img 
+                                                                    src={image.image_path} 
+                                                                    alt={image.alt_text || destination.name}
+                                                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                                                />
+                                                            </div>
+                                                        </SwiperSlide>
+                                                    ))
+                                            ) : (
+                                                <SwiperSlide>
+                                                    <div style={{ width: '100%', height: '600px', overflow: 'hidden' }}>
+                                                        <img 
+                                                            src="/assets/imgs/page/destination/banner13.png" 
+                                                            alt={destination.name}
+                                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                                        />
+                                                    </div>
+                                                </SwiperSlide>
+                                            )}
                                         </Swiper>
                                     </div>
                                     <div className="swiper-button-prev swiper-button-prev-style-1 swiper-button-prev-group-1">
@@ -54,7 +159,22 @@ export default function Destination5() {
                             </div>
                             <div className="banner-destination-right">
                                 <div className="map-main">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d81636.79503321911!2d2.260428085099423!3d48.84096555752387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2zUGEgcmksIFBow6Fw!5e0!3m2!1svi!2s!4v1709140303534!5m2!1svi!2s" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+                                    {destination.latitude && destination.longitude ? (
+                                        <iframe 
+                                            title={`Map of ${destination.name}`}
+                                            src={`https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10000!2d${parseFloat(destination.longitude)}!3d${parseFloat(destination.latitude)}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s`}
+                                            width="100%" 
+                                            height="100%" 
+                                            style={{ border: 0 }} 
+                                            allowFullScreen 
+                                            loading="lazy" 
+                                            referrerPolicy="no-referrer-when-downgrade" 
+                                        />
+                                    ) : (
+                                        <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f5f5f5' }}>
+                                            <p className="text-md-medium neutral-500">Map not available</p>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -125,23 +245,18 @@ export default function Destination5() {
                         <div className="container">
                             <div className="row">
                                 <div className="col-lg-7">
-                                    <h2 className="neutral-1000">Welcome to Paris</h2>
+                                    <h2 className="neutral-1000">Welcome to {destination.name}</h2>
                                     <p className="text-xl-medium neutral-500 location-text">
                                         <svg width={18} height={24} viewBox="0 0 18 24" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M9 0C4.20726 0 0.308105 3.89916 0.308105 8.69184C0.308105 14.6397 8.0865 23.3715 8.41767 23.7404C8.72873 24.0868 9.27182 24.0862 9.58232 23.7404C9.9135 23.3715 17.6919 14.6397 17.6919 8.69184C17.6918 3.89916 13.7927 0 9 0ZM9 13.065C6.58865 13.065 4.62693 11.1032 4.62693 8.69184C4.62693 6.2805 6.5887 4.31878 9 4.31878C11.4113 4.31878 13.373 6.28055 13.373 8.69189C13.373 11.1032 11.4113 13.065 9 13.065Z" />
-                                        </svg>France, Europe
+                                        </svg>{destination.city ? `${destination.city}, ` : ''}{destination.country}
                                     </p>
                                     <p className="text-xl-medium neutral-500 num-tours-text">
                                         <svg width={24} height={24} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M21.183 10.8508H18.5179V8.71402C18.5179 8.32514 18.2025 8.00986 17.8135 8.00986H14.0067C13.6537 6.93248 12.637 6.15961 11.4551 6.15961H10.2332V0.704156C10.2332 0.315281 9.91791 0 9.52894 0H4.61077C4.2218 0 3.90642 0.315281 3.90642 0.704156V6.15966H2.68458C1.20431 6.15966 0 7.36359 0 8.84348V21.3161C0 22.796 1.20431 24 2.68458 24H21.183C22.7363 24 24 22.7366 24 21.1838V13.667C24 12.1141 22.7363 10.8508 21.183 10.8508ZM22.5914 13.667V18.1203H8.66423V13.667C8.66423 12.8907 9.29602 12.259 10.0726 12.259H21.183C21.9596 12.259 22.5914 12.8906 22.5914 13.667ZM17.1092 10.8508H14.1464V9.41817H17.1092V10.8508ZM5.31506 1.40827H8.82459V6.15961H5.31506V1.40827ZM1.40864 21.3161V8.84348C1.40864 8.14012 1.98103 7.56792 2.68458 7.56792H11.4551C12.1261 7.56792 12.6855 8.09147 12.7283 8.75986C12.73 8.78592 12.7333 8.81147 12.7377 8.83659V10.8508H10.0725C8.51925 10.8508 7.25555 12.1141 7.25555 13.667V21.1838C7.25555 21.6965 7.39397 22.1772 7.63444 22.5917H2.68458C1.98103 22.5917 1.40864 22.0195 1.40864 21.3161ZM21.183 22.5917H11.4551H10.0726C9.29602 22.5917 8.66423 21.9601 8.66423 21.1838V19.5286H22.5914V21.1838C22.5914 21.9601 21.9596 22.5917 21.183 22.5917Z" />
-                                        </svg>356 Tours,
+                                        </svg>{tours?.length || 0} Tours
                                     </p>
-                                    <p className="text-xl-medium neutral-500 num-activities-text">
-                                        <svg width={24} height={24} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M23.6573 20.3428L21.3371 18.0226C21.192 17.8775 20.9907 17.803 20.786 17.8187L18.954 17.9597L17.2082 16.2138C20.5447 12.695 22.2359 8.98045 22.9604 7.02717C23.8769 4.55606 24.4922 1.55147 23.4705 0.529641C22.4486 -0.492188 19.444 0.123141 16.9729 1.03969C15.0196 1.76419 11.3051 3.45539 7.78622 6.79191L6.04041 5.04609L6.18131 3.21408C6.19706 3.00942 6.12258 2.80809 5.97745 2.66297L3.65723 0.342703C3.2003 -0.114234 2.45686 -0.114234 1.99997 0.342703L0.342703 1.99997C-0.114234 2.45691 -0.114234 3.20034 0.342703 3.65723L2.66287 5.97741C2.808 6.12253 3.00933 6.19702 3.21398 6.18127L5.046 6.04036L6.79181 7.78617C3.45534 11.305 1.76414 15.0195 1.03964 16.9728C0.123047 19.444 -0.492234 22.4486 0.529594 23.4704C1.55142 24.4922 4.55602 23.8769 7.02717 22.9604C8.9805 22.2358 12.695 20.5447 16.2138 17.2082L17.9596 18.954L17.8187 20.786C17.803 20.9907 17.8775 21.192 18.0226 21.3371L20.3428 23.6573C20.7997 24.1143 21.5431 24.1143 22 23.6573L23.6573 22.0001C24.1142 21.5431 24.1142 20.7997 23.6573 20.3428ZM14.9831 13.9887L15.8118 13.1601C17.0123 11.9595 17.1613 10.0997 16.2589 8.73544L18.3576 6.63675C19.1426 7.28344 20.0476 7.75266 21.0305 8.02191C20.1665 9.93492 18.6584 12.631 16.2128 15.2184L14.9831 13.9887ZM9.18262 14.8174C8.3602 13.995 8.36016 12.6567 9.18262 11.8343L10.0113 11.0056L12.9944 13.9887L12.1658 14.8174C11.3433 15.6398 10.0051 15.6398 9.18262 14.8174ZM11.0056 10.0113L11.8343 9.18262C12.6568 8.36016 13.995 8.3602 14.8174 9.18262C15.6399 10.0051 15.6399 11.3433 14.8174 12.1658L13.9888 12.9944L11.0056 10.0113ZM20.8924 1.46011C21.9186 1.33397 22.3726 1.45927 22.4751 1.52489C22.5407 1.62736 22.666 2.08144 22.5399 3.10767C22.4135 4.13639 22.0839 5.37333 21.5869 6.68484C21.5838 6.69286 21.5805 6.70153 21.5774 6.70959C20.5341 6.45741 19.5924 5.93236 18.83 5.16998C18.0676 4.40761 17.5421 3.46608 17.2899 2.42283C17.2982 2.41969 17.307 2.41622 17.3152 2.41313C18.6267 1.91611 19.8637 1.58653 20.8924 1.46011ZM15.9785 2.96934C16.2477 3.95227 16.7164 4.85756 17.3631 5.64253L15.2646 7.74108C13.9003 6.83873 12.0405 6.9877 10.8399 8.18827L10.0113 9.01692L8.78161 7.7872C11.3692 5.34141 14.0654 3.8333 15.9785 2.96934ZM1.50281 2.82863L2.82863 1.50281L4.75444 3.42862L4.6597 4.65975L3.42858 4.75448L1.50281 2.82863ZM9.01692 10.0113L8.18827 10.8399C6.98775 12.0404 6.83878 13.9003 7.74113 15.2645L5.64234 17.3633C4.85733 16.7166 3.95203 16.248 2.96916 15.9788C3.83306 14.0658 5.34122 11.3693 7.7872 8.78156L9.01692 10.0113ZM3.10767 22.5399C2.08144 22.666 1.62741 22.5407 1.52489 22.4751C1.45927 22.3726 1.33397 21.9186 1.46011 20.8924C1.58658 19.8637 1.91611 18.6267 2.41313 17.3152C2.41627 17.3069 2.41978 17.298 2.42292 17.2897C3.46608 17.542 4.40756 18.0676 5.16994 18.8301C5.93231 19.5925 6.45797 20.534 6.71034 21.5771C6.702 21.5803 6.69309 21.5838 6.6848 21.5869C5.37333 22.0839 4.13639 22.4135 3.10767 22.5399ZM8.02228 21.0303C7.75303 20.0474 7.28428 19.1418 6.63755 18.3569L8.73548 16.2589C10.0998 17.1613 11.9596 17.0123 13.1601 15.8118L13.9888 14.9831L15.2184 16.2128C12.6312 18.6583 9.9353 20.1663 8.02228 21.0303ZM21.1714 22.4972L19.2456 20.5715L19.3403 19.3403L20.5714 19.2457L22.4972 21.1714L21.1714 22.4972Z" />
-                                        </svg>248 Activities
-                                    </p>
-                                    <p className="text-xl-medium neutral-1000 mt-55 mb-45">Paris, the City of Light, effortlessly blends its rich history with contemporary flair, offering a captivating tapestry of experiences for every visitor. Its iconic monument-lined boulevards, adorned with architectural marvels like the Eiffel Tower and Notre-Dame Cathedral, stand as timeless symbols of beauty and grandeur. Amidst this classical backdrop, Paris pulsates with modern energy, fueled by a dynamic blend of culture, cuisine, and innovation.</p>
+                                    <p className="text-xl-medium neutral-1000 mt-55 mb-45">{destination.description || destination.short_description || `Discover the beauty and charm of ${destination.name}, offering unique experiences for every visitor.`}</p>
                                     <div className="box-buttons d-flex align-items-center flex-wrap"> <Link className="btn btn-black-lg mr-10 mb-15" href="#">Best Time To Visit
                                         <svg width={16} height={16} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M8 15L15 8L8 1M15 8L1 8" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
@@ -152,12 +267,36 @@ export default function Destination5() {
                                 </div>
                                 <div className="col-lg-5">
                                     <div className="row">
-                                        <div className="col-6">
-                                            <div className="box-welcome-image-1"> <img src="/assets/imgs/page/destination/welcome.png" alt="Travile" /><img src="/assets/imgs/page/destination/welcome2.png" alt="Travile" /></div>
-                                        </div>
-                                        <div className="col-6">
-                                            <div className="box-welcome-image-2">   <img src="/assets/imgs/page/destination/welcome3.png" alt="Travile" /><img src="/assets/imgs/page/destination/welcome4.png" alt="Travile" /></div>
-                                        </div>
+                                        {destination.images && destination.images.length > 0 ? (
+                                            destination.images
+                                                .sort((a, b) => a.order - b.order)
+                                                .slice(0, 4)
+                                                .map((image, index) => (
+                                                    <div key={image.id} className="col-6">
+                                                        <div className={`box-welcome-image-${index < 2 ? '1' : '2'}`}>
+                                                            <img 
+                                                                src={image.image_path} 
+                                                                alt={image.alt_text || destination.name}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                ))
+                                        ) : (
+                                            <>
+                                                <div className="col-6">
+                                                    <div className="box-welcome-image-1">
+                                                        <img src="/assets/imgs/page/destination/welcome.png" alt="Travila" />
+                                                        <img src="/assets/imgs/page/destination/welcome2.png" alt="Travila" />
+                                                    </div>
+                                                </div>
+                                                <div className="col-6">
+                                                    <div className="box-welcome-image-2">
+                                                        <img src="/assets/imgs/page/destination/welcome3.png" alt="Travila" />
+                                                        <img src="/assets/imgs/page/destination/welcome4.png" alt="Travila" />
+                                                    </div>
+                                                </div>
+                                            </>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -166,124 +305,46 @@ export default function Destination5() {
                     <section className="section-box box-top-search-destination background-body">
                         <div className="container">
                             <div className="text-center wow fadeInUp">
-                                <h2 className="neutral-1000 wow fadeInUp">Must-see Attractions</h2>
-                                <p className="text-xl-medium neutral-500 wow fadeInUp">Favorite destinations of professional tourists</p>
+                                <h2 className="neutral-1000 wow fadeInUp">Nearby Destinations</h2>
+                                <p className="text-xl-medium neutral-500 wow fadeInUp">{destination.city ? `Explore more in ${destination.city} and ${destination.country}` : `Explore more in ${destination.country}`}</p>
                             </div>
                             <div className="box-list-populars">
-                                <div className="row">
-                                    <div className="col-lg-3 col-sm-6">
-                                        <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                            <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination.png" alt="Travila" /></div>
-                                            <div className="card-info"> <Link className="card-title" href="/destination">Venice</Link>
-                                                <div className="card-meta">
-                                                    <div className="meta-links"> <Link className="text-tour" href="/destination">356 Tours</Link></div>
-                                                    <div className="card-button"> <Link href="/destination">
-                                                        <svg width={10} height={10} viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M5.00011 9.08347L9.08347 5.00011L5.00011 0.916748M9.08347 5.00011L0.916748 5.00011" strokeLinecap="round" strokeLinejoin="round" />
-                                                        </svg></Link></div>
+                                {loadingDestinations ? (
+                                    <div style={{ padding: '40px', textAlign: 'center' }}>
+                                        <p className="text-lg-medium neutral-500">Loading destinations...</p>
+                                    </div>
+                                ) : relatedDestinations.length > 0 ? (
+                                    <div className="row">
+                                        {relatedDestinations.map((dest) => (
+                                            <div key={dest.id} className="col-lg-3 col-sm-6">
+                                                <div className="card-popular card-top-destination background-card wow fadeInUp">
+                                                    <div className="card-image">
+                                                        <img src={dest.primary_image || "/assets/imgs/page/homepage6/destination.png"} alt={dest.name} />
+                                                    </div>
+                                                    <div className="card-info">
+                                                        <Link className="card-title" href={`/destination-details?id=${dest.id}`}>{dest.name}</Link>
+                                                        <div className="card-meta">
+                                                            <div className="meta-links">
+                                                                <span className="text-tour text-md-medium neutral-500">{dest.city ? `${dest.city}, ` : ''}{dest.country}</span>
+                                                            </div>
+                                                            <div className="card-button">
+                                                                <Link href={`/destination-details?id=${dest.id}`}>
+                                                                    <svg width={10} height={10} viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M5.00011 9.08347L9.08347 5.00011L5.00011 0.916748M9.08347 5.00011L0.916748 5.00011" strokeLinecap="round" strokeLinejoin="round" />
+                                                                    </svg>
+                                                                </Link>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        ))}
                                     </div>
-                                    <div className="col-lg-3 col-sm-6">
-                                        <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                            <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination2.png" alt="Travila" /></div>
-                                            <div className="card-info"> <Link className="card-title" href="/destination">Amsterdam</Link>
-                                                <div className="card-meta">
-                                                    <div className="meta-links"> <Link className="text-tour" href="/destination">356 Tours</Link></div>
-                                                    <div className="card-button"> <Link href="/destination">
-                                                        <svg width={10} height={10} viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M5.00011 9.08347L9.08347 5.00011L5.00011 0.916748M9.08347 5.00011L0.916748 5.00011" strokeLinecap="round" strokeLinejoin="round" />
-                                                        </svg></Link></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                ) : (
+                                    <div style={{ padding: '40px', textAlign: 'center' }}>
+                                        <p className="text-lg-medium neutral-500">No nearby destinations found</p>
                                     </div>
-                                    <div className="col-lg-3 col-sm-6">
-                                        <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                            <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination3.png" alt="Travila" /></div>
-                                            <div className="card-info"> <Link className="card-title" href="/destination">Budapest</Link>
-                                                <div className="card-meta">
-                                                    <div className="meta-links"> <Link className="text-tour" href="/destination">356 Tours</Link></div>
-                                                    <div className="card-button"> <Link href="/destination">
-                                                        <svg width={10} height={10} viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M5.00011 9.08347L9.08347 5.00011L5.00011 0.916748M9.08347 5.00011L0.916748 5.00011" strokeLinecap="round" strokeLinejoin="round" />
-                                                        </svg></Link></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3 col-sm-6">
-                                        <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                            <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination4.png" alt="Travila" /></div>
-                                            <div className="card-info"> <Link className="card-title" href="/destination">Lisbon</Link>
-                                                <div className="card-meta">
-                                                    <div className="meta-links"> <Link className="text-tour" href="/destination">356 Tours</Link></div>
-                                                    <div className="card-button"> <Link href="/destination">
-                                                        <svg width={10} height={10} viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M5.00011 9.08347L9.08347 5.00011L5.00011 0.916748M9.08347 5.00011L0.916748 5.00011" strokeLinecap="round" strokeLinejoin="round" />
-                                                        </svg></Link></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3 col-sm-6">
-                                        <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                            <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination5.png" alt="Travila" /></div>
-                                            <div className="card-info"> <Link className="card-title" href="/destination">London</Link>
-                                                <div className="card-meta">
-                                                    <div className="meta-links"> <Link className="text-tour" href="/destination">356 Tours</Link></div>
-                                                    <div className="card-button"> <Link href="/destination">
-                                                        <svg width={10} height={10} viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M5.00011 9.08347L9.08347 5.00011L5.00011 0.916748M9.08347 5.00011L0.916748 5.00011" strokeLinecap="round" strokeLinejoin="round" />
-                                                        </svg></Link></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3 col-sm-6">
-                                        <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                            <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination6.png" alt="Travila" /></div>
-                                            <div className="card-info"> <Link className="card-title" href="/destination">Ottawa</Link>
-                                                <div className="card-meta">
-                                                    <div className="meta-links"> <Link className="text-tour" href="/destination">356 Tours</Link></div>
-                                                    <div className="card-button"> <Link href="/destination">
-                                                        <svg width={10} height={10} viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M5.00011 9.08347L9.08347 5.00011L5.00011 0.916748M9.08347 5.00011L0.916748 5.00011" strokeLinecap="round" strokeLinejoin="round" />
-                                                        </svg></Link></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3 col-sm-6">
-                                        <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                            <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination7.png" alt="Travila" /></div>
-                                            <div className="card-info"> <Link className="card-title" href="/destination">Paris</Link>
-                                                <div className="card-meta">
-                                                    <div className="meta-links"> <Link className="text-tour" href="/destination">356 Tours</Link></div>
-                                                    <div className="card-button"> <Link href="/destination">
-                                                        <svg width={10} height={10} viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M5.00011 9.08347L9.08347 5.00011L5.00011 0.916748M9.08347 5.00011L0.916748 5.00011" strokeLinecap="round" strokeLinejoin="round" />
-                                                        </svg></Link></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3 col-sm-6">
-                                        <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                            <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination8.png" alt="Travila" /></div>
-                                            <div className="card-info"> <Link className="card-title" href="/destination">Paris</Link>
-                                                <div className="card-meta">
-                                                    <div className="meta-links"> <Link className="text-tour" href="/destination">356 Tours</Link></div>
-                                                    <div className="card-button"> <Link href="/destination">
-                                                        <svg width={10} height={10} viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M5.00011 9.08347L9.08347 5.00011L5.00011 0.916748M9.08347 5.00011L0.916748 5.00011" strokeLinecap="round" strokeLinejoin="round" />
-                                                        </svg></Link></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                )}
                             </div>
                         </div>
                     </section>
@@ -408,190 +469,67 @@ export default function Destination5() {
                         <div className="container">
                             <div className="row align-items-end">
                                 <div className="col-lg-12 mb-30 text-center text-lg-start wow fadeInUp">
-                                    <h2 className="neutral-1000">What to Do in Paris</h2>
-                                    <p className="text-xl-medium neutral-500">Favorite destinations based on customer reviews</p>
+                                    <h2 className="neutral-1000">What to Do in {destination.name}</h2>
+                                    <p className="text-xl-medium neutral-500">Explore tours featuring this destination</p>
                                 </div>
                             </div>
                         </div>
                         <div className="container-slider box-swiper-padding">
                             <div className="box-swiper mt-30">
                                 <div className="swiper-container swiper-group-animate swiper-group-journey pb-0">
-                                    <Swiper {...swiperGroupAnimate}>
-                                        <SwiperSlide>
-                                            <div className="card-journey-small background-card">
-                                                <div className="card-image"> <Link className="label" href="#">Top Rated</Link><Link className="wish" href="#">
-                                                    <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour.png" alt="Travila" />
-                                                </div>
-                                                <div className="card-info background-card">
-                                                    <div className="card-rating">
-                                                        <div className="card-left"> </div>
-                                                        <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span></div>
-                                                    </div>
-                                                    <div className="card-title"> <Link className="heading-6 neutral-1000" href="/tour-detail-2">Singapore Skylines: Urban Exploration</Link></div>
-                                                    <div className="card-program">
-                                                        <div className="card-duration-tour">
-                                                            <p className="icon-duration text-md-medium neutral-500">2 days 3 nights</p>
-                                                            <p className="icon-guest text-md-medium neutral-500">4-6 guest</p>
+                                    {loadingTours ? (
+                                        <div style={{ padding: '40px', textAlign: 'center' }}>
+                                            <p className="text-lg-medium neutral-500">Loading tours...</p>
+                                        </div>
+                                    ) : tours && tours.length > 0 ? (
+                                        <Swiper {...swiperGroupAnimate}>
+                                            {tours.map((tour) => (
+                                                <SwiperSlide key={tour.id}>
+                                                    <div className="card-journey-small background-card">
+                                                        <div className="card-image">
+                                                            {tour.is_eco_friendly && <Link className="label" href="#">Eco-Friendly</Link>}
+                                                            <Link className="wish" href="#">
+                                                                <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                                                                </svg>
+                                                            </Link>
+                                                            <img src={tour.destinations?.[0]?.image_url || "/assets/imgs/page/homepage5/tour.png"} alt={tour.title} />
                                                         </div>
-                                                        <div className="endtime">
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">$48.25</h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
+                                                        <div className="card-info background-card">
+                                                            <div className="card-rating">
+                                                                <div className="card-left"> </div>
+                                                                <div className="card-right">
+                                                                    <span className="rating">0.00 <span className="text-sm-medium neutral-500">({tour.reviews_count} reviews)</span></span>
+                                                                </div>
                                                             </div>
-                                                            <div className="card-button"> <Link className="btn btn-gray" href="#">Book Now</Link></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="card-journey-small background-card">
-                                                <div className="card-image"> <Link className="label bestsale" href="#">Best Sale</Link><Link className="wish" href="#">
-                                                    <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour2.png" alt="Travila" />
-                                                </div>
-                                                <div className="card-info background-card">
-                                                    <div className="card-rating">
-                                                        <div className="card-left"> </div>
-                                                        <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span></div>
-                                                    </div>
-                                                    <div className="card-title"> <Link className="heading-6 neutral-1000" href="/tour-detail-2">Icelandic Legends: Mystical Trails Journey</Link></div>
-                                                    <div className="card-program">
-                                                        <div className="card-duration-tour">
-                                                            <p className="icon-duration text-md-medium neutral-500">3 days 3 nights</p>
-                                                            <p className="icon-guest text-md-medium neutral-500">4-6 guest</p>
-                                                        </div>
-                                                        <div className="endtime">
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">$17.32</h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
+                                                            <div className="card-title">
+                                                                <Link className="heading-6 neutral-1000" href={`/tour-detail-2?id=${tour.id}`}>{tour.title}</Link>
                                                             </div>
-                                                            <div className="card-button"> <Link className="btn btn-gray" href="#">Book Now</Link></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="card-journey-small background-card">
-                                                <div className="card-image"> <Link className="label saleoff" href="#">25% Off</Link><Link className="wish" href="#">
-                                                    <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour3.png" alt="Travila" />
-                                                </div>
-                                                <div className="card-info background-card">
-                                                    <div className="card-rating">
-                                                        <div className="card-left"> </div>
-                                                        <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span></div>
-                                                    </div>
-                                                    <div className="card-title"> <Link className="heading-6 neutral-1000" href="/tour-detail-2">Napa Valley Delights: Wine Country Retreat</Link></div>
-                                                    <div className="card-program">
-                                                        <div className="card-duration-tour">
-                                                            <p className="icon-duration text-md-medium neutral-500">7 days 6 nights</p>
-                                                            <p className="icon-guest text-md-medium neutral-500">4-6 guest</p>
-                                                        </div>
-                                                        <div className="endtime">
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">$15.63</h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
+                                                            <div className="card-program">
+                                                                <div className="card-duration-tour">
+                                                                    <p className="icon-duration text-md-medium neutral-500">{tour.duration_days} days</p>
+                                                                    <p className="icon-guest text-md-medium neutral-500">Max {tour.max_group_size} guests</p>
+                                                                </div>
+                                                                <div className="endtime">
+                                                                    <div className="card-price">
+                                                                        <h6 className="heading-6 neutral-1000">${parseFloat(tour.price).toFixed(2)}</h6>
+                                                                        <p className="text-md-medium neutral-500">/ person</p>
+                                                                    </div>
+                                                                    <div className="card-button">
+                                                                        <Link className="btn btn-gray" href={`/tour-detail-2?id=${tour.id}`}>Book Now</Link>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div className="card-button"> <Link className="btn btn-gray" href="#">Book Now</Link></div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="card-journey-small background-card">
-                                                <div className="card-image"> <Link className="label" href="#">Top Rated</Link><Link className="wish" href="#">
-                                                    <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour4.png" alt="Travila" />
-                                                </div>
-                                                <div className="card-info background-card">
-                                                    <div className="card-rating">
-                                                        <div className="card-left"> </div>
-                                                        <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span></div>
-                                                    </div>
-                                                    <div className="card-title"> <Link className="heading-6 neutral-1000" href="/tour-detail-2">Napa Valley Delights: Wine Country Retreat</Link></div>
-                                                    <div className="card-program">
-                                                        <div className="card-duration-tour">
-                                                            <p className="icon-duration text-md-medium neutral-500">2 days 3 nights</p>
-                                                            <p className="icon-guest text-md-medium neutral-500">4-6 guest</p>
-                                                        </div>
-                                                        <div className="endtime">
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">$48.25</h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
-                                                            </div>
-                                                            <div className="card-button"> <Link className="btn btn-gray" href="#">Book Now</Link></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="card-journey-small background-card">
-                                                <div className="card-image"> <Link className="label bestsale" href="#">Best Sale</Link><Link className="wish" href="#">
-                                                    <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour.png" alt="Travila" />
-                                                </div>
-                                                <div className="card-info background-card">
-                                                    <div className="card-rating">
-                                                        <div className="card-left"> </div>
-                                                        <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span></div>
-                                                    </div>
-                                                    <div className="card-title"> <Link className="heading-6 neutral-1000" href="/tour-detail-2">NYC: Food Tastings and Culture Tour</Link></div>
-                                                    <div className="card-program">
-                                                        <div className="card-duration-tour">
-                                                            <p className="icon-duration text-md-medium neutral-500">3 days 3 nights</p>
-                                                            <p className="icon-guest text-md-medium neutral-500">4-6 guest</p>
-                                                        </div>
-                                                        <div className="endtime">
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">$17.32</h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
-                                                            </div>
-                                                            <div className="card-button"> <Link className="btn btn-gray" href="#">Book Now</Link></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="card-journey-small background-card">
-                                                <div className="card-image"> <Link className="label saleoff" href="#">25% Off</Link><Link className="wish" href="#">
-                                                    <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour2.png" alt="Travila" />
-                                                </div>
-                                                <div className="card-info background-card">
-                                                    <div className="card-rating">
-                                                        <div className="card-left"> </div>
-                                                        <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span></div>
-                                                    </div>
-                                                    <div className="card-title"> <Link className="heading-6 neutral-1000" href="/tour-detail-2">Grand Canyon Horseshoe Bend  2 days</Link></div>
-                                                    <div className="card-program">
-                                                        <div className="card-duration-tour">
-                                                            <p className="icon-duration text-md-medium neutral-500">7 days 6 nights</p>
-                                                            <p className="icon-guest text-md-medium neutral-500">4-6 guest</p>
-                                                        </div>
-                                                        <div className="endtime">
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">$15.63</h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
-                                                            </div>
-                                                            <div className="card-button"> <Link className="btn btn-gray" href="#">Book Now</Link></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                    </Swiper>
+                                                </SwiperSlide>
+                                            ))}
+                                        </Swiper>
+                                    ) : (
+                                        <div style={{ padding: '40px', textAlign: 'center' }}>
+                                            <p className="text-lg-medium neutral-500">No tours available for this destination</p>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -600,7 +538,7 @@ export default function Destination5() {
                         <div className="container">
                             <div className="row align-items-end">
                                 <div className="col-md-9">
-                                    <h2 className="neutral-1000">Top hotels in Paris</h2>
+                                    <h2 className="neutral-1000">Top hotels in {destination.city || destination.country}</h2>
                                     <p className="text-xl-medium neutral-500">Quality as judged by customers. Book at the ideal price!</p>
                                 </div>
                                 <div className="col-md-3 position-relative mb-30">
@@ -614,237 +552,72 @@ export default function Destination5() {
                         <div className="container-slider box-swiper-padding">
                             <div className="box-swiper mt-30">
                                 <div className="swiper-container swiper-group-animate swiper-group-journey">
-                                    <Swiper {...swiperGroupAnimate}>
-                                        <SwiperSlide>
-                                            <div className="card-journey-small background-card">
-                                                <div className="card-image"> <Link className="wish" href="#">
-                                                    <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage1/journey2.png" alt="Travila" /></div>
-                                                <div className="card-info">
-                                                    <div className="card-rating">
-                                                        <div className="card-left"> </div>
-                                                        <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span></div>
-                                                    </div>
-                                                    <div className="card-title"> <Link className="heading-6 neutral-1000" href="/hotel-detail">California Sunset/Twilight Boat Cruise </Link></div>
-                                                    <div className="card-program">
-                                                        <div className="card-location">
-                                                            <p className="text-location text-md-medium neutral-500">Manchester, England</p>
-                                                            <p className="text-star"> <img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /></p>
+                                    {loadingHotels ? (
+                                        <div style={{ padding: '40px', textAlign: 'center' }}>
+                                            <p className="text-lg-medium neutral-500">Loading hotels...</p>
+                                        </div>
+                                    ) : hotels && hotels.length > 0 ? (
+                                        <Swiper {...swiperGroupAnimate}>
+                                            {hotels.map((hotel) => (
+                                                <SwiperSlide key={hotel.hotelId}>
+                                                    <div className="card-journey-small background-card">
+                                                        <div className="card-image">
+                                                            <Link className="wish" href="#">
+                                                                <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                                                                </svg>
+                                                            </Link>
+                                                            <img src={hotel.thumbnailUrl || "/assets/imgs/page/homepage1/journey2.png"} alt={hotel.name} />
                                                         </div>
-                                                        <div className="endtime">
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">$48.25</h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
+                                                        <div className="card-info">
+                                                            <div className="card-rating">
+                                                                <div className="card-left"> </div>
+                                                                <div className="card-right">
+                                                                    <span className="rating">{hotel.rating.toFixed(2)} <span className="text-sm-medium neutral-500">({hotel.totalReviews} reviews)</span></span>
+                                                                </div>
                                                             </div>
-                                                            <div className="card-button"> <Link className="btn btn-gray" href="/hotel-detail">Book Now</Link></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="card-journey-small background-card">
-                                                <div className="card-image"> <Link className="wish" href="#">
-                                                    <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage1/journey3.png" alt="Travila" /></div>
-                                                <div className="card-info">
-                                                    <div className="card-rating">
-                                                        <div className="card-left"> </div>
-                                                        <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span></div>
-                                                    </div>
-                                                    <div className="card-title"> <Link className="heading-6 neutral-1000" href="/hotel-detail">NYC: Food Tastings and Culture Tour</Link></div>
-                                                    <div className="card-program">
-                                                        <div className="card-location">
-                                                            <p className="text-location text-md-medium neutral-500">Manchester, England</p>
-                                                            <p className="text-star"> <img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /></p>
-                                                        </div>
-                                                        <div className="endtime">
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">$17.32</h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
+                                                            <div className="card-title">
+                                                                <Link className="heading-6 neutral-1000" href={`/hotel-detail?id=${hotel.hotelId}`}>{hotel.name}</Link>
                                                             </div>
-                                                            <div className="card-button"> <Link className="btn btn-gray" href="/hotel-detail">Book Now</Link></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="card-journey-small background-card">
-                                                <div className="card-image"> <Link className="wish" href="#">
-                                                    <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage1/journey2.png" alt="Travila" /></div>
-                                                <div className="card-info">
-                                                    <div className="card-rating">
-                                                        <div className="card-left"> </div>
-                                                        <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span></div>
-                                                    </div>
-                                                    <div className="card-title"> <Link className="heading-6 neutral-1000" href="/hotel-detail">California Sunset/Twilight Boat Cruise </Link></div>
-                                                    <div className="card-program">
-                                                        <div className="card-location">
-                                                            <p className="text-location text-md-medium neutral-500">Manchester, England</p>
-                                                            <p className="text-star"> <img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /></p>
-                                                        </div>
-                                                        <div className="endtime">
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">$48.25</h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
+                                                            <div className="card-program">
+                                                                <div className="card-location">
+                                                                    <p className="text-location text-md-medium neutral-500">{hotel.city}</p>
+                                                                    <p className="text-star">
+                                                                        {[...Array(5)].map((_, i) => (
+                                                                            <img 
+                                                                                key={i} 
+                                                                                className={i < Math.floor(hotel.starRating || 0) ? "light-mode" : "dark-mode"} 
+                                                                                src={i < Math.floor(hotel.starRating || 0) ? "/assets/imgs/template/icons/star-black.svg" : "/assets/imgs/template/icons/star-w.svg"} 
+                                                                                alt="Travila" 
+                                                                            />
+                                                                        ))}
+                                                                    </p>
+                                                                </div>
+                                                                <div className="endtime">
+                                                                    <div className="card-price">
+                                                                        <h6 className="heading-6 neutral-1000">${hotel.priceFrom?.toFixed(2) || '0.00'}</h6>
+                                                                        <p className="text-md-medium neutral-500">/ night</p>
+                                                                    </div>
+                                                                    <div className="card-button">
+                                                                        <Link className="btn btn-gray" href={`/hotel-detail?id=${hotel.hotelId}`}>Book Now</Link>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div className="card-button"> <Link className="btn btn-gray" href="/hotel-detail">Book Now</Link></div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="card-journey-small background-card">
-                                                <div className="card-image"> <Link className="wish" href="#">
-                                                    <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage1/journey4.png" alt="Travila" /></div>
-                                                <div className="card-info">
-                                                    <div className="card-rating">
-                                                        <div className="card-left"> </div>
-                                                        <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span></div>
-                                                    </div>
-                                                    <div className="card-title"> <Link className="heading-6 neutral-1000" href="/hotel-detail">Grand Canyon Horseshoe Bend  2 days</Link></div>
-                                                    <div className="card-program">
-                                                        <div className="card-location">
-                                                            <p className="text-location text-md-medium neutral-500">Manchester, England</p>
-                                                            <p className="text-star"> <img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /></p>
-                                                        </div>
-                                                        <div className="endtime">
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">$15.63</h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
-                                                            </div>
-                                                            <div className="card-button"> <Link className="btn btn-gray" href="/hotel-detail">Book Now</Link></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="card-journey-small background-card">
-                                                <div className="card-image"> <Link className="wish" href="#">
-                                                    <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage1/journey2.png" alt="Travila" /></div>
-                                                <div className="card-info">
-                                                    <div className="card-rating">
-                                                        <div className="card-left"> </div>
-                                                        <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span></div>
-                                                    </div>
-                                                    <div className="card-title"> <Link className="heading-6 neutral-1000" href="/hotel-detail">California Sunset/Twilight Boat Cruise </Link></div>
-                                                    <div className="card-program">
-                                                        <div className="card-location">
-                                                            <p className="text-location text-md-medium neutral-500">Manchester, England</p>
-                                                            <p className="text-star"> <img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /></p>
-                                                        </div>
-                                                        <div className="endtime">
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">$48.25</h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
-                                                            </div>
-                                                            <div className="card-button"> <Link className="btn btn-gray" href="/hotel-detail">Book Now</Link></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="card-journey-small background-card">
-                                                <div className="card-image"> <Link className="wish" href="#">
-                                                    <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage1/journey3.png" alt="Travila" /></div>
-                                                <div className="card-info">
-                                                    <div className="card-rating">
-                                                        <div className="card-left"> </div>
-                                                        <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span></div>
-                                                    </div>
-                                                    <div className="card-title"> <Link className="heading-6 neutral-1000" href="/hotel-detail">NYC: Food Tastings and Culture Tour</Link></div>
-                                                    <div className="card-program">
-                                                        <div className="card-location">
-                                                            <p className="text-location text-md-medium neutral-500">Manchester, England</p>
-                                                            <p className="text-star"> <img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /></p>
-                                                        </div>
-                                                        <div className="endtime">
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">$17.32</h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
-                                                            </div>
-                                                            <div className="card-button"> <Link className="btn btn-gray" href="/hotel-detail">Book Now</Link></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="card-journey-small background-card">
-                                                <div className="card-image"> <Link className="wish" href="#">
-                                                    <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage1/journey2.png" alt="Travila" /></div>
-                                                <div className="card-info">
-                                                    <div className="card-rating">
-                                                        <div className="card-left"> </div>
-                                                        <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span></div>
-                                                    </div>
-                                                    <div className="card-title"> <Link className="heading-6 neutral-1000" href="/hotel-detail">California Sunset/Twilight Boat Cruise </Link></div>
-                                                    <div className="card-program">
-                                                        <div className="card-location">
-                                                            <p className="text-location text-md-medium neutral-500">Manchester, England</p>
-                                                            <p className="text-star"> <img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /></p>
-                                                        </div>
-                                                        <div className="endtime">
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">$48.25</h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
-                                                            </div>
-                                                            <div className="card-button"> <Link className="btn btn-gray" href="/hotel-detail">Book Now</Link></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                        <SwiperSlide>
-                                            <div className="card-journey-small background-card">
-                                                <div className="card-image"> <Link className="wish" href="#">
-                                                    <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage1/journey4.png" alt="Travila" /></div>
-                                                <div className="card-info">
-                                                    <div className="card-rating">
-                                                        <div className="card-left"> </div>
-                                                        <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span></div>
-                                                    </div>
-                                                    <div className="card-title"> <Link className="heading-6 neutral-1000" href="/hotel-detail">Grand Canyon Horseshoe Bend  2 days</Link></div>
-                                                    <div className="card-program">
-                                                        <div className="card-location">
-                                                            <p className="text-location text-md-medium neutral-500">Manchester, England</p>
-                                                            <p className="text-star"> <img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /><img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" /></p>
-                                                        </div>
-                                                        <div className="endtime">
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">$15.63</h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
-                                                            </div>
-                                                            <div className="card-button"> <Link className="btn btn-gray" href="/hotel-detail">Book Now</Link></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </SwiperSlide>
-                                    </Swiper>
+                                                </SwiperSlide>
+                                            ))}
+                                        </Swiper>
+                                    ) : (
+                                        <div style={{ padding: '40px', textAlign: 'center' }}>
+                                            <p className="text-lg-medium neutral-500">No hotels available in this city</p>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>
                     </section>
-                    <section className="section-box box-our-featured background-body pt-60">
+                    {/* <section className="section-box box-our-featured background-body pt-60">
                         <div className="container">
                             <div className="row align-items-end">
                                 <div className="col-lg-6 mb-30 text-center text-lg-start wow fadeInUp">
@@ -1038,8 +811,8 @@ export default function Destination5() {
                                 </div>
                             </div>
                         </div>
-                    </section>
-                    <section className="section-box box-recent-lauched-car box-retal-car-destination-4 background-body">
+                    </section> */}
+                    {/* <section className="section-box box-recent-lauched-car box-retal-car-destination-4 background-body">
                         <div className="container">
                             <div className="row align-items-end">
                                 <div className="col-md-9">
@@ -1202,7 +975,7 @@ export default function Destination5() {
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> */}
                     <section className="section-box box-media background-body">
                         <div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media2.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media3.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media4.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media5.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media6.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media7.png" alt="Travila" /></div>
                     </section>

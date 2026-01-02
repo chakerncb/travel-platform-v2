@@ -53,29 +53,28 @@ export enum BookingStatus {
 }
 
 // Destination Types
+export interface DestinationImageDto {
+  id: number;
+  image_path: string;
+  alt_text?: string;
+  is_primary: boolean;
+  order: number;
+}
+
 export interface DestinationDto {
-  destinationId: string;
+  id: number;
   name: string;
-  nameAr?: string;
-  nameFr?: string;
-  slug: string;
-  destinationType?: DestinationType;
-  country: string;
-  latitude?: number;
-  longitude?: number;
-  nearestAirportCode?: string;
-  airportDistanceKm?: number;
+  latitude?: string;
+  longitude?: string;
   description?: string;
-  shortDescription?: string;
-  thumbnailUrl?: string;
-  coverImageUrl?: string;
-  metaTitle?: string;
-  metaDescription?: string;
-  popularityScore: number;
-  isFeatured: boolean;
-  isActive: boolean;
-  createdAt: string;
-  updatedAt: string;
+  short_description?: string;
+  city?: string;
+  country: string;
+  is_active: boolean;
+  images?: DestinationImageDto[];
+  primary_image?: string;
+  created_at: string;
+  updated_at: string;
 }
 
 export interface CreateDestinationDto {
@@ -236,49 +235,49 @@ export interface TourApiResponse {
 }
 
 // Frontend DTO (for backwards compatibility)
-export interface TourDto {
-  tourId: string;
-  agencyId?: string;
-  title: string;
-  slug: string;
-  description?: string;
-  tourType?: TourType;
-  primaryDestinationId?: string;
-  primaryDestinationName?: string;
-  durationDays?: number;
-  durationNights?: number;
-  pricePerPerson?: number;
-  currency: string;
-  priceIncludes?: string[];
-  priceExcludes?: string[];
-  minParticipants: number;
-  maxParticipants: number;
-  difficultyLevel?: DifficultyLevel;
-  ageRestriction?: string;
-  fitnessRequirement?: string;
-  coverImageUrl?: string;
-  galleryUrls?: string[];
-  videoUrl?: string;
-  itinerary?: string;
-  features?: string[];
-  languages?: string[];
-  status: TourStatus;
-  rating: number;
-  totalReviews: number;
-  totalBookings: number;
-  isFeatured: boolean;
-  availableFrom?: string;
-  availableTo?: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt?: string;
-  destinations?: TourDestinationDto[];
-}
 export interface TourDestinationDto {
-  destinationId: string;
-  name?: string;
+  id: number;
+  name: string;
   city?: string;
   country?: string;
+  days_at_destination: number;
+  order: number;
+  image_url?: string;
+  image_alt?: string;
+}
+
+export interface TourHotelDto {
+  id: number;
+  name: string;
+  city?: string;
+  country?: string;
+  star_rating?: number;
+  nights: number;
+  order: number;
+}
+
+export interface TourDto {
+  id: number;
+  type: string;
+  title: string;
+  description?: string;
+  short_description?: string;
+  price: string;
+  duration_days: number;
+  max_group_size: number;
+  difficulty_level?: string;
+  start_date?: string;
+  end_date?: string;
+  is_active: boolean;
+  is_eco_friendly: boolean;
+  included_services?: string[];
+  excluded_services?: string[];
+  destinations?: TourDestinationDto[];
+  hotels?: TourHotelDto[];
+  reviews_count: number;
+  created_at: string;
+  updated_at: string;
+}
   dayNumber?: number;
   durationHours?: number;
   orderIndex?: number;
