@@ -107,6 +107,7 @@ export interface UpdateDestinationDto {
   country?: string;
   latitude?: number;
   longitude?: number;
+  image_url?: string;
   nearestAirportCode?: string;
   airportDistanceKm?: number;
   description?: string;
@@ -240,6 +241,10 @@ export interface TourDestinationDto {
   name: string;
   city?: string;
   country?: string;
+  latitude?: string;
+  longitude?: string;
+  description?: string;
+  short_description?: string;
   days_at_destination: number;
   order: number;
   image_url?: string;
@@ -277,12 +282,6 @@ export interface TourDto {
   reviews_count: number;
   created_at: string;
   updated_at: string;
-}
-  dayNumber?: number;
-  durationHours?: number;
-  orderIndex?: number;
-  imageUrl?: string;
-  imageAlt?: string;
 }
 
 export interface TourHotelDto {

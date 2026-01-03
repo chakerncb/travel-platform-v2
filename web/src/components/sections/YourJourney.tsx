@@ -48,7 +48,7 @@ export default function YourJourney() {
                     <div className="row align-items-end">
                         <div className="col-md-9 mb-30">
                             <h1 className="neutral-1000 mb-15">Your Journey, Your Way</h1>
-                            <h6 className="heading-6-medium neutral-400">Discover the World's Treasures with Travila </h6>
+                            <h6 className="heading-6-medium neutral-400">Discover the World's Treasures with T7wisa </h6>
                         </div>
                         <div className="col-md-3 position-relative mb-30">
                             <div className="box-button-slider box-button-slider-team justify-content-end">

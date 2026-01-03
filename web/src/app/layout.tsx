@@ -19,7 +19,7 @@ const merienda_init = Merienda({
 })
 
 export const metadata: Metadata = {
-    title: "Travila - Multipurpose Travel Booking Next.js Template",
+    title: "T7wisa - Multipurpose Travel Booking Next.js Template",
     description: "Multipurpose Travel Booking Next.js Template",
 }
 

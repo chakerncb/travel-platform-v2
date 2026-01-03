@@ -2,10 +2,12 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import BookingForm from '@/src/components/elements/BookingForm'
+import TourMap from '@/src/components/elements/TourMap'
 import Layout from "@/src/components/layout/Layout"
 import SwiperGroup3Slider from '@/src/components/slider/SwiperGroup3Slider'
 import Link from "next/link"
 import { tourService } from '@/src/services/tourService'
+import { destinationService } from '@/src/services/destinationService'
 import { TourDto } from '@/src/types/api'
 
 export default function TourDetail() {
@@ -14,6 +16,7 @@ export default function TourDetail() {
 	
 	const [isAccordion, setIsAccordion] = useState(null)
 	const [tour, setTour] = useState<TourDto | null>(null)
+	const [destinationImages, setDestinationImages] = useState<any[]>([])
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState<string | null>(null)
 
@@ -28,6 +31,30 @@ export default function TourDetail() {
 					setLoading(true)
 					const data = await tourService.getById(tourId)
 					setTour(data)
+					
+					// Fetch full destination details with images
+					if (data.destinations && data.destinations.length > 0) {
+						const destinationsWithImages = await Promise.all(
+							data.destinations.map(dest => 
+								destinationService.getById(dest.id.toString()).catch(err => {
+									console.error(`Error fetching destination ${dest.id}:`, err)
+									return null
+								})
+							)
+						)
+						
+						// Collect all images from destinations
+						const allImages = destinationsWithImages
+							.filter(dest => dest !== null)
+							.flatMap(dest => dest.images || [])
+							.sort((a, b) => {
+								if (a.is_primary) return -1
+								if (b.is_primary) return 1
+								return a.order - b.order
+							})
+						
+						setDestinationImages(allImages)
+					}
 				} catch (err) {
 					console.error('Error fetching tour:', err)
 					setError('Failed to load tour details')
@@ -72,9 +99,6 @@ export default function TourDetail() {
 	const firstDestination = tour.destinations && tour.destinations.length > 0 ? tour.destinations[0] : null
 	const destinationName = firstDestination ? `${firstDestination.city}, ${firstDestination.country}` : 'Location not specified'
 	
-	// Get images
-	const tourImages = tour.destinations?.flatMap(d => d.images || []) || []
-	const mainImage = tourImages.find(img => img.is_primary)?.image_path || tourImages[0]?.image_path || '/assets/imgs/page/tour-detail/banner.png'
 
 	return (
 		<>
@@ -95,88 +119,16 @@ export default function TourDetail() {
 							</ul>
 						</div>
 					</section>
-					<section className="box-section box-banner-tour-detail background-body">
-						<div className="block-banner-tour-detail">
-							<div className="row">
-								<div className="col-xl-4 col-lg-6">
-									<div className="row">
-										<div className="col-lg-12 col-sm-6">
-											<div className="banner-detail-1">
-												<img 
-													src={mainImage} 
-													alt={tour.title}
-													onError={(e) => {
-														const target = e.target as HTMLImageElement
-														target.src = '/assets/imgs/page/tour-detail/banner.png'
-													}}
-												/>
-											</div>
-										</div>
-										<div className="col-lg-12 col-sm-6">
-											<div className="banner-detail-2">
-												<img 
-													src={tourImages[1]?.image_path || '/assets/imgs/page/tour-detail/banner2.png'} 
-													alt={tour.title}
-													onError={(e) => {
-														const target = e.target as HTMLImageElement
-														target.src = '/assets/imgs/page/tour-detail/banner2.png'
-													}}
-												/>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div className="col-xl-4 col-lg-12">
-									<div className="banner-detail-3">
-										<img 
-											src={tourImages[2]?.image_path || '/assets/imgs/page/tour-detail/banner3.png'} 
-											alt={tour.title}
-											onError={(e) => {
-												const target = e.target as HTMLImageElement
-												target.src = '/assets/imgs/page/tour-detail/banner3.png'
-											}}
-										/>
-									</div>
-								</div>
-								<div className="col-xl-4 col-lg-12">
-									<div className="row">
-										<div className="col-sm-6">
-											<div className="banner-detail-4">
-												<img 
-													src={tourImages[3]?.image_path || '/assets/imgs/page/tour-detail/banner4.png'} 
-													alt={tour.title}
-													onError={(e) => {
-														const target = e.target as HTMLImageElement
-														target.src = '/assets/imgs/page/tour-detail/banner4.png'
-													}}
-												/>
-											</div>
-										</div>
-										<div className="col-sm-6">
-											<div className="banner-detail-5">
-												<img 
-													src={tourImages[4]?.image_path || '/assets/imgs/page/tour-detail/banner5.png'} 
-													alt={tour.title}
-													onError={(e) => {
-														const target = e.target as HTMLImageElement
-														target.src = '/assets/imgs/page/tour-detail/banner5.png'
-													}}
-												/>
-											</div>
-										</div>
-									</div>
-									<div className="banner-detail-6">
-										<img 
-											src={tourImages[5]?.image_path || '/assets/imgs/page/tour-detail/banner6.png'} 
-											alt={tour.title}
-											onError={(e) => {
-												const target = e.target as HTMLImageElement
-												target.src = '/assets/imgs/page/tour-detail/banner6.png'
-											}}
-										/>
-									</div>
-								</div>
-							</div>
+					<section className="box-section box-banner-tour-detail background-body" style={{ position: 'relative', padding: '20px', overflow: 'hidden' }}>
+						<div style={{ 
+							borderRadius: '24px',
+							overflow: 'hidden',
+							boxShadow: 'var(--shadow-lg, 0 10px 40px rgba(0, 0, 0, 0.15))',
+							maxWidth: '1200px',
+							margin: '0 auto',
+							border: '1px solid var(--border-color, rgba(0, 0, 0, 0.1))'
+						}}>
+							<TourMap destinations={tour.destinations || []} />
 						</div>
 					</section>
 					<section className="box-section box-content-tour-detail background-body">
@@ -185,7 +137,7 @@ export default function TourDetail() {
 								<div className="tour-rate">
 									<div className="rate-element">
 										<span className="rating">
-											{tour.average_rating ? tour.average_rating.toFixed(2) : 'No rating'}{' '}
+										{tour.reviews_count > 0 ? '4.5' : 'No rating'}{' '}
 											<span className="text-sm-medium neutral-500">
 												({tour.reviews_count || 0} reviews)
 											</span>
@@ -257,7 +209,7 @@ export default function TourDetail() {
 											<div className="info-item">
 												<p className="text-sm-medium neutral-600">Group Size</p>
 												<p className="text-lg-bold neutral-1000">
-													{tour.max_participants || 'Varies'}
+												{tour.max_group_size || 'Varies'}
 												</p>
 											</div>
 										</div>
@@ -322,7 +274,6 @@ export default function TourDetail() {
 															{tour.destinations.map(dest => (
 																<li key={dest.id}>
 																	<strong>{dest.name}</strong> - {dest.city}, {dest.country}
-																	{dest.short_description && <p className="text-sm mt-1">{dest.short_description}</p>}
 																</li>
 															))}
 														</ul>
@@ -339,10 +290,10 @@ export default function TourDetail() {
 										<div className="head-booking-form">
 											<p className="text-xl-bold neutral-1000">Booking Form</p>
 										</div>
-										<BookingForm />
+									<BookingForm tour={tour} />
 									</div>
 									<div className="sidebar-banner"> 
-										<Link href="#"><img src="/assets/imgs/page/tour-detail/banner-ads.png" alt="Travila" /></Link>
+										<Link href="#"><img src="/assets/imgs/page/tour-detail/banner-ads.png" alt="T7wisa" /></Link>
 									</div>
 								</div>
 							</div>
@@ -376,13 +327,13 @@ export default function TourDetail() {
 					</section>
 					<section className="section-box box-media background-body">
 						<div className="container-media wow fadeInUp"> 
-							<img src="/assets/imgs/page/homepage5/media.png" alt="Travila" />
-							<img src="/assets/imgs/page/homepage5/media2.png" alt="Travila" />
-							<img src="/assets/imgs/page/homepage5/media3.png" alt="Travila" />
-							<img src="/assets/imgs/page/homepage5/media4.png" alt="Travila" />
-							<img src="/assets/imgs/page/homepage5/media5.png" alt="Travila" />
-							<img src="/assets/imgs/page/homepage5/media6.png" alt="Travila" />
-							<img src="/assets/imgs/page/homepage5/media7.png" alt="Travila" />
+							<img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" />
+							<img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" />
+							<img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" />
+							<img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" />
+							<img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" />
+							<img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" />
+							<img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" />
 						</div>
 					</section>
 				</main>

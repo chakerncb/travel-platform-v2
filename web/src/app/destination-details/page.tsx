@@ -285,14 +285,14 @@ export default function Destination5() {
                                             <>
                                                 <div className="col-6">
                                                     <div className="box-welcome-image-1">
-                                                        <img src="/assets/imgs/page/destination/welcome.png" alt="Travila" />
-                                                        <img src="/assets/imgs/page/destination/welcome2.png" alt="Travila" />
+                                                        <img src="/assets/imgs/page/destination/welcome.png" alt="T7wisa" />
+                                                        <img src="/assets/imgs/page/destination/welcome2.png" alt="T7wisa" />
                                                     </div>
                                                 </div>
                                                 <div className="col-6">
                                                     <div className="box-welcome-image-2">
-                                                        <img src="/assets/imgs/page/destination/welcome3.png" alt="Travila" />
-                                                        <img src="/assets/imgs/page/destination/welcome4.png" alt="Travila" />
+                                                        <img src="/assets/imgs/page/destination/welcome3.png" alt="T7wisa" />
+                                                        <img src="/assets/imgs/page/destination/welcome4.png" alt="T7wisa" />
                                                     </div>
                                                 </div>
                                             </>
@@ -348,7 +348,7 @@ export default function Destination5() {
                             </div>
                         </div>
                     </section>
-                    <section className="section-box box-why-book-travila-4 background-body">
+                    <section className="section-box box-why-book-T7wisa-4 background-body">
                         <div className="container">
                             <div className="row align-items-center">
                                 <div className="col-lg-6 mb-30"><span className="btn btn-brand-secondary wow fadeInUp"> <img className="mr-10" src="/assets/imgs/page/homepage4/earth.svg" alt="Travile" />Paris Travel Guide</span>
@@ -365,7 +365,7 @@ export default function Destination5() {
                                     <div className="row align-items-center">
                                         <div className="col-lg-6 col-sm-6">
                                             <div className="card-why card-why-2 background-1 wow fadeInUp">
-                                                <div className="card-image"> <img src="/assets/imgs/page/homepage6/experience.png" alt="Travila" /></div>
+                                                <div className="card-image"> <img src="/assets/imgs/page/homepage6/experience.png" alt="T7wisa" /></div>
                                                 <div className="card-info">
                                                     <h6 className="text-xl-bold neutral-1000">Useful Info</h6>
                                                 </div>
@@ -588,7 +588,7 @@ export default function Destination5() {
                                                                                 key={i} 
                                                                                 className={i < Math.floor(hotel.starRating || 0) ? "light-mode" : "dark-mode"} 
                                                                                 src={i < Math.floor(hotel.starRating || 0) ? "/assets/imgs/template/icons/star-black.svg" : "/assets/imgs/template/icons/star-w.svg"} 
-                                                                                alt="Travila" 
+                                                                                alt="T7wisa" 
                                                                             />
                                                                         ))}
                                                                     </p>
@@ -638,7 +638,7 @@ export default function Destination5() {
                                                 <div className="card-image"> <Link className="label" href="#">Top Rated</Link><Link className="wish" href="#">
                                                     <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour.png" alt="Travila" />
+                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour.png" alt="T7wisa" />
                                                 </div>
                                                 <div className="card-info background-card">
                                                     <div className="card-rating">
@@ -667,7 +667,7 @@ export default function Destination5() {
                                                 <div className="card-image"> <Link className="label bestsale" href="#">Best Sale</Link><Link className="wish" href="#">
                                                     <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour2.png" alt="Travila" />
+                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour2.png" alt="T7wisa" />
                                                 </div>
                                                 <div className="card-info background-card">
                                                     <div className="card-rating">
@@ -696,7 +696,7 @@ export default function Destination5() {
                                                 <div className="card-image"> <Link className="label saleoff" href="#">25% Off</Link><Link className="wish" href="#">
                                                     <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour3.png" alt="Travila" />
+                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour3.png" alt="T7wisa" />
                                                 </div>
                                                 <div className="card-info background-card">
                                                     <div className="card-rating">
@@ -725,7 +725,7 @@ export default function Destination5() {
                                                 <div className="card-image"> <Link className="label" href="#">Top Rated</Link><Link className="wish" href="#">
                                                     <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour4.png" alt="Travila" />
+                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour4.png" alt="T7wisa" />
                                                 </div>
                                                 <div className="card-info background-card">
                                                     <div className="card-rating">
@@ -754,7 +754,7 @@ export default function Destination5() {
                                                 <div className="card-image"> <Link className="label bestsale" href="#">Best Sale</Link><Link className="wish" href="#">
                                                     <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour.png" alt="Travila" />
+                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour.png" alt="T7wisa" />
                                                 </div>
                                                 <div className="card-info background-card">
                                                     <div className="card-rating">
@@ -783,7 +783,7 @@ export default function Destination5() {
                                                 <div className="card-image"> <Link className="label saleoff" href="#">25% Off</Link><Link className="wish" href="#">
                                                     <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour2.png" alt="Travila" />
+                                                    </svg></Link><img src="/assets/imgs/page/homepage5/tour2.png" alt="T7wisa" />
                                                 </div>
                                                 <div className="card-info background-card">
                                                     <div className="card-rating">
@@ -844,7 +844,7 @@ export default function Destination5() {
                                                 <div className="card-image"> <Link className="wish" href="#">
                                                     <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/destination/car.png" alt="Travila" /></div>
+                                                    </svg></Link><img src="/assets/imgs/page/destination/car.png" alt="T7wisa" /></div>
                                                 <div className="card-info">
                                                     <div className="card-rating">
                                                         <div className="card-left"> </div>
@@ -877,7 +877,7 @@ export default function Destination5() {
                                                 <div className="card-image"> <Link className="wish" href="#">
                                                     <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/destination/car2.png" alt="Travila" /></div>
+                                                    </svg></Link><img src="/assets/imgs/page/destination/car2.png" alt="T7wisa" /></div>
                                                 <div className="card-info">
                                                     <div className="card-rating">
                                                         <div className="card-left"> </div>
@@ -910,7 +910,7 @@ export default function Destination5() {
                                                 <div className="card-image"> <Link className="wish" href="#">
                                                     <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/destination/car3.png" alt="Travila" /></div>
+                                                    </svg></Link><img src="/assets/imgs/page/destination/car3.png" alt="T7wisa" /></div>
                                                 <div className="card-info">
                                                     <div className="card-rating">
                                                         <div className="card-left"> </div>
@@ -943,7 +943,7 @@ export default function Destination5() {
                                                 <div className="card-image"> <Link className="wish" href="#">
                                                     <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                                    </svg></Link><img src="/assets/imgs/page/destination/car4.png" alt="Travila" /></div>
+                                                    </svg></Link><img src="/assets/imgs/page/destination/car4.png" alt="T7wisa" /></div>
                                                 <div className="card-info">
                                                     <div className="card-rating">
                                                         <div className="card-left"> </div>
@@ -977,7 +977,7 @@ export default function Destination5() {
                         </div>
                     </section> */}
                     <section className="section-box box-media background-body">
-                        <div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media2.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media3.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media4.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media5.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media6.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media7.png" alt="Travila" /></div>
+                        <div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" /></div>
                     </section>
                 </main>
 

@@ -40,6 +40,8 @@ class TourResource extends JsonResource
                         'name' => $destination->name,
                         'city' => $destination->city,
                         'country' => $destination->country,
+                        'latitude' => $destination->latitude,
+                        'longitude' => $destination->longitude,
                         'days_at_destination' => $destination->pivot->days_at_destination,
                         'order' => $destination->pivot->order,
                         'image_url' => $firstImage ? asset('storage/' . $firstImage->image_path) : null,

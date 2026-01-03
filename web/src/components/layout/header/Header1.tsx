@@ -17,7 +17,7 @@ export default function Header1({ scroll, handleLogin, handleMobileMenu, handleR
 		<>
 
 			<header className={`header sticky-bar ${scroll ? "stick" : ""}`}>
-				<div className="top-bar">
+				{/* <div className="top-bar">
 					<div className="container-fluid">
 						<div className="text-header">
 							<div className="text-unlock text-sm-bold">Unlock the Magic of Travel with Travila - Your Gateway to
@@ -27,11 +27,11 @@ export default function Header1({ scroll, handleLogin, handleMobileMenu, handleR
 								</svg></Link>
 						</div>
 					</div>
-				</div>
+				</div> */}
 				<div className="container-fluid background-body">
 					<div className="main-header">
 						<div className="header-left">
-							<div className="header-logo"><Link className="d-flex" href="/"><img className="light-mode" alt="Travila" src="/assets/imgs/template/logo.svg" /><img className="dark-mode" alt="Travila" src="/assets/imgs/template/logo-w.svg" /></Link></div>
+							<div className="header-logo"><Link className="d-flex" href="/"><img className="light-mode" alt="T7wisa" src="/assets/imgs/template/logo.svg" /><img className="dark-mode" alt="Travila" src="/assets/imgs/template/logo-w.svg" /></Link></div>
 							<div className="header-nav">
 								<nav className="nav-main-menu">
 									<ul className="main-menu">
