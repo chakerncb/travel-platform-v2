@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 import BookingForm from '@/src/components/elements/BookingForm'
 import TourMap from '@/src/components/elements/TourMap'
 import Layout from "@/src/components/layout/Layout"
@@ -9,10 +10,12 @@ import Link from "next/link"
 import { tourService } from '@/src/services/tourService'
 import { destinationService } from '@/src/services/destinationService'
 import { TourDto } from '@/src/types/api'
+import './tour-detail.css'
 
 export default function TourDetail() {
 	const params = useParams()
 	const tourId = params?.id as string
+	const { data: session } = useSession()
 	
 	const [isAccordion, setIsAccordion] = useState(null)
 	const [tour, setTour] = useState<TourDto | null>(null)
@@ -111,7 +114,7 @@ export default function TourDetail() {
 									<svg width={7} height={12} viewBox="0 0 7 12" xmlns="http://www.w3.org/2000/svg">
 										<path d="M1 11L6 6L1 1" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
 									</svg></span></li>
-								<li> <Link href="/destination">Tours</Link><span className="arrow-right">
+								<li> <Link href="/Tours">Tours</Link><span className="arrow-right">
 									<svg width={7} height={12} viewBox="0 0 7 12" xmlns="http://www.w3.org/2000/svg">
 										<path d="M1 11L6 6L1 1" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
 									</svg></span></li>
@@ -256,7 +259,7 @@ export default function TourDetail() {
 											</button>
 											<div className={isAccordion == 1 ? "collapse" : "collapse show"} id="collapseOverview">
 												<div className="card card-body">
-													<p>{tour.description || 'No description available.'}</p>
+													<p> {tour.description || 'No description available.'} </p>
 												</div>
 											</div>
 										</div>
@@ -270,15 +273,136 @@ export default function TourDetail() {
 											<div className={isAccordion == 2 ? "collapse" : "collapse show"} id="collapseDestinations">
 												<div className="card card-body">
 													{tour.destinations && tour.destinations.length > 0 ? (
-														<ul>
-															{tour.destinations.map(dest => (
-																<li key={dest.id}>
-																	<strong>{dest.name}</strong> - {dest.city}, {dest.country}
-																</li>
-															))}
-														</ul>
+														<div className="destination-cards-list">
+															{tour.destinations.map((dest, index) => {
+																const destImages = destinationImages.filter(img => 
+																	img.destination_id === dest.id
+																)
+																const primaryImage = destImages.find(img => img.is_primary) || destImages[0]
+																
+																return (
+																	<div key={dest.id} className="destination-card">
+																		<div className="destination-card-image">
+																			{primaryImage ? (
+																				<img 
+																					src={primaryImage.image_url} 
+																					alt={dest.name}
+																					onError={(e) => {
+																						e.currentTarget.src = '/assets/imgs/page/destination/destination-placeholder.jpg'
+																					}}
+																				/>
+																			) : (
+																				<div className="destination-placeholder">
+																					<svg width={40} height={40} viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+																						<path d="M5.99967 0C2.80452 0 0.205078 2.59944 0.205078 5.79456C0.205078 9.75981 5.39067 15.581 5.61145 15.8269C5.81883 16.0579 6.18089 16.0575 6.38789 15.8269C6.60867 15.581 11.7943 9.75981 11.7943 5.79456C11.7942 2.59944 9.1948 0 5.99967 0ZM5.99967 8.70997C4.39211 8.70997 3.0843 7.40212 3.0843 5.79456C3.0843 4.187 4.39214 2.87919 5.99967 2.87919C7.6072 2.87919 8.91502 4.18703 8.91502 5.79459C8.91502 7.40216 7.6072 8.70997 5.99967 8.70997Z" />
+																					</svg>
+																				</div>
+																			)}
+																		</div>
+																		<div className="destination-card-content">
+																			<div className="destination-badge">Day {index + 1}</div>
+																			<Link href={`/destination-details?id=${dest.id}`}>
+																				<h5 className="destination-name">{dest.name}</h5>
+																			</Link>
+																			<p className="destination-location">
+																				<svg width={14} height={18} viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+																					<path d="M5.99967 0C2.80452 0 0.205078 2.59944 0.205078 5.79456C0.205078 9.75981 5.39067 15.581 5.61145 15.8269C5.81883 16.0579 6.18089 16.0575 6.38789 15.8269C6.60867 15.581 11.7943 9.75981 11.7943 5.79456C11.7942 2.59944 9.1948 0 5.99967 0ZM5.99967 8.70997C4.39211 8.70997 3.0843 7.40212 3.0843 5.79456C3.0843 4.187 4.39214 2.87919 5.99967 2.87919C7.6072 2.87919 8.91502 4.18703 8.91502 5.79459C8.91502 7.40216 7.6072 8.70997 5.99967 8.70997Z" />
+																				</svg>
+																				{dest.city}, {dest.country}
+																			</p>
+																			{dest.description && (
+																				<p className="destination-description">
+																					{dest.description.length > 150 
+																						? `${dest.description.substring(0, 150)}...` 
+																						: dest.description
+																					}
+																				</p>
+																			)}
+																		</div>
+																	</div>
+																)
+															})}
+														</div>
 													) : (
 														<p>No destinations listed.</p>
+													)}
+												</div>
+											</div>
+										</div>
+										<div className="group-collapse-expand">
+											<button className={isAccordion == 3 ? "btn btn-collapse collapsed" : "btn btn-collapse"} type="button" data-bs-toggle="collapse" data-bs-target="#collapseHotels" aria-expanded="false" aria-controls="collapseHotels" onClick={() => handleAccordion(3)}>
+												<h6>Hotels & Accommodations</h6>
+												<svg width={12} height={7} viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg">
+													<path d="M1 1L6 6L11 1" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+												</svg>
+											</button>
+											<div className={isAccordion == 3 ? "collapse" : "collapse show"} id="collapseHotels">
+												<div className="card card-body">
+													{tour.hotels && tour.hotels.length > 0 ? (
+														<div className="hotel-cards-list">
+															{tour.hotels.map((hotel) => {
+																const primaryImage = hotel.images?.find(img => img.is_primary) || hotel.images?.[0]
+																
+																return (
+																	<div key={hotel.id} className="hotel-card">
+																		<div className="hotel-card-image">
+																			{primaryImage ? (
+																				<img 
+																					src={primaryImage.image_url} 
+																					alt={hotel.name}
+																					onError={(e) => {
+																						e.currentTarget.src = '/assets/imgs/page/hotel/hotel-placeholder.jpg'
+																					}}
+																				/>
+																			) : (
+																				<div className="hotel-placeholder">
+																					<svg width={40} height={40} viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+																						<path d="M21.183 11.3508H18.5179V9.21402C18.5179 8.82514 18.2025 8.50986 17.8135 8.50986H14.0067C13.6537 7.43248 12.637 6.65961 11.4551 6.65961H10.2332V1.20416C10.2332 0.815281 9.91791 0.5 9.52894 0.5H4.61077C4.2218 0.5 3.90642 0.815281 3.90642 1.20416V6.65966H2.68458C1.20431 6.65966 0 7.86359 0 9.34348V21.8161C0 23.296 1.20431 24.5 2.68458 24.5H21.183C22.7363 24.5 24 23.2366 24 21.6838V14.167C24 12.6141 22.7363 11.3508 21.183 11.3508Z" />
+																					</svg>
+																				</div>
+																			)}
+																		</div>
+																		<div className="hotel-card-content">
+																			<div className="hotel-header">
+																				<h5 className="hotel-name">{hotel.name}</h5>
+																				{hotel.star_rating && (
+																					<div className="hotel-stars">
+																						{Array.from({ length: hotel.star_rating }).map((_, i) => (
+																							<svg key={i} width={16} height={16} viewBox="0 0 24 24" fill="#FFD700" xmlns="http://www.w3.org/2000/svg">
+																								<path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+																							</svg>
+																						))}
+																					</div>
+																				)}
+																			</div>
+																			<p className="hotel-location">
+																				<svg width={14} height={18} viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+																					<path d="M5.99967 0C2.80452 0 0.205078 2.59944 0.205078 5.79456C0.205078 9.75981 5.39067 15.581 5.61145 15.8269C5.81883 16.0579 6.18089 16.0575 6.38789 15.8269C6.60867 15.581 11.7943 9.75981 11.7943 5.79456C11.7942 2.59944 9.1948 0 5.99967 0ZM5.99967 8.70997C4.39211 8.70997 3.0843 7.40212 3.0843 5.79456C3.0843 4.187 4.39214 2.87919 5.99967 2.87919C7.6072 2.87919 8.91502 4.18703 8.91502 5.79459C8.91502 7.40216 7.6072 8.70997 5.99967 8.70997Z" />
+																				</svg>
+																				{hotel.city}, {hotel.country}
+																			</p>
+																			{hotel.address && (
+																				<p className="hotel-address">{hotel.address}</p>
+																			)}
+																			{hotel.specifications && hotel.specifications.length > 0 && (
+																				<div className="hotel-amenities">
+																					{hotel.specifications.slice(0, 4).map((spec, idx) => (
+																						<span key={idx} className="amenity-tag">
+																							{spec.name}
+																						</span>
+																					))}
+																					{hotel.specifications.length > 4 && (
+																						<span className="amenity-tag">+{hotel.specifications.length - 4} more</span>
+																					)}
+																				</div>
+																			)}
+																		</div>
+																	</div>
+																)
+															})}
+														</div>
+													) : (
+														<p>No hotels listed for this tour.</p>
 													)}
 												</div>
 											</div>
@@ -290,7 +414,11 @@ export default function TourDetail() {
 										<div className="head-booking-form">
 											<p className="text-xl-bold neutral-1000">Booking Form</p>
 										</div>
-									<BookingForm tour={tour} />
+									<BookingForm 
+										tour={tour} 
+										bookedPlaces={tour?.booked_places || 0}
+										userEmail={session?.user?.email || null}
+									/>
 									</div>
 									<div className="sidebar-banner"> 
 										<Link href="#"><img src="/assets/imgs/page/tour-detail/banner-ads.png" alt="T7wisa" /></Link>

@@ -84,9 +84,16 @@ export async function apiRequest<T>(
   config: AxiosRequestConfig
 ): Promise<T> {
   try {
-    const response = await apiClient.request<ApiResponse<T>>(config);
-    // Laravel wraps responses in { data: ... }, so we unwrap it
-    return response.data.data;
+    const response = await apiClient.request(config);
+    
+    // Check if response has the standard Laravel { data: ... } structure
+    if (response.data && typeof response.data === 'object' && 'data' in response.data && !('success' in response.data)) {
+      // Laravel wraps responses in { data: ... }, so we unwrap it
+      return response.data.data;
+    }
+    
+    // Otherwise return the full response data (for custom structures like { success, message, data })
+    return response.data as T;
   } catch (error) {
     throw error;
   }

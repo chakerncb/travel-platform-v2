@@ -75,4 +75,51 @@ class Tour extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    public function bookings(): HasMany
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    /**
+     * Get confirmed bookings only
+     */
+    public function confirmedBookings(): HasMany
+    {
+        return $this->hasMany(Booking::class)->whereIn('status', ['confirmed', 'completed']);
+    }
+
+    /**
+     * Get the total number of booked places
+     */
+    public function getBookedPlacesAttribute(): int
+    {
+        return $this->confirmedBookings()
+            ->selectRaw('SUM(adults_count + children_count) as total')
+            ->value('total') ?? 0;
+    }
+
+    /**
+     * Get the number of remaining places
+     */
+    public function getRemainingPlacesAttribute(): int
+    {
+        return max(0, $this->max_group_size - $this->booked_places);
+    }
+
+    /**
+     * Check if tour is fully booked
+     */
+    public function isFullyBooked(): bool
+    {
+        return $this->remaining_places <= 0;
+    }
+
+    /**
+     * Check if there are enough places for a booking
+     */
+    public function hasAvailablePlaces(int $requiredPlaces): bool
+    {
+        return $this->remaining_places >= $requiredPlaces;
+    }
 }

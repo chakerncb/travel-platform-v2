@@ -40,4 +40,10 @@ return [
         'secret_key' => env('UNSPLASH_SECRET_KEY'),
     ],
 
+    'chargily' => [
+        'api_key' => env('CHARGILY_API_KEY'),
+        'api_secret' => env('CHARGILY_API_SECRET'),
+        'mode' => env('CHARGILY_MODE', 'test'), // 'test' or 'live'
+    ],
+
 ];

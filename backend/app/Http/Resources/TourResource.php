@@ -64,6 +64,8 @@ class TourResource extends JsonResource
             }),
             'reviews_count' => $this->whenCounted('reviews'),
             'average_rating' => $this->when(isset($this->reviews_avg_rating), $this->reviews_avg_rating),
+            'booked_places' => $this->when($request->input('include_booking_stats'), $this->booked_places),
+            'remaining_places' => $this->when($request->input('include_booking_stats'), $this->remaining_places),
             'created_at' => $this->created_at?->toISOString(),
             'updated_at' => $this->updated_at?->toISOString(),
         ];

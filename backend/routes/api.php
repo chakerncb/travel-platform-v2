@@ -46,6 +46,29 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('tours', App\Http\Controllers\Api\TourController::class);
 });
 
+// Bookings routes (some public, some protected)
+Route::prefix('bookings')->group(function () {
+    // Public routes
+    Route::post('/', [App\Http\Controllers\BookingController::class, 'store']);
+    Route::get('/reference/{reference}', [App\Http\Controllers\BookingController::class, 'getByReference']);
+    Route::get('/tours/{tourId}/availability', [App\Http\Controllers\BookingController::class, 'getTourAvailability']);
+    Route::get('/tours/{tourId}/check-user-booking', [App\Http\Controllers\BookingController::class, 'checkUserBooking']);
+    Route::get('/verify-payment', [App\Http\Controllers\BookingController::class, 'verifyPayment']);
+    
+    // Protected routes (require authentication)
+    Route::middleware(['auth:sanctum'])->group(function () {
+        Route::get('/', [App\Http\Controllers\BookingController::class, 'index']);
+        Route::get('/{id}', [App\Http\Controllers\BookingController::class, 'show']);
+        Route::put('/{id}', [App\Http\Controllers\BookingController::class, 'update']);
+        Route::post('/{id}/cancel', [App\Http\Controllers\BookingController::class, 'cancel']);
+        Route::post('/{id}/confirm', [App\Http\Controllers\BookingController::class, 'confirm']);
+        Route::delete('/{id}', [App\Http\Controllers\BookingController::class, 'destroy']);
+    });
+});
+
+// Webhook routes (public - authenticated by signature)
+Route::post('/webhooks/chargily', [App\Http\Controllers\ChargilyWebhookController::class, 'handle']);
+
 // Protected API routes (requires authentication)
 Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
     // Add authenticated routes here

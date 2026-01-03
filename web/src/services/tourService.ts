@@ -21,8 +21,9 @@ export const tourService = {
   /**
    * Get tour by ID
    */
-  getById: async (id: string): Promise<TourDto> => {
-    return api.get<TourDto>(`/v1/tours/${id}`);
+  getById: async (id: string, includeBookingStats: boolean = true): Promise<TourDto> => {
+    const params = includeBookingStats ? '?include_booking_stats=1' : '';
+    return api.get<TourDto>(`/v1/tours/${id}${params}`);
   },
 
   /**

@@ -79,9 +79,9 @@ export default function YourJourney() {
                                 ) : (
                                     tours.map((tour, index) => {
                                         // Get the first destination's image from the tour, fallback to cover image or default
-                                        const firstDestination = tour.destinations && tour.destinations.length > 0 ? tour.destinations[0] : null;
-                                        const imageUrl = firstDestination?.image_url || "/assets/imgs/page/homepage1/journey1.png";
-                                        const imageAlt = firstDestination?.image_alt || tour.title;
+                                        const allDestinationImages = tour.destinations?.map(dest => dest.image_url).filter(Boolean) || [];
+                                        const imageUrl = allDestinationImages[0] || "/assets/imgs/page/homepage1/journey1.png";
+                                        const imageAlt = tour.title;
                                         const tourRating = tour.average_rating || 0;
                                         const reviewsCount = tour.reviews_count || 0;
                                         

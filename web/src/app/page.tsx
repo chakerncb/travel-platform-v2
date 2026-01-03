@@ -11,6 +11,7 @@ import Testimonials1 from "@/src/components/sections/Testimonials1"
 import TopRated1 from "@/src/components/sections/TopRated1"
 import WhyChooseUs1 from "@/src/components/sections/WhyChooseUs1"
 import YourJourney from "@/src/components/sections/YourJourney"
+import Payments3 from "../components/sections/Payments3"
 export default function Home() {
 
     return (
@@ -24,7 +25,7 @@ export default function Home() {
                 <WhyChooseUs1 />
                 {/* <Flights1 /> */}
                 {/* <Category /> */}
-                <Payments1 />
+                <Payments3 />
                 <Testimonials1 />
                 <News1 />
                 <Subscriber1 />

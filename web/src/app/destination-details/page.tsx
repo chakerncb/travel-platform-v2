@@ -348,7 +348,7 @@ export default function Destination5() {
                             </div>
                         </div>
                     </section>
-                    <section className="section-box box-why-book-T7wisa-4 background-body">
+                    {/* <section className="section-box box-why-book-T7wisa-4 background-body">
                         <div className="container">
                             <div className="row align-items-center">
                                 <div className="col-lg-6 mb-30"><span className="btn btn-brand-secondary wow fadeInUp"> <img className="mr-10" src="/assets/imgs/page/homepage4/earth.svg" alt="Travile" />Paris Travel Guide</span>
@@ -464,7 +464,7 @@ export default function Destination5() {
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> */}
                     <section className="section-box box-our-featured background-body">
                         <div className="container">
                             <div className="row align-items-end">

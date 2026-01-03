@@ -280,6 +280,8 @@ export interface TourDto {
   destinations?: TourDestinationDto[];
   hotels?: TourHotelDto[];
   reviews_count: number;
+  booked_places?: number;
+  remaining_places?: number;
   created_at: string;
   updated_at: string;
 }
@@ -496,6 +498,7 @@ export interface ImageDto {
 
 // API Response Types
 export interface ApiResponse<T> {
+  success?: boolean;
   data?: T;
   message?: string;
   error?: string;
@@ -518,4 +521,67 @@ export interface QueryParams {
   sortBy?: string;
   sortOrder?: 'asc' | 'desc';
   search?: string;
+}
+
+// Booking interfaces
+export interface PassengerInfo {
+  firstName: string;
+  lastName: string;
+  email?: string;
+  phone?: string;
+  dateOfBirth?: string;
+  passportNumber?: string;
+  nationality?: string;
+}
+
+export interface BookingDto {
+  id: number;
+  tour_id: number;
+  user_id?: number;
+  booking_reference: string;
+  start_date: string;
+  end_date: string;
+  adults_count: number;
+  children_count: number;
+  total_price: string;
+  contact_first_name: string;
+  contact_last_name: string;
+  contact_email: string;
+  contact_phone: string;
+  contact_date_of_birth?: string;
+  contact_passport_number?: string;
+  contact_nationality?: string;
+  passengers?: PassengerInfo[];
+  special_requests?: string;
+  status: 'pending' | 'confirmed' | 'cancelled' | 'completed';
+  payment_status: 'pending' | 'paid' | 'refunded';
+  amount_paid: string;
+  payment_method?: string;
+  payment_transaction_id?: string;
+  payment_date?: string;
+  cancelled_at?: string;
+  cancellation_reason?: string;
+  created_at: string;
+  updated_at: string;
+  tour?: TourDto;
+}
+
+export interface CreateBookingDto {
+  tour_id: number;
+  start_date: string;
+  end_date: string;
+  adults_count: number;
+  children_count: number;
+  total_price: number;
+  main_contact: PassengerInfo;
+  passengers?: PassengerInfo[];
+  special_requests?: string;
+}
+
+export interface BookingAvailabilityDto {
+  tour_id: number;
+  max_group_size: number;
+  booked_places: number;
+  remaining_places: number;
+  is_fully_booked: boolean;
 }

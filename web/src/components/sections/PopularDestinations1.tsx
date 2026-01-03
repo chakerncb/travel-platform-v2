@@ -91,7 +91,7 @@ export default function PopularDestinations1() {
                                     <div key={destination.id} className="col-lg-3 col-sm-6">
                                         <div className="card-popular background-card hover-up">
                                             <div className="card-image">
-                                                <Link href={`/destination/${destination.id}`}>
+                                                <Link href={`/destination-details?id=${destination.id}`}>
                                                     <img 
                                                         src={getDestinationImage(destination)} 
                                                         alt={destination.name}
