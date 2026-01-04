@@ -16,14 +16,17 @@ interface AdditionalPerson {
 	name: string
 }
 
-export default function BookingForm({ tour, bookedPlaces = 0, userEmail }: BookingFormProps) {
+export default function BookingForm({ tour, bookedPlaces = 0,  }: BookingFormProps) {
 	const [adults, setAdults] = useState(1)
 	const [children, setChildren] = useState(0)
 	const [showModal, setShowModal] = useState(false)
 	const [additionalPeople, setAdditionalPeople] = useState<AdditionalPerson[]>([])
 	const [hasExistingBooking, setHasExistingBooking] = useState(false)
+	const [isGuest, setIsGuest] = useState(true)
 	const [checkingBooking, setCheckingBooking] = useState(true)
 	const [session, setSession] = useState<any>(null);
+
+	const  userEmail = session?.user?.email || null;
 
 	useEffect(() => {
 		const fetchSession = async () => {
@@ -35,7 +38,6 @@ export default function BookingForm({ tour, bookedPlaces = 0, userEmail }: Booki
 	
 
 	const basePrice = parseFloat(tour?.price || '0')
-	const childPrice = basePrice * 0.5 // 50% discount for children (under 12)
 	
 	// Include additional people in total count
 	const additionalCount = additionalPeople.length
@@ -51,15 +53,26 @@ export default function BookingForm({ tour, bookedPlaces = 0, userEmail }: Booki
 	const durationDays = tour?.duration_days || 0
 	const durationNights = durationDays > 0 ? durationDays - 1 : 0
 
-	// Check if user has already booked this tour
 	useEffect(() => {
+
+		const checkIsGuest = () => {
+			if (session && session.user) {
+				setIsGuest(false)
+				checkExistingBooking();
+			} else {
+				setIsGuest(true)
+			}
+		}
+
+		checkIsGuest()
+	}, [session])
+
 		const checkExistingBooking = async () => {
 			if (!tour?.id) return
 			
 			try {
 				setCheckingBooking(true)
 				const response = await bookingService.checkUserBooking(tour.id, userEmail || undefined)
-				console.log('Check booking response:', response , 'userEmail:', userEmail);
 				if (response.success && response.data) {
 					setHasExistingBooking(response.data.has_booking)
 				}
@@ -70,11 +83,9 @@ export default function BookingForm({ tour, bookedPlaces = 0, userEmail }: Booki
 			}
 		}
 
-		checkExistingBooking()
-	}, [tour?.id, userEmail])
 
 	const calculateTotal = () => {
-		const total = (adults * basePrice) + (children * childPrice) + (additionalCount * basePrice)
+		const total = (adults * basePrice) + (additionalCount * basePrice)
 		return total.toFixed(2)
 	}
 
@@ -166,7 +177,7 @@ export default function BookingForm({ tour, bookedPlaces = 0, userEmail }: Booki
 						<div className="line-booking-tickets">
 							<div className="item-ticket">
 								<p className="text-md-medium neutral-500 mr-30">Adults (18+ years)</p>
-								<p className="text-md-medium neutral-500">${basePrice.toFixed(2)} </p>
+								<p className="text-md-medium neutral-500">DA{basePrice.toFixed(2)} </p>
 							</div>
 							<div className="dropdown-quantity">
 								<div className="dropdown">
@@ -191,50 +202,22 @@ export default function BookingForm({ tour, bookedPlaces = 0, userEmail }: Booki
 								</div>
 							</div>
 						</div>
-						
-						{/* Children */}
-						<div className="line-booking-tickets">
-							<div className="item-ticket">
-								<p className="text-md-medium neutral-500 mr-30">Children (under 12)</p>
-								<p className="text-md-medium neutral-500">${childPrice.toFixed(2)} </p>
-							</div>
-							<div className="dropdown-quantity">
-								<div className="dropdown">
-									<button className="btn dropdown-toggle" id="dropdownTicketChildren" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static"><span>{children.toString().padStart(2, '0')}</span>
-										<svg width={12} height={7} viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M1 1L6 6L11 1" stroke='#0D0D0D' strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-										</svg>
-									</button>
-									<ul className="dropdown-menu dropdown-menu-light" aria-labelledby="dropdownTicketChildren">
-										{[...Array(Math.min(10, remainingPlaces))].map((_, i) => (
-											<li key={i}>
-												<a 
-													className={`dropdown-item ${children === i ? 'active' : ''}`} 
-													href="#"
-													onClick={(e) => { e.preventDefault(); setChildren(i); }}
-												>
-													{i.toString().padStart(2, '0')}
-												</a>
-											</li>
-										))}
-									</ul>
-								</div>
-							</div>
-						</div>
-
+				
 						{/* Additional People */}
 						{additionalPeople.map((person, index) => (
 							<div key={person.id} className="line-booking-tickets mt-2" style={{backgroundColor: '#f8f9fa', padding: '8px', borderRadius: '4px'}}>
 								<div className="item-ticket">
-									<p className="text-md-medium neutral-500 mr-30">Additional Person {index + 1}</p>
+									<p className="text-md-medium neutral-500 mr-30">{index + 1}</p>
 									<p className="text-md-medium neutral-500">${basePrice.toFixed(2)}</p>
 								</div>
 								<button 
-									className="btn btn-sm btn-danger"
+									className="btn btn-sm btn-danger ms-2"
 									onClick={() => handleRemovePerson(person.id)}
-									style={{padding: '4px 12px'}}
+									style={{padding: '4px 12px', fontSize: '12px', lineHeight: '14px', borderRadius: '4px'}}
 								>
-									Remove
+									<svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+									</svg>
 								</button>
 							</div>
 						))}
@@ -246,7 +229,8 @@ export default function BookingForm({ tour, bookedPlaces = 0, userEmail }: Booki
 								onClick={handleAddPerson}
 								style={{fontSize: '13px', padding: '8px'}}
 							>
-								+ Add Another Person
+								+ Add Participant
+							 ({totalParticipants}/{remainingPlaces})
 							</button>
 						)}
 
@@ -301,32 +285,42 @@ export default function BookingForm({ tour, bookedPlaces = 0, userEmail }: Booki
 
 				{/* Book Button */}
 				<div className="box-button-book"> 
-					{checkingBooking ? (
-						<button className="btn btn-book" disabled style={{opacity: 0.7}}>
-							Checking...
-						</button>
-					) : hasExistingBooking ? (
-						<button className="btn btn-book" disabled style={{opacity: 0.7, backgroundColor: '#6c757d'}}>
-							Already Booked ✓
-						</button>
-					) : (
-						<button 
-							className="btn btn-book" 
-							disabled={isFull || isGroupSizeExceeded || totalParticipants === 0}
-							onClick={handleBookNow}
-							style={{opacity: isFull || isGroupSizeExceeded || totalParticipants === 0 ? 0.5 : 1}}
-						>
-							{isFull ? 'Sold Out' : 'Book Now'}
-							<svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M8 15L15 8L8 1M15 8L1 8" stroke='#0D0D0D' strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-							</svg>
-						</button>
-					)}
+				  {isGuest ? (
+					<button className="btn btn-book" disabled style={{opacity: 0.7, backgroundColor: '#6c757d'}}>
+						Login to Book
+					</button>
+				 ) : checkingBooking ? (
+					<button className="btn btn-book" disabled style={{opacity: 0.7}}>
+						Checking...
+					</button>
+				) : hasExistingBooking ? (
+					<button className="btn btn-book" disabled style={{opacity: 0.7, backgroundColor: '#6c757d'}}>
+						Already Booked ✓
+					</button>
+				) : (
+					<button 
+						className="btn btn-book" 
+						disabled={isFull || isGroupSizeExceeded || totalParticipants === 0}
+						onClick={handleBookNow}
+						style={{opacity: isFull || isGroupSizeExceeded || totalParticipants === 0 ? 0.5 : 1}}
+					>
+						{isFull ? 'Sold Out' : 'Book Now'}
+						<svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M8 15L15 8L8 1M15 8L1 8" stroke='#0D0D0D' strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+						</svg>
+					</button>
+				)}
 				</div>
 
-				{hasExistingBooking && (
+				{hasExistingBooking && !isGuest && (
 					<div className="alert alert-info mt-2 mb-2" style={{fontSize: '12px', padding: '8px'}}>
 						You have already booked this tour. Check your email for booking details.
+					</div>
+				)}
+
+				{isGuest && (
+					<div className="alert alert-warning mt-2 mb-2" style={{fontSize: '12px', padding: '8px'}}>
+						⚠️ You must login to book this tour.
 					</div>
 				)}
 

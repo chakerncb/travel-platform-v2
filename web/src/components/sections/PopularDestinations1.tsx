@@ -31,9 +31,16 @@ export default function PopularDestinations1() {
             try {
                 setLoading(true)
                 const data = await destinationService.getAll()
-                // Limit to 7 destinations to match the layout
-                setDestinations(data.slice(0, 7))
-            } catch (err) {
+                // Limit to 7 destinations to match the layout, starting from the last
+                                const mappedData: Destination[] = data.map(dto => ({
+                                    id: dto.id,
+                                    name: dto.name,
+                                    city: dto.city || '',
+                                    country: dto.country || '',
+                                    primary_image: dto.primary_image,
+                                    images: dto.images
+                                }))
+                                setDestinations(mappedData.slice(-7).reverse()) } catch (err) {
                 console.error('Error fetching destinations:', err)
                 setError('Failed to load destinations')
             } finally {

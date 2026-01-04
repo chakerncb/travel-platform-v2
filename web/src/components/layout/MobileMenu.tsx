@@ -2,9 +2,13 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import { signOut, useSession } from "next-auth/react";
+
 
 export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 	const [isAccordion, setIsAccordion] = useState(0)
+    const { data: session, status } = useSession();
+
 
 	const handleAccordion = (key: any) => {
 		setIsAccordion(prevState => prevState === key ? null : key)
@@ -13,18 +17,18 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }: any) {
 		<>
 			<div className={`mobile-header-active mobile-header-wrapper-style perfect-scrollbar button-bg-2 ${isMobileMenu ? "sidebar-visible" : ""}`}>
 				<PerfectScrollbar className="mobile-header-wrapper-inner">
-					<div className="mobile-header-logo"> <Link className="d-flex" href="/"><img className="light-mode" alt="Travila" src="/assets/imgs/template/logo.svg" /><img className="dark-mode" alt="Travila" src="/assets/imgs/template/logo-w.svg" /></Link>
+					<div className="mobile-header-logo"> <Link className="d-flex" href="/"><img className="light-mode" alt="T7wisa" src="/assets/imgs/template/logo.svg" /><img className="dark-mode" alt="T7wisa" src="/assets/imgs/template/logo-w.svg" /></Link>
 						<div className="burger-icon burger-icon-white" onClick={handleMobileMenu} />
 					</div>
 					<div className="mobile-header-top">
 						<div className="box-author-profile">
 							<div className="card-author">
-								<div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="Travila" /></div>
+								<div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="T7wisa" /></div>
 								<div className="card-info">
-									<p className="text-md-bold neutral-1000">Alice Roses</p>
-									<p className="text-xs neutral-1000">London, England</p>
+									<p className="text-md-bold neutral-1000">{session?.user.name}</p>
+									<p className="text-xs neutral-1000">{session?.user.email}</p>
 								</div>
-							</div><Link className="btn btn-black" href="#">Logout</Link>
+							</div><Link className="btn btn-black" onClick={() => signOut()} href="#">Logout</Link>
 						</div>
 					</div>
 					<div className="mobile-header-content-area">

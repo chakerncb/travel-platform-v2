@@ -412,7 +412,7 @@ class BookingController extends Controller
                 'success' => true,
                 'data' => [
                     'booking_reference' => $booking->booking_reference,
-                    'status' => "yseeee",
+                    'status' => $booking->status,
                     'payment_status' => $booking->payment_status,
                     'tour_title' => $booking->tour->title ?? null,
                     'total_amount' => $booking->total_price,

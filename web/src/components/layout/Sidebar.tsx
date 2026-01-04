@@ -13,11 +13,11 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 			<div className={`sidebar-canvas-wrapper perfect-scrollbar button-bg-2 ${isSidebar ? "sidebar-canvas-visible" : ""}`}>
 				<PerfectScrollbar className="sidebar-canvas-container">
 					<div className="sidebar-canvas-head">
-						<div className="sidebar-canvas-logo"> <Link className="d-flex" href="/"><img className="light-mode" alt="Travila" src="/assets/imgs/template/logo.svg" /><img className="dark-mode" alt="Travila" src="/assets/imgs/template/logo-w.svg" /></Link></div>
+						<div className="sidebar-canvas-logo"> <Link className="d-flex" href="/"><img className="light-mode" alt="T7wisa" src="/assets/imgs/template/logo.svg" /><img className="dark-mode" alt="T7wisa" src="/assets/imgs/template/logo-w.svg" /></Link></div>
 						<div className="sidebar-canvas-lang">
 							<LanguageDropdown />
 							<CurrencyDropdown />
-							<a className="close-canvas" onClick={handleSidebar}> <img alt="Travila" src="/assets/imgs/template/icons/close.png" /></a>
+							<a className="close-canvas" onClick={handleSidebar}> <img alt="T7wisa" src="/assets/imgs/template/icons/close.png" /></a>
 						</div>
 						
 					</div>
@@ -26,7 +26,8 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
                             <>
 							<div className="box-author-profile">
 								<div className="card-author">
-									<div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="Travila" /></div>
+									<div className="card-image"> 
+										<img src="/assets/imgs/page/homepage1/author2.png" alt="T7wisa" /></div>
 									<div className="card-info">
 										<p className="text-md-bold neutral-1000">{session.user.name}</p>
 										<p className="text-xs neutral-1000">{session.user.email}</p>
@@ -38,7 +39,7 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 								<h6 className="title-quicklinks neutral-1000">Quick Links</h6>
 								<div className="box-list-quicklinks">
 									<div className="item-quicklinks">
-										<div className="item-icon"> <img src="/assets/imgs/template/icons/notify.svg" alt="Travila" />
+										<div className="item-icon"> <img src="/assets/imgs/template/icons/notify.svg" alt="T7wisa" />
 										</div>
 										<div className="item-info"> <Link href="#">
 											<h6 className="text-md-bold neutral-1000">Notifications</h6>
@@ -47,7 +48,7 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 										</div>
 									</div>
 									<div className="item-quicklinks">
-										<div className="item-icon"> <img src="/assets/imgs/template/icons/bookmark.svg" alt="Travila" />
+										<div className="item-icon"> <img src="/assets/imgs/template/icons/bookmark.svg" alt="T7wisa" />
 										</div>
 										<div className="item-info"> <Link href="#">
 											<h6 className="text-md-bold neutral-1000">Bookmark</h6>
@@ -56,7 +57,7 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 										</div>
 									</div>
 									<div className="item-quicklinks">
-										<div className="item-icon"> <img src="/assets/imgs/template/icons/wallet.svg" alt="Travila" />
+										<div className="item-icon"> <img src="/assets/imgs/template/icons/wallet.svg" alt="T7wisa" />
 										</div>
 										<div className="item-info"> <Link href="#">
 											<h6 className="text-md-bold neutral-1000">My Wallet</h6>
@@ -65,7 +66,7 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 										</div>
 									</div>
 									<div className="item-quicklinks">
-										<div className="item-icon"> <img src="/assets/imgs/template/icons/discount.svg" alt="Travila" />
+										<div className="item-icon"> <img src="/assets/imgs/template/icons/discount.svg" alt="T7wisa" />
 										</div>
 										<div className="item-info"> <Link href="#">
 											<h6 className="text-md-bold neutral-1000">Discount</h6>
@@ -74,7 +75,7 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 										</div>
 									</div>
 									<div className="item-quicklinks">
-										<div className="item-icon"> <img src="/assets/imgs/template/icons/friends.svg" alt="Travila" />
+										<div className="item-icon"> <img src="/assets/imgs/template/icons/friends.svg" alt="T7wisa" />
 										</div>
 										<div className="item-info"> <Link href="#">
 											<h6 className="text-md-bold neutral-1000">Friends</h6>
@@ -83,7 +84,7 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 										</div>
 									</div>
 									<div className="item-quicklinks">
-										<div className="item-icon"> <img src="/assets/imgs/template/icons/tickets.svg" alt="Travila" />
+										<div className="item-icon"> <img src="/assets/imgs/template/icons/tickets.svg" alt="T7wisa" />
 										</div>
 										<div className="item-info"> <Link href="#">
 											<h6 className="text-md-bold neutral-1000">Tickets</h6>
@@ -92,7 +93,7 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 										</div>
 									</div>
 									<div className="item-quicklinks">
-										<div className="item-icon"> <img src="/assets/imgs/template/icons/settings.svg" alt="Travila" />
+										<div className="item-icon"> <img src="/assets/imgs/template/icons/settings.svg" alt="T7wisa" />
 										</div>
 										<div className="item-info"> <Link href="#">
 											<h6 className="text-md-bold neutral-1000">Setting</h6>
@@ -112,12 +113,12 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 								<h6 className="title-savedplaces neutral-1000">Saved Places</h6>
 								<div className="box-list-places">
 									<div className="card-place">
-										<div className="card-image"> <img src="/assets/imgs/page/homepage1/place.png" alt="Travila" />
+										<div className="card-image"> <img src="/assets/imgs/page/homepage1/place.png" alt="T7wisa" />
 										</div>
 										<div className="card-info background-card">
 											<div className="card-info-top">
 												<h6 className="text-xl-bold"> <Link className="neutral-1000" href="#">Machu Picchu</Link></h6>
-												<p className="text-xs card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" />4/5</p>
+												<p className="text-xs card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" />4/5</p>
 											</div>
 											<div className="card-info-bottom">
 												<p className="text-xs-medium neutral-500">Carved by the Colorado River in Arizona,
@@ -129,12 +130,12 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 										</div>
 									</div>
 									<div className="card-place">
-										<div className="card-image"> <img src="/assets/imgs/page/homepage1/place2.png" alt="Travila" />
+										<div className="card-image"> <img src="/assets/imgs/page/homepage1/place2.png" alt="T7wisa" />
 										</div>
 										<div className="card-info background-card">
 											<div className="card-info-top">
 												<h6 className="text-xl-bold"> <Link className="neutral-1000" href="#">Machu Picchu</Link></h6>
-												<p className="text-xs card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" />4/5</p>
+												<p className="text-xs card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" />4/5</p>
 											</div>
 											<div className="card-info-bottom">
 												<p className="text-xs-medium neutral-500">Carved by the Colorado River in Arizona,
@@ -146,12 +147,12 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 										</div>
 									</div>
 									<div className="card-place">
-										<div className="card-image"> <img src="/assets/imgs/page/homepage1/place3.png" alt="Travila" />
+										<div className="card-image"> <img src="/assets/imgs/page/homepage1/place3.png" alt="T7wisa" />
 										</div>
 										<div className="card-info background-card">
 											<div className="card-info-top">
 												<h6 className="text-xl-bold"> <Link className="neutral-1000" href="#">Machu Picchu</Link></h6>
-												<p className="text-xs card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" />4/5</p>
+												<p className="text-xs card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" />4/5</p>
 											</div>
 											<div className="card-info-bottom">
 												<p className="text-xs-medium neutral-500">Carved by the Colorado River in Arizona,
@@ -168,7 +169,7 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 							:
 								<div className="box-signin-guest">
 									<div className="text-center mb-20">
-										<h6 className="neutral-1000 mb-10">Welcome to Travila</h6>
+										<h6 className="neutral-1000 mb-10">Welcome to T7wisa</h6>
 										<p className="text-sm neutral-500">Sign in to access your personalized travel experience</p>
 									</div>
 									<a className="btn btn-black w-100" onClick={handleLogin}>
@@ -188,7 +189,7 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 									<p className="address-2 text-md-medium neutral-1000">4517 Washington Ave. <br />Manchester, Kentucky
 										39495</p>
 									<p className="hour-work-2 text-md-medium neutral-1000">Hours: 8:00 - 17:00, Mon - Sat</p>
-									<p className="email-2 text-md-medium neutral-1000">support@travila.com</p>
+									<p className="email-2 text-md-medium neutral-1000">support@T7wisa.com</p>
 								</div>
 							</div>
 						</div>

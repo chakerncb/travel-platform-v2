@@ -8,28 +8,28 @@ export default function SwiperGroupPaymentSlider() {
 		<>
 			<Swiper {...swiperGroupPayment}>
 				<SwiperSlide>
-					<div className="btn btn-payment"><img src="/assets/imgs/template/icons/paypal.png" alt="Travila" /></div>
+					<div className="btn btn-payment"><img src="/assets/imgs/payment-icons/cib-card.svg" alt="T7wisa" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="btn btn-payment"><img src="/assets/imgs/template/icons/stripe.png" alt="Travila" /></div>
+					<div className="btn btn-payment"><img src="/assets/imgs/payment-icons/logo.svg" alt="T7wisa" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="btn btn-payment"><img src="/assets/imgs/template/icons/mastercard.png" alt="Travila" /></div>
+					<div className="btn btn-payment"><img src="/assets/imgs/payment-icons/edahabia-card.svg" alt="T7wisa" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="btn btn-payment"><img src="/assets/imgs/template/icons/skrill.png" alt="Travila" /></div>
+					<div className="btn btn-payment"><img src="/assets/imgs/payment-icons/chargily-logo.svg" alt="T7wisa" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="btn btn-payment"><img src="/assets/imgs/template/icons/paypal.png" alt="Travila" /></div>
+					<div className="btn btn-payment"><img src="/assets/imgs/payment-icons/cib-card.svg" alt="T7wisa" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="btn btn-payment"><img src="/assets/imgs/template/icons/stripe.png" alt="Travila" /></div>
+					<div className="btn btn-payment"><img src="/assets/imgs/payment-icons/logo.svg" alt="T7wisa" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="btn btn-payment"><img src="/assets/imgs/template/icons/mastercard.png" alt="Travila" /></div>
+					<div className="btn btn-payment"><img src="/assets/imgs/payment-icons/edahabia-card.svg" alt="T7wisa" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}/></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="btn btn-payment"><img src="/assets/imgs/template/icons/skrill.png" alt="Travila" /></div>
+					<div className="btn btn-payment"><img src="/assets/imgs/payment-icons/chargily-logo.svg" alt="T7wisa" /></div>
 				</SwiperSlide>
 			</Swiper>
 		</>
