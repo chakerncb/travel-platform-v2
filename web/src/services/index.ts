@@ -6,3 +6,5 @@ export { tourService } from './tourService';
 export { travelAgencyService } from './travelAgencyService';
 export { imageService } from './imageService';
 export { adminUserService } from './adminUserService';
+export { wishlistService } from './wishlistService';
+export { userTourService } from './userTourService';

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Hotel extends Model
 {
@@ -56,5 +57,13 @@ class Hotel extends Model
         return $this->belongsToMany(Tour::class, 'tour_hotels')
             ->withPivot('nights', 'order')
             ->withTimestamps();
+    }
+
+    /**
+     * Get all wishlist entries for this hotel.
+     */
+    public function wishlists(): MorphMany
+    {
+        return $this->morphMany(Wishlist::class, 'wishlistable');
     }
 }

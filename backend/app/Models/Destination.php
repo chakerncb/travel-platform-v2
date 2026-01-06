@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Destination extends Model
 {
@@ -44,5 +45,13 @@ class Destination extends Model
             ->withPivot('order', 'days_at_destination')
             ->withTimestamps()
             ->orderBy('order');
+    }
+
+    /**
+     * Get all wishlist entries for this destination.
+     */
+    public function wishlists(): MorphMany
+    {
+        return $this->morphMany(Wishlist::class, 'wishlistable');
     }
 }

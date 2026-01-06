@@ -3,6 +3,7 @@ import CurrencyDropdown from '@/src/components/elements/CurrencyDropdown'
 import LanguageDropdown from '@/src/components/elements/LanguageDropdown'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import { signOut, useSession } from "next-auth/react";
+import ThemeSwitch from '../elements/ThemeSwitch';
 
 
 export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) {
@@ -16,7 +17,7 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 						<div className="sidebar-canvas-logo"> <Link className="d-flex" href="/"><img className="light-mode" alt="T7wisa" src="/assets/imgs/template/logo.svg" /><img className="dark-mode" alt="T7wisa" src="/assets/imgs/template/logo-w.svg" /></Link></div>
 						<div className="sidebar-canvas-lang">
 							<LanguageDropdown />
-							<CurrencyDropdown />
+							<ThemeSwitch />
 							<a className="close-canvas" onClick={handleSidebar}> <img alt="T7wisa" src="/assets/imgs/template/icons/close.png" /></a>
 						</div>
 						
@@ -39,19 +40,10 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 								<h6 className="title-quicklinks neutral-1000">Quick Links</h6>
 								<div className="box-list-quicklinks">
 									<div className="item-quicklinks">
-										<div className="item-icon"> <img src="/assets/imgs/template/icons/notify.svg" alt="T7wisa" />
-										</div>
-										<div className="item-info"> <Link href="#">
-											<h6 className="text-md-bold neutral-1000">Notifications</h6>
-										</Link>
-											<p className="text-xs neutral-500 online">2 new messages</p>
-										</div>
-									</div>
-									<div className="item-quicklinks">
 										<div className="item-icon"> <img src="/assets/imgs/template/icons/bookmark.svg" alt="T7wisa" />
 										</div>
-										<div className="item-info"> <Link href="#">
-											<h6 className="text-md-bold neutral-1000">Bookmark</h6>
+										<div className="item-info"> <Link href="/my-bookings">
+											<h6 className="text-md-bold neutral-1000">My Bookings</h6>
 										</Link>
 											<p className="text-xs neutral-500">7 tours, 2 rooms</p>
 										</div>
@@ -66,6 +58,15 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 										</div>
 									</div>
 									<div className="item-quicklinks">
+										<div className="item-icon"> <img src="/assets/imgs/template/icons/notify.svg" alt="T7wisa" />
+										</div>
+										<div className="item-info"> <Link href="#">
+											<h6 className="text-md-bold neutral-1000">Notifications</h6>
+										</Link>
+											<p className="text-xs neutral-500 online">2 new messages</p>
+										</div>
+									</div>
+									{/* <div className="item-quicklinks">
 										<div className="item-icon"> <img src="/assets/imgs/template/icons/discount.svg" alt="T7wisa" />
 										</div>
 										<div className="item-info"> <Link href="#">
@@ -91,7 +92,7 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 										</Link>
 											<p className="text-xs neutral-500 resolved">3 resolved tickets</p>
 										</div>
-									</div>
+									</div> */}
 									<div className="item-quicklinks">
 										<div className="item-icon"> <img src="/assets/imgs/template/icons/settings.svg" alt="T7wisa" />
 										</div>

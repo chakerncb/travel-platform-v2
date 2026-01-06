@@ -238,7 +238,7 @@ export default function Header1({ scroll, handleLogin, handleMobileMenu, handleR
 						</div>
 						<div className="header-right">
 							<LanguageDropdown />
-							<CurrencyDropdown />
+							{/* <CurrencyDropdown /> */}
 							<div className="d-none d-xxl-inline-block align-middle mr-15">
 								<ThemeSwitch />
                                 { session?.user ?
@@ -250,11 +250,11 @@ export default function Header1({ scroll, handleLogin, handleMobileMenu, handleR
 							<div className="burger-icon-2 burger-icon-white" onClick={handleSidebar}>
 								<img src="/assets/imgs/template/icons/menu.svg" alt="T7wisa" />
 							</div>
-							<div className="burger-icon burger-icon-white" onClick={handleMobileMenu}>
+							{/* <div className="burger-icon burger-icon-white" onClick={handleMobileMenu}>
 								<span className="burger-icon-top" />
 								<span className="burger-icon-mid" />
 								<span className="burger-icon-bottom" />
-							</div>
+							</div> */}
 						</div>
 					</div>
 				</div>

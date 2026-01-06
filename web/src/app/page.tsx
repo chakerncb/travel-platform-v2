@@ -1,6 +1,7 @@
 import Layout from "@/src/components/layout/Layout"
 
 import Category from "@/src/components/sections/Category"
+import CustomTourBanner from "@/src/components/sections/CustomTourBanner"
 import FilterSearch from "@/src/components/sections/FilterSearch"
 import Flights1 from "@/src/components/sections/Flights1"
 import News1 from "@/src/components/sections/News1"
@@ -18,7 +19,8 @@ export default function Home() {
         <>
 
             <Layout headerStyle={1} footerStyle={1}>
-                <FilterSearch />
+                {/* <FilterSearch /> */}
+                <CustomTourBanner />
                 <YourJourney />
                 <PopularDestinations1 />
                 <TopRated1 />
@@ -26,7 +28,7 @@ export default function Home() {
                 {/* <Flights1 /> */}
                 {/* <Category /> */}
                 <Payments3 />
-                <Testimonials1 />
+                {/* <Testimonials1 /> */}
                 <News1 />
                 <Subscriber1 />
             </Layout>

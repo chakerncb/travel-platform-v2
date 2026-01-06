@@ -1,0 +1,95 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class CustomTourBooking extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'booking_reference',
+        'user_email',
+        'user_name',
+        'number_of_persons',
+        'proposed_price',
+        'minimum_price',
+        'estimated_hotel_cost',
+        'admin_price',
+        'final_price',
+        'notes',
+        'admin_notes',
+        'status',
+        'destinations',
+        'hotels',
+        'admin_recommended_destinations',
+        'admin_recommended_hotels',
+        'payment_status',
+        'payment_method',
+        'paid_at',
+        'admin_reviewed_at',
+        'user_confirmed_at',
+    ];
+
+    protected $casts = [
+        'destinations' => 'array',
+        'hotels' => 'array',
+        'admin_recommended_destinations' => 'array',
+        'admin_recommended_hotels' => 'array',
+        'proposed_price' => 'decimal:2',
+        'minimum_price' => 'decimal:2',
+        'estimated_hotel_cost' => 'decimal:2',
+        'admin_price' => 'decimal:2',
+        'final_price' => 'decimal:2',
+        'paid_at' => 'datetime',
+        'admin_reviewed_at' => 'datetime',
+        'user_confirmed_at' => 'datetime',
+    ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($booking) {
+            if (empty($booking->booking_reference)) {
+                $booking->booking_reference = 'CTB-' . strtoupper(uniqid());
+            }
+        });
+    }
+
+    public function getStatusLabelAttribute()
+    {
+        return match($this->status) {
+            'pending' => 'Pending Review',
+            'under_review' => 'Under Review',
+            'admin_proposed' => 'Admin Proposal Sent',
+            'user_confirmed' => 'User Confirmed',
+            'rejected' => 'Rejected',
+            'paid' => 'Paid',
+            'completed' => 'Completed',
+            default => ucfirst($this->status),
+        };
+    }
+
+    public function isPending()
+    {
+        return $this->status === 'pending';
+    }
+
+    public function isAdminProposed()
+    {
+        return $this->status === 'admin_proposed';
+    }
+
+    public function isUserConfirmed()
+    {
+        return $this->status === 'user_confirmed';
+    }
+
+    public function isPaid()
+    {
+        return $this->payment_status === 'paid';
+    }
+}

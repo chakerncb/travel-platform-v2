@@ -122,35 +122,59 @@ export interface UpdateDestinationDto {
 }
 
 // Hotel Types
+export interface HotelImageDto {
+  id: number;
+  image_path: string;
+  alt_text?: string;
+  is_primary: boolean;
+  order: number;
+}
+
 export interface HotelDto {
-  hotelId: string;
+  id: number;
+  hotelId?: string;
   amadeusHotelId?: string;
   bookingComId?: string;
   name: string;
   nameAr?: string;
+  star_rating?: number;
   starRating?: number;
   destinationId?: string;
   address?: string;
   city?: string;
-  latitude?: number;
+  country?: string;
+  latitude?: string;
   longitude?: number;
   phone?: string;
   email?: string;
   websiteUrl?: string;
+  website_url?: string;
   description?: string;
   amenities?: string;
   thumbnailUrl?: string;
+  thumbnail_url?: string;
   galleryUrls?: string;
+  gallery_urls?: string;
   priceFrom?: number;
-  currency: string;
-  rating: number;
-  totalReviews: number;
+  price_per_night?: number;
+  currency?: string;
+  rating?: number;
+  totalReviews?: number;
+  total_reviews?: number;
   dataSource?: string;
-  isVirtual: boolean;
+  data_source?: string;
+  isVirtual?: boolean;
+  is_virtual?: boolean;
   lastSyncedAt?: string;
-  isActive: boolean;
-  createdAt: string;
-  updatedAt: string;
+  last_synced_at?: string;
+  isActive?: boolean;
+  is_active?: boolean;
+  images?: HotelImageDto[];
+  primary_image?: string;
+  createdAt?: string;
+  created_at?: string;
+  updatedAt?: string;
+  updated_at?: string;
 }
 
 export interface CreateHotelDto {
@@ -584,4 +608,71 @@ export interface BookingAvailabilityDto {
   booked_places: number;
   remaining_places: number;
   is_fully_booked: boolean;
+}
+
+// Wishlist Types
+export enum WishlistItemType {
+  Tour = 'Tour',
+  Destination = 'Destination',
+  Hotel = 'Hotel'
+}
+
+export interface WishlistItemDto {
+  id: number;
+  type: WishlistItemType;
+  item: {
+    id: number;
+    title?: string;
+    name?: string;
+    short_description?: string;
+    price?: string;
+    duration_days?: number;
+    difficulty_level?: string;
+    start_date?: string;
+    end_date?: string;
+    is_eco_friendly?: boolean;
+    city?: string;
+    country?: string;
+    primary_image?: DestinationImageDto | HotelImageDto | null;
+    star_rating?: number;
+    price_per_night?: string;
+  };
+  added_at: string;
+}
+
+export interface AddToWishlistDto {
+  type: WishlistItemType;
+  id: number;
+}
+
+export interface WishlistCheckDto {
+  in_wishlist: boolean;
+}
+
+// User Tours Types
+export interface UserTourDto {
+  booking_id: number;
+  booking_reference: string;
+  booking_status: string;
+  payment_status: string;
+  booking_date?: string;
+  start_date: string;
+  end_date: string;
+  adults_count: number;
+  children_count: number;
+  total_price: string;
+  amount_paid?: string;
+  tour: {
+    id: number;
+    title: string;
+    type: string;
+    short_description?: string;
+    description?: string;
+    price: string;
+    duration_days: number;
+    difficulty_level: string;
+    is_eco_friendly: boolean;
+    destinations?: DestinationDto[];
+    hotels?: HotelDto[];
+  };
 }

@@ -6,6 +6,7 @@ namespace App\Models;
 use App\Notifications\CustomVerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -70,5 +71,47 @@ class User extends Authenticatable implements MustVerifyEmail
     public function sendEmailVerificationNotification()
     {
         $this->notify(new CustomVerifyEmail);
+    }
+
+    /**
+     * Get all bookings for the user.
+     */
+    public function bookings(): HasMany
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    /**
+     * Get all wishlist items for the user.
+     */
+    public function wishlists(): HasMany
+    {
+        return $this->hasMany(Wishlist::class);
+    }
+
+    /**
+     * Get user's tours (from bookings).
+     */
+    public function tours()
+    {
+        return $this->hasManyThrough(
+            Tour::class,
+            Booking::class,
+            'user_id',
+            'id',
+            'id',
+            'tour_id'
+        );
+    }
+
+    /**
+     * Check if user has item in wishlist.
+     */
+    public function hasInWishlist(string $type, int $id): bool
+    {
+        return $this->wishlists()
+            ->where('wishlistable_type', $type)
+            ->where('wishlistable_id', $id)
+            ->exists();
     }
 }

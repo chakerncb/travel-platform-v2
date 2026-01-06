@@ -44,6 +44,17 @@ Route::prefix('v1')->group(function () {
     
     // Tours
     Route::apiResource('tours', App\Http\Controllers\Api\TourController::class);
+    
+    // Custom Tour Bookings (public submission)
+    Route::post('custom-tour-bookings', [App\Http\Controllers\Api\CustomTourBookingController::class, 'store']);
+    Route::get('custom-tour-bookings', [App\Http\Controllers\Api\CustomTourBookingController::class, 'index']);
+    Route::get('custom-tour-bookings/{id}', [App\Http\Controllers\Api\CustomTourBookingController::class, 'show']);
+    Route::post('custom-tour-bookings/{id}/confirm', [App\Http\Controllers\Api\CustomTourBookingController::class, 'userConfirm']);
+    
+    // Admin routes for custom tour bookings (should be protected in production)
+    Route::post('custom-tour-bookings/{id}/admin-proposal', [App\Http\Controllers\Api\CustomTourBookingController::class, 'adminProposal']);
+    Route::post('custom-tour-bookings/{id}/reject', [App\Http\Controllers\Api\CustomTourBookingController::class, 'reject']);
+    Route::post('custom-tour-bookings/{id}/payment', [App\Http\Controllers\Api\CustomTourBookingController::class, 'updatePayment']);
 });
 
 // Bookings routes (some public, some protected)
@@ -71,8 +82,21 @@ Route::post('/webhooks/chargily', [App\Http\Controllers\ChargilyWebhookControlle
 
 // Protected API routes (requires authentication)
 Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
-    // Add authenticated routes here
-    // Example: Route::post('tours/{tour}/book', [TourController::class, 'book']);
+    // Wishlist routes
+    Route::prefix('wishlist')->group(function () {
+        Route::get('/', [App\Http\Controllers\WishlistController::class, 'index']);
+        Route::post('/', [App\Http\Controllers\WishlistController::class, 'store']);
+        Route::delete('/{id}', [App\Http\Controllers\WishlistController::class, 'destroy']);
+        Route::delete('/remove/item', [App\Http\Controllers\WishlistController::class, 'removeByTypeAndId']);
+        Route::get('/check', [App\Http\Controllers\WishlistController::class, 'check']);
+    });
+
+    // User tours routes
+    Route::prefix('user/tours')->group(function () {
+        Route::get('/', [App\Http\Controllers\UserTourController::class, 'index']);
+        Route::get('/upcoming', [App\Http\Controllers\UserTourController::class, 'upcoming']);
+        Route::get('/past', [App\Http\Controllers\UserTourController::class, 'past']);
+    });
 });
 
 // verification notice
