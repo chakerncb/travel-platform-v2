@@ -1,5 +1,5 @@
 'use client'
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useState, useEffect } from "react"
 
 interface Tour {
 	id: number
@@ -28,12 +28,17 @@ interface Filter {
 type SortCriteria = "name" | "price" | "rating"
 
 const useTourFilter = (toursData: Tour[]) => {
+	// Calculate max price from tours data
+	const maxPrice = toursData.length > 0 
+		? Math.ceil(Math.max(...toursData.map(tour => tour.price)) / 1000) * 1000 
+		: 500
+	
 	const [filter, setFilter] = useState<Filter>({
 		names: [],
 		activities: [],
 		languages: [],
 		attractions: [],
-		priceRange: [0, 500],
+		priceRange: [0, maxPrice],
 		durationRange: [0, 30],
 		ratings: [],
 		groupSize: [],
@@ -41,6 +46,14 @@ const useTourFilter = (toursData: Tour[]) => {
 	const [sortCriteria, setSortCriteria] = useState<SortCriteria>("name")
 	const [itemsPerPage, setItemsPerPage] = useState<number>(10)
 	const [currentPage, setCurrentPage] = useState<number>(1)
+
+	// Update price range when maxPrice changes (when tours data loads)
+	useEffect(() => {
+		setFilter(prevFilter => ({
+			...prevFilter,
+			priceRange: [0, maxPrice]
+		}))
+	}, [maxPrice])
 
 	// Get unique values for name, activities, language, attraction, rating, duration, and group size
 	const uniqueNames = [...new Set(toursData.map((tour) => tour.name))]
@@ -183,6 +196,7 @@ const useTourFilter = (toursData: Tour[]) => {
 		startIndex,
 		endIndex,
 		paginatedTours,
+		maxPrice,
 		handleCheckboxChange,
 		handleSortChange,
 		handlePriceRangeChange,

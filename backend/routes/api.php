@@ -19,14 +19,17 @@ Route::get('login', function (Request $request) {
     ]);
 })->name('login');
 
-Route::group(['middleware' => ['auth:sanctum' , 'verified']], function () {
+// Email verification (public - no auth required)
+Route::get('/email/verify/{id}/{hash}', 'App\Http\Controllers\AuthController@EmailVerification')->name('verification.verify');
+Route::get('/account/ConfirmEmail', 'App\Http\Controllers\AuthController@confirmEmail')->name('verification.confirm');
+
+// Protected routes
+Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('logout', 'App\Http\Controllers\AuthController@logout');
     Route::get('profile', 'App\Http\Controllers\AuthController@profile');
+    Route::post('/email/resend', 'App\Http\Controllers\AuthController@resendVerificationEmail')->name('verification.send');
+    Route::get('/email/verification-notice', 'App\Http\Controllers\AuthController@verificationNotice')->name('verification.notice');
 });
-
-Route::get('/email/verify/{id}/{hash}', 'App\Http\Controllers\AuthController@EmailVerification')->middleware(['signed'])->name('verification.verify');
-
-Route::post('/email/resend', 'App\Http\Controllers\AuthController@resendVerificationEmail')->middleware(['auth:sanctum'])->name('verification.send');
 
 // Unsplash API routes
 Route::prefix('unsplash')->group(function () {
@@ -98,9 +101,6 @@ Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
         Route::get('/past', [App\Http\Controllers\UserTourController::class, 'past']);
     });
 });
-
-// verification notice
-Route::get('/email/verification-notice', 'App\Http\Controllers\AuthController@verificationNotice')->middleware(['auth:sanctum'])->name('verification.notice');
 
 
 

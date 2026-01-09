@@ -50,6 +50,17 @@ class HotelController extends Controller
             $query->where('name', 'like', '%' . $request->search . '%');
         }
 
+        // Get top rated hotels
+        if ($request->filled('top_rated') && $request->boolean('top_rated')) {
+            $query->where('is_active', true)
+                ->whereNotNull('star_rating')
+                ->orderBy('star_rating', 'desc')
+                ->orderBy('price_per_night', 'desc');
+            
+            $limit = $request->get('limit', 6);
+            return HotelResource::collection($query->take($limit)->get());
+        }
+
         // Pagination
         $perPage = $request->get('per_page', 15);
         $hotels = $query->paginate($perPage);

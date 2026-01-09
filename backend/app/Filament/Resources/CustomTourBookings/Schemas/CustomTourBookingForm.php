@@ -2,9 +2,12 @@
 
 namespace App\Filament\Resources\CustomTourBookings\Schemas;
 
+use App\Models\Hotel;
+use App\Models\Destination;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Select;
 use Filament\Schemas\Schema;
 
 class CustomTourBookingForm
@@ -50,13 +53,27 @@ class CustomTourBookingForm
                 TextInput::make('status')
                     ->required()
                     ->default('pending'),
-                TextInput::make('destinations')
+                Select::make('destinations')
+                    ->multiple()
+                    ->searchable()
+                    ->preload()
+                    ->relationship('destinations', 'name')
                     ->required(),
-                TextInput::make('hotels')
-                    ->tel(),
-                TextInput::make('admin_recommended_destinations'),
-                TextInput::make('admin_recommended_hotels')
-                    ->tel(),
+                Select::make('hotels')
+                    ->multiple()
+                    ->searchable()
+                    ->preload()
+                    ->relationship('hotels', 'name'),
+                Select::make('admin_recommended_destinations')
+                    ->multiple()
+                    ->searchable()
+                    ->preload()
+                    ->options(Destination::query()->where('is_active', true)->pluck('name', 'id')),
+                Select::make('admin_recommended_hotels')
+                    ->multiple()
+                    ->searchable()
+                    ->preload()
+                    ->options(Hotel::query()->where('is_active', true)->pluck('name', 'id')),
                 TextInput::make('payment_status')
                     ->required()
                     ->default('unpaid'),

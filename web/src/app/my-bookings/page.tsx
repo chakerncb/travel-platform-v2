@@ -5,6 +5,34 @@ import { useRouter } from 'next/navigation'
 import Layout from "@/src/components/layout/Layout"
 import Link from "next/link"
 
+interface Booking {
+    id: number
+    booking_reference: string
+    tour_id: number
+    user_id: number
+    contact_email: string
+    contact_first_name: string
+    contact_last_name: string
+    tour?: {
+        id: number
+        title: string
+        location?: string
+    }
+    adults_count: number
+    children_count: number
+    total_passengers: number
+    total_price: string
+    status: string
+    payment_status: string
+    payment_method?: string | null
+    payment_date?: string | null
+    start_date: string
+    end_date: string
+    special_requests?: string
+    created_at: string
+    updated_at: string
+}
+
 interface CustomTourBooking {
     id: number
     booking_reference: string
@@ -40,13 +68,17 @@ interface CustomTourBooking {
     updated_at: string
 }
 
+type AllBookings = (Booking & { type: 'regular' }) | (CustomTourBooking & { type: 'custom' })
+
 const statusColors: Record<string, string> = {
     'pending': 'badge-warning',
     'admin_reviewing': 'badge-info',
     'admin_proposed': 'badge-primary',
     'user_confirmed': 'badge-success',
     'payment_pending': 'badge-warning',
+    'confirmed': 'badge-success',
     'completed': 'badge-success',
+    'cancelled': 'badge-danger',
     'rejected': 'badge-danger'
 }
 
@@ -55,18 +87,29 @@ const statusLabels: Record<string, string> = {
     'admin_reviewing': 'Under Review',
     'admin_proposed': 'Proposal Received',
     'user_confirmed': 'Confirmed',
+    'confirmed': 'Confirmed',
     'payment_pending': 'Payment Pending',
     'completed': 'Completed',
+    'cancelled': 'Cancelled',
     'rejected': 'Rejected'
 }
 
 export default function MyBookings() {
     const { data: session, status } = useSession()
     const router = useRouter()
-    const [bookings, setBookings] = useState<CustomTourBooking[]>([])
+    const [bookings, setBookings] = useState<AllBookings[]>([])
     const [loading, setLoading] = useState(true)
-    const [selectedBooking, setSelectedBooking] = useState<CustomTourBooking | null>(null)
+    const [selectedBooking, setSelectedBooking] = useState<AllBookings | null>(null)
     const [showDetails, setShowDetails] = useState(false)
+
+    // Type guard functions
+    const isRegularBooking = (booking: AllBookings): booking is Booking & { type: 'regular' } => {
+        return booking.type === 'regular'
+    }
+
+    const isCustomBooking = (booking: AllBookings): booking is CustomTourBooking & { type: 'custom' } => {
+        return booking.type === 'custom'
+    }
 
     useEffect(() => {
         if (status === 'unauthenticated') {
@@ -81,18 +124,66 @@ export default function MyBookings() {
 
     const fetchBookings = async () => {
         try {
-            const response = await fetch(
-                `${process.env.NEXT_PUBLIC_API_URL}/v1/custom-tour-bookings?user_email=${session?.user?.email}`
-            )
+            // Get the session token for authenticated requests
+            const token = (session as any)?.accessToken
             
-            if (!response.ok) {
-                throw new Error('Failed to fetch bookings')
+            const headers: HeadersInit = {
+                'Content-Type': 'application/json',
+            }
+            
+            if (token) {
+                headers['Authorization'] = `Bearer ${token}`
             }
 
-            const result = await response.json()
-            // Handle paginated response - extract data from result.data
-            const bookingsData = result.data || []
-            setBookings(bookingsData)
+            // Fetch both regular and custom tour bookings in parallel
+            const [regularResponse, customResponse] = await Promise.all([
+                fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings`, {
+                    headers
+                }),
+                fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/custom-tour-bookings?user_email=${session?.user?.email}`)
+            ])
+            
+            const allBookings: AllBookings[] = []
+
+            // Process regular bookings
+            if (regularResponse.ok) {
+                const regularResult = await regularResponse.json()
+                console.log('Regular bookings response:', regularResult)
+                const regularBookingsData = regularResult.data || regularResult || []
+                const typedRegularBookings = regularBookingsData.map((b: Booking) => ({
+                    ...b,
+                    type: 'regular' as const
+                }))
+                allBookings.push(...typedRegularBookings)
+                console.log('Regular bookings loaded:', typedRegularBookings.length)
+            } else {
+                console.error('Failed to fetch regular bookings:', regularResponse.status, regularResponse.statusText)
+                const errorText = await regularResponse.text()
+                console.error('Error details:', errorText)
+            }
+
+            // Process custom tour bookings
+            if (customResponse.ok) {
+                const customResult = await customResponse.json()
+                console.log('Custom bookings response:', customResult)
+                const customBookingsData = customResult.data || customResult || []
+                const typedCustomBookings = customBookingsData.map((b: CustomTourBooking) => ({
+                    ...b,
+                    type: 'custom' as const
+                }))
+                allBookings.push(...typedCustomBookings)
+                console.log('Custom bookings loaded:', typedCustomBookings.length)
+            } else {
+                console.error('Failed to fetch custom bookings:', customResponse.status, customResponse.statusText)
+            }
+
+            // Sort by created_at date, newest first
+            allBookings.sort((a, b) => 
+                new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+            )
+
+            console.log('Total bookings:', allBookings.length)
+            setBookings(allBookings)
         } catch (error) {
             console.error('Error fetching bookings:', error)
         } finally {
@@ -100,7 +191,7 @@ export default function MyBookings() {
         }
     }
 
-    const handleViewDetails = (booking: CustomTourBooking) => {
+    const handleViewDetails = (booking: AllBookings) => {
         setSelectedBooking(booking)
         setShowDetails(true)
     }
@@ -110,7 +201,7 @@ export default function MyBookings() {
 
         try {
             const response = await fetch(
-                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/custom-tour-bookings/${bookingId}/confirm`,
+                `${process.env.NEXT_PUBLIC_API_URL}/v1/custom-tour-bookings/${bookingId}/confirm`,
                 {
                     method: 'POST',
                     headers: {
@@ -137,7 +228,7 @@ export default function MyBookings() {
         
         try {
             const response = await fetch(
-                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/custom-tour-bookings/${bookingId}/reject`,
+                `${process.env.NEXT_PUBLIC_API_URL}/v1/custom-tour-bookings/${bookingId}/reject`,
                 {
                     method: 'POST',
                     headers: {
@@ -198,9 +289,9 @@ export default function MyBookings() {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="box-header-page">
-                                    <h4 className="neutral-1000">My Custom Tour Requests</h4>
+                                    <h4 className="neutral-1000">My Bookings</h4>
                                     <p className="text-lg-medium neutral-500">
-                                        View and manage your custom tour booking requests
+                                        View and manage all your tour bookings
                                     </p>
                                 </div>
 
@@ -214,11 +305,16 @@ export default function MyBookings() {
                                         </svg>
                                         <h5 className="neutral-500 mb-3">No bookings yet</h5>
                                         <p className="text-md-medium neutral-500 mb-4">
-                                            You haven't created any custom tour requests yet.
+                                            You haven't made any tour bookings yet.
                                         </p>
-                                        <Link href="/custom-tour" className="btn btn-brand-2">
-                                            Create Custom Tour
-                                        </Link>
+                                        <div className="d-flex gap-3 justify-content-center">
+                                            <Link href="/tours" className="btn btn-brand-2">
+                                                Browse Tours
+                                            </Link>
+                                            <Link href="/custom-tour" className="btn btn-outline-brand-2">
+                                                Create Custom Tour
+                                            </Link>
+                                        </div>
                                     </div>
                                 ) : (
                                     <div className="bookings-table-container">
@@ -226,9 +322,9 @@ export default function MyBookings() {
                                             <table className="bookings-table">
                                                 <thead>
                                                     <tr>
+                                                        <th scope="col">Type</th>
                                                         <th scope="col">Reference</th>
-                                                        <th scope="col">Destinations</th>
-                                                        <th scope="col">Hotels</th>
+                                                        <th scope="col">Tour/Details</th>
                                                         <th scope="col">Persons</th>
                                                         <th scope="col">Price</th>
                                                         <th scope="col">Status</th>
@@ -238,25 +334,39 @@ export default function MyBookings() {
                                                 </thead>
                                                 <tbody>
                                                     {bookings.map((booking) => (
-                                                        <tr key={booking.id}>
+                                                        <tr key={`${booking.type}-${booking.id}`}>
+                                                            <td>
+                                                                <span className={`type-badge ${booking.type === 'custom' ? 'badge-custom' : 'badge-regular'}`}>
+                                                                    {booking.type === 'custom' ? 'Custom' : 'Regular'}
+                                                                </span>
+                                                            </td>
                                                             <th scope="row">
                                                                 <strong className="booking-reference">{booking.booking_reference}</strong>
                                                             </th>
                                                             <td>
-                                                                <span className="count-badge">{booking.destinations?.length || 0}</span>
-                                                            </td>
-                                                            <td>
-                                                                <span className="count-badge">{booking.hotels?.length || 0}</span>
-                                                            </td>
-                                                            <td>{booking.number_of_persons}</td>
-                                                            <td>
-                                                                {booking.final_price ? (
-                                                                    <span className="price-final">DA {parseFloat(booking.final_price).toFixed(2)}</span>
-                                                                ) : booking.admin_price ? (
-                                                                    <span className="price-proposed">DA {parseFloat(booking.admin_price).toFixed(2)}</span>
+                                                                {booking.type === 'regular' ? (
+                                                                    <span className="tour-title">{booking.tour?.title || 'N/A'}</span>
                                                                 ) : (
-                                                                    <span className="price-initial">DA {parseFloat(booking.proposed_price).toFixed(2)}</span>
+                                                                    <span className="destinations-summary">
+                                                                        {booking.destinations?.length || 0} destinations, {booking.hotels?.length || 0} hotels
+                                                                    </span>
                                                                 )}
+                                                            </td>
+                                                            <td>
+                                                                {isRegularBooking(booking) ? booking.total_passengers : booking.number_of_persons}
+                                                            </td>
+                                                            <td>
+                                                                {isRegularBooking(booking) ? (
+                                                                    <span className="price-final">DA {parseFloat(booking.total_price).toFixed(2)}</span>
+                                                                ) : isCustomBooking(booking) ? (
+                                                                    booking.final_price ? (
+                                                                        <span className="price-final">DA {parseFloat(booking.final_price).toFixed(2)}</span>
+                                                                    ) : booking.admin_price ? (
+                                                                        <span className="price-proposed">DA {parseFloat(booking.admin_price).toFixed(2)}</span>
+                                                                    ) : (
+                                                                        <span className="price-initial">DA {parseFloat(booking.proposed_price).toFixed(2)}</span>
+                                                                    )
+                                                                ) : null}
                                                             </td>
                                                             <td>
                                                                 <span className={`status-badge ${statusColors[booking.status]}`}>
@@ -295,6 +405,12 @@ export default function MyBookings() {
                             </div>
                             <div className="modal-body" style={{ maxHeight: '70vh', overflowY: 'auto' }}>
                                 <div className="booking-details">
+                                    <div className="mb-3">
+                                        <span className={`type-badge ${selectedBooking.type === 'custom' ? 'badge-custom' : 'badge-regular'}`}>
+                                            {selectedBooking.type === 'custom' ? 'Custom Tour' : 'Regular Tour'}
+                                        </span>
+                                    </div>
+                                    
                                     <div className="row mb-4">
                                         <div className="col-md-6">
                                             <h5 className="mb-3">Booking Information</h5>
@@ -302,54 +418,97 @@ export default function MyBookings() {
                                             <p><strong>Status:</strong> <span className={`badge ${statusColors[selectedBooking.status]}`}>
                                                 {statusLabels[selectedBooking.status]}
                                             </span></p>
-                                            <p><strong>Number of Persons:</strong> {selectedBooking.number_of_persons}</p>
+                                            <p><strong>Number of Persons:</strong> {isRegularBooking(selectedBooking) ? selectedBooking.total_passengers : selectedBooking.number_of_persons}</p>
+                                            {isRegularBooking(selectedBooking) && (
+                                                <>
+                                                    <p><strong>Adults:</strong> {selectedBooking.adults_count}</p>
+                                                    <p><strong>Children:</strong> {selectedBooking.children_count}</p>
+                                                    <p><strong>Tour Dates:</strong> {new Date(selectedBooking.start_date).toLocaleDateString()} - {new Date(selectedBooking.end_date).toLocaleDateString()}</p>
+                                                </>
+                                            )}
                                             <p><strong>Created:</strong> {new Date(selectedBooking.created_at).toLocaleString()}</p>
+                                            {isRegularBooking(selectedBooking) && selectedBooking.tour && (
+                                                <p><strong>Tour:</strong> {selectedBooking.tour.title}</p>
+                                            )}
                                         </div>
                                         <div className="col-md-6">
                                             <h5 className="mb-3">Pricing</h5>
-                                            <p><strong>Your Proposed Price:</strong> DA{parseFloat(selectedBooking.proposed_price).toFixed(2)}</p>
-                                            <p><strong>Minimum Price:</strong> DA{parseFloat(selectedBooking.minimum_price).toFixed(2)}</p>
-                                            {selectedBooking.admin_price && (
-                                                <p className="text-warning"><strong>Admin Proposed Price:</strong> DA{parseFloat(selectedBooking.admin_price).toFixed(2)}</p>
-                                            )}
-                                            {selectedBooking.final_price && (
-                                                <p className="text-success"><strong>Final Price:</strong> DA{parseFloat(selectedBooking.final_price).toFixed(2)}</p>
+                                            {isRegularBooking(selectedBooking) ? (
+                                                <>
+                                                    <p className="text-success"><strong>Total Price:</strong> DA {parseFloat(selectedBooking.total_price).toFixed(2)}</p>
+                                                    <p><strong>Payment Status:</strong> {selectedBooking.payment_status}</p>
+                                                    {selectedBooking.payment_method && (
+                                                        <p><strong>Payment Method:</strong> {selectedBooking.payment_method}</p>
+                                                    )}
+                                                    {selectedBooking.payment_date && (
+                                                        <p><strong>Payment Date:</strong> {new Date(selectedBooking.payment_date).toLocaleString()}</p>
+                                                    )}
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <p><strong>Your Proposed Price:</strong> DA{parseFloat(selectedBooking.proposed_price).toFixed(2)}</p>
+                                                    <p><strong>Minimum Price:</strong> DA{parseFloat(selectedBooking.minimum_price).toFixed(2)}</p>
+                                                    {selectedBooking.admin_price && (
+                                                        <p className="text-warning"><strong>Admin Proposed Price:</strong> DA{parseFloat(selectedBooking.admin_price).toFixed(2)}</p>
+                                                    )}
+                                                    {selectedBooking.final_price && (
+                                                        <p className="text-success"><strong>Final Price:</strong> DA{parseFloat(selectedBooking.final_price).toFixed(2)}</p>
+                                                    )}
+                                                </>
                                             )}
                                         </div>
                                     </div>
 
-                                    <div className="row mb-4">
-                                        <div className="col-md-6">
-                                            <h5 className="mb-3">Destinations ({selectedBooking.destinations?.length || 0})</h5>
-                                            <ul className="list-unstyled">
-                                                {selectedBooking.destinations?.map((dest) => (
-                                                    <li key={dest.id} className="mb-2">
-                                                        <span className="badge bg-secondary me-2">Day {dest.order}</span>
-                                                        {dest.name}
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                    {isRegularBooking(selectedBooking) && (
+                                        <div className="row mb-4">
+                                            <div className="col-md-12">
+                                                <h5 className="mb-3">Contact Information</h5>
+                                                <p><strong>Name:</strong> {selectedBooking.contact_first_name} {selectedBooking.contact_last_name}</p>
+                                                <p><strong>Email:</strong> {selectedBooking.contact_email}</p>
+                                                {selectedBooking.special_requests && (
+                                                    <div className="mt-3">
+                                                        <strong>Special Requests:</strong>
+                                                        <p className="text-muted">{selectedBooking.special_requests}</p>
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
-                                        <div className="col-md-6">
-                                            <h5 className="mb-3">Hotels ({selectedBooking.hotels?.length || 0})</h5>
-                                            <ul className="list-unstyled">
-                                                {selectedBooking.hotels?.map((hotel) => (
-                                                    <li key={hotel.id} className="mb-2">
-                                                        • {hotel.name}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    )}
 
-                                    {selectedBooking.notes && (
+                                    {isCustomBooking(selectedBooking) && (
+                                        <div className="row mb-4">
+                                            <div className="col-md-6">
+                                                <h5 className="mb-3">Destinations ({selectedBooking.destinations?.length || 0})</h5>
+                                                <ul className="list-unstyled">
+                                                    {selectedBooking.destinations?.map((dest) => (
+                                                        <li key={dest.id} className="mb-2">
+                                                            <span className="badge bg-secondary me-2">Day {dest.order}</span>
+                                                            {dest.name}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <h5 className="mb-3">Hotels ({selectedBooking.hotels?.length || 0})</h5>
+                                                <ul className="list-unstyled">
+                                                    {selectedBooking.hotels?.map((hotel) => (
+                                                        <li key={hotel.id} className="mb-2">
+                                                            • {hotel.name}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {isCustomBooking(selectedBooking) && selectedBooking.notes && (
                                         <div className="mb-4">
                                             <h5 className="mb-3">Your Notes</h5>
                                             <p className="text-muted">{selectedBooking.notes}</p>
                                         </div>
                                     )}
 
-                                    {selectedBooking.admin_notes && (
+                                    {isCustomBooking(selectedBooking) && selectedBooking.admin_notes && (
                                         <div className="mb-4">
                                             <h5 className="mb-3">Admin Response</h5>
                                             <div className="alert alert-info">
@@ -358,7 +517,7 @@ export default function MyBookings() {
                                         </div>
                                     )}
 
-                                    {selectedBooking.admin_recommended_destinations && selectedBooking.admin_recommended_destinations.length > 0 && (
+                                    {isCustomBooking(selectedBooking) && selectedBooking.admin_recommended_destinations && selectedBooking.admin_recommended_destinations.length > 0 && (
                                         <div className="mb-4">
                                             <h5 className="mb-3">Recommended Destinations</h5>
                                             <ul className="list-unstyled">
@@ -372,7 +531,7 @@ export default function MyBookings() {
                                         </div>
                                     )}
 
-                                    {selectedBooking.admin_recommended_hotels && selectedBooking.admin_recommended_hotels.length > 0 && (
+                                    {isCustomBooking(selectedBooking) && selectedBooking.admin_recommended_hotels && selectedBooking.admin_recommended_hotels.length > 0 && (
                                         <div className="mb-4">
                                             <h5 className="mb-3">Recommended Hotels</h5>
                                             <ul className="list-unstyled">
@@ -386,7 +545,7 @@ export default function MyBookings() {
                                         </div>
                                     )}
 
-                                    {selectedBooking.status === 'admin_proposed' && (
+                                    {isCustomBooking(selectedBooking) && selectedBooking.status === 'admin_proposed' && (
                                         <div className="mt-4">
                                             <div className="alert alert-warning">
                                                 <h6>Action Required</h6>
@@ -496,6 +655,37 @@ export default function MyBookings() {
                     font-size: 0.8125rem;
                 }
 
+                .type-badge {
+                    display: inline-block;
+                    padding: 4px 12px;
+                    border-radius: 12px;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    white-space: nowrap;
+                }
+
+                .badge-custom {
+                    background-color: #e0f2fe;
+                    color: #0369a1;
+                    border: 1px solid #7dd3fc;
+                }
+
+                .badge-regular {
+                    background-color: #f3e8ff;
+                    color: #7c3aed;
+                    border: 1px solid #c4b5fd;
+                }
+
+                .tour-title {
+                    font-weight: 500;
+                    color: #4d4d4d;
+                }
+
+                .destinations-summary {
+                    font-size: 0.875rem;
+                    color: #6b7280;
+                }
+
                 .price-final {
                     color: #3dc262;
                     font-weight: 600;
@@ -586,6 +776,26 @@ export default function MyBookings() {
                     .count-badge {
                         background: #2a2a2a;
                         color: #d1d5db;
+                    }
+
+                    .badge-custom {
+                        background-color: #0c4a6e;
+                        color: #7dd3fc;
+                        border-color: #0369a1;
+                    }
+
+                    .badge-regular {
+                        background-color: #581c87;
+                        color: #d8b4fe;
+                        border-color: #7c3aed;
+                    }
+
+                    .tour-title {
+                        color: #d1d5db;
+                    }
+
+                    .destinations-summary {
+                        color: #9ca3af;
                     }
 
                     .price-initial {

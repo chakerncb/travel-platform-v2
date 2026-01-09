@@ -32,14 +32,20 @@ class CustomVerifyEmail extends VerifyEmailBase
         $parsedUrl = parse_url($verificationUrl);
         parse_str($parsedUrl['query'], $queryParams);
 
-        // Create custom frontend URL
+        // Create custom frontend URL with email and code parameters
         $frontendUrl = env('FRONTEND_URL', 'http://localhost:3000');
         
-        return $frontendUrl . '/confirmEmail?' . http_build_query([
+        // Generate a verification token that includes all needed data
+        $verificationToken = base64_encode(json_encode([
             'id' => $notifiable->getKey(),
             'hash' => sha1($notifiable->getEmailForVerification()),
             'expires' => $queryParams['expires'] ?? '',
             'signature' => $queryParams['signature'] ?? ''
+        ]));
+        
+        return $frontendUrl . '/confirmEmail?' . http_build_query([
+            'email' => $notifiable->getEmailForVerification(),
+            'code' => $verificationToken
         ]);
     }
 

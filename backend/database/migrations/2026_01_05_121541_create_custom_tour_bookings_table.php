@@ -28,10 +28,6 @@ return new class extends Migration
             // Status: pending, under_review, admin_proposed, user_confirmed, rejected, paid, completed
             $table->string('status')->default('pending');
             
-            // Selected destinations and hotels (JSON)
-            $table->json('destinations');
-            $table->json('hotels')->nullable();
-            
             // Admin recommendations (JSON)
             $table->json('admin_recommended_destinations')->nullable();
             $table->json('admin_recommended_hotels')->nullable();

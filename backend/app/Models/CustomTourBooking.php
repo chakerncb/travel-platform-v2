@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class CustomTourBooking extends Model
 {
@@ -22,8 +23,6 @@ class CustomTourBooking extends Model
         'notes',
         'admin_notes',
         'status',
-        'destinations',
-        'hotels',
         'admin_recommended_destinations',
         'admin_recommended_hotels',
         'payment_status',
@@ -34,10 +33,8 @@ class CustomTourBooking extends Model
     ];
 
     protected $casts = [
-        'destinations' => 'array',
-        'hotels' => 'array',
-        'admin_recommended_destinations' => 'array',
-        'admin_recommended_hotels' => 'array',
+        'destinations' => 'json',
+        'hotels' => 'json',
         'proposed_price' => 'decimal:2',
         'minimum_price' => 'decimal:2',
         'estimated_hotel_cost' => 'decimal:2',
@@ -92,4 +89,16 @@ class CustomTourBooking extends Model
     {
         return $this->payment_status === 'paid';
     }
+
+
+    public function destinations(): BelongsToMany
+    {
+        return $this->belongsToMany(Destination::class, 'custom_tour_booking_destination');
+    }
+
+    public function hotels(): BelongsToMany
+    {
+        return $this->belongsToMany(Hotel::class, 'custom_tour_booking_hotel');
+    }
+
 }

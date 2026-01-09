@@ -13,6 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        (new DeafaultAdminSeed())->run();
+        // $this->call(DeafaultAdminSeed::class);
+        $this->call(AlgeriaDestinationsSeeder::class);
+        $this->call(AlgeriaHotelsSeeder::class);
+        $this->call(UpdateDestinationCoordinatesSeeder::class);
+        $this->call(HotelDetailsSeeder::class);
+        $this->call(DestinationImagesSeeder::class);
+        $this->call(HotelImagesSeeder::class);
+        $this->call(AlgeriaToursSeeder::class);
     }
 }

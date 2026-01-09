@@ -199,6 +199,7 @@ class HotelForm
                                         FileUpload::make('image_path')
                                             ->label('Image')
                                             ->image()
+                                            ->disk('public')
                                             ->directory('hotels')
                                             ->required()
                                             ->maxSize(5120)

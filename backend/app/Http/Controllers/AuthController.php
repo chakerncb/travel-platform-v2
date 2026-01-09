@@ -162,6 +162,90 @@ class AuthController extends Controller
       }
       return response()->json(['message' => 'Please verify your email']);
    }
+
+   /**
+    * Verify email from frontend confirmation page
+    * Expects email and code (base64 encoded JSON) parameters
+    */
+   public function confirmEmail(Request $request)
+   {
+      try {
+         $email = $request->query('email');
+         $code = $request->query('code');
+         
+         if (!$email || !$code) {
+            return response()->json([
+               'status' => false,
+               'error' => 'Email or code is missing'
+            ], 400);
+         }
+         
+         // Decode the verification token
+         $decodedToken = json_decode(base64_decode($code), true);
+         
+         if (!$decodedToken || !isset($decodedToken['id'], $decodedToken['hash'], $decodedToken['expires'], $decodedToken['signature'])) {
+            return response()->json([
+               'status' => false,
+               'error' => 'Invalid verification code'
+            ], 400);
+         }
+         
+         // Find the user
+         $user = User::find($decodedToken['id']);
+         
+         if (!$user) {
+            return response()->json([
+               'status' => false,
+               'error' => 'User not found'
+            ], 404);
+         }
+         
+         // Verify email matches
+         if ($user->email !== $email) {
+            return response()->json([
+               'status' => false,
+               'error' => 'Email does not match'
+            ], 400);
+         }
+         
+         // Verify the hash
+         if (!hash_equals($decodedToken['hash'], sha1($user->getEmailForVerification()))) {
+            return response()->json([
+               'status' => false,
+               'error' => 'Invalid verification link'
+            ], 400);
+         }
+         
+         // Check if token expired
+         if (time() > $decodedToken['expires']) {
+            return response()->json([
+               'status' => false,
+               'error' => 'Verification link has expired'
+            ], 400);
+         }
+         
+         // Check if already verified
+         if ($user->hasVerifiedEmail()) {
+            return response()->json([
+               'status' => true,
+               'message' => 'Email already verified'
+            ]);
+         }
+         
+         // Mark as verified
+         $user->markEmailAsVerified();
+         
+         return response()->json([
+            'status' => true,
+            'message' => 'Email verified successfully!'
+         ]);
+         
+      } catch (\Exception $e) {
+         return response()->json([
+            'status' => false,
+            'error' => 'An error occurred during verification: ' . $e->getMessage()
+         ], 500);
+      }
+   }
    
 }
-

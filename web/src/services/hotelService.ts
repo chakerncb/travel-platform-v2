@@ -48,6 +48,13 @@ export const hotelService = {
   },
 
   /**
+   * Get top rated hotels
+   */
+  getTopRated: async (limit: number = 6): Promise<HotelDto[]> => {
+    return api.get<HotelDto[]>(`/v1/hotels?top_rated=true&limit=${limit}`);
+  },
+
+  /**
    * Get hotels by city
    */
   getByCity: async (city: string): Promise<HotelDto[]> => {

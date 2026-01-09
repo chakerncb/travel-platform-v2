@@ -42,6 +42,8 @@ class UpdateDestinationCoordinatesSeeder extends Seeder
             ]);
         }
 
-        $this->command->info('Destination coordinates updated successfully!');
+        if ($this->command) {
+            $this->command->info('Destination coordinates updated successfully!');
+        }
     }
 }
