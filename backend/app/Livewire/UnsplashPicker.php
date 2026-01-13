@@ -133,6 +133,14 @@ class UnsplashPicker extends Component
         }
     }
 
+    public function notifyWarning($message){
+         Notification::make()
+                ->title('Error saving image')
+                ->body($message)
+                ->danger()
+                ->send();
+    }
+
     public function render()
     {
         return view('livewire.unsplash-picker');

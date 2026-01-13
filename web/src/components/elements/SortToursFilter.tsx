@@ -9,12 +9,38 @@ export default function SortToursFilter({
 	handleClearFilters,
 	startItemIndex,
 	endItemIndex,
-	sortedTours }: any) {
+	sortedTours,
+	startDate,
+	handleStartDateChange,
+	endDate,
+	handleEndDateChange ,
+    disableFilters = false}: any) {
 	return (
 		<>
-			<div>
-
+			<div className="row mb-3">
+				<div className="col-md-6 mb-2">
+					<label className="text-sm-medium neutral-500 mb-2">Start Date</label>
+					<input 
+						type="date" 
+						className="form-control" 
+						value={startDate} 
+						onChange={handleStartDateChange}
+						min={new Date().toISOString().split('T')[0]}
+					/>
+				</div>
+				<div className="col-md-6 mb-2">
+					<label className="text-sm-medium neutral-500 mb-2">End Date</label>
+					<input 
+						type="date" 
+						className="form-control" 
+						value={endDate} 
+						onChange={handleEndDateChange}
+						min={startDate || new Date().toISOString().split('T')[0]}
+						disabled={!startDate}
+					/>
+				</div>
 			</div>
+			{!disableFilters &&
 			<div className="row align-items-center">
 				<div className="col-xl-4 col-md-4 mb-10 text-lg-start text-center">
 					<div className="box-view-type"><Link className="display-type display-grid active" href="/tour-grid">
@@ -62,6 +88,7 @@ export default function SortToursFilter({
 					</div>
 				</div>
 			</div>
+			}
 		</>
 	)
 }

@@ -46,4 +46,10 @@ return [
         'mode' => env('CHARGILY_MODE', 'test'), // 'test' or 'live'
     ],
 
+    'amadeus' => [
+        'api_key' => env('AMADEUS_API_KEY'),
+        'api_secret' => env('AMADEUS_API_SECRET'),
+        'environment' => env('AMADEUS_ENVIRONMENT', 'test'), // 'test' or 'production'
+    ],
+
 ];

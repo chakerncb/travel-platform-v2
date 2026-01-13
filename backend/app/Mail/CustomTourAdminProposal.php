@@ -13,12 +13,14 @@ class CustomTourAdminProposal extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $booking;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($booking)
     {
-        //
+        $this->booking = $booking;
     }
 
     /**
@@ -27,7 +29,7 @@ class CustomTourAdminProposal extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Custom Tour Admin Proposal',
+            subject: 'Your Custom Tour Proposal - ' . $this->booking->booking_reference,
         );
     }
 
@@ -37,7 +39,7 @@ class CustomTourAdminProposal extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.custom_tour_admin_proposal',
         );
     }
 

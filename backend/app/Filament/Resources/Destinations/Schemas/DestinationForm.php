@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Destinations\Schemas;
 
+use App\Filament\Forms\Components\UnsplashPicker;
 use Filament\Actions\Action;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
@@ -88,7 +89,7 @@ class DestinationForm
                 
                 Section::make('Images')
                     ->schema([
-                        \App\Filament\Forms\Components\UnsplashPicker::make('unsplash_picker')
+                           UnsplashPicker::make('unsplash_picker')
                             ->label(''),
                         
                         Repeater::make('images')

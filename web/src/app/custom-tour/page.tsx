@@ -5,10 +5,16 @@ import { useRouter } from 'next/navigation'
 import Layout from "@/src/components/layout/Layout"
 import Link from "next/link"
 import TourMap from '@/src/components/elements/TourMap'
+import FlightCard from '@/src/components/elements/FlightCard'
+import SortToursFilter from '@/src/components/elements/SortToursFilter'
 import { destinationService } from '@/src/services/destinationService'
 import { hotelService } from '@/src/services/hotelService'
+import { flightService } from '@/src/services/flightService'
 import { DestinationDto, HotelDto, TourDestinationDto } from '@/src/types/api'
+import { FlightSegmentInfo, FlightOffer } from '@/src/types/flight'
 import './custom-tour.css'
+import TicketCard1 from '@/src/components/elements/ticketcard/TicketCard1'
+import TicketCard2 from '@/src/components/elements/ticketcard/TicketCard2'
 
 interface SelectedDestination extends DestinationDto {
     order: number
@@ -24,6 +30,7 @@ export default function CustomTour() {
     const router = useRouter()
     
     const [destinations, setDestinations] = useState<DestinationDto[]>([])
+    const [destinationsCitys, setDestinationsCitys] = useState<string[]>([])
     const [hotels, setHotels] = useState<HotelDto[]>([])
     const [loading, setLoading] = useState(true)
     const [submitting, setSubmitting] = useState(false)
@@ -39,10 +46,41 @@ export default function CustomTour() {
     const [proposedPrice, setProposedPrice] = useState<string>('')
     const [notes, setNotes] = useState<string>('')
     const [showBookingForm, setShowBookingForm] = useState(false)
+    
+    // Flight related state
+    const [flightSegments, setFlightSegments] = useState<FlightSegmentInfo[]>([])
+    const [loadingFlights, setLoadingFlights] = useState(false)
+    const [selectedFlights, setSelectedFlights] = useState<Map<number, FlightOffer>>(new Map())
+    const [startDate, setStartDate] = useState<string>(
+        new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0] // 7 days from now
+    )
+    const [endDate, setEndDate] = useState<string>('')
 
     const handleAccordion = (key: number) => {
         setIsAccordion(prevState => prevState === key ? null : key)
     }
+
+    const handleStartDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newStartDate = e.target.value
+        setStartDate(newStartDate)
+        // If end date is before new start date, reset it
+        if (endDate && new Date(endDate) < new Date(newStartDate)) {
+            setEndDate('')
+        }
+    }
+
+    const handleEndDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEndDate(e.target.value)
+    }
+
+    const tourDurationDays = useMemo(() => {
+        if (!startDate || !endDate) return selectedDestinations.length
+        const start = new Date(startDate)
+        const end = new Date(endDate)
+        const diffTime = Math.abs(end.getTime() - start.getTime())
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+        return Math.max(diffDays, 1)
+    }, [startDate, endDate, selectedDestinations])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -52,6 +90,7 @@ export default function CustomTour() {
                     hotelService.getAll()
                 ])
                 setDestinations(fetchedDestinations)
+                setDestinationsCitys([...new Set(fetchedDestinations.map(d => d.city).filter(Boolean) as string[])])
                 setHotels(fetchedHotels)
             } catch (error) {
                 console.error('Error fetching data:', error)
@@ -62,6 +101,50 @@ export default function CustomTour() {
         
         fetchData()
     }, [])
+
+    // Fetch flights when destinations change and there are multiple countries
+    useEffect(() => {
+        const fetchFlights = async () => {
+            if (selectedDestinations.length < 2) {
+                setFlightSegments([])
+                return
+            }
+
+            const countries = [...new Set(selectedDestinations.map(d => d.country))]
+            
+            // Only fetch flights if destinations span multiple countries
+            if (countries.length < 2) {
+                setFlightSegments([])
+                return
+            }
+
+            setLoadingFlights(true)
+            try {
+                const destinationsData = selectedDestinations.map(d => ({
+                    city: d.city || d.name,
+                    country: d.country || '',
+                    latitude: d.latitude ? parseFloat(String(d.latitude)) : undefined,
+                    longitude: d.longitude ? parseFloat(String(d.longitude)) : undefined
+                }))
+
+                const result = await flightService.getCustomTourFlights(
+                    destinationsData,
+                    startDate,
+                    numberOfPersons
+                )
+
+                console.log('Flight segments received:', result.flights)
+                setFlightSegments(result.flights || [])
+            } catch (error) {
+                console.error('Error fetching flights:', error)
+                setFlightSegments([])
+            } finally {
+                setLoadingFlights(false)
+            }
+        }
+
+        fetchFlights()
+    }, [selectedDestinations, startDate, numberOfPersons])
 
     const addDestination = (destination: DestinationDto) => {
         if (!selectedDestinations.find(d => d.id === destination.id)) {
@@ -91,6 +174,14 @@ export default function CustomTour() {
         )
     }
 
+    const handleFlightSelection = (segmentIndex: number, flight: FlightOffer) => {
+        setSelectedFlights(prev => {
+            const newMap = new Map(prev)
+            newMap.set(segmentIndex, flight)
+            return newMap
+        })
+    }
+
     const tourDestinations: TourDestinationDto[] = useMemo(() => {
         return selectedDestinations.map(dest => ({
             id: dest.id,
@@ -115,10 +206,18 @@ export default function CustomTour() {
         }, 0)
     }, [selectedHotels, selectedDestinations])
 
+    const totalFlightCost = useMemo(() => {
+        let total = 0
+        selectedFlights.forEach((flight) => {
+            total += parseFloat(flight.price.total)
+        })
+        return total
+    }, [selectedFlights])
+
     const minimumPrice = useMemo(() => {
         const destinationCost = selectedDestinations.length * 50 // Base cost per destination
-        return (destinationCost + estimatedHotelCost) * numberOfPersons
-    }, [selectedDestinations, selectedHotels, estimatedHotelCost, numberOfPersons])
+        return (destinationCost + estimatedHotelCost + totalFlightCost) * numberOfPersons
+    }, [selectedDestinations, selectedHotels, estimatedHotelCost, totalFlightCost, numberOfPersons])
 
     const totalEstimatedPrice = useMemo(() => {
         return proposedPrice ? parseFloat(proposedPrice) : minimumPrice
@@ -165,6 +264,8 @@ export default function CustomTour() {
                 body: JSON.stringify({
                     user_email: session.user.email,
                     user_name: session.user.name || 'Guest',
+                    start_date: startDate,
+                    end_date: endDate || startDate,
                     destinations: selectedDestinations.map(d => ({
                         id: d.id,
                         name: d.name,
@@ -172,40 +273,76 @@ export default function CustomTour() {
                     })),
                     hotels: selectedHotels.map(h => ({
                         id: h.id,
-                        name: h.name,
-                        order: h.order
+                        name: h.name
                     })),
+                    flights: Array.from(selectedFlights.entries())
+                        .filter(([segmentIndex, flight]) => flight && flight.itineraries && flight.itineraries.length > 0)
+                        .map(([segmentIndex, flight]) => {
+                            const itinerary = flight.itineraries[0]
+                            const firstSegment = itinerary.segments[0]
+                            const lastSegment = itinerary.segments[itinerary.segments.length - 1]
+                            
+                            return {
+                                segment_index: segmentIndex,
+                                flight_offer_id: flight.id,
+                                origin_airport_code: firstSegment.departure.iataCode,
+                                origin_airport_name: firstSegment.departure.iataCode,
+                                origin_city: firstSegment.departure.iataCode,
+                                origin_country: null,
+                                origin_latitude: null,
+                                origin_longitude: null,
+                                destination_airport_code: lastSegment.arrival.iataCode,
+                                destination_airport_name: lastSegment.arrival.iataCode,
+                                destination_city: lastSegment.arrival.iataCode,
+                                destination_country: null,
+                                destination_latitude: null,
+                                destination_longitude: null,
+                                departure_datetime: firstSegment.departure.at,
+                                arrival_datetime: lastSegment.arrival.at,
+                                duration: itinerary.duration,
+                                number_of_stops: itinerary.segments.length - 1,
+                                airline_code: firstSegment.carrierCode,
+                                flight_number: firstSegment.number,
+                                price_amount: parseFloat(flight.price.total),
+                                price_currency: flight.price.currency,
+                                itineraries: flight.itineraries,
+                                traveler_pricings: flight.travelerPricings,
+                                fare_details: flight.price
+                            }
+                        }),
                     number_of_persons: numberOfPersons,
                     proposed_price: priceValue,
                     minimum_price: minimumPrice,
                     estimated_hotel_cost: estimatedHotelCost,
-                    notes: notes,
-                    status: 'pending'
+                    total_flight_cost: totalFlightCost,
+                    notes: notes
                 })
             })
 
             if (!response.ok) {
-                throw new Error('Failed to submit custom tour request')
+                const errorData = await response.json().catch(() => ({}))
+                throw new Error(errorData.error || 'Failed to submit custom tour request')
             }
 
             const data = await response.json()
 
-            alert('Custom tour request submitted successfully! You will receive an email when the admin reviews your request.')
+            alert('✅ Custom tour request submitted successfully! Our team will review your request and contact you within 24-48 hours with a personalized proposal.')
             
             // Clear form
             setSelectedDestinations([])
             setSelectedHotels([])
+            setSelectedFlights(new Map())
             setProposedPrice('')
             setNumberOfPersons(1)
             setNotes('')
             setShowBookingForm(false)
             
-            // Redirect to booking confirmation or dashboard
-            router.push(`/my-bookings`)
+            // Redirect to home or dashboard
+            router.push('/')
 
         } catch (error) {
             console.error('Error submitting custom tour request:', error)
-            alert('Failed to submit request. Please try again.')
+            alert(`Failed to submit request: ${error instanceof Error ? error.message : 'Please try again.'}`)
         } finally {
             setSubmitting(false)
         }
@@ -220,13 +357,29 @@ export default function CustomTour() {
         )
     }, [destinations, searchQuery])
 
-    // Filter hotels based on search query
+    // Filter hotels based on search query and selected destination cities
     const filteredHotels = useMemo(() => {
-        return hotels.filter(hotel =>
-            hotel.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            hotel.city?.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-    }, [hotels, searchQuery])
+        // Get unique cities from selected destinations
+        const selectedCities = [...new Set(selectedDestinations.map(d => d.city).filter(Boolean))]
+        
+        // If no destinations selected, return empty array
+        if (selectedCities.length === 0) {
+            return []
+        }
+        
+        return hotels.filter(hotel => {
+            // Check if hotel is in one of the selected destination cities
+            const isInSelectedCity = selectedCities.some(city => 
+                hotel.city?.toLowerCase() === city?.toLowerCase()
+            )
+            
+            if (!isInSelectedCity) return false
+            
+            // Apply search filter
+            return hotel.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                hotel.city?.toLowerCase().includes(searchQuery.toLowerCase())
+        })
+    }, [hotels, searchQuery, selectedDestinations])
 
     if (loading) {
         return (
@@ -269,7 +422,22 @@ export default function CustomTour() {
                         border: '1px solid var(--border-color, rgba(0, 0, 0, 0.1))'
                     }}>
                         {tourDestinations.length > 0 ? (
-                            <TourMap destinations={tourDestinations} />
+                            <TourMap 
+                                destinations={tourDestinations}
+                                airports={flightSegments.flatMap(segment => [
+                                    {
+                                        airport: segment.origin_airport,
+                                        type: 'origin' as const,
+                                        segmentIndex: segment.segment_index
+                                    },
+                                    {
+                                        airport: segment.destination_airport,
+                                        type: 'destination' as const,
+                                        segmentIndex: segment.segment_index
+                                    }
+                                ])}
+                                showFlightRoutes={flightSegments.length > 0}
+                            />
                         ) : (
                             <div style={{ 
                                 height: '400px', 
@@ -301,6 +469,31 @@ export default function CustomTour() {
                                         </p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div className="row mt-4">
+                            <div className="col-12">
+                                <SortToursFilter
+                                    sortCriteria="name"
+                                    handleSortChange={() => {}}
+                                    itemsPerPage={selectedDestinations.length}
+                                    handleItemsPerPageChange={() => {}}
+                                    handleClearFilters={() => {
+                                        setSelectedDestinations([])
+                                        setSelectedHotels([])
+                                        setSelectedFlights(new Map())
+                                        setStartDate(new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0])
+                                        setEndDate('')
+                                    }}
+                                    startItemIndex={1}
+                                    endItemIndex={selectedDestinations.length}
+                                    sortedTours={selectedDestinations}
+                                    startDate={startDate}
+                                    handleStartDateChange={handleStartDateChange}
+                                    endDate={endDate}
+                                    handleEndDateChange={handleEndDateChange}
+                                    disableFilters={true}
+                                />
                             </div>
                         </div>
                         <div className="row mt-30">
@@ -394,7 +587,9 @@ export default function CustomTour() {
                                                                         )}
                                                                     </div>
                                                                     <div className="destination-card-content">
-                                                                        <div className="destination-badge">Day {dest.order}</div>
+                                                                        <div className="destination-order-badge">
+                                                                            <span className="badge bg-primary">{dest.order}</span>
+                                                                        </div>
                                                                         <Link href={`/destination-details?id=${dest.id}`}>
                                                                             <h5 className="destination-name">{dest.name}</h5>
                                                                         </Link>
@@ -535,6 +730,98 @@ export default function CustomTour() {
                                             </div>
                                         </div>
                                     </div>
+
+                                    {/* Flights Section */}
+                                    {flightSegments.length > 0 && (
+
+                                    <div className="group-collapse-expand">
+                                        <button 
+                                            className={isAccordion == 4 ? "btn btn-collapse collapsed" : "btn btn-collapse"} 
+                                            type="button" 
+                                            onClick={() => handleAccordion(4)}
+                                        >
+                                            <h6>
+                                                <svg width={20} height={20} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="me-2" style={{display: 'inline'}}>
+                                                    <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                                                </svg>
+                                                Flights {flightSegments.length > 0 && `(${flightSegments.length} segment${flightSegments.length > 1 ? 's' : ''})`}
+                                            </h6>
+                                            <svg width={12} height={7} viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 1L6 6L11 1" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                                            </svg>
+                                        </button>
+                                        <div className={isAccordion == 4 ? "collapse" : "collapse show"}>
+                                            <div className="card card-body">
+                                                {loadingFlights ? (
+                                                    <div className="text-center py-4">
+                                                        <div className="spinner-border text-primary" role="status">
+                                                            <span className="visually-hidden">Loading flights...</span>
+                                                        </div>
+                                                        <p className="mt-2 text-sm-medium neutral-500">Searching for flights...</p>
+                                                    </div>
+                                                ) : flightSegments.length === 0 ? (
+                                                    <div className="alert alert-info">
+                                                        <svg width={16} height={16} viewBox="0 0 16 16" fill="currentColor" className="me-2">
+                                                            <path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z"/>
+                                                        </svg>
+                                                        Flights are automatically added when you select destinations from multiple countries
+                                                    </div>
+                                                ) : (
+                                                    <div className="flights-container">
+                                                        <div className="alert alert-info mb-3">
+                                                            <svg width={16} height={16} viewBox="0 0 16 16" fill="currentColor" className="me-2">
+                                                                <path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm1 13H7V7h2v6zm0-8H7V3h2v2z"/>
+                                                            </svg>
+                                                            Select one flight option per segment for your booking
+                                                        </div>
+                                                        
+                                                        {flightSegments.map((segment) => (
+                                                            <div key={segment.segment_index} className="flight-segment mb-4">
+                                                                <div className="flight-segment-header mb-3 p-3 bg-light rounded">
+                                                                    <h6 className="text-md-bold neutral-1000 mb-1">
+                                                                        <span className="badge bg-primary me-2">Segment {segment.segment_index + 1}</span>
+                                                                        {segment.origin_airport.address.cityName} → {segment.destination_airport.address.cityName}
+                                                                    </h6>
+                                                                    <p className="text-sm-medium neutral-500 mb-0">
+                                                                        {segment.origin_airport.iataCode} ({segment.origin_airport.name}) to{' '}
+                                                                        {segment.destination_airport.iataCode} ({segment.destination_airport.name})
+                                                                    </p>
+                                                                </div>
+                                                                
+                                                                {segment.flight_offers.length > 0 ? (
+                                                                    <div className="flight-offers">
+                                                                        {segment.flight_offers.slice(0, 3).map((offer) => (
+                                                                            <div key={offer.id} className="mb-3">
+                                                                                <FlightCard
+                                                                                    flightOffer={offer}
+                                                                                    dictionaries={undefined}
+                                                                                    onSelect={(flight) => handleFlightSelection(segment.segment_index, flight)}
+                                                                                    showBookButton={true}
+                                                                                />
+                                                                                {selectedFlights.get(segment.segment_index)?.id === offer.id && (
+                                                                                    <div className="alert alert-success mt-2 mb-0">
+                                                                                        <svg width={16} height={16} viewBox="0 0 16 16" fill="currentColor" className="me-2">
+                                                                                            <path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm3.36 6.53L7.5 10.39l-2.86-2.86 1.06-1.06 1.8 1.8 3.02-3.02 1.06 1.06z"/>
+                                                                                        </svg>
+                                                                                        <strong>Selected for booking</strong>
+                                                                                    </div>
+                                                                                )}
+                                                                            </div>
+                                                                        ))}
+                                                                    </div>
+                                                                ) : (
+                                                                    <div className="alert alert-warning">
+                                                                        No flights available for this route
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    )}
                                 </div>
                             </div>
                             
@@ -545,6 +832,18 @@ export default function CustomTour() {
                                     </div>
                                     <div className="booking-form-content">
                                         <div className="summary-item">
+                                            <span className="text-md-medium neutral-600">Start Date:</span>
+                                            <span className="text-md-bold neutral-1000">{startDate ? new Date(startDate).toLocaleDateString() : 'Not set'}</span>
+                                        </div>
+                                        <div className="summary-item">
+                                            <span className="text-md-medium neutral-600">End Date:</span>
+                                            <span className="text-md-bold neutral-1000">{endDate ? new Date(endDate).toLocaleDateString() : 'Not set'}</span>
+                                        </div>
+                                        <div className="summary-item">
+                                            <span className="text-md-medium neutral-600">Duration:</span>
+                                            <span className="text-md-bold neutral-1000">{tourDurationDays} days</span>
+                                        </div>
+                                        <div className="summary-item">
                                             <span className="text-md-medium neutral-600">Destinations:</span>
                                             <span className="text-md-bold neutral-1000">{selectedDestinations.length}</span>
                                         </div>
@@ -552,10 +851,12 @@ export default function CustomTour() {
                                             <span className="text-md-medium neutral-600">Hotels:</span>
                                             <span className="text-md-bold neutral-1000">{selectedHotels.length}</span>
                                         </div>
-                                        <div className="summary-item">
-                                            <span className="text-md-medium neutral-600">Est. Duration:</span>
-                                            <span className="text-md-bold neutral-1000">{selectedDestinations.length || 0} days</span>
-                                        </div>
+                                        {flightSegments.length > 0 && (
+                                            <div className="summary-item">
+                                                <span className="text-md-medium neutral-600">Flights:</span>
+                                                <span className="text-md-bold neutral-1000">{flightSegments.length} segment{flightSegments.length !== 1 ? 's' : ''}</span>
+                                            </div>
+                                        )} */
                                         
                                         {selectedDestinations.length > 0 && (
                                             <>
@@ -563,6 +864,13 @@ export default function CustomTour() {
                                                     <span className="text-md-medium neutral-600">Hotel Costs:</span>
                                                     <span className="text-md-bold neutral-1000">DA{estimatedHotelCost.toFixed(2)}</span>
                                                 </div>
+
+                                                {totalFlightCost > 0 && (
+                                                    <div className="summary-item">
+                                                        <span className="text-md-medium neutral-600">Selected Flights:</span>
+                                                        <span className="text-md-bold neutral-1000">DA{totalFlightCost.toFixed(2)}</span>
+                                                    </div>
+                                                )}
                                                 
                                                 <div className="form-group mt-3">
                                                     <label className="text-sm-bold neutral-1000 mb-2">Number of Persons *</label>
@@ -618,7 +926,7 @@ export default function CustomTour() {
                                         </div>
                                         
                                         <button 
-                                            className="btn btn-brand-2 w-100 mt-4"
+                                            className="btn btn-brand-2 w-100 mt-4 text-primary"
                                             onClick={handleSubmitRequest}
                                             disabled={selectedDestinations.length === 0 || !proposedPrice || parseFloat(proposedPrice) < minimumPrice || submitting}
                                         >
@@ -691,45 +999,71 @@ export default function CustomTour() {
                                 <h3>Select a Hotel</h3>
                                 <button className="modal-close" onClick={() => setShowHotelPicker(false)}>×</button>
                             </div>
-                            <div className="modal-search">
-                                <input 
-                                    type="text" 
-                                    className="form-control" 
-                                    placeholder="Search hotels..." 
-                                    value={searchQuery} 
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    autoFocus
-                                />
-                            </div>
-                            <div className="modal-body">
-                                <div className="row">
-                                    {filteredHotels.map((hotel) => (
-                                        <div key={hotel.id} className="col-md-6 mb-3">
-                                            <div 
-                                                className="picker-card"
-                                                onClick={() => addHotel(hotel)}
-                                            >
-                                                <div className="picker-card-image">
-                                                    <img 
-                                                        src={hotel.primary_image || hotel.images?.[0]?.image_path || '/assets/imgs/page/hotel/hotel.png'} 
-                                                        alt={hotel.name} 
-                                                        onError={(e) => { 
-                                                            e.currentTarget.src = '/assets/imgs/page/hotel/hotel.png' 
-                                                        }} 
-                                                    />
-                                                </div>
-                                                <div className="picker-card-info">
-                                                    <h6 className="picker-card-title">{hotel.name}</h6>
-                                                    <p className="picker-card-subtitle">
-                                                        {hotel.city}, {hotel.country}
-                                                        {hotel.star_rating && ` • ${hotel.star_rating}★`}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
+                            {selectedDestinations.length === 0 ? (
+                                <div className="modal-body">
+                                    <div className="empty-state" style={{ padding: '40px 20px', textAlign: 'center' }}>
+                                        <svg width={60} height={60} viewBox="0 0 12 16" xmlns="http://www.w3.org/2000/svg" fill="#9ca3af">
+                                            <path d="M5.99967 0C2.80452 0 0.205078 2.59944 0.205078 5.79456C0.205078 9.75981 5.39067 15.581 5.61145 15.8269C5.81883 16.0579 6.18089 16.0575 6.38789 15.8269C6.60867 15.581 11.7943 9.75981 11.7943 5.79456C11.7942 2.59944 9.1948 0 5.99967 0ZM5.99967 8.70997C4.39211 8.70997 3.0843 7.40212 3.0843 5.79456C3.0843 4.187 4.39214 2.87919 5.99967 2.87919C7.6072 2.87919 8.91502 4.18703 8.91502 5.79459C8.91502 7.40216 7.6072 8.70997 5.99967 8.70997Z" />
+                                        </svg>
+                                        <p className="text-lg-medium neutral-600 mt-3">Please select a destination first</p>
+                                        <p className="text-sm neutral-500 mt-2">Hotels are only shown for cities in your selected destinations</p>
+                                    </div>
                                 </div>
-                            </div>
+                            ) : (
+                                <>
+                                    <div className="modal-search">
+                                        <input 
+                                            type="text" 
+                                            className="form-control" 
+                                            placeholder="Search hotels..." 
+                                            value={searchQuery} 
+                                            onChange={(e) => setSearchQuery(e.target.value)}
+                                            autoFocus
+                                        />
+                                    </div>
+                                    <div className="modal-body">
+                                        {filteredHotels.length > 0 ? (
+                                            <div className="row">
+                                                {filteredHotels.map((hotel) => (
+                                                    <div key={hotel.id} className="col-md-6 mb-3">
+                                                        <div 
+                                                            className="picker-card"
+                                                            onClick={() => addHotel(hotel)}
+                                                        >
+                                                            <div className="picker-card-image">
+                                                                <img 
+                                                                    src={hotel.primary_image || hotel.images?.[0]?.image_path || '/assets/imgs/page/hotel/hotel.png'} 
+                                                                    alt={hotel.name} 
+                                                                    onError={(e) => { 
+                                                                        e.currentTarget.src = '/assets/imgs/page/hotel/hotel.png' 
+                                                                    }} 
+                                                                />
+                                                            </div>
+                                                            <div className="picker-card-info">
+                                                                <h6 className="picker-card-title">{hotel.name}</h6>
+                                                                <p className="picker-card-subtitle">
+                                                                    {hotel.city}, {hotel.country}
+                                                                    {hotel.star_rating && ` • ${hotel.star_rating}★`}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ) : (
+                                            <div className="empty-state" style={{ padding: '40px 20px', textAlign: 'center' }}>
+                                                <svg width={60} height={60} viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" fill="#9ca3af">
+                                                    <path d="M21.183 11.3508H18.5179V9.21402C18.5179 8.82514 18.2025 8.50986 17.8135 8.50986H14.0067C13.6537 7.43248 12.637 6.65961 11.4551 6.65961H10.2332V1.20416C10.2332 0.815281 9.91791 0.5 9.52894 0.5H4.61077C4.2218 0.5 3.90642 0.815281 3.90642 1.20416V6.65966H2.68458C1.20431 6.65966 0 7.86359 0 9.34348V21.8161C0 23.296 1.20431 24.5 2.68458 24.5H21.183C22.7363 24.5 24 23.2366 24 21.6838V14.167C24 12.6141 22.7363 11.3508 21.183 11.3508Z" />
+                                                </svg>
+                                                <p className="text-lg-medium neutral-600 mt-3">No hotels found</p>
+                                                <p className="text-sm neutral-500 mt-2">
+                                                    No hotels available in {selectedDestinations.map(d => d.city).filter((v, i, a) => a.indexOf(v) === i).join(', ')}
+                                                </p>
+                                            </div>
+                                        )}
+                                    </div>
+                                </>
+                            )}
                         </div>
                     </div>
                 )}

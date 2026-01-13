@@ -43,12 +43,18 @@ class CustomTourBookingController extends Controller
         $validator = Validator::make($request->all(), [
             'user_email' => 'required|email',
             'user_name' => 'required|string|max:255',
+            'start_date' => 'required|date',
+            'end_date' => 'nullable|date|after:start_date',
             'destinations' => 'required|array|min:1',
+            'destinations.*.id' => 'required|exists:destinations,id',
             'hotels' => 'nullable|array',
+            'hotels.*.id' => 'required|exists:hotels,id',
+            'flights' => 'nullable|array',
             'number_of_persons' => 'required|integer|min:1',
             'proposed_price' => 'required|numeric|min:0',
             'minimum_price' => 'required|numeric|min:0',
             'estimated_hotel_cost' => 'nullable|numeric|min:0',
+            'total_flight_cost' => 'nullable|numeric|min:0',
             'notes' => 'nullable|string',
         ]);
 
@@ -66,8 +72,8 @@ class CustomTourBookingController extends Controller
         $booking = CustomTourBooking::create([
             'user_email' => $request->user_email,
             'user_name' => $request->user_name,
-            'destinations' => $request->destinations,
-            'hotels' => $request->hotels ?? [],
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
             'number_of_persons' => $request->number_of_persons,
             'proposed_price' => $request->proposed_price,
             'minimum_price' => $request->minimum_price,
@@ -75,6 +81,53 @@ class CustomTourBookingController extends Controller
             'notes' => $request->notes,
             'status' => 'pending',
         ]);
+        
+        // Attach destinations
+        if ($request->has('destinations') && is_array($request->destinations)) {
+            $destinationIds = array_column($request->destinations, 'id');
+            $booking->destinations()->attach($destinationIds);
+        }
+        
+        // Attach hotels
+        if ($request->has('hotels') && is_array($request->hotels)) {
+            $hotelIds = array_column($request->hotels, 'id');
+            $booking->hotels()->attach($hotelIds);
+        }
+
+        // Save flight bookings if provided
+        if ($request->has('flights') && is_array($request->flights)) {
+            foreach ($request->flights as $flightData) {
+                $booking->flights()->create([
+                    'segment_index' => $flightData['segment_index'],
+                    'flight_offer_id' => $flightData['flight_offer_id'],
+                    'origin_airport_code' => $flightData['origin_airport_code'],
+                    'origin_airport_name' => $flightData['origin_airport_name'],
+                    'origin_city' => $flightData['origin_city'],
+                    'origin_country' => $flightData['origin_country'] ?? null,
+                    'origin_latitude' => $flightData['origin_latitude'] ?? null,
+                    'origin_longitude' => $flightData['origin_longitude'] ?? null,
+                    'destination_airport_code' => $flightData['destination_airport_code'],
+                    'destination_airport_name' => $flightData['destination_airport_name'],
+                    'destination_city' => $flightData['destination_city'],
+                    'destination_country' => $flightData['destination_country'] ?? null,
+                    'destination_latitude' => $flightData['destination_latitude'] ?? null,
+                    'destination_longitude' => $flightData['destination_longitude'] ?? null,
+                    'departure_datetime' => $flightData['departure_datetime'],
+                    'arrival_datetime' => $flightData['arrival_datetime'],
+                    'duration' => $flightData['duration'] ?? null,
+                    'number_of_stops' => $flightData['number_of_stops'] ?? 0,
+                    'airline_code' => $flightData['airline_code'] ?? null,
+                    'airline_name' => $flightData['airline_name'] ?? null,
+                    'aircraft_code' => $flightData['aircraft_code'] ?? null,
+                    'flight_number' => $flightData['flight_number'] ?? null,
+                    'price_amount' => $flightData['price_amount'],
+                    'price_currency' => $flightData['price_currency'] ?? 'DZD',
+                    'itineraries' => $flightData['itineraries'] ?? null,
+                    'traveler_pricings' => $flightData['traveler_pricings'] ?? null,
+                    'fare_details' => $flightData['fare_details'] ?? null,
+                ]);
+            }
+        }
 
         // Send email notifications
         try {
@@ -99,7 +152,7 @@ class CustomTourBookingController extends Controller
      */
     public function show(string $id)
     {
-        $booking = CustomTourBooking::findOrFail($id);
+        $booking = CustomTourBooking::with(['destinations', 'hotels', 'flights'])->findOrFail($id);
         return response()->json($booking);
     }
 
@@ -113,6 +166,7 @@ class CustomTourBookingController extends Controller
             'admin_notes' => 'nullable|string',
             'admin_recommended_destinations' => 'nullable|array',
             'admin_recommended_hotels' => 'nullable|array',
+            'payment_url' => 'nullable|url',
         ]);
 
         if ($validator->fails()) {
@@ -127,11 +181,12 @@ class CustomTourBookingController extends Controller
             'admin_notes' => $request->admin_notes,
             'admin_recommended_destinations' => $request->admin_recommended_destinations,
             'admin_recommended_hotels' => $request->admin_recommended_hotels,
+            'payment_url' => $request->payment_url,
             'status' => 'admin_proposed',
             'admin_reviewed_at' => now(),
         ]);
 
-        // Send email to user about admin proposal
+        // Send email to user about admin proposal with payment link
         try {
             Mail::to($booking->user_email)->send(new CustomTourAdminProposal($booking));
         } catch (\Exception $e) {

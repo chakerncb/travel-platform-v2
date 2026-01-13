@@ -60,7 +60,7 @@ class CustomVerifyEmail extends VerifyEmailBase
         $verificationUrl = $this->verificationUrl($notifiable);
 
         return (new MailMessage)
-            ->subject('Verify Your Email Address - Tap2Eat')
+            ->subject('Verify Your Email Address - T7wisa')
             ->view('emails.verify-email', [
                 'user' => $notifiable,
                 'verificationUrl' => $verificationUrl,

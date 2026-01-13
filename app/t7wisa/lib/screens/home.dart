@@ -93,7 +93,7 @@ class _HomeState extends State<Home> {
   buildHorizontalList(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 10.0, left: 20.0),
-      height: 250.0,
+      height: 240.0,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,

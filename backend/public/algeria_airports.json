@@ -1,0 +1,146 @@
+[
+    {
+        "iataCode": "ALG",
+        "name": "Houari Boumediene Airport",
+        "city": "Algiers",
+        "cityArabic": "الجزائر",
+        "country": "Algeria",
+        "countryCode": "DZ",
+        "geoCode": {
+            "latitude": 36.6910,
+            "longitude": 3.2154
+        },
+        "address": {
+            "cityName": "Algiers",
+            "countryCode": "DZ"
+        },
+        "type": "international",
+        "isActive": true
+    },
+    {
+        "iataCode": "ORN",
+        "name": "Ahmed Ben Bella Airport",
+        "city": "Oran",
+        "cityArabic": "وهران",
+        "country": "Algeria",
+        "countryCode": "DZ",
+        "geoCode": {
+            "latitude": 35.6239,
+            "longitude": -0.6212
+        },
+        "address": {
+            "cityName": "Oran",
+            "countryCode": "DZ"
+        },
+        "type": "international",
+        "isActive": true
+    },
+    {
+        "iataCode": "CZL",
+        "name": "Mohamed Boudiaf International Airport",
+        "city": "Constantine",
+        "cityArabic": "قسنطينة",
+        "country": "Algeria",
+        "countryCode": "DZ",
+        "geoCode": {
+            "latitude": 36.2760,
+            "longitude": 6.6204
+        },
+        "address": {
+            "cityName": "Constantine",
+            "countryCode": "DZ"
+        },
+        "type": "international",
+        "isActive": true
+    },
+    {
+        "iataCode": "AAE",
+        "name": "Rabah Bitat Airport",
+        "city": "Annaba",
+        "cityArabic": "عنابة",
+        "country": "Algeria",
+        "countryCode": "DZ",
+        "geoCode": {
+            "latitude": 36.8222,
+            "longitude": 7.8092
+        },
+        "address": {
+            "cityName": "Annaba",
+            "countryCode": "DZ"
+        },
+        "type": "international",
+        "isActive": true
+    },
+    {
+        "iataCode": "TLM",
+        "name": "Zenata – Messali El Hadj Airport",
+        "city": "Tlemcen",
+        "cityArabic": "تلمسان",
+        "country": "Algeria",
+        "countryCode": "DZ",
+        "geoCode": {
+            "latitude": 35.0167,
+            "longitude": -1.4500
+        },
+        "address": {
+            "cityName": "Tlemcen",
+            "countryCode": "DZ"
+        },
+        "type": "international",
+        "isActive": true
+    },
+    {
+        "iataCode": "BJA",
+        "name": "Soummam – Abane Ramdane Airport",
+        "city": "Béjaïa",
+        "cityArabic": "بجاية",
+        "country": "Algeria",
+        "countryCode": "DZ",
+        "geoCode": {
+            "latitude": 36.7120,
+            "longitude": 5.0699
+        },
+        "address": {
+            "cityName": "Béjaïa",
+            "countryCode": "DZ"
+        },
+        "type": "international",
+        "isActive": true
+    },
+    {
+        "iataCode": "QSF",
+        "name": "Ain Arnat Airport",
+        "city": "Sétif",
+        "cityArabic": "سطيف",
+        "country": "Algeria",
+        "countryCode": "DZ",
+        "geoCode": {
+            "latitude": 36.1781,
+            "longitude": 5.3249
+        },
+        "address": {
+            "cityName": "Sétif",
+            "countryCode": "DZ"
+        },
+        "type": "international",
+        "isActive": true
+    },
+    {
+        "iataCode": "CFK",
+        "name": "Chlef International Airport",
+        "city": "Chlef",
+        "cityArabic": "الشلف",
+        "country": "Algeria",
+        "countryCode": "DZ",
+        "geoCode": {
+            "latitude": 36.2127,
+            "longitude": 1.3317
+        },
+        "address": {
+            "cityName": "Chlef",
+            "countryCode": "DZ"
+        },
+        "type": "international",
+        "isActive": true
+    }
+]

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CustomTourBooking extends Model
 {
@@ -14,6 +15,8 @@ class CustomTourBooking extends Model
         'booking_reference',
         'user_email',
         'user_name',
+        'start_date',
+        'end_date',
         'number_of_persons',
         'proposed_price',
         'minimum_price',
@@ -27,19 +30,22 @@ class CustomTourBooking extends Model
         'admin_recommended_hotels',
         'payment_status',
         'payment_method',
+        'payment_url',
         'paid_at',
         'admin_reviewed_at',
         'user_confirmed_at',
     ];
 
     protected $casts = [
-        'destinations' => 'json',
-        'hotels' => 'json',
+        'admin_recommended_destinations' => 'json',
+        'admin_recommended_hotels' => 'json',
         'proposed_price' => 'decimal:2',
         'minimum_price' => 'decimal:2',
         'estimated_hotel_cost' => 'decimal:2',
         'admin_price' => 'decimal:2',
         'final_price' => 'decimal:2',
+        'start_date' => 'date',
+        'end_date' => 'date',
         'paid_at' => 'datetime',
         'admin_reviewed_at' => 'datetime',
         'user_confirmed_at' => 'datetime',
@@ -99,6 +105,11 @@ class CustomTourBooking extends Model
     public function hotels(): BelongsToMany
     {
         return $this->belongsToMany(Hotel::class, 'custom_tour_booking_hotel');
+    }
+
+    public function flights(): HasMany
+    {
+        return $this->hasMany(TourFlight::class, 'custom_tour_booking_id');
     }
 
 }

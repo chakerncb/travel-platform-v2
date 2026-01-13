@@ -8,7 +8,7 @@
 >
     <div x-data="{
         showPicker: false,
-        searchQuery: 'travel destination',
+        searchQuery: '',
         photos: [],
         currentPage: 1,
         totalPages: 1,
@@ -17,7 +17,7 @@
         
         togglePicker() {
             if (!this.destinationId) {
-                $wire.call('$parent.notifyWarning', 'Please save the destination first');
+                {{-- $wire.call('$parent.notifyWarning', 'Please save the destination first'); --}}
                 return;
             }
             this.showPicker = !this.showPicker;

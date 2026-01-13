@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verify Your Email - Tap2Eat</title>
+    <title>Verify Your Email - T7wisa</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -98,8 +98,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">🍽️ Tap2Eat</div>
-            <h1>Welcome to Tap2Eat!</h1>
+            <div class="logo">T7wisa</div>
+            <h1>Welcome to T7wisa!</h1>
             <p>Please verify your email address to get started</p>
         </div>
         
@@ -108,9 +108,9 @@
                 Hello <strong>{{ $userName }}</strong>,
             </div>
             
-            <p>Thank you for registering with Tap2Eat! We're excited to have you join our community of food lovers.</p>
+            <p>Thank you for registering with T7wisa! We're excited to have you join our community of Travel lovers.</p>
             
-            <p>To complete your registration and start exploring delicious restaurants, please verify your email address by clicking the button below:</p>
+            <p>To complete your registration and start exploring New Places, please verify your email address by clicking the button below:</p>
             
             <div style="text-align: center;">
                 <a href="{{ $verificationUrl }}" class="verify-button">
@@ -131,27 +131,18 @@
             </div>
             
             <div class="security-notice">
-                <strong>🔒 Security Notice:</strong> If you did not create an account with Tap2Eat, please ignore this email. This verification link is only valid for 1 hour and can only be used once.
+                <strong>🔒 Security Notice:</strong> If you did not create an account with T7wisa, please ignore this email. This verification link is only valid for 1 hour and can only be used once.
             </div>
-            
-            <p>Once verified, you'll be able to:</p>
-            <ul>
-                <li>🍕 Browse restaurants in your area</li>
-                <li>📱 Place orders with ease</li>
-                <li>⭐ Rate and review your dining experiences</li>
-                <li>🎯 Get personalized recommendations</li>
-            </ul>
-            
             <p>If you're having trouble with the verification link, you can request a new one from our app or contact our support team.</p>
             
-            <p>Thank you for choosing Tap2Eat!</p>
+            <p>Thank you for choosing T7wisa!</p>
             
             <p>Best regards,<br>
-            <strong>The Tap2Eat Team</strong></p>
+            <strong>The T7wisa Team</strong></p>
         </div>
         
         <div class="footer">
-            <p>© {{ date('Y') }} Tap2Eat. All rights reserved.</p>
+            <p>© {{ date('Y') }} T7wisa. All rights reserved.</p>
             <p>This email was sent to {{ $user->email }}. If you received this email by mistake, please ignore it.</p>
         </div>
     </div>

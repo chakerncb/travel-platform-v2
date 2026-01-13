@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class BookingResource extends Resource
 {
@@ -23,6 +24,7 @@ class BookingResource extends Resource
     protected static ?string $navigationLabel = 'Bookings';
 
     protected static ?string $recordTitleAttribute = 'booking_reference';
+    protected static string | UnitEnum | null $navigationGroup = 'Bookings';
 
     protected static ?int $navigationSort = 1;
 

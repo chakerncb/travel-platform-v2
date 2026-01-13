@@ -58,6 +58,17 @@ Route::prefix('v1')->group(function () {
     Route::post('custom-tour-bookings/{id}/admin-proposal', [App\Http\Controllers\Api\CustomTourBookingController::class, 'adminProposal']);
     Route::post('custom-tour-bookings/{id}/reject', [App\Http\Controllers\Api\CustomTourBookingController::class, 'reject']);
     Route::post('custom-tour-bookings/{id}/payment', [App\Http\Controllers\Api\CustomTourBookingController::class, 'updatePayment']);
+
+    // Flight routes
+    Route::prefix('flights')->group(function () {
+        Route::get('/search', [App\Http\Controllers\Api\FlightController::class, 'searchFlights']);
+        Route::post('/search-multi-city', [App\Http\Controllers\Api\FlightController::class, 'searchMultiCityFlights']);
+        Route::get('/airports/search', [App\Http\Controllers\Api\FlightController::class, 'searchAirportsByCity']);
+        Route::get('/airports/nearest', [App\Http\Controllers\Api\FlightController::class, 'getNearestAirport']);
+        Route::get('/airports/algeria', [App\Http\Controllers\Api\FlightController::class, 'getAlgerianAirportsEndpoint']);
+        Route::post('/custom-tour', [App\Http\Controllers\Api\FlightController::class, 'getCustomTourFlights']);
+        Route::post('/clear-cache', [App\Http\Controllers\Api\FlightController::class, 'clearCache']);
+    });
 });
 
 // Bookings routes (some public, some protected)

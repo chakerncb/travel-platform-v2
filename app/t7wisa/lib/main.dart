@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:t7wisa/screens/main_screen.dart';
+import 'package:t7wisa/screens/welcome_screen.dart';
 import 'package:t7wisa/util/const.dart';
 
 void main() async {
@@ -19,7 +20,7 @@ class _MyAppState extends State<MyApp> {
       title: Constants.appName,
       theme: Constants.lightTheme,
       darkTheme: Constants.darkTheme,
-      home: MainScreen(),
+      home: WelcomeScreen(),
     );
   }
 }

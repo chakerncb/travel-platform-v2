@@ -87,7 +87,7 @@ export default function YourJourney() {
                                         
                                         return (
                                         <SwiperSlide key={tour.id}>
-                                            <div className={index === 0 ? "card-journey-big background-card" : "card-journey-small background-card"}>
+                                            <div className={"card-journey-small background-card"}>
                                                 <div className="card-image">
                                                     <Link className="wish" href={`/tour-detail/${tour.id}`}>
                                                         <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
@@ -115,7 +115,7 @@ export default function YourJourney() {
                                                     </div>
                                                     <div className="card-title">
                                                         <Link 
-                                                            className={index === 0 ? "text-32-bold" : "heading-6 neutral-1000"} 
+                                                            className={"heading-6 neutral-1000"} 
                                                             href={`/tour-detail/${tour.id}`}
                                                         >
                                                             {tour.title}
@@ -137,15 +137,14 @@ export default function YourJourney() {
                                                                 <p className="text-md-medium neutral-500">/ person</p>
                                                             </div>
                                                         </div>
-                                                        {index === 0 && tour.end_date && (
+                                                        {/* {index === 0 && tour.end_date && (
                                                             <div className="endtime">
                                                                 <p className="text-sm-bold neutral-600">Promotion will end in</p>
                                                                 <div className="box-count box-count-square mb-0 mt-5 wow fadeInUp">
                                                                     <Countdown endDateTime={new Date(tour.end_date).getTime()} />
                                                                 </div>
                                                             </div>
-                                                        )}
-                                                        {index !== 0 && (
+                                                        )} */}
                                                             <div className="endtime">
                                                                 <div className="card-button">
                                                                     <Link className="btn btn-gray" href={`/tour-detail/${tour.id}`}>
@@ -153,7 +152,6 @@ export default function YourJourney() {
                                                                     </Link>
                                                                 </div>
                                                             </div>
-                                                        )}
                                                     </div>
                                                 </div>
                                             </div>

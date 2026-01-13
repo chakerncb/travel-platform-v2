@@ -38,8 +38,10 @@ class DestinationController extends Controller
         }
 
         // Pagination
-        $perPage = $request->get('per_page', 15);
-        $destinations = $query->paginate($perPage);
+        // $perPage = $request->get('per_page', 15);
+        // $destinations = $query->paginate($perPage);
+         $destinations = $query->get();
+
 
         return DestinationResource::collection($destinations);
     }
