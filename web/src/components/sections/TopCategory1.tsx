@@ -24,7 +24,7 @@ export default function TopCategory1() {
                         <div className="row">
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular background-card hover-up">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top.png" alt="Travila" />
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top.png" alt="T7wisa" />
                                     </div>
                                     <div className="card-info"> <Link className="card-title" href="/destination-2">Mountain</Link>
                                         <div className="card-meta">
@@ -40,7 +40,7 @@ export default function TopCategory1() {
                             </div>
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular background-card hover-up">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top2.png" alt="Travila" />
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top2.png" alt="T7wisa" />
                                     </div>
                                     <div className="card-info"> <Link className="card-title" href="/destination-2">Safari</Link>
                                         <div className="card-meta">
@@ -56,7 +56,7 @@ export default function TopCategory1() {
                             </div>
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular background-card hover-up">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top3.png" alt="Travila" />
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top3.png" alt="T7wisa" />
                                     </div>
                                     <div className="card-info"> <Link className="card-title" href="/destination-2">Desert</Link>
                                         <div className="card-meta">
@@ -72,7 +72,7 @@ export default function TopCategory1() {
                             </div>
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular background-card hover-up">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top4.png" alt="Travila" />
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top4.png" alt="T7wisa" />
                                     </div>
                                     <div className="card-info"> <Link className="card-title" href="/destination-2">Flower</Link>
                                         <div className="card-meta">
@@ -88,7 +88,7 @@ export default function TopCategory1() {
                             </div>
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular background-card hover-up">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top5.png" alt="Travila" />
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top5.png" alt="T7wisa" />
                                     </div>
                                     <div className="card-info"> <Link className="card-title" href="/destination-2">Beach</Link>
                                         <div className="card-meta">
@@ -104,7 +104,7 @@ export default function TopCategory1() {
                             </div>
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular background-card hover-up">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top6.png" alt="Travila" />
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top6.png" alt="T7wisa" />
                                     </div>
                                     <div className="card-info"> <Link className="card-title" href="/destination-2">Temples</Link>
                                         <div className="card-meta">
@@ -120,7 +120,7 @@ export default function TopCategory1() {
                             </div>
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular background-card hover-up">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top7.png" alt="Travila" />
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top7.png" alt="T7wisa" />
                                     </div>
                                     <div className="card-info"> <Link className="card-title" href="/destination-2">Yacht</Link>
                                         <div className="card-meta">
@@ -136,7 +136,7 @@ export default function TopCategory1() {
                             </div>
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular background-card hover-up">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top7.png" alt="Travila" />
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage2/top7.png" alt="T7wisa" />
                                     </div>
                                     <div className="card-info"> <Link className="card-title" href="/destination-2">Valley</Link>
                                         <div className="card-meta">

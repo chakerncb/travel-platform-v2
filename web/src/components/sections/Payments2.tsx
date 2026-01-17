@@ -18,9 +18,9 @@ export default function Payments2() {
                             <div className="col-lg-6">
                                 <div className="box-image-payment-2">
                                     <div className="row align-items-center">
-                                        <div className="col-sm-4 mb-30"><img className="bdrd8 w-100" src="/assets/imgs/page/homepage2/payment.png" alt="Travila" /></div>
-                                        <div className="col-sm-4 mb-30"><img className="bdrd8 w-100 mb-15" src="/assets/imgs/page/homepage2/payment2.png" alt="Travila" /><img className="bdrd8 w-100 mb-15" src="/assets/imgs/page/homepage2/payment3.png" alt="Travila" /></div>
-                                        <div className="col-sm-4 mb-30"><img className="bdrd8 w-100" src="/assets/imgs/page/homepage2/payment4.png" alt="Travila" /><img className="bdrd8 w-100" src="/assets/imgs/page/homepage2/payment5.png" alt="Travila" /></div>
+                                        <div className="col-sm-4 mb-30"><img className="bdrd8 w-100" src="/assets/imgs/page/homepage2/payment.png" alt="T7wisa" /></div>
+                                        <div className="col-sm-4 mb-30"><img className="bdrd8 w-100 mb-15" src="/assets/imgs/page/homepage2/payment2.png" alt="T7wisa" /><img className="bdrd8 w-100 mb-15" src="/assets/imgs/page/homepage2/payment3.png" alt="T7wisa" /></div>
+                                        <div className="col-sm-4 mb-30"><img className="bdrd8 w-100" src="/assets/imgs/page/homepage2/payment4.png" alt="T7wisa" /><img className="bdrd8 w-100" src="/assets/imgs/page/homepage2/payment5.png" alt="T7wisa" /></div>
                                     </div>
                                 </div>
                             </div>

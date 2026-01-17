@@ -10,7 +10,7 @@ export default function Picked() {
 				<div className="container">
 					<div className="row align-items-end">
 						<div className="col-md-9 mb-30 wow fadeInUp">
-							<h2 className="neutral-1000">Picked by Travila</h2>
+							<h2 className="neutral-1000">Picked by T7wisa</h2>
 							<p className="text-xl-medium neutral-500">Quality as judged by customers. Book at the ideal price!
 							</p>
 						</div>

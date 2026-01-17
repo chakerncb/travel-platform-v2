@@ -41,14 +41,14 @@ export default function CommingSoon() {
 									</div>
 									<div className="col-lg-6">
 										<div className="box-detail-info">
-											<h6>Welcome to Travila!</h6>
-											<p>We are in the process of creating an entirely new hotel booking  experience, connecting you with thousands of hotels worldwide. At  Travila, we are committed to providing you with the most memorable and  comfortable travel experiences.</p>
+											<h6>Welcome to T7wisa!</h6>
+											<p>We are in the process of creating an entirely new hotel booking  experience, connecting you with thousands of hotels worldwide. At  T7wisa, we are committed to providing you with the most memorable and  comfortable travel experiences.</p>
 											<h6>Explore our key features:</h6>
 											<p> <strong>Easy Booking: </strong>With our convenient and flexible booking system, you'll be able to quickly search for and book your preferred accommodations.</p>
-											<p> <strong>Discover Special Deals: </strong>Travila offers you enticing deals and special discounts for popular travel destinations around the globe.</p>
+											<p> <strong>Discover Special Deals: </strong>T7wisa offers you enticing deals and special discounts for popular travel destinations around the globe.</p>
 											<p> <strong>24/7 Customer Support: </strong>Our customer support team is always ready to assist you anytime, ensuring that all your experiences are seamless.</p>
 											<p className="text-xl-bold">Thank you for visiting!</p>
-											<p>Stay connected with us to receive updates and special discounts when we  officially launch. Don't miss out on the opportunity to experience  amazing travel adventures with Travila!</p>
+											<p>Stay connected with us to receive updates and special discounts when we  officially launch. Don't miss out on the opportunity to experience  amazing travel adventures with T7wisa!</p>
 										</div>
 										<div className="box-share-us">
 											<p className="text-lg-bold neutral-1000 mb-10">Follow us:</p>
@@ -68,7 +68,7 @@ export default function CommingSoon() {
 														</svg></Link></div>
 											</div>
 											<p className="text-lg-medium neutral-500">Best regards, </p>
-											<p className="text-lg-bold neutral-1000">Travila Team</p>
+											<p className="text-lg-bold neutral-1000">T7wisa Team</p>
 										</div>
 									</div>
 								</div>

@@ -147,7 +147,7 @@ export default function TourGrid3() {
 					<section className="box-section block-banner-tourlist" style={{ backgroundImage: 'url(assets/imgs/page/tour/banner5.png)' }}>
 						<div className="container">
 							<div className="text-center">
-								<h3>Journey with Travila - Begin Your Story!</h3>
+								<h3>Journey with T7wisa - Begin Your Story!</h3>
 								<h6 className="heading-6-medium">Easily search for top tours offered by our professional network</h6>
 							</div>
 						</div>
@@ -157,7 +157,7 @@ export default function TourGrid3() {
 							<div className="box-content-main">
 								<div className="content-right">
 									<div className="box-filters mb-25 pb-5 border-bottom border-1">
-										<SortToursFilter
+										{/* <SortToursFilter
 											sortCriteria={sortCriteria}
 											handleSortChange={handleSortChange}
 											itemsPerPage={itemsPerPage}
@@ -166,7 +166,7 @@ export default function TourGrid3() {
 											startItemIndex={startItemIndex}
 											endItemIndex={endItemIndex}
 											sortedTours={sortedTours}
-										/>
+										/> */}
 									</div>
 									{loading ? (
 										<div className="text-center py-5">
@@ -216,7 +216,7 @@ export default function TourGrid3() {
 												/>
 											</div>
 											<div className="block-filter border-1">
-												<h6 className="text-lg-bold item-collapse neutral-1000">By Attractions</h6>
+												<h6 className="text-lg-bold item-collapse neutral-1000">By Destinations</h6>
 												<ByAttraction
 													uniqueAttractions={uniqueAttractions}
 													filter={filter}
@@ -238,17 +238,17 @@ export default function TourGrid3() {
 													handleCheckboxChange={handleCheckboxChange}
 												/>
 											</div>
-											<div className="block-filter border-1">
+											{/* <div className="block-filter border-1">
 												<h6 className="text-lg-bold item-collapse neutral-1000">By Language </h6>
 												<ByLanguage
 													uniqueLanguages={uniqueLanguages}
 													filter={filter}
 													handleCheckboxChange={handleCheckboxChange}
 												/>
-											</div>
+											</div> */}
 										</div>
 									</div>
-									<div className="sidebar-left border-1 background-body">
+									{/* <div className="sidebar-left border-1 background-body">
 										<h6 className="text-lg-bold neutral-1000">Popular Tours</h6>
 										<div className="box-popular-posts">
 											<ul>
@@ -286,13 +286,21 @@ export default function TourGrid3() {
 												</Link>
 											</div>
 										)}
-									</div>
+									</div> */}
 								</div>
 							</div>
 						</div>
 					</section>
 					<section className="section-box box-media background-body">
-						<div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media2.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media3.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media4.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media5.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media6.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media7.png" alt="Travila" /></div>
+						<div className="container-media wow fadeInUp">
+							 <img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" />
+							 <img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" />
+							 <img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" />
+							 <img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" />
+							 <img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" />
+							 <img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" />
+							 <img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" />
+							 </div>
 					</section>
 				</main>
 

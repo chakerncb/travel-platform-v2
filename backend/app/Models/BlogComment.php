@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class BlogComment extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'blog_id',
+        'parent_id',
+        'name',
+        'email',
+        'comment',
+        'status',
+    ];
+
+    public function blog(): BelongsTo
+    {
+        return $this->belongsTo(Blog::class);
+    }
+
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(BlogComment::class, 'parent_id');
+    }
+
+    public function replies(): HasMany
+    {
+        return $this->hasMany(BlogComment::class, 'parent_id')
+                    ->where('status', 'approved')
+                    ->orderBy('created_at', 'asc');
+    }
+}

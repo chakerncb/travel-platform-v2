@@ -32,12 +32,12 @@ export default function BannerHome8() {
 							</div>
 						</div>
 					</div>
-					<div className="image-banner-bottom"> <img src="/assets/imgs/page/homepage9/banner-sm.png" alt="Travila" />
+					<div className="image-banner-bottom"> <img src="/assets/imgs/page/homepage9/banner-sm.png" alt="T7wisa" />
 					</div>
-					<div className="image-banner-top-left"> <img src="/assets/imgs/page/homepage9/banner-sm2.png" alt="Travila" />
+					<div className="image-banner-top-left"> <img src="/assets/imgs/page/homepage9/banner-sm2.png" alt="T7wisa" />
 					</div>
 					<div className="block-right-banner" style={{ backgroundImage: 'url(assets/imgs/page/homepage9/banner.png)' }}>
-						<div className="item-support border-1 background-body"> <img className="light-mode" src="/assets/imgs/page/homepage9/support.png" alt="Travila" /><img className="dark-mode" src="/assets/imgs/page/homepage9/support-dark.png" alt="Travila" />
+						<div className="item-support border-1 background-body"> <img className="light-mode" src="/assets/imgs/page/homepage9/support.png" alt="T7wisa" /><img className="dark-mode" src="/assets/imgs/page/homepage9/support-dark.png" alt="T7wisa" />
 							<div className="text-support">
 								<p className="text-sm-bold neutral-1000">Customer Service</p>
 								<h6 className="neutral-1000">+01 235 368</h6>
@@ -45,13 +45,13 @@ export default function BannerHome8() {
 						</div>
 						<div className="item-people-used">
 							<div className="box-authors-partner background-body wow fadeInUp">
-								<div className="authors-partner-left"><img src="/assets/imgs/page/homepage5/author.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/author2.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/author3.png" alt="Travila" /><span className="item-author">
+								<div className="authors-partner-left"><img src="/assets/imgs/page/homepage5/author.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/author2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/author3.png" alt="T7wisa" /><span className="item-author">
 									<svg width={18} height={18} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
 										<rect x="0.5" y="7.448" width={17} height="2.31818" fill="black" />
 										<rect x="7.84082" y="17.1072" width={17} height="2.31818" transform="rotate(-90 7.84082 17.1072)" fill="black" />
 									</svg></span></div>
 								<div className="authors-partner-right">
-									<p className="text-sm neutral-1000">1684 people used <strong>Travila </strong>in the last
+									<p className="text-sm neutral-1000">1684 people used <strong>T7wisa </strong>in the last
 										<strong>24 hours</strong></p>
 								</div>
 							</div>

@@ -23,7 +23,7 @@ export default function OurServices() {
                         <div className="row">
                             <div className="col-xl-3 col-lg-4 col-md-6 wow fadeInDown">
                                 <div className="card-spot background-card">
-                                    <div className="card-image"> <Link href="/rental-detail"><img src="/assets/imgs/page/homepage8/service.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"> <Link href="/rental-detail"><img src="/assets/imgs/page/homepage8/service.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="/rental-detail">Chauffeur Hailing</Link></div>
@@ -41,7 +41,7 @@ export default function OurServices() {
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-6 wow fadeInDown">
                                 <div className="card-spot background-card">
-                                    <div className="card-image"> <Link href="/rental-detail"><img src="/assets/imgs/page/homepage8/service2.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"> <Link href="/rental-detail"><img src="/assets/imgs/page/homepage8/service2.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="/rental-detail">Airport Transfer</Link></div>
@@ -59,7 +59,7 @@ export default function OurServices() {
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-6 wow fadeInDown">
                                 <div className="card-spot background-card">
-                                    <div className="card-image"> <Link href="/rental-detail"><img src="/assets/imgs/page/homepage8/service3.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"> <Link href="/rental-detail"><img src="/assets/imgs/page/homepage8/service3.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="/rental-detail">Corporate Fleet</Link></div>
@@ -77,7 +77,7 @@ export default function OurServices() {
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-6 wow fadeInDown">
                                 <div className="card-spot background-card">
-                                    <div className="card-image"> <Link href="/rental-detail"><img src="/assets/imgs/page/homepage8/service4.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"> <Link href="/rental-detail"><img src="/assets/imgs/page/homepage8/service4.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="/rental-detail">One-Way Rentals</Link></div>

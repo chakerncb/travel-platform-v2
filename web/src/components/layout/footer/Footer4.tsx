@@ -6,14 +6,14 @@ export default function Footer4() {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-4 col-sm-12">
-                            <div className="mb-20"><Link className="d-inline-block mb-20" href="/"><img alt="Travila" src="/assets/imgs/template/logo-footer.svg" /></Link>
+                            <div className="mb-20"><Link className="d-inline-block mb-20" href="/"><img alt="T7wisa" src="/assets/imgs/template/logo-footer.svg" /></Link>
                                 <div className="box-info-contact mt-0">
                                     <p className="text-md color-white">Dive into local recommendations for a truly authentic
                                         experience.</p>
-                                    <p className="text-md neutral-400 icon-address">4517 Washington Ave. Manchester, Kentucky 39495
+                                    <p className="text-md neutral-400 icon-address">Algeria, Guelma, Guelaat Bou Sbaa
                                     </p>
                                     <p className="text-md neutral-400 icon-worktime">Hours: 8:00 - 17:00, Mon - Sat</p>
-                                    <p className="text-md neutral-400 icon-email">support@travila.com</p>
+                                    <p className="text-md neutral-400 icon-email">support@T7wisa.com</p>
                                 </div>
                             </div>
                         </div>
@@ -53,17 +53,17 @@ export default function Footer4() {
                     </div>
                     <div className="box-footer-col-3">
                         <div className="footer-col-1">
-                            <div className="box-footer-help"><img alt="Travila" src="/assets/imgs/page/homepage6/help.svg" />
+                            <div className="box-footer-help"><img alt="T7wisa" src="/assets/imgs/page/homepage6/help.svg" />
                                 <div className="box-info-support">
-                                    <p className="text-md-medium mb-5">Need help? Call us</p><Link className="heading-6 phone-support" href="/tel:1-800-222-8888">1-800-222-8888</Link>
+                                    <p className="text-md-medium mb-5">Need help? Call us</p><Link className="heading-6 phone-support" href="/tel:05-00-00-00-00">05-00-00-00-00</Link>
                                 </div>
                             </div>
                         </div>
                         <div className="footer-col-2">
-                            <div className="box-join"><img alt="Travila" src="/assets/imgs/page/homepage6/join.svg" /><span className="text-xl-bold">Join Travila Affiliate Program Today !</span></div>
+                            <div className="box-join"><img alt="T7wisa" src="/assets/imgs/page/homepage6/join.svg" /><span className="text-xl-bold">Join T7wisa Affiliate Program Today !</span></div>
                         </div>
                         <div className="footer-col-3">
-                            <div className="box-send-message"> <img alt="Travila" src="/assets/imgs/page/homepage6/msg.svg" />
+                            <div className="box-send-message"> <img alt="T7wisa" src="/assets/imgs/page/homepage6/msg.svg" />
                                 <div className="box-info-msg">
                                     <p className="text-xl-bold">Send us a message</p>
                                     <p className="text-xs-medium">Contact our agents about your booking, and we'll reply as soon as
@@ -75,7 +75,7 @@ export default function Footer4() {
                     <div className="footer-bottom mt-50">
                         <div className="row align-items-center">
                             <div className="col-md-6 text-md-start text-center mb-20">
-                                <p className="text-sm color-white">© {new Date().getFullYear()} Travila Inc. All rights reserved.</p>
+                                <p className="text-sm color-white">© {new Date().getFullYear()} T7wisa Inc. All rights reserved.</p>
                             </div>
                             <div className="col-md-6 text-md-end text-center mb-20">
                                 <div className="d-flex align-items-center justify-content-center justify-content-md-end box-socials-footer-cover">

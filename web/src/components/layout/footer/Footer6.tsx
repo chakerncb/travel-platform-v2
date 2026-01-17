@@ -6,13 +6,13 @@ export default function Footer6() {
 					<div className="container-footer">
 						<div className="row">
 							<div className="col-lg-3 col-sm-12">
-								<div className="mt-20 mb-20"><a className="d-inline-block mb-20" href="index.html"><img alt="Travila" src="assets/imgs/template/logo-footer.svg" /></a>
+								<div className="mt-20 mb-20"><a className="d-inline-block mb-20" href="index.html"><img alt="T7wisa" src="assets/imgs/template/logo-footer.svg" /></a>
 									<div className="box-info-contact mt-0">
 										<p className="text-md color-white">Dive into local recommendations for a truly authentic
 											experience.</p>
 									</div>
 									<div className="box-need-help">
-										<p className="need-help text-md-medium mb-5">Need help? Call us</p><br /><a className="heading-6 phone-support" href="tel:1-800-222-8888">1-800-222-8888</a>
+										<p className="need-help text-md-medium mb-5">Need help? Call us</p><br /><a className="heading-6 phone-support" href="tel:05-00-00-00-00">05-00-00-00-00</a>
 									</div>
 								</div>
 							</div>
@@ -72,7 +72,7 @@ export default function Footer6() {
 						<div className="footer-bottom mt-50">
 							<div className="row align-items-center">
 								<div className="col-md-6 text-md-start text-center mb-20">
-									<p className="text-sm color-white">© 2024 Travila Inc. All rights reserved.</p>
+									<p className="text-sm color-white">© 2024 T7wisa Inc. All rights reserved.</p>
 								</div>
 								<div className="col-md-6 text-md-end text-center mb-20">
 									<div className="d-flex align-items-center justify-content-center justify-content-md-end box-socials-footer-cover">

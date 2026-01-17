@@ -4,6 +4,7 @@ import './globals.css'
 import type { Metadata } from "next"
 import { Manrope, Merienda } from "next/font/google"
 import AuthSessionProvider from '@/src/components/providers/SessionProvider'
+import FloatingChat from '@/src/components/chat/FloatingChat'
 
 const manrope_init = Manrope({
     weight: ['300', '400', '500', '600', '700','800'],
@@ -19,8 +20,8 @@ const merienda_init = Merienda({
 })
 
 export const metadata: Metadata = {
-    title: "T7wisa - Multipurpose Travel Booking Next.js Template",
-    description: "Multipurpose Travel Booking Next.js Template",
+    title: "T7wisa - Travel Platform ",
+    description: "Multipurpose Travel Platform",
 }
 
 export default function RootLayout({
@@ -33,6 +34,7 @@ export default function RootLayout({
             <body>
                 <AuthSessionProvider>
                     {children}
+                    <FloatingChat />
                 </AuthSessionProvider>
             </body>
         </html>

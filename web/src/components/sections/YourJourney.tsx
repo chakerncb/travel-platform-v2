@@ -82,7 +82,7 @@ export default function YourJourney() {
                                         const allDestinationImages = tour.destinations?.map(dest => dest.image_url).filter(Boolean) || [];
                                         const imageUrl = allDestinationImages[0] || "/assets/imgs/page/homepage1/journey1.png";
                                         const imageAlt = tour.title;
-                                        const tourRating = tour.average_rating || 0;
+                                        const tourRating = Number(tour.average_rating) || 0;
                                         const reviewsCount = tour.reviews_count || 0;
                                         
                                         return (

@@ -1,11 +1,11 @@
-export default function WhyBookTravila2() {
+export default function WhyBookT7wisa2() {
     return (
         <>
 
-            <section className="section-box box-why-book-travila-2 background-body">
+            <section className="section-box box-why-book-T7wisa-2 background-body">
                 <div className="container">
                     <div className="row align-items-center">
-                        <div className="col-lg-6 mb-30"><span className="btn btn-brand-secondary wow fadeInUp"> <img className="mr-10" src="/assets/imgs/page/homepage4/earth.svg" alt="Travile" />Why book at Travila ?</span>
+                        <div className="col-lg-6 mb-30"><span className="btn btn-brand-secondary wow fadeInUp"> <img className="mr-10" src="/assets/imgs/page/homepage4/earth.svg" alt="Travile" />Why book at T7wisa ?</span>
                             <h2 className="mt-15 mb-15 neutral-1000 wow fadeInUp">Embracing Adventure Since 2003</h2>
                             <p className="text-xl-medium neutral-1000 mb-30 wow fadeInUp">Choose one style or create a package,
                                  your passports with adventures together.</p>
@@ -32,7 +32,7 @@ export default function WhyBookTravila2() {
                             <div className="row">
                                 <div className="col-lg-6 col-sm-6 mt-30">
                                     <div className="card-why card-why-2 background-1 wow fadeInUp">
-                                        <div className="card-image"> <img src="/assets/imgs/page/homepage6/experience.png" alt="Travila" /></div>
+                                        <div className="card-image"> <img src="/assets/imgs/page/homepage6/experience.png" alt="T7wisa" /></div>
                                         <div className="card-info">
                                             <h6 className="text-xl-bold neutral-1000">300,000+ Experiences</h6>
                                             <p className="text-lg-medium neutral-500">Make memories around the world.</p>

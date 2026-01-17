@@ -105,10 +105,10 @@ export default function BannerMainSlider() {
 			</Slider>
 			<div className="slider-thumnail">
 				<Slider {...settingsThumbs} ref={slider2} className="slider-nav-thumbnails">
-					<div className="banner-slide"><img src="/assets/imgs/page/homepage2/thumb.png" alt="Travila" /></div>
-					<div className="banner-slide"><img src="/assets/imgs/page/homepage2/thumb2.png" alt="Travila" /></div>
-					<div className="banner-slide"><img src="/assets/imgs/page/homepage2/thumb3.png" alt="Travila" /></div>
-					<div className="banner-slide"><img src="/assets/imgs/page/homepage2/thumb.png" alt="Travila" /></div>
+					<div className="banner-slide"><img src="/assets/imgs/page/homepage2/thumb.png" alt="T7wisa" /></div>
+					<div className="banner-slide"><img src="/assets/imgs/page/homepage2/thumb2.png" alt="T7wisa" /></div>
+					<div className="banner-slide"><img src="/assets/imgs/page/homepage2/thumb3.png" alt="T7wisa" /></div>
+					<div className="banner-slide"><img src="/assets/imgs/page/homepage2/thumb.png" alt="T7wisa" /></div>
 				</Slider>
 			</div>
 		</>

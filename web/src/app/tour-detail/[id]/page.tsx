@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import BookingForm from '@/src/components/elements/BookingForm'
 import TourMap from '@/src/components/elements/TourMap'
+import TourReviews from '@/src/components/elements/TourReviews'
 import Layout from "@/src/components/layout/Layout"
 import SwiperGroup3Slider from '@/src/components/slider/SwiperGroup3Slider'
 import Link from "next/link"
@@ -134,6 +135,9 @@ export default function TourDetail() {
 							<TourMap destinations={tour.destinations || []} />
 						</div>
 					</section>
+					
+					{/* Tour Reviews Section */}
+					
 					<section className="box-section box-content-tour-detail background-body">
 						<div className="container">
 							<div className="tour-header">
@@ -427,6 +431,10 @@ export default function TourDetail() {
 							</div>
 						</div>
 					</section>
+
+					<TourReviews tourId={tourId} />
+
+
 					<section className="section-box box-news background-body">
 						<div className="container">
 							<div className="row align-items-end">

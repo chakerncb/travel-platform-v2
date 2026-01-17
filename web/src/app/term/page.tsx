@@ -30,7 +30,7 @@ export default function Term() {
                             </div>
                             <div className="box-mw-824">
                                 <div className="box-detail-info">
-                                    <p className="neutral-1000">Welcome to Travila! Before you begin using our platform, please take a  moment to review the terms and conditions that govern your use of our  website and services.</p>
+                                    <p className="neutral-1000">Welcome to T7wisa! Before you begin using our platform, please take a  moment to review the terms and conditions that govern your use of our  website and services.</p>
                                     <p> <strong>Acceptance of Terms:</strong>By accessing and using our platform, you acknowledge that you have read,  understood, and agree to be bound by these terms and conditions. If you  do not agree with these terms, please do not use our services.</p>
                                     <p> <strong>User Accounts:</strong>To use our platform, you must create a user account. You are responsible  for maintaining the confidentiality of your account information and for  all activities that occur under your account.</p>
                                     <p> <strong>Subscription Plans: </strong>We offer various subscription plans for our services, each with  different features and prices. You can select the plan that best fits  your needs and preferences.</p>
@@ -60,13 +60,13 @@ export default function Term() {
                                                 </svg></Link></div>
                                     </div>
                                     <p className="text-lg-medium neutral-500">Best regards, </p>
-                                    <p className="text-lg-bold neutral-1000">Travila Team</p>
+                                    <p className="text-lg-bold neutral-1000">T7wisa Team</p>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <section className="section-box box-media background-body">
-                        <div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media2.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media3.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media4.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media5.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media6.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media7.png" alt="Travila" /></div>
+                        <div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" /></div>
                     </section>
                 </main>
 

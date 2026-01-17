@@ -21,7 +21,7 @@ export default function PopularDestinations3() {
                         <div className="row">
                             <div className="col-lg-3 col-sm-6 wow fadeInUp">
                                 <div className="card-popular background-card">
-                                    <div className="card-image"><Link href="/destination"><img src="/assets/imgs/page/homepage1/popular.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"><Link href="/destination"><img src="/assets/imgs/page/homepage1/popular.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">Venice</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link href="#">356 Tours, </Link><Link href="#">248
@@ -36,7 +36,7 @@ export default function PopularDestinations3() {
                             </div>
                             <div className="col-lg-3 col-sm-6 wow fadeInUp">
                                 <div className="card-popular background-card">
-                                    <div className="card-image"><Link href="/destination"><img src="/assets/imgs/page/homepage1/popular2.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"><Link href="/destination"><img src="/assets/imgs/page/homepage1/popular2.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">Amsterdam</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link href="#">356 Tours, </Link><Link href="#">248
@@ -51,7 +51,7 @@ export default function PopularDestinations3() {
                             </div>
                             <div className="col-lg-3 col-sm-6 wow fadeInUp">
                                 <div className="card-popular background-card">
-                                    <div className="card-image"><Link href="/destination"><img src="/assets/imgs/page/homepage1/popular3.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"><Link href="/destination"><img src="/assets/imgs/page/homepage1/popular3.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">Budapest</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link href="#">356 Tours, </Link><Link href="#">248
@@ -66,7 +66,7 @@ export default function PopularDestinations3() {
                             </div>
                             <div className="col-lg-3 col-sm-6 wow fadeInUp">
                                 <div className="card-popular background-card">
-                                    <div className="card-image"><Link href="/destination"><img src="/assets/imgs/page/homepage1/popular4.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"><Link href="/destination"><img src="/assets/imgs/page/homepage1/popular4.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">Lisbon</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link href="#">356 Tours, </Link><Link href="#">248
@@ -81,7 +81,7 @@ export default function PopularDestinations3() {
                             </div>
                             <div className="col-lg-3 col-sm-6 wow fadeInUp">
                                 <div className="card-popular background-card">
-                                    <div className="card-image"><Link href="/destination"><img src="/assets/imgs/page/homepage1/popular5.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"><Link href="/destination"><img src="/assets/imgs/page/homepage1/popular5.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">London</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link href="#">356 Tours, </Link><Link href="#">248
@@ -96,7 +96,7 @@ export default function PopularDestinations3() {
                             </div>
                             <div className="col-lg-3 col-sm-6 wow fadeInUp">
                                 <div className="card-popular background-card">
-                                    <div className="card-image"><Link href="/destination"><img src="/assets/imgs/page/homepage1/popular6.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"><Link href="/destination"><img src="/assets/imgs/page/homepage1/popular6.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">Ottawa</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link href="#">356 Tours, </Link><Link href="#">248
@@ -111,7 +111,7 @@ export default function PopularDestinations3() {
                             </div>
                             <div className="col-lg-3 col-sm-6 wow fadeInUp">
                                 <div className="card-popular background-card">
-                                    <div className="card-image"><Link href="/destination"><img src="/assets/imgs/page/homepage1/popular7.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"><Link href="/destination"><img src="/assets/imgs/page/homepage1/popular7.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">Paris</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link href="#">356 Tours, </Link><Link href="#">248

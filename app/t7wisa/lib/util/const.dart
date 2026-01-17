@@ -5,8 +5,8 @@ class Constants {
 
   // API Configuration
   // Use 10.0.2.2 for Android emulator, localhost for iOS simulator, or your computer's IP for physical devices
-  static String apiBaseUrl = "http://192.168.1.25:8000/api";
-  static String apiUrl = "http://192.168.1.25:8000/api/v1";
+  static String apiBaseUrl = "http://192.168.1.26:8000/api";
+  static String apiUrl = "http://192.168.1.26:8000/api/v1";
 
   //Colors for theme
   static Color lightPrimary = Color(0xfffcfcff);

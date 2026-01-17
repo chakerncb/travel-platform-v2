@@ -19,6 +19,7 @@ import Footer5 from './footer/Footer5'
 import Footer6 from './footer/Footer6'
 import Header1 from "./header/Header1"
 import Header2 from './header/Header2'
+import FloatingChat from "../chat/FloatingChat"
 
 interface LayoutProps {
 	headerStyle?: Number
@@ -126,7 +127,11 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
 				handleLogin={handleLogin}
 			/>
 
-			<BackToTop target="top" />
+			{/* <BackToTop target="top" /> */}
+			<div style={{ backgroundColor:"pink", position: 'fixed', bottom: '20px', right: '20px', zIndex: 1000 }}>
+			<FloatingChat />
+
+			</div>
 		</>
 	)
 }

@@ -14,11 +14,11 @@ export default function ByRating({ uniqueRatings, filter, handleCheckboxChange }
 								/>
 								{rating} stars
 								<span className="text-sm-medium">
-									<img src="/assets/imgs/template/icons/star-yellow.svg" alt="Travila" />
-									<img src="/assets/imgs/template/icons/star-yellow.svg" alt="Travila" />
-									<img src="/assets/imgs/template/icons/star-yellow.svg" alt="Travila" />
-									<img src="/assets/imgs/template/icons/star-yellow.svg" alt="Travila" />
-									<img src="/assets/imgs/template/icons/star-yellow.svg" alt="Travila" />
+									<img src="/assets/imgs/template/icons/star-yellow.svg" alt="T7wisa" />
+									<img src="/assets/imgs/template/icons/star-yellow.svg" alt="T7wisa" />
+									<img src="/assets/imgs/template/icons/star-yellow.svg" alt="T7wisa" />
+									<img src="/assets/imgs/template/icons/star-yellow.svg" alt="T7wisa" />
+									<img src="/assets/imgs/template/icons/star-yellow.svg" alt="T7wisa" />
 								</span>
 								<span className="checkmark" />
 							</label>

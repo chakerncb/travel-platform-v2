@@ -10,7 +10,7 @@ export default function Testimonials3() {
                 <div className="container">
                     <div className="row align-items-end">
                         <div className="col-md-9 col-sm-9 wow fadeInUp">
-                            <h2 className="mt-8 mb-15 neutral-1000">They Love Travila</h2>
+                            <h2 className="mt-8 mb-15 neutral-1000">They Love T7wisa</h2>
                             <p className="text-xl-medium neutral-500">What our clients are saying about us?</p>
                         </div>
                         <div className="col-md-3 col-sm-3 wow fadeInUp">
@@ -47,14 +47,14 @@ export default function Testimonials3() {
                                                 </div>
                                                 <div className="card-top">
                                                     <div className="card-author">
-                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="Travila" />
+                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="T7wisa" />
                                                         </div>
                                                         <div className="card-info">
                                                             <p className="text-lg-bold neutral-1000">Sara Mohamed</p>
                                                             <p className="text-sm neutral-1000">Jakatar</p>
                                                         </div>
                                                     </div>
-                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /></div>
+                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
                                                 </div>
                                             </div>
                                         </SwiperSlide>
@@ -70,14 +70,14 @@ export default function Testimonials3() {
                                                 </div>
                                                 <div className="card-top">
                                                     <div className="card-author">
-                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="Travila" />
+                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="T7wisa" />
                                                         </div>
                                                         <div className="card-info">
                                                             <p className="text-lg-bold neutral-1000">Atend John</p>
                                                             <p className="text-sm neutral-1000">Califonia</p>
                                                         </div>
                                                     </div>
-                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /></div>
+                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
                                                 </div>
                                             </div>
                                         </SwiperSlide>
@@ -93,14 +93,14 @@ export default function Testimonials3() {
                                                 </div>
                                                 <div className="card-top">
                                                     <div className="card-author">
-                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="Travila" />
+                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="T7wisa" />
                                                         </div>
                                                         <div className="card-info">
                                                             <p className="text-lg-bold neutral-1000">Sara Mohamed</p>
                                                             <p className="text-sm neutral-1000">Jakatar</p>
                                                         </div>
                                                     </div>
-                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /></div>
+                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
                                                 </div>
                                             </div>
                                         </SwiperSlide>
@@ -116,14 +116,14 @@ export default function Testimonials3() {
                                                 </div>
                                                 <div className="card-top">
                                                     <div className="card-author">
-                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="Travila" />
+                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="T7wisa" />
                                                         </div>
                                                         <div className="card-info">
                                                             <p className="text-lg-bold neutral-1000">Sara Mohamed</p>
                                                             <p className="text-sm neutral-1000">Jakatar</p>
                                                         </div>
                                                     </div>
-                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /></div>
+                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
                                                 </div>
                                             </div>
                                         </SwiperSlide>

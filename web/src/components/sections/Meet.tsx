@@ -11,7 +11,7 @@ export default function Meet() {
                 <div className="container">
                     <div className="row align-items-end">
                         <div className="col-lg-6 mb-30 wow fadeInUp">
-                            <div className="box-author-testimonials button-brand-2 wow fadeInUp"> <img src="/assets/imgs/page/homepage1/testimonial.png" alt="Travila" /><img src="/assets/imgs/page/homepage1/testimonial2.png" alt="Travila" /><img src="/assets/imgs/page/homepage1/testimonial3.png" alt="Travila" />Our Team</div>
+                            <div className="box-author-testimonials button-brand-2 wow fadeInUp"> <img src="/assets/imgs/page/homepage1/testimonial.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage1/testimonial2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage1/testimonial3.png" alt="T7wisa" />Our Team</div>
                             <h2 className="mt-8 mb-10 neutral-1000">Meet our Agents</h2>
                             <p className="text-xl-medium neutral-500">Meet our exceptional team of agents, each dedicated to
                                 making your property journey seamless and successful</p>
@@ -38,12 +38,12 @@ export default function Meet() {
                                     <div className="row">
                                         <div className="col-lg-6 wow fadeInUp">
                                             <div className="card-team">
-                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team.png" alt="Travila" /></div>
+                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team.png" alt="T7wisa" /></div>
                                                 <div className="card-info">
                                                     <h6 className="neutral-1000">John Thompson</h6>
                                                     <p className="text-sm-medium neutral-500">Founder and Principal Broker</p>
                                                     <p className="text-xs-medium neutral-1000">With over 15 years of real estate
-                                                        experience, John leads the Travila team with passion and expertise.
+                                                        experience, John leads the T7wisa team with passion and expertise.
                                                         His commitment to client satisfaction and market knowledge sets the
                                                         standard for our exceptional service.</p>
                                                     <div className="card-socials"> <Link className="link-social background-100" href="#">
@@ -64,7 +64,7 @@ export default function Meet() {
                                         </div>
                                         <div className="col-lg-6 wow fadeInUp">
                                             <div className="card-team">
-                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team2.png" alt="Travila" /></div>
+                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team2.png" alt="T7wisa" /></div>
                                                 <div className="card-info">
                                                     <h6 className="neutral-1000">Emily Rodriguez</h6>
                                                     <p className="text-sm-medium neutral-500">Senior Real Estate Advisor</p>
@@ -90,12 +90,12 @@ export default function Meet() {
                                         </div>
                                         <div className="col-lg-6 wow fadeInUp">
                                             <div className="card-team">
-                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team3.png" alt="Travila" /></div>
+                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team3.png" alt="T7wisa" /></div>
                                                 <div className="card-info">
                                                     <h6 className="neutral-1000">Michael Chang</h6>
                                                     <p className="text-sm-medium neutral-500">Residential Specialist</p>
                                                     <p className="text-xs-medium neutral-1000">With over 15 years of real estate
-                                                        experience, John leads the Travila team with passion and expertise.
+                                                        experience, John leads the T7wisa team with passion and expertise.
                                                         His commitment to client satisfaction and market knowledge sets the
                                                         standard for our exceptional service.</p>
                                                     <div className="card-socials"> <Link className="link-social background-100" href="#">
@@ -116,12 +116,12 @@ export default function Meet() {
                                         </div>
                                         <div className="col-lg-6 wow fadeInUp">
                                             <div className="card-team">
-                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team4.png" alt="Travila" /></div>
+                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team4.png" alt="T7wisa" /></div>
                                                 <div className="card-info">
                                                     <h6 className="neutral-1000">Michael Chang</h6>
                                                     <p className="text-sm-medium neutral-500">Residential Specialist</p>
                                                     <p className="text-xs-medium neutral-1000">With over 15 years of real estate
-                                                        experience, John leads the Travila team with passion and expertise.
+                                                        experience, John leads the T7wisa team with passion and expertise.
                                                         His commitment to client satisfaction and market knowledge sets the
                                                         standard for our exceptional service.</p>
                                                     <div className="card-socials"> <Link className="link-social background-100" href="#">
@@ -146,12 +146,12 @@ export default function Meet() {
                                     <div className="row">
                                         <div className="col-lg-6 wow fadeInUp">
                                             <div className="card-team">
-                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team.png" alt="Travila" /></div>
+                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team.png" alt="T7wisa" /></div>
                                                 <div className="card-info">
                                                     <h6 className="neutral-1000">John Thompson</h6>
                                                     <p className="text-sm-medium neutral-500">Founder and Principal Broker</p>
                                                     <p className="text-xs-medium neutral-1000">With over 15 years of real estate
-                                                        experience, John leads the Travila team with passion and expertise.
+                                                        experience, John leads the T7wisa team with passion and expertise.
                                                         His commitment to client satisfaction and market knowledge sets the
                                                         standard for our exceptional service.</p>
                                                     <div className="card-socials"> <Link className="link-social background-100" href="#">
@@ -172,7 +172,7 @@ export default function Meet() {
                                         </div>
                                         <div className="col-lg-6 wow fadeInUp">
                                             <div className="card-team">
-                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team2.png" alt="Travila" /></div>
+                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team2.png" alt="T7wisa" /></div>
                                                 <div className="card-info">
                                                     <h6 className="neutral-1000">Emily Rodriguez</h6>
                                                     <p className="text-sm-medium neutral-500">Senior Real Estate Advisor</p>
@@ -198,12 +198,12 @@ export default function Meet() {
                                         </div>
                                         <div className="col-lg-6 wow fadeInUp">
                                             <div className="card-team">
-                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team3.png" alt="Travila" /></div>
+                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team3.png" alt="T7wisa" /></div>
                                                 <div className="card-info">
                                                     <h6 className="neutral-1000">Michael Chang</h6>
                                                     <p className="text-sm-medium neutral-500">Residential Specialist</p>
                                                     <p className="text-xs-medium neutral-1000">With over 15 years of real estate
-                                                        experience, John leads the Travila team with passion and expertise.
+                                                        experience, John leads the T7wisa team with passion and expertise.
                                                         His commitment to client satisfaction and market knowledge sets the
                                                         standard for our exceptional service.</p>
                                                     <div className="card-socials"> <Link className="link-social background-100" href="#">
@@ -224,12 +224,12 @@ export default function Meet() {
                                         </div>
                                         <div className="col-lg-6 wow fadeInUp">
                                             <div className="card-team">
-                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team4.png" alt="Travila" /></div>
+                                                <div className="card-image"> <img src="/assets/imgs/page/homepage9/team4.png" alt="T7wisa" /></div>
                                                 <div className="card-info">
                                                     <h6 className="neutral-1000">Michael Chang</h6>
                                                     <p className="text-sm-medium neutral-500">Residential Specialist</p>
                                                     <p className="text-xs-medium neutral-1000">With over 15 years of real estate
-                                                        experience, John leads the Travila team with passion and expertise.
+                                                        experience, John leads the T7wisa team with passion and expertise.
                                                         His commitment to client satisfaction and market knowledge sets the
                                                         standard for our exceptional service.</p>
                                                     <div className="card-socials"> <Link className="link-social background-100" href="#">

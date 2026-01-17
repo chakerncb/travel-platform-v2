@@ -96,8 +96,8 @@ export default function TopRated1() {
                                                         <p className="text-star"> 
                                                             {Array.from({ length: hotel.star_rating || 5 }).map((_, index) => (
                                                                 <span key={index}>
-                                                                    <img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="Travila" />
-                                                                    <img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="Travila" />
+                                                                    <img className="light-mode" src="/assets/imgs/template/icons/star-black.svg" alt="T7wisa" />
+                                                                    <img className="dark-mode" src="/assets/imgs/template/icons/star-w.svg" alt="T7wisa" />
                                                                 </span>
                                                             ))}
                                                         </p>

@@ -18,7 +18,7 @@ export default function TrendingDestination() {
                             <div className="col-xl-8 col-lg-8 col-md-12">
                                 <div className="card-spot card-spot-2 background-card">
                                     <div className="card-image">
-                                        <label className="lbl-promotion">26 promotions</label><Link href="/destination"><img src="/assets/imgs/page/homepage6/trend.png" alt="Travila" /></Link>
+                                        <label className="lbl-promotion">26 promotions</label><Link href="/destination"><img src="/assets/imgs/page/homepage6/trend.png" alt="T7wisa" /></Link>
                                     </div>
                                     <div className="card-info-two-col">
                                         <div className="card-info card-mw background-card wow fadeInUp">
@@ -47,7 +47,7 @@ export default function TrendingDestination() {
                             </div>
                             <div className="col-xl-4 col-lg-4 col-md-6">
                                 <div className="card-spot card-spot-2 background-card wow fadeInUp">
-                                    <div className="card-image"> <Link href="/destination"><img src="/assets/imgs/page/homepage6/trend2.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"> <Link href="/destination"><img src="/assets/imgs/page/homepage6/trend2.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="/destination">New York</Link></div>
@@ -64,7 +64,7 @@ export default function TrendingDestination() {
                             </div>
                             <div className="col-xl-4 col-lg-4 col-md-6">
                                 <div className="card-spot card-spot-2 background-card wow fadeInUp">
-                                    <div className="card-image"> <Link href="/destination"><img src="/assets/imgs/page/homepage6/trend3.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"> <Link href="/destination"><img src="/assets/imgs/page/homepage6/trend3.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="/destination">Venice</Link></div>
@@ -81,7 +81,7 @@ export default function TrendingDestination() {
                             </div>
                             <div className="col-xl-4 col-lg-4 col-md-6">
                                 <div className="card-spot card-spot-2 background-card wow fadeInUp">
-                                    <div className="card-image"> <Link href="/destination"><img src="/assets/imgs/page/homepage6/trend4.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"> <Link href="/destination"><img src="/assets/imgs/page/homepage6/trend4.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="/destination">Amsterdam</Link></div>
@@ -98,7 +98,7 @@ export default function TrendingDestination() {
                             </div>
                             <div className="col-xl-4 col-lg-4 col-md-6">
                                 <div className="card-spot card-spot-2 background-card wow fadeInUp">
-                                    <div className="card-image"> <Link href="/destination"><img src="/assets/imgs/page/homepage6/trend5.png" alt="Travila" /></Link></div>
+                                    <div className="card-image"> <Link href="/destination"><img src="/assets/imgs/page/homepage6/trend5.png" alt="T7wisa" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="/destination">London</Link></div>

@@ -187,8 +187,7 @@ export default function Sidebar({ isSidebar, handleSidebar, handleLogin }: any) 
 							<div className="box-contactus">
 								<h6 className="title-contactus neutral-1000">Contact Us</h6>
 								<div className="contact-info">
-									<p className="address-2 text-md-medium neutral-1000">4517 Washington Ave. <br />Manchester, Kentucky
-										39495</p>
+									<p className="address-2 text-md-medium neutral-1000">Algeria, Guelma, Guelaat Bou Sbaa</p>
 									<p className="hour-work-2 text-md-medium neutral-1000">Hours: 8:00 - 17:00, Mon - Sat</p>
 									<p className="email-2 text-md-medium neutral-1000">support@T7wisa.com</p>
 								</div>

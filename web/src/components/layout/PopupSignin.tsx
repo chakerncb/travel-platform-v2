@@ -44,11 +44,38 @@ export default function PopupSignin({ isLogin, handleLogin, isRegister, handleRe
 		return;
 		}
 		if (signInResponse?.ok) {
-		setLoading(true);
+		setLoading(false);
 			handleLogin();
-			Notify.success('you signed in ...!!!')
+			Notify.success('You signed in successfully!')
 		}
-		};
+	};
+
+	const handleGoogleSignIn = async () => {
+		try {
+			setLoading(true);
+			const result = await signIn('google', { 
+				redirect: false,
+				callbackUrl: '/' 
+			});
+			
+			if (result?.error) {
+				Notify.error('Failed to sign in with Google. Please make sure you have an account.');
+				setLoading(false);
+				return;
+			}
+			
+			if (result?.ok) {
+				// Close the popup and redirect
+				handleLogin();
+				Notify.success('Successfully signed in with Google!');
+				window.location.href = '/';
+			}
+		} catch (error) {
+			console.error('Google sign-in error:', error);
+			Notify.error('Failed to sign in with Google');
+			setLoading(false);
+		}
+	};
 
 
 	return (
@@ -56,12 +83,21 @@ export default function PopupSignin({ isLogin, handleLogin, isRegister, handleRe
 
 			<div className="popup-signin" style={{ display: `${isLogin ? "block" : "none"}` }}>
 				<div className="popup-container">
-					<div className="popup-content"> <a className="close-popup-signin" onClick={handleLogin} />
-						<div className="d-flex gap-2 align-items-center"><Link href="#"><img src="/assets/imgs/template/popup/logo.svg" alt="Travila" /></Link>
+					<div className="popup-content" style={{ maxHeight: '90vh', overflowY: 'auto' }}> <a className="close-popup-signin" onClick={handleLogin} />
+						<div className="d-flex gap-2 align-items-center"><Link href="#"><img src="/assets/imgs/template/popup/logo.svg" alt="T7wisa" /></Link>
 							<h4 className="neutral-1000">Hello there !</h4>
 						</div>
-						<div className="box-button-logins"> <Link className="btn btn-login btn-google mr-10" href="#"><img src="/assets/imgs/template/popup/google.svg" alt="Travila" /><span className="text-sm-bold">Sign in
-							with Google</span></Link><Link className="btn btn-login mr-10" href="#"><img src="/assets/imgs/template/popup/facebook.svg" alt="Travila" /></Link><Link className="btn btn-login" href="#"><img src="/assets/imgs/template/popup/apple.svg" alt="Travila" /></Link></div>
+						<div className="box-button-logins"> 
+							<button 
+								type="button" 
+								className="btn btn-login btn-google mr-10" 
+								onClick={handleGoogleSignIn}
+								disabled={loading}
+							>
+								<img src="/assets/imgs/template/popup/google.svg" alt="T7wisa" />
+								<span className="text-sm-bold">Sign in with Google</span>
+							</button>
+						</div>
 						<div className="form-login">
 							<form onSubmit={Login}>
 								{error && (

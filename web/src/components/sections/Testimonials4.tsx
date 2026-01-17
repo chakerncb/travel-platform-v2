@@ -10,7 +10,7 @@ export default function Testimonials4() {
                 <div className="container-testimonials">
                     <div className="block-testimonials">
                         <div className="testimonials-left">
-                            <div className="box-author-testimonials"> <img src="/assets/imgs/page/homepage1/testimonial.png" alt="Travila" /><img src="/assets/imgs/page/homepage1/testimonial2.png" alt="Travila" /><img src="/assets/imgs/page/homepage1/testimonial3.png" alt="Travila" />Testimonials</div>
+                            <div className="box-author-testimonials"> <img src="/assets/imgs/page/homepage1/testimonial.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage1/testimonial2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage1/testimonial3.png" alt="T7wisa" />Testimonials</div>
                             <h2 className="text-52-bold mt-8 mb-25 neutral-1000">What our clients are saying about us?</h2>
                             <p className="text-lg-medium neutral-500">Discover how you can offset your adventure's carbon
                                 emissions and support the sustainable initiatives practiced by our operators worldwide.</p>
@@ -24,13 +24,13 @@ export default function Testimonials4() {
                                                 <div className="card-testimonial background-card">
                                                     <div className="card-top">
                                                         <div className="card-author">
-                                                            <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="Travila" /></div>
+                                                            <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="T7wisa" /></div>
                                                             <div className="card-info">
                                                                 <p className="text-lg-bold neutral-1000">Sara Mohamed</p>
                                                                 <p className="text-sm neutral-1000">Jakatar</p>
                                                             </div>
                                                         </div>
-                                                        <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" />
+                                                        <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" />
                                                         </div>
                                                     </div>
                                                     <div className="card-info">
@@ -46,13 +46,13 @@ export default function Testimonials4() {
                                                 <div className="card-testimonial background-card">
                                                     <div className="card-top">
                                                         <div className="card-author">
-                                                            <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="Travila" /></div>
+                                                            <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="T7wisa" /></div>
                                                             <div className="card-info">
                                                                 <p className="text-lg-bold neutral-1000">Atend John</p>
                                                                 <p className="text-sm neutral-1000">Califonia</p>
                                                             </div>
                                                         </div>
-                                                        <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" />
+                                                        <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" />
                                                         </div>
                                                     </div>
                                                     <div className="card-info">

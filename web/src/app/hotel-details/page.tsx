@@ -35,7 +35,7 @@ export default function HotelDetail() {
 									<Swiper {...swiperGroup1}>
 										<SwiperSlide>
 											<div className="item-banner-box" style={{ backgroundImage: 'url(assets/imgs/page/hotel/banner-hotel.png)' }}>
-												<div className="item-banner-box-inner"> <span className="btn btn-white-sm"><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></span>
+												<div className="item-banner-box-inner"> <span className="btn btn-white-sm"><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></span>
 													<h1 className="mt-20 mb-20 color-white">Welcom to<br className="d-none d-lg-block" />Le Meurice Hotel</h1>
 													<ul className="list-disc">
 														<li>Spacious and Well-Appointed Rooms</li>
@@ -47,7 +47,7 @@ export default function HotelDetail() {
 										</SwiperSlide>
 										<SwiperSlide>
 											<div className="item-banner-box" style={{ backgroundImage: 'url(assets/imgs/page/hotel/banner-hotel.png)' }}>
-												<div className="item-banner-box-inner"> <span className="btn btn-white-sm"><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></span>
+												<div className="item-banner-box-inner"> <span className="btn btn-white-sm"><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></span>
 													<h1 className="mt-20 mb-20 color-white">Welcom to<br className="d-none d-lg-block" />Le Meurice Hotel</h1>
 													<ul className="list-disc">
 														<li>Spacious and Well-Appointed Rooms</li>
@@ -75,13 +75,13 @@ export default function HotelDetail() {
 							<div className="row align-items-center">
 								<div className="col-lg-4 mb-20">
 									<div className="box-authors-partner background-9 wow fadeInUp">
-										<div className="authors-partner-left"><img src="/assets/imgs/page/homepage5/author.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/author2.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/author3.png" alt="Travila" /><span className="item-author">
+										<div className="authors-partner-left"><img src="/assets/imgs/page/homepage5/author.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/author2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/author3.png" alt="T7wisa" /><span className="item-author">
 											<svg width={18} height={18} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
 												<rect x="0.5" y="7.448" width={17} height="2.31818" fill="black" />
 												<rect x="7.84082" y="17.1072" width={17} height="2.31818" transform="rotate(-90 7.84082 17.1072)" fill="black" />
 											</svg></span></div>
 										<div className="authors-partner-right">
-											<p className="text-sm neutral-1000">1684 people used <strong>Travila </strong>in the last <strong>24 hours</strong></p>
+											<p className="text-sm neutral-1000">1684 people used <strong>T7wisa </strong>in the last <strong>24 hours</strong></p>
 										</div>
 									</div>
 								</div>
@@ -89,23 +89,23 @@ export default function HotelDetail() {
 									<div className="box-numbers-home7">
 										<div className="list-numbers wow fadeInUp">
 											<div className="item-number">
-												<div className="image-top"> <img src="/assets/imgs/page/hotel/airport.svg" alt="Travila" /></div>
+												<div className="image-top"> <img src="/assets/imgs/page/hotel/airport.svg" alt="T7wisa" /></div>
 												<p className="text-15-medium neutral-1000">Free Airport <br />Transfer</p>
 											</div>
 											<div className="item-number">
-												<div className="image-top"> <img src="/assets/imgs/page/hotel/living.svg" alt="Travila" /></div>
+												<div className="image-top"> <img src="/assets/imgs/page/hotel/living.svg" alt="T7wisa" /></div>
 												<p className="text-15-medium neutral-1000">Living  Kitchen <br />Area</p>
 											</div>
 											<div className="item-number">
-												<div className="image-top"> <img src="/assets/imgs/page/hotel/front.svg" alt="Travila" /></div>
+												<div className="image-top"> <img src="/assets/imgs/page/hotel/front.svg" alt="T7wisa" /></div>
 												<p className="text-15-medium neutral-1000">Front desk (24-hour)</p>
 											</div>
 											<div className="item-number">
-												<div className="image-top"> <img src="/assets/imgs/page/hotel/wifi.svg" alt="Travila" /></div>
+												<div className="image-top"> <img src="/assets/imgs/page/hotel/wifi.svg" alt="T7wisa" /></div>
 												<p className="text-15-medium neutral-1000">Free Wifi <br />Internet</p>
 											</div>
 											<div className="item-number">
-												<div className="image-top"> <img src="/assets/imgs/page/hotel/spa.svg" alt="Travila" /></div>
+												<div className="image-top"> <img src="/assets/imgs/page/hotel/spa.svg" alt="T7wisa" /></div>
 												<p className="text-15-medium neutral-1000">Spa<br />Sauna</p>
 											</div>
 										</div>
@@ -124,7 +124,7 @@ export default function HotelDetail() {
 										<div className="box-telephone-booking">
 											<div className="box-tel-left">
 												<div className="box-need-help">
-													<p className="need-help neutral-1000 text-lg-bold mb-5">Need help? Call us</p><br /><Link className="heading-6 phone-support" href="/tel:1-800-222-8888">1-800-222-8888</Link>
+													<p className="need-help neutral-1000 text-lg-bold mb-5">Need help? Call us</p><br /><Link className="heading-6 phone-support" href="/tel:05-00-00-00-00">05-00-00-00-00</Link>
 												</div>
 											</div>
 											<div className="box-tel-right"> <Link className="btn btn-tag" href="#">Availability Rooms
@@ -143,9 +143,9 @@ export default function HotelDetail() {
 									</div>
 								</div>
 								<div className="col-lg-6 mb-30 text-center text-lg-end">
-									<div className="box-image-vision"> <img className="w-100" src="/assets/imgs/page/hotel/img-vision.png" alt="Travila" />
-										<div className="image-vision-1"><img className="w-100 mb-15" src="/assets/imgs/page/hotel/img-vision2.png" alt="Travila" /></div>
-										<div className="image-vision-2"><img className="w-100" src="/assets/imgs/page/hotel/img-vision3.png" alt="Travila" /></div>
+									<div className="box-image-vision"> <img className="w-100" src="/assets/imgs/page/hotel/img-vision.png" alt="T7wisa" />
+										<div className="image-vision-1"><img className="w-100 mb-15" src="/assets/imgs/page/hotel/img-vision2.png" alt="T7wisa" /></div>
+										<div className="image-vision-2"><img className="w-100" src="/assets/imgs/page/hotel/img-vision3.png" alt="T7wisa" /></div>
 									</div>
 								</div>
 							</div>
@@ -162,7 +162,7 @@ export default function HotelDetail() {
 										<div className="card-image"> <Link className="wish" href="#">
 											<svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-											</svg></Link><Link href="/room-detail"><img src="/assets/imgs/page/hotel/room.png" alt="Travila" /></Link></div>
+											</svg></Link><Link href="/room-detail"><img src="/assets/imgs/page/hotel/room.png" alt="T7wisa" /></Link></div>
 										<div className="card-info">
 											<div className="card-rating">
 												<div className="card-left"> </div>
@@ -200,7 +200,7 @@ export default function HotelDetail() {
 										<div className="card-image"> <Link className="wish" href="#">
 											<svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-											</svg></Link><Link href="/room-detail"><img src="/assets/imgs/page/hotel/room2.png" alt="Travila" /></Link></div>
+											</svg></Link><Link href="/room-detail"><img src="/assets/imgs/page/hotel/room2.png" alt="T7wisa" /></Link></div>
 										<div className="card-info">
 											<div className="card-rating">
 												<div className="card-left"> </div>
@@ -238,7 +238,7 @@ export default function HotelDetail() {
 										<div className="card-image"> <Link className="wish" href="#">
 											<svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-											</svg></Link><Link href="/room-detail"><img src="/assets/imgs/page/hotel/room3.png" alt="Travila" /></Link></div>
+											</svg></Link><Link href="/room-detail"><img src="/assets/imgs/page/hotel/room3.png" alt="T7wisa" /></Link></div>
 										<div className="card-info">
 											<div className="card-rating">
 												<div className="card-left"> </div>
@@ -276,7 +276,7 @@ export default function HotelDetail() {
 										<div className="card-image"> <Link className="wish" href="#">
 											<svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-											</svg></Link><Link href="/room-detail"><img src="/assets/imgs/page/hotel/room4.png" alt="Travila" /></Link></div>
+											</svg></Link><Link href="/room-detail"><img src="/assets/imgs/page/hotel/room4.png" alt="T7wisa" /></Link></div>
 										<div className="card-info">
 											<div className="card-rating">
 												<div className="card-left"> </div>
@@ -314,7 +314,7 @@ export default function HotelDetail() {
 										<div className="card-image"> <Link className="wish" href="#">
 											<svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-											</svg></Link><Link href="/room-detail"><img src="/assets/imgs/page/hotel/room5.png" alt="Travila" /></Link></div>
+											</svg></Link><Link href="/room-detail"><img src="/assets/imgs/page/hotel/room5.png" alt="T7wisa" /></Link></div>
 										<div className="card-info">
 											<div className="card-rating">
 												<div className="card-left"> </div>
@@ -352,7 +352,7 @@ export default function HotelDetail() {
 										<div className="card-image"> <Link className="wish" href="#">
 											<svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-											</svg></Link><Link href="/room-detail"><img src="/assets/imgs/page/hotel/room6.png" alt="Travila" /></Link></div>
+											</svg></Link><Link href="/room-detail"><img src="/assets/imgs/page/hotel/room6.png" alt="T7wisa" /></Link></div>
 										<div className="card-info">
 											<div className="card-rating">
 												<div className="card-left"> </div>
@@ -490,7 +490,7 @@ export default function HotelDetail() {
 					</section>
 					<section className="section-box box-testimonials-2 box-testimonials-5 box-testimonials-hotel-detail background-body">
 						<div className="container">
-							<div className="box-author-testimonials button-bg-2 wow fadeInUp"> <img src="/assets/imgs/page/homepage1/testimonial.png" alt="Travila" /><img src="/assets/imgs/page/homepage1/testimonial2.png" alt="Travila" /><img src="/assets/imgs/page/homepage1/testimonial3.png" alt="Travila" />Testimonials</div>
+							<div className="box-author-testimonials button-bg-2 wow fadeInUp"> <img src="/assets/imgs/page/homepage1/testimonial.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage1/testimonial2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage1/testimonial3.png" alt="T7wisa" />Testimonials</div>
 							<h2 className="mt-8 mb-25 neutral-1000">What they say about us?</h2>
 						</div>
 						<div className="block-testimonials">
@@ -507,13 +507,13 @@ export default function HotelDetail() {
 														</div>
 														<div className="card-top">
 															<div className="card-author">
-																<div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="Travila" /></div>
+																<div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="T7wisa" /></div>
 																<div className="card-info">
 																	<p className="text-lg-bold neutral-1000">Sara Mohamed</p>
 																	<p className="text-sm neutral-1000">Jakatar</p>
 																</div>
 															</div>
-															<div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /></div>
+															<div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
 														</div>
 													</div>
 												</SwiperSlide>
@@ -525,13 +525,13 @@ export default function HotelDetail() {
 														</div>
 														<div className="card-top">
 															<div className="card-author">
-																<div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="Travila" /></div>
+																<div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="T7wisa" /></div>
 																<div className="card-info">
 																	<p className="text-lg-bold neutral-1000">Atend John</p>
 																	<p className="text-sm neutral-1000">Califonia</p>
 																</div>
 															</div>
-															<div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /></div>
+															<div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
 														</div>
 													</div>
 												</SwiperSlide>
@@ -543,13 +543,13 @@ export default function HotelDetail() {
 														</div>
 														<div className="card-top">
 															<div className="card-author">
-																<div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="Travila" /></div>
+																<div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="T7wisa" /></div>
 																<div className="card-info">
 																	<p className="text-lg-bold neutral-1000">Sara Mohamed</p>
 																	<p className="text-sm neutral-1000">Jakatar</p>
 																</div>
 															</div>
-															<div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /></div>
+															<div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
 														</div>
 													</div>
 												</SwiperSlide>
@@ -561,13 +561,13 @@ export default function HotelDetail() {
 														</div>
 														<div className="card-top">
 															<div className="card-author">
-																<div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="Travila" /></div>
+																<div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="T7wisa" /></div>
 																<div className="card-info">
 																	<p className="text-lg-bold neutral-1000">Sara Mohamed</p>
 																	<p className="text-sm neutral-1000">Jakatar</p>
 																</div>
 															</div>
-															<div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /></div>
+															<div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
 														</div>
 													</div>
 												</SwiperSlide>
@@ -579,7 +579,7 @@ export default function HotelDetail() {
 						</div>
 					</section>
 					<section className="section-box box-media background-body">
-						<div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media2.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media3.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media4.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media5.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media6.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media7.png" alt="Travila" /></div>
+						<div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" /></div>
 					</section>
 				</main>
 

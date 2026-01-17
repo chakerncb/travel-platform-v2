@@ -39,7 +39,7 @@ export default function RecentLauchedCar() {
                                         <div className="card-image"> <Link className="wish" href="#">
                                             <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                            </svg></Link><img src="/assets/imgs/page/homepage2/car.png" alt="Travila" /></div>
+                                            </svg></Link><img src="/assets/imgs/page/homepage2/car.png" alt="T7wisa" /></div>
                                         <div className="card-info">
                                             <div className="card-rating">
                                                 <div className="card-left"> </div>
@@ -74,43 +74,7 @@ export default function RecentLauchedCar() {
                                         <div className="card-image"> <Link className="wish" href="#">
                                             <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                            </svg></Link><img src="/assets/imgs/page/homepage2/car2.png" alt="Travila" />
-                                        </div>
-                                        <div className="card-info">
-                                            <div className="card-rating">
-                                                <div className="card-left"> </div>
-                                                <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span>
-                                                </div>
-                                            </div>
-                                            <div className="card-title"> <Link className="heading-6 neutral-1000" href="/rental-detail">Audi A3 1.6 TDI S line</Link></div>
-                                            <div className="card-program">
-                                                <div className="card-location">
-                                                    <p className="text-location text-md-medium neutral-500">Manchester, England
-                                                    </p>
-                                                </div>
-                                                <div className="card-facitlities">
-                                                    <p className="card-miles text-md-medium">25,100 miles</p>
-                                                    <p className="card-gear text-md-medium">Automatic</p>
-                                                    <p className="card-fuel text-md-medium">Diesel</p>
-                                                    <p className="card-seat text-md-medium">7 seats</p>
-                                                </div>
-                                                <div className="endtime">
-                                                    <div className="card-price">
-                                                        <h6 className="heading-6 neutral-1000">$498.25</h6>
-                                                        <p className="text-md-medium neutral-500">/ person</p>
-                                                    </div>
-                                                    <div className="card-button"> <Link className="btn btn-gray" href="/rental-detail">Book Now</Link></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <div className="card-journey-small background-card">
-                                        <div className="card-image"> <Link className="wish" href="#">
-                                            <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                            </svg></Link><img src="/assets/imgs/page/homepage2/car3.png" alt="Travila" />
+                                            </svg></Link><img src="/assets/imgs/page/homepage2/car2.png" alt="T7wisa" />
                                         </div>
                                         <div className="card-info">
                                             <div className="card-rating">
@@ -146,7 +110,43 @@ export default function RecentLauchedCar() {
                                         <div className="card-image"> <Link className="wish" href="#">
                                             <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                            </svg></Link><img src="/assets/imgs/page/homepage2/car4.png" alt="Travila" />
+                                            </svg></Link><img src="/assets/imgs/page/homepage2/car3.png" alt="T7wisa" />
+                                        </div>
+                                        <div className="card-info">
+                                            <div className="card-rating">
+                                                <div className="card-left"> </div>
+                                                <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span>
+                                                </div>
+                                            </div>
+                                            <div className="card-title"> <Link className="heading-6 neutral-1000" href="/rental-detail">Audi A3 1.6 TDI S line</Link></div>
+                                            <div className="card-program">
+                                                <div className="card-location">
+                                                    <p className="text-location text-md-medium neutral-500">Manchester, England
+                                                    </p>
+                                                </div>
+                                                <div className="card-facitlities">
+                                                    <p className="card-miles text-md-medium">25,100 miles</p>
+                                                    <p className="card-gear text-md-medium">Automatic</p>
+                                                    <p className="card-fuel text-md-medium">Diesel</p>
+                                                    <p className="card-seat text-md-medium">7 seats</p>
+                                                </div>
+                                                <div className="endtime">
+                                                    <div className="card-price">
+                                                        <h6 className="heading-6 neutral-1000">$498.25</h6>
+                                                        <p className="text-md-medium neutral-500">/ person</p>
+                                                    </div>
+                                                    <div className="card-button"> <Link className="btn btn-gray" href="/rental-detail">Book Now</Link></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div className="card-journey-small background-card">
+                                        <div className="card-image"> <Link className="wish" href="#">
+                                            <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                                            </svg></Link><img src="/assets/imgs/page/homepage2/car4.png" alt="T7wisa" />
                                         </div>
                                         <div className="card-info">
                                             <div className="card-rating">
@@ -182,7 +182,7 @@ export default function RecentLauchedCar() {
                                         <div className="card-image"> <Link className="wish" href="#">
                                             <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                            </svg></Link><img src="/assets/imgs/page/homepage2/car.png" alt="Travila" /></div>
+                                            </svg></Link><img src="/assets/imgs/page/homepage2/car.png" alt="T7wisa" /></div>
                                         <div className="card-info">
                                             <div className="card-rating">
                                                 <div className="card-left"> </div>
@@ -217,43 +217,7 @@ export default function RecentLauchedCar() {
                                         <div className="card-image"> <Link className="wish" href="#">
                                             <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                            </svg></Link><img src="/assets/imgs/page/homepage2/car2.png" alt="Travila" />
-                                        </div>
-                                        <div className="card-info">
-                                            <div className="card-rating">
-                                                <div className="card-left"> </div>
-                                                <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span>
-                                                </div>
-                                            </div>
-                                            <div className="card-title"> <Link className="heading-6 neutral-1000" href="/rental-detail">Audi A3 1.6 TDI S line</Link></div>
-                                            <div className="card-program">
-                                                <div className="card-location">
-                                                    <p className="text-location text-md-medium neutral-500">Manchester, England
-                                                    </p>
-                                                </div>
-                                                <div className="card-facitlities">
-                                                    <p className="card-miles text-md-medium">25,100 miles</p>
-                                                    <p className="card-gear text-md-medium">Automatic</p>
-                                                    <p className="card-fuel text-md-medium">Diesel</p>
-                                                    <p className="card-seat text-md-medium">7 seats</p>
-                                                </div>
-                                                <div className="endtime">
-                                                    <div className="card-price">
-                                                        <h6 className="heading-6 neutral-1000">$498.25</h6>
-                                                        <p className="text-md-medium neutral-500">/ person</p>
-                                                    </div>
-                                                    <div className="card-button"> <Link className="btn btn-gray" href="/rental-detail">Book Now</Link></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <div className="card-journey-small background-card">
-                                        <div className="card-image"> <Link className="wish" href="#">
-                                            <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                            </svg></Link><img src="/assets/imgs/page/homepage2/car3.png" alt="Travila" />
+                                            </svg></Link><img src="/assets/imgs/page/homepage2/car2.png" alt="T7wisa" />
                                         </div>
                                         <div className="card-info">
                                             <div className="card-rating">
@@ -289,7 +253,43 @@ export default function RecentLauchedCar() {
                                         <div className="card-image"> <Link className="wish" href="#">
                                             <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                                            </svg></Link><img src="/assets/imgs/page/homepage2/car4.png" alt="Travila" />
+                                            </svg></Link><img src="/assets/imgs/page/homepage2/car3.png" alt="T7wisa" />
+                                        </div>
+                                        <div className="card-info">
+                                            <div className="card-rating">
+                                                <div className="card-left"> </div>
+                                                <div className="card-right"> <span className="rating">4.96 <span className="text-sm-medium neutral-500">(672 reviews)</span></span>
+                                                </div>
+                                            </div>
+                                            <div className="card-title"> <Link className="heading-6 neutral-1000" href="/rental-detail">Audi A3 1.6 TDI S line</Link></div>
+                                            <div className="card-program">
+                                                <div className="card-location">
+                                                    <p className="text-location text-md-medium neutral-500">Manchester, England
+                                                    </p>
+                                                </div>
+                                                <div className="card-facitlities">
+                                                    <p className="card-miles text-md-medium">25,100 miles</p>
+                                                    <p className="card-gear text-md-medium">Automatic</p>
+                                                    <p className="card-fuel text-md-medium">Diesel</p>
+                                                    <p className="card-seat text-md-medium">7 seats</p>
+                                                </div>
+                                                <div className="endtime">
+                                                    <div className="card-price">
+                                                        <h6 className="heading-6 neutral-1000">$498.25</h6>
+                                                        <p className="text-md-medium neutral-500">/ person</p>
+                                                    </div>
+                                                    <div className="card-button"> <Link className="btn btn-gray" href="/rental-detail">Book Now</Link></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div className="card-journey-small background-card">
+                                        <div className="card-image"> <Link className="wish" href="#">
+                                            <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                                            </svg></Link><img src="/assets/imgs/page/homepage2/car4.png" alt="T7wisa" />
                                         </div>
                                         <div className="card-info">
                                             <div className="card-rating">
@@ -329,15 +329,15 @@ export default function RecentLauchedCar() {
                         <h4 className="heading-4 mb-16 neutral-1000">Search by category</h4>
                         <p className="text-xl-medium neutral-500">There has 30+ Brand Category Available</p>
                         <div className="box-list-brand-car">
-                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/lexus.png" alt="Travila" /><img className="dark-mode" src="/assets/imgs/page/homepage2/lexus-w.png" alt="Travila" /></div>
-                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/mer.png" alt="Travila" /><img className="dark-mode" src="/assets/imgs/page/homepage2/mer-w.png" alt="Travila" /></div>
-                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/bugatti.png" alt="Travila" /><img className="dark-mode" src="/assets/imgs/page/homepage2/bugatti-w.png" alt="Travila" /></div>
-                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/jaguar.png" alt="Travila" /><img className="dark-mode" src="/assets/imgs/page/homepage2/jaguar-w.png" alt="Travila" /></div>
-                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/honda.png" alt="Travila" /><img className="dark-mode" src="/assets/imgs/page/homepage2/honda-w.png" alt="Travila" /></div>
-                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/chevrolet.png" alt="Travila" /><img className="dark-mode" src="/assets/imgs/page/homepage2/chevrolet-w.png" alt="Travila" /></div>
-                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/acura.png" alt="Travila" /><img className="dark-mode" src="/assets/imgs/page/homepage2/acura-w.png" alt="Travila" /></div>
-                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/bmw.png" alt="Travila" /><img className="dark-mode" src="/assets/imgs/page/homepage2/bmw-w.png" alt="Travila" /></div>
-                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/toyota.png" alt="Travila" /><img className="dark-mode" src="/assets/imgs/page/homepage2/toyota-w.png" alt="Travila" /></div>
+                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/lexus.png" alt="T7wisa" /><img className="dark-mode" src="/assets/imgs/page/homepage2/lexus-w.png" alt="T7wisa" /></div>
+                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/mer.png" alt="T7wisa" /><img className="dark-mode" src="/assets/imgs/page/homepage2/mer-w.png" alt="T7wisa" /></div>
+                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/bugatti.png" alt="T7wisa" /><img className="dark-mode" src="/assets/imgs/page/homepage2/bugatti-w.png" alt="T7wisa" /></div>
+                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/jaguar.png" alt="T7wisa" /><img className="dark-mode" src="/assets/imgs/page/homepage2/jaguar-w.png" alt="T7wisa" /></div>
+                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/honda.png" alt="T7wisa" /><img className="dark-mode" src="/assets/imgs/page/homepage2/honda-w.png" alt="T7wisa" /></div>
+                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/chevrolet.png" alt="T7wisa" /><img className="dark-mode" src="/assets/imgs/page/homepage2/chevrolet-w.png" alt="T7wisa" /></div>
+                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/acura.png" alt="T7wisa" /><img className="dark-mode" src="/assets/imgs/page/homepage2/acura-w.png" alt="T7wisa" /></div>
+                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/bmw.png" alt="T7wisa" /><img className="dark-mode" src="/assets/imgs/page/homepage2/bmw-w.png" alt="T7wisa" /></div>
+                            <div className="item-brand"> <img className="light-mode" src="/assets/imgs/page/homepage2/toyota.png" alt="T7wisa" /><img className="dark-mode" src="/assets/imgs/page/homepage2/toyota-w.png" alt="T7wisa" /></div>
                         </div>
                     </div>
                 </div>

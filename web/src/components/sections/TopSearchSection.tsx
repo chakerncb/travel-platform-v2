@@ -16,7 +16,7 @@ export default function TopSearchSection() {
                         <div className="row">
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination.png" alt="Travila" /></div>
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination.png" alt="T7wisa" /></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">Venice</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link className="text-tour" href="#">356 Tours</Link></div>
@@ -30,7 +30,7 @@ export default function TopSearchSection() {
                             </div>
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination2.png" alt="Travila" /></div>
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination2.png" alt="T7wisa" /></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">Amsterdam</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link className="text-tour" href="#">356 Tours</Link></div>
@@ -44,7 +44,7 @@ export default function TopSearchSection() {
                             </div>
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination3.png" alt="Travila" /></div>
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination3.png" alt="T7wisa" /></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">Budapest</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link className="text-tour" href="#">356 Tours</Link></div>
@@ -58,7 +58,7 @@ export default function TopSearchSection() {
                             </div>
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination4.png" alt="Travila" /></div>
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination4.png" alt="T7wisa" /></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">Lisbon</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link className="text-tour" href="#">356 Tours</Link></div>
@@ -72,7 +72,7 @@ export default function TopSearchSection() {
                             </div>
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination5.png" alt="Travila" /></div>
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination5.png" alt="T7wisa" /></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">London</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link className="text-tour" href="#">356 Tours</Link></div>
@@ -86,7 +86,7 @@ export default function TopSearchSection() {
                             </div>
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination6.png" alt="Travila" /></div>
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination6.png" alt="T7wisa" /></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">Ottawa</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link className="text-tour" href="#">356 Tours</Link></div>
@@ -100,7 +100,7 @@ export default function TopSearchSection() {
                             </div>
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination7.png" alt="Travila" /></div>
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination7.png" alt="T7wisa" /></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">Paris</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link className="text-tour" href="#">356 Tours</Link></div>
@@ -114,7 +114,7 @@ export default function TopSearchSection() {
                             </div>
                             <div className="col-lg-3 col-sm-6">
                                 <div className="card-popular card-top-destination background-card wow fadeInUp">
-                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination8.png" alt="Travila" /></div>
+                                    <div className="card-image"> <img src="/assets/imgs/page/homepage6/destination8.png" alt="T7wisa" /></div>
                                     <div className="card-info"> <Link className="card-title" href="/destination">Paris</Link>
                                         <div className="card-meta">
                                             <div className="meta-links"> <Link className="text-tour" href="#">356 Tours</Link></div>

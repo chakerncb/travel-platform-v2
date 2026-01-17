@@ -31,7 +31,13 @@ export default function Header1({ scroll, handleLogin, handleMobileMenu, handleR
 				<div className="container-fluid background-body">
 					<div className="main-header">
 						<div className="header-left">
-							<div className="header-logo"><Link className="d-flex" href="/"><img className="light-mode" alt="T7wisa" src="/assets/imgs/template/logo.svg" /><img className="dark-mode" alt="T7wisa" src="/assets/imgs/template/logo-w.svg" /></Link></div>
+							<div className="header-logo">
+								<Link className="d-flex text-black text-xl" href="/">
+								   {/* <img className="light-mode" alt="T7wisa" src="/assets/imgs/template/logo.svg" /> */}
+								   {/* <img className="dark-mode" alt="T7wisa" src="/assets/imgs/template/logo-w.svg" /> */}
+								   <b>T7WISA</b>
+								</Link>
+							</div>
 							<div className="header-nav">
 								<nav className="nav-main-menu">
 									<ul className="main-menu">

@@ -17,7 +17,7 @@ export default function ByAttraction({ uniqueAttractions, filter, handleCheckbox
 								<span className="text-sm-medium">{attraction}</span>
 								<span className="checkmark" />
 							</label>
-							<span className="number-item">{attraction?.length}</span>
+							{/* <span className="number-item">{attraction?.length}</span> */}
 						</li>
 					))}
 					

@@ -212,7 +212,7 @@ export default function PropertyDetail() {
 															<div className="review-info-inner">
 																<h6 className="neutral-1000">4.95 / 5</h6>
 																<p className="text-sm-medium neutral-400">(672 reviews)</p>
-																<div className="review-rate"> <img src="/assets/imgs/page/tour-detail/star.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="Travila" /></div>
+																<div className="review-rate"> <img src="/assets/imgs/page/tour-detail/star.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="T7wisa" /></div>
 															</div>
 														</div>
 														<div className="review-right">
@@ -301,13 +301,13 @@ export default function PropertyDetail() {
 													<div className="list-reviews">
 														<div className="item-review">
 															<div className="head-review">
-																<div className="author-review"> <img src="/assets/imgs/page/tour-detail/avatar.png" alt="Travila" />
+																<div className="author-review"> <img src="/assets/imgs/page/tour-detail/avatar.png" alt="T7wisa" />
 																	<div className="author-info">
 																		<p className="text-lg-bold">Sarah Johnson</p>
 																		<p className="text-sm-medium neutral-500">December 4, 2024 at 3:12 pm</p>
 																	</div>
 																</div>
-																<div className="rate-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></div>
+																<div className="rate-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></div>
 															</div>
 															<div className="content-review">
 																<p className="text-sm-medium neutral-800">The views from The High Roller were absolutely stunning! It's a fantastic way to see the Strip and the surrounding area. The cabins are spacious and comfortable, and the audio commentary adds an extra layer of enjoyment. Highly recommend!</p>
@@ -315,13 +315,13 @@ export default function PropertyDetail() {
 														</div>
 														<div className="item-review">
 															<div className="head-review">
-																<div className="author-review"> <img src="/assets/imgs/page/tour-detail/avatar.png" alt="Travila" />
+																<div className="author-review"> <img src="/assets/imgs/page/tour-detail/avatar.png" alt="T7wisa" />
 																	<div className="author-info">
 																		<p className="text-lg-bold">Sarah Johnson</p>
 																		<p className="text-sm-medium neutral-500">December 4, 2024 at 3:12 pm</p>
 																	</div>
 																</div>
-																<div className="rate-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></div>
+																<div className="rate-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></div>
 															</div>
 															<div className="content-review">
 																<p className="text-sm-medium neutral-800">The views from The High Roller were absolutely stunning! It's a fantastic way to see the Strip and the surrounding area. The cabins are spacious and comfortable, and the audio commentary adds an extra layer of enjoyment. Highly recommend!</p>
@@ -329,13 +329,13 @@ export default function PropertyDetail() {
 														</div>
 														<div className="item-review">
 															<div className="head-review">
-																<div className="author-review"> <img src="/assets/imgs/page/tour-detail/avatar.png" alt="Travila" />
+																<div className="author-review"> <img src="/assets/imgs/page/tour-detail/avatar.png" alt="T7wisa" />
 																	<div className="author-info">
 																		<p className="text-lg-bold">Sarah Johnson</p>
 																		<p className="text-sm-medium neutral-500">December 4, 2024 at 3:12 pm</p>
 																	</div>
 																</div>
-																<div className="rate-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></div>
+																<div className="rate-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></div>
 															</div>
 															<div className="content-review">
 																<p className="text-sm-medium neutral-800">The views from The High Roller were absolutely stunning! It's a fantastic way to see the Strip and the surrounding area. The cabins are spacious and comfortable, and the audio commentary adds an extra layer of enjoyment. Highly recommend!</p>
@@ -377,31 +377,31 @@ export default function PropertyDetail() {
 															<div className="col-lg-4">
 																<div className="box-type-review">
 																	<p className="text-sm-bold text-type-rv">Price</p>
-																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></p>
+																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></p>
 																</div>
 																<div className="box-type-review">
 																	<p className="text-sm-bold text-type-rv">Service</p>
-																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></p>
+																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></p>
 																</div>
 															</div>
 															<div className="col-lg-4">
 																<div className="box-type-review">
 																	<p className="text-sm-bold text-type-rv">Safety</p>
-																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></p>
+																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></p>
 																</div>
 																<div className="box-type-review">
 																	<p className="text-sm-bold text-type-rv">Entertainment</p>
-																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></p>
+																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></p>
 																</div>
 															</div>
 															<div className="col-lg-4">
 																<div className="box-type-review">
 																	<p className="text-sm-bold text-type-rv">Accessibility</p>
-																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></p>
+																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></p>
 																</div>
 																<div className="box-type-review">
 																	<p className="text-sm-bold text-type-rv">Support</p>
-																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></p>
+																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></p>
 																</div>
 															</div>
 														</div>
@@ -450,7 +450,7 @@ export default function PropertyDetail() {
 										<div className="box-sidebar-content">
 											<div className="box-agent-support">
 												<div className="card-author">
-													<div className="card-author-image"> <img src="/assets/imgs/page/property/author.png" alt="Travila" /></div>
+													<div className="card-author-image"> <img src="/assets/imgs/page/property/author.png" alt="T7wisa" /></div>
 													<div className="card-author-info">
 														<p className="text-lg-bold neutral-1000">Emily Rose</p>
 														<p className="text-sm-medium neutral-500">Las Vegas, USA </p>
@@ -475,31 +475,31 @@ export default function PropertyDetail() {
 											<ul>
 												<li>
 													<div className="card-post">
-														<div className="card-image"> <Link href="#"> <img src="/assets/imgs/page/property/feature.png" alt="Travila" /></Link></div>
+														<div className="card-image"> <Link href="#"> <img src="/assets/imgs/page/property/feature.png" alt="T7wisa" /></Link></div>
 														<div className="card-info"> <Link className="text-md-bold" href="#">Himalayan Cedar Nest in Sainj Valley</Link><span className="price text-sm-bold neutral-1000">$48.25</span><span className="price-through text-sm-bold neutral-500">$60.75</span></div>
 													</div>
 												</li>
 												<li>
 													<div className="card-post">
-														<div className="card-image"> <Link href="#"> <img src="/assets/imgs/page/property/feature2.png" alt="Travila" /></Link></div>
+														<div className="card-image"> <Link href="#"> <img src="/assets/imgs/page/property/feature2.png" alt="T7wisa" /></Link></div>
 														<div className="card-info"> <Link className="text-md-bold" href="#">Hansel Creek Gust Tree House</Link><span className="price text-sm-bold neutral-1000">$48.25</span><span className="price-through text-sm-bold neutral-500">$60.75</span></div>
 													</div>
 												</li>
 												<li>
 													<div className="card-post">
-														<div className="card-image"> <Link href="#"> <img src="/assets/imgs/page/property/feature3.png" alt="Travila" /></Link></div>
+														<div className="card-image"> <Link href="#"> <img src="/assets/imgs/page/property/feature3.png" alt="T7wisa" /></Link></div>
 														<div className="card-info"> <Link className="text-md-bold" href="#">Farmhouse with pool and restaurant</Link><span className="price text-sm-bold neutral-1000">$48.25</span><span className="price-through text-sm-bold neutral-500">$60.75</span></div>
 													</div>
 												</li>
 												<li>
 													<div className="card-post">
-														<div className="card-image"> <Link href="#"> <img src="/assets/imgs/page/property/feature4.png" alt="Travila" /></Link></div>
+														<div className="card-image"> <Link href="#"> <img src="/assets/imgs/page/property/feature4.png" alt="T7wisa" /></Link></div>
 														<div className="card-info"> <Link className="text-md-bold" href="#">Mountainside luxury cabin with Batulao view</Link><span className="price text-sm-bold neutral-1000">$48.25</span><span className="price-through text-sm-bold neutral-500">$60.75</span></div>
 													</div>
 												</li>
 												<li>
 													<div className="card-post">
-														<div className="card-image"> <Link href="#"> <img src="/assets/imgs/page/property/feature5.png" alt="Travila" /></Link></div>
+														<div className="card-image"> <Link href="#"> <img src="/assets/imgs/page/property/feature5.png" alt="T7wisa" /></Link></div>
 														<div className="card-info"> <Link className="text-md-bold" href="#">Exclusive cottage surrounded by silence</Link><span className="price text-sm-bold neutral-1000">$48.25</span><span className="price-through text-sm-bold neutral-500">$60.75</span></div>
 													</div>
 												</li>
@@ -522,7 +522,7 @@ export default function PropertyDetail() {
 										<div className="card-image"> <Link className="wish" href="#">
 											<svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-											</svg></Link><img src="/assets/imgs/page/property/like.png" alt="Travila" /></div>
+											</svg></Link><img src="/assets/imgs/page/property/like.png" alt="T7wisa" /></div>
 										<div className="card-info">
 											<div className="card-rating">
 												<div className="card-left"> </div>
@@ -560,7 +560,7 @@ export default function PropertyDetail() {
 										<div className="card-image"> <Link className="wish" href="#">
 											<svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-											</svg></Link><img src="/assets/imgs/page/property/like2.png" alt="Travila" /></div>
+											</svg></Link><img src="/assets/imgs/page/property/like2.png" alt="T7wisa" /></div>
 										<div className="card-info">
 											<div className="card-rating">
 												<div className="card-left"> </div>
@@ -598,7 +598,7 @@ export default function PropertyDetail() {
 										<div className="card-image"> <Link className="wish" href="#">
 											<svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-											</svg></Link><img src="/assets/imgs/page/property/like3.png" alt="Travila" /></div>
+											</svg></Link><img src="/assets/imgs/page/property/like3.png" alt="T7wisa" /></div>
 										<div className="card-info">
 											<div className="card-rating">
 												<div className="card-left"> </div>
@@ -635,7 +635,7 @@ export default function PropertyDetail() {
 						</div>
 					</section>
 					<section className="section-box box-media background-body">
-						<div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media2.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media3.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media4.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media5.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media6.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media7.png" alt="Travila" /></div>
+						<div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" /></div>
 					</section>
 				</main>
 

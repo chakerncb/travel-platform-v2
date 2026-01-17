@@ -133,7 +133,7 @@ export default function RentalCar3() {
 								<div className="row">
 									<div className="col-xl-3 col-lg-4 col-md-6 wow fadeInDown">
 										<div className="card-spot background-card">
-											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service.png" alt="Travila" /></Link></div>
+											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service.png" alt="T7wisa" /></Link></div>
 											<div className="card-info background-card">
 												<div className="card-left">
 													<div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">Chauffeur Hailing</Link></div>
@@ -150,7 +150,7 @@ export default function RentalCar3() {
 									</div>
 									<div className="col-xl-3 col-lg-4 col-md-6 wow fadeInDown">
 										<div className="card-spot background-card">
-											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service2.png" alt="Travila" /></Link></div>
+											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service2.png" alt="T7wisa" /></Link></div>
 											<div className="card-info background-card">
 												<div className="card-left">
 													<div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">Airport Transfer</Link></div>
@@ -167,7 +167,7 @@ export default function RentalCar3() {
 									</div>
 									<div className="col-xl-3 col-lg-4 col-md-6 wow fadeInDown">
 										<div className="card-spot background-card">
-											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service3.png" alt="Travila" /></Link></div>
+											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service3.png" alt="T7wisa" /></Link></div>
 											<div className="card-info background-card">
 												<div className="card-left">
 													<div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">Corporate Fleet</Link></div>
@@ -184,7 +184,7 @@ export default function RentalCar3() {
 									</div>
 									<div className="col-xl-3 col-lg-4 col-md-6 wow fadeInDown">
 										<div className="card-spot background-card">
-											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service4.png" alt="Travila" /></Link></div>
+											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service4.png" alt="T7wisa" /></Link></div>
 											<div className="card-info background-card">
 												<div className="card-left">
 													<div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">One-Way Rentals</Link></div>
@@ -204,7 +204,7 @@ export default function RentalCar3() {
 						</div>
 					</section>
 					<section className="section-box box-media background-body">
-						<div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media2.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media3.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media4.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media5.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media6.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media7.png" alt="Travila" /></div>
+						<div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" /></div>
 					</section>
 				</main>
 

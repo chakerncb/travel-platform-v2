@@ -136,7 +136,7 @@ export default function PopularDestinations1() {
                                             <div className="card-meta">
                                                 <div className="meta-links">Browse <br />All destinations</div>
                                                 <div className="card-button hover-up">
-                                                    <Link href="/destination">
+                                                    <Link href="/destinations">
                                                         <svg width={10} height={10} viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M5.00011 9.08347L9.08347 5.00011L5.00011 0.916748M9.08347 5.00011L0.916748 5.00011" strokeLinecap="round" strokeLinejoin="round" />
                                                         </svg>

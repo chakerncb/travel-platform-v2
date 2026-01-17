@@ -9,8 +9,8 @@ export default function Payments1() {
                     <div className="row align-items-center">
                         <div className="col-lg-5">
                             <div className="row">
-                                <div className="col-md-7 mb-30"><img className="bdrd8 w-100" src="/assets/imgs/page/homepage1/pay1.png" alt="Travila" /></div>
-                                <div className="col-md-5 mb-30"><img className="bdrd8 w-100 mb-15" src="/assets/imgs/page/homepage1/pay2.png" alt="Travila" /><img className="bdrd8 w-100" src="/assets/imgs/page/homepage1/pay3.png" alt="Travila" /></div>
+                                <div className="col-md-7 mb-30"><img className="bdrd8 w-100" src="/assets/imgs/page/homepage1/pay1.png" alt="T7wisa" /></div>
+                                <div className="col-md-5 mb-30"><img className="bdrd8 w-100 mb-15" src="/assets/imgs/page/homepage1/pay2.png" alt="T7wisa" /><img className="bdrd8 w-100" src="/assets/imgs/page/homepage1/pay3.png" alt="T7wisa" /></div>
                             </div>
                         </div>
                         <div className="col-lg-7 mb-30">

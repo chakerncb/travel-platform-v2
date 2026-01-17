@@ -10,7 +10,7 @@ export default function Security() {
                     <div className="row align-items-center">
                         <div className="col-lg-4">
                             <div className="card-why-travel card-love-us wow fadeInUp">
-                                <div className="card-image"> <img src="/assets/imgs/page/homepage2/security.svg" alt="Travila" />
+                                <div className="card-image"> <img src="/assets/imgs/page/homepage2/security.svg" alt="T7wisa" />
                                 </div>
                                 <div className="card-info"> <Link className="text-xl-bold card-title" href="#">Security Assurance</Link>
                                     <p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data
@@ -21,7 +21,7 @@ export default function Security() {
                                 </div>
                             </div>
                             <div className="card-why-travel card-love-us wow fadeInUp">
-                                <div className="card-image"> <img src="/assets/imgs/page/homepage2/support.svg" alt="Travila" />
+                                <div className="card-image"> <img src="/assets/imgs/page/homepage2/support.svg" alt="T7wisa" />
                                 </div>
                                 <div className="card-info"> <Link className="text-xl-bold card-title" href="#">Customer Support</Link>
                                     <p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data
@@ -33,11 +33,11 @@ export default function Security() {
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="box-img-security wow fadeInUp"> <span className="text-phone">+01 235 368</span><img src="/assets/imgs/page/homepage6/man.png" alt="Travila" /></div>
+                            <div className="box-img-security wow fadeInUp"> <span className="text-phone">+01 235 368</span><img src="/assets/imgs/page/homepage6/man.png" alt="T7wisa" /></div>
                         </div>
                         <div className="col-lg-4">
                             <div className="card-why-travel card-love-us wow fadeInUp">
-                                <div className="card-image"> <img src="/assets/imgs/page/homepage2/policy.svg" alt="Travila" />
+                                <div className="card-image"> <img src="/assets/imgs/page/homepage2/policy.svg" alt="T7wisa" />
                                 </div>
                                 <div className="card-info"> <Link className="text-xl-bold card-title" href="#">Transparent Policies</Link>
                                     <p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data
@@ -48,7 +48,7 @@ export default function Security() {
                                 </div>
                             </div>
                             <div className="card-why-travel card-love-us wow fadeInUp">
-                                <div className="card-image"> <img src="/assets/imgs/page/homepage2/repu.svg" alt="Travila" /></div>
+                                <div className="card-image"> <img src="/assets/imgs/page/homepage2/repu.svg" alt="T7wisa" /></div>
                                 <div className="card-info"> <Link className="text-xl-bold card-title" href="#">Reputable
                                     Affiliations</Link>
                                     <p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data

@@ -10,10 +10,10 @@ export default function InstallApp4() {
                         <div className="row align-items-center">
                             <div className="col-lg-6 mb-40 wow fadeInUp"><span className="btn btn-tag-white">Install APP  Get
                                 discount code</span>
-                                <h2 className="title-why neutral-1000">Discover Seamless Travel with Travila</h2>
-                                <p className="text-xl-medium neutral-500">Embark on a journey like never before with Travila –
+                                <h2 className="title-why neutral-1000">Discover Seamless Travel with T7wisa</h2>
+                                <p className="text-xl-medium neutral-500">Embark on a journey like never before with T7wisa –
                                     your ultimate travel companion.</p>
-                                <div className="download-apps"> <Link href="#"><img src="/assets/imgs/template/googleplay.png" alt="Travila" /></Link><Link href="#"><img src="/assets/imgs/template/appstore.png" alt="Travila" /></Link></div>
+                                <div className="download-apps"> <Link href="#"><img src="/assets/imgs/template/googleplay.png" alt="T7wisa" /></Link><Link href="#"><img src="/assets/imgs/template/appstore.png" alt="T7wisa" /></Link></div>
                             </div>
                         </div>
                     </div>

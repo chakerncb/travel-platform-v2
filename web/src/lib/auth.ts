@@ -74,14 +74,58 @@ export const authConfig: NextAuthOptions = {
         maxAge: 60 * 30, // 30 minutes
         updateAge: 60 * 30 , // Update session every 30 minutes
     },
-    callbacks: {        
-        async jwt({ token, user }) {
+    callbacks: {
+        async signIn({ user, account, profile }) {
+            // For OAuth providers (Google, GitHub), register/login in backend
+            if (account && (account.provider === 'google' || account.provider === 'github')) {
+                try {
+                    const apiUrl = process.env.API_URL || 'http://localhost:8000/api';
+                    
+                    const response = await fetch(`${apiUrl}/oauth/register`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email: user.email,
+                            name: user.name,
+                            provider: account.provider,
+                            provider_id: account.providerAccountId,
+                        }),
+                    });
+
+                    if (!response.ok) {
+                        console.error('Failed to register OAuth user in backend');
+                        return false; // Prevent sign-in if backend registration fails
+                    }
+
+                    const data = await response.json();
+                    
+                    if (data.status && data.token) {
+                        // Store the backend token in the user object
+                        (user as ExtendedUser).token = data.token;
+                        return true;
+                    } else {
+                        console.error('Backend registration failed:', data.message);
+                        return false;
+                    }
+                } catch (error) {
+                    console.error('Error during OAuth backend registration:', error);
+                    return false; // Prevent sign-in on error
+                }
+            }
+            
+            // Allow credentials provider sign-in
+            return true;
+        },
+        async jwt({ token, user, account }) {
             const extendedToken = token as ExtendedJWT;
+            
             if (user) {
-                extendedToken.accessToken = (user as ExtendedUser).token; // Store token in the JWT
-                
-                // If the token exists, attempt to decode it and extract the name
+                // For both credentials and OAuth providers (now both have backend tokens)
                 if ((user as ExtendedUser).token) {
+                    extendedToken.accessToken = (user as ExtendedUser).token;
+                    
                     try {
                         const decoded = jwt.decode((user as ExtendedUser).token as string) as { 
                             given_name?: string;
@@ -89,35 +133,39 @@ export const authConfig: NextAuthOptions = {
                             email?: string;
                         };
                         
-                        // Use given_name from token if available
                         if (decoded?.given_name) {
                             extendedToken.name = decoded.given_name;
                         }
-                        // Use role from token if available
                         if (decoded?.role) {
                             extendedToken.role = decoded.role;
                         }
-                        
                     } catch (error) {
-                        console.error('Error decoding token for name:', error);
+                        console.error('Error decoding token:', error);
                     }
+                }
+                
+                // Fallback for name if not in token
+                if (!extendedToken.name && user.name) {
+                    extendedToken.name = user.name;
+                }
+                
+                // Default role if not set
+                if (!extendedToken.role) {
+                    extendedToken.role = 'user';
                 }
             }
             return extendedToken;
         },        
         async session({ session, token }) {
             const extendedSession = session as ExtendedSession;
-            extendedSession.accessToken = (token as ExtendedJWT).accessToken; // Make token available in the session
+            extendedSession.accessToken = (token as ExtendedJWT).accessToken;
             
-            // Initialize session.user if it doesn't exist
             session.user = session.user || {};
             
-            // Make sure the name from the token is passed to the session
             if (token.name) {
                 session.user.name = token.name;
             }
             
-            // Add the role to the session user object
             if ((token as ExtendedJWT).role) {
                 session.user.role = (token as ExtendedJWT).role;
             }

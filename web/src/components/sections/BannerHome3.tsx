@@ -24,9 +24,9 @@ export default function BannerHome3() {
 							</div>
 						</div>
 					</div>
-					<div className="box-image-banner-home4"><img src="/assets/imgs/page/homepage4/banner.png" alt="Travila" />
-						<div className="shape-rate"> <img className="light-mode" src="/assets/imgs/page/homepage4/review.png" alt="Travila" /><img className="dark-mode" src="/assets/imgs/page/homepage4/review-dark.png" alt="Travila" /></div>
-						<div className="shape-phone"><img className="light-mode" src="/assets/imgs/page/homepage4/hotline.png" alt="Travila" /><img className="dark-mode" src="/assets/imgs/page/homepage4/hotline-dark.png" alt="Travila" /></div>
+					<div className="box-image-banner-home4"><img src="/assets/imgs/page/homepage4/banner.png" alt="T7wisa" />
+						<div className="shape-rate"> <img className="light-mode" src="/assets/imgs/page/homepage4/review.png" alt="T7wisa" /><img className="dark-mode" src="/assets/imgs/page/homepage4/review-dark.png" alt="T7wisa" /></div>
+						<div className="shape-phone"><img className="light-mode" src="/assets/imgs/page/homepage4/hotline.png" alt="T7wisa" /><img className="dark-mode" src="/assets/imgs/page/homepage4/hotline-dark.png" alt="T7wisa" /></div>
 					</div>
 				</div>
 			</section>

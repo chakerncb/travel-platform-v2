@@ -14,9 +14,6 @@ class Commenter extends Model
     protected $fillable = [
         'tour_id',
         'user_id',
-        'name',
-        'email',
-        'avatar',
     ];
 
     public function tour(): BelongsTo

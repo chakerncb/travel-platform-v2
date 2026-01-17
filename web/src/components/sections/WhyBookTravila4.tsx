@@ -1,8 +1,8 @@
-export default function WhyBookTravila4() {
+export default function WhyBookT7wisa4() {
     return (
         <>
 
-            <section className="section-box box-why-book-travila-3 background-body">
+            <section className="section-box box-why-book-T7wisa-3 background-body">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-3 col-sm-6">

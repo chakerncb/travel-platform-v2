@@ -1,11 +1,11 @@
-export default function WhyBookTravila1() {
+export default function WhyBookT7wisa1() {
     return (
         <>
 
-            <section className="section-box box-why-book-travila background-body">
+            <section className="section-box box-why-book-T7wisa background-body">
                 <div className="container">
                     <div className="text-center wow fadeInUp">
-                        <h2 className="neutral-1000">Why book with Travila?</h2>
+                        <h2 className="neutral-1000">Why book with T7wisa?</h2>
                         <p className="text-xl-medium neutral-500">The great values we bring to you</p>
                     </div>
                     <div className="row mt-65">

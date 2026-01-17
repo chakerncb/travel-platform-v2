@@ -6,11 +6,11 @@ export default function Footer2() {
             <footer className="footer footer-type-3 background-body">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-4 mb-30"> <Link className="d-inline-block mb-20" href="/"><img className="light-mode" alt="Travila" src="/assets/imgs/template/logo-footer2.svg" /><img className="dark-mode" alt="Travila" src="/assets/imgs/template/logo-footer.svg" /></Link>
+                        <div className="col-md-4 mb-30"> <Link className="d-inline-block mb-20" href="/"><img className="light-mode" alt="T7wisa" src="/assets/imgs/template/logo-footer2.svg" /><img className="dark-mode" alt="T7wisa" src="/assets/imgs/template/logo-footer.svg" /></Link>
                             <div className="box-info-contact mt-0">
-                                <p className="text-md neutral-400 icon-address">4517 Washington Ave. Manchester, Kentucky 39495</p>
+                                <p className="text-md neutral-400 icon-address">Algeria, Guelma, Guelaat Bou Sbaa</p>
                                 <p className="text-md neutral-400 icon-worktime">Hours: 8:00 - 17:00, Mon - Sat</p>
-                                <p className="text-md neutral-400 icon-email">support@travila.com</p>
+                                <p className="text-md neutral-400 icon-email">support@T7wisa.com</p>
                             </div>
                         </div>
                         <div className="col-md-4 mb-30">
@@ -64,7 +64,7 @@ export default function Footer2() {
                         </div>
                         <div className="col-md-4 mb-30">
                             <div className="box-need-help">
-                                <p className="need-help neutral-1000 text-lg-bold mb-5">Need help? Call us</p><br /><Link className="heading-6 phone-support" href="/tel:1-800-222-8888">1-800-222-8888</Link>
+                                <p className="need-help neutral-1000 text-lg-bold mb-5">Need help? Call us</p><br /><Link className="heading-6 phone-support" href="/tel:05-00-00-00-00">05-00-00-00-00</Link>
                             </div>
                         </div>
                         <div className="col-md-4 mb-30">
@@ -81,7 +81,7 @@ export default function Footer2() {
                     <div className="footer-bottom">
                         <div className="row align-items-center">
                             <div className="col-md-6 text-md-start text-center mb-20">
-                                <p className="text-sm neutral-500">© {new Date().getFullYear()} Travila Inc. All rights reserved.</p>
+                                <p className="text-sm neutral-500">© {new Date().getFullYear()} T7wisa Inc. All rights reserved.</p>
                             </div>
                             <div className="col-md-6 text-md-end text-center mb-20">
                                 <ul className="menu-bottom-footer">

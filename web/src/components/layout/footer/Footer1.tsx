@@ -6,9 +6,9 @@ export default function Footer1() {
                 <div className="container">
                     <div className="footer-top">
                         <div className="row align-items-center">
-                            <div className="col-md-4 text-center text-md-start"><Link className="d-inline-block" href="/"><img alt="Travila" src="/assets/imgs/template/logo-footer.svg" /></Link></div>
+                            <div className="col-md-4 text-center text-md-start"><Link className="d-inline-block" href="/"><img alt="T7wisa" src="/assets/imgs/template/logo-footer.svg" /></Link></div>
                             <div className="col-md-8 text-center text-md-end">
-                                <div className="d-flex align-items-center justify-content-center justify-content-md-end"><Link className="text-md-medium need-help" href="/tel:1-800-222-8888">Need help? Call us</Link><Link className="heading-6 phone-support" href="/tel:1-800-222-8888">1-800-222-8888</Link></div>
+                                <div className="d-flex align-items-center justify-content-center justify-content-md-end"><Link className="text-md-medium need-help" href="/tel:05-00-00-00-00">Need help? Call us</Link><Link className="heading-6 phone-support" href="/tel:05-00-00-00-00">05-00-00-00-00</Link></div>
                             </div>
                         </div>
                     </div>
@@ -17,10 +17,10 @@ export default function Footer1() {
                             <h6>Contact Us </h6>
                             <div className="mt-20 mb-20">
                                 <div className="box-info-contact">
-                                    <p className="text-md neutral-400 icon-address">4517 Washington Ave. Manchester, Kentucky 39495
+                                    <p className="text-md neutral-400 icon-address">Algeria, Guelma, Guelaat Bou Sbaa
                                     </p>
                                     <p className="text-md neutral-400 icon-worktime">Hours: 8:00 - 17:00, Mon - Sat</p>
-                                    <p className="text-md neutral-400 icon-email">support@travila.com</p>
+                                    <p className="text-md neutral-400 icon-email">support@T7wisa.com</p>
                                 </div>
                                 <p className="text-lg-bold title-follow neutral-0">Follow us</p>
                                 <div className="box-socials-footer"><Link className="icon-socials icon-instagram" href="#">
@@ -86,7 +86,7 @@ export default function Footer1() {
                     <div className="footer-bottom mt-50">
                         <div className="row">
                             <div className="col-md-6 text-md-start text-center mb-20">
-                                <p className="text-sm color-white">© {new Date().getFullYear()} Travila Inc. All rights reserved.</p>
+                                <p className="text-sm color-white">© {new Date().getFullYear()} T7wisa Inc. All rights reserved.</p>
                             </div>
                             <div className="col-md-6 text-md-end text-center mb-20">
                                 <ul className="menu-bottom-footer">

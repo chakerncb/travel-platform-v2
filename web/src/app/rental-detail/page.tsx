@@ -115,14 +115,14 @@ export default function RentalDetail() {
 							<div className="container-banner-activities">
 								<div className="box-banner-activities">
 									<Slider {...settingsMain} ref={slider1} className="banner-activities-detail">
-										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="Travila" /></div>
-										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="Travila" /></div>
-										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="Travila" /></div>
-										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="Travila" /></div>
-										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="Travila" /></div>
-										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="Travila" /></div>
-										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="Travila" /></div>
-										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="Travila" /></div>
+										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="T7wisa" /></div>
+										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="T7wisa" /></div>
+										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="T7wisa" /></div>
+										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="T7wisa" /></div>
+										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="T7wisa" /></div>
+										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="T7wisa" /></div>
+										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="T7wisa" /></div>
+										<div className="banner-slide-activity"><img src="/assets/imgs/page/car/banner2.png" alt="T7wisa" /></div>
 									</Slider>
 									<div className="box-button-abs"> <Link className="btn btn-brand-secondary" href="#">
 										<svg width={22} height={22} viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
@@ -135,14 +135,14 @@ export default function RentalDetail() {
 								</div>
 								<div className="slider-thumnail-activities">
 									<Slider {...settingsThumbs} ref={slider2} className="slider-nav-thumbnails-activities-detail">
-										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn.png" alt="Travila" /></div>
-										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn2.png" alt="Travila" /></div>
-										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn3.png" alt="Travila" /></div>
-										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn4.png" alt="Travila" /></div>
-										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn5.png" alt="Travila" /></div>
-										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn6.png" alt="Travila" /></div>
-										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn.png" alt="Travila" /></div>
-										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn3.png" alt="Travila" /></div>
+										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn.png" alt="T7wisa" /></div>
+										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn2.png" alt="T7wisa" /></div>
+										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn3.png" alt="T7wisa" /></div>
+										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn4.png" alt="T7wisa" /></div>
+										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn5.png" alt="T7wisa" /></div>
+										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn6.png" alt="T7wisa" /></div>
+										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn.png" alt="T7wisa" /></div>
+										<div className="banner-slide"><img src="/assets/imgs/page/car/banner-thumn3.png" alt="T7wisa" /></div>
 									</Slider>
 								</div>
 							</div>
@@ -191,7 +191,7 @@ export default function RentalDetail() {
 										<div className="list-feature-car">
 											<div className="item-feature-car">
 												<div className="item-feature-car-inner">
-													<div className="feature-image"> <img src="/assets/imgs/page/car/km.png" alt="Travila" /></div>
+													<div className="feature-image"> <img src="/assets/imgs/page/car/km.png" alt="T7wisa" /></div>
 													<div className="feature-info">
 														<p className="text-md-medium neutral-1000">56,500</p>
 													</div>
@@ -199,7 +199,7 @@ export default function RentalDetail() {
 											</div>
 											<div className="item-feature-car">
 												<div className="item-feature-car-inner">
-													<div className="feature-image"> <img src="/assets/imgs/page/car/diesel.png" alt="Travila" /></div>
+													<div className="feature-image"> <img src="/assets/imgs/page/car/diesel.png" alt="T7wisa" /></div>
 													<div className="feature-info">
 														<p className="text-md-medium neutral-1000">Diesel</p>
 													</div>
@@ -207,7 +207,7 @@ export default function RentalDetail() {
 											</div>
 											<div className="item-feature-car">
 												<div className="item-feature-car-inner">
-													<div className="feature-image"> <img src="/assets/imgs/page/car/auto.png" alt="Travila" /></div>
+													<div className="feature-image"> <img src="/assets/imgs/page/car/auto.png" alt="T7wisa" /></div>
 													<div className="feature-info">
 														<p className="text-md-medium neutral-1000">Automatic</p>
 													</div>
@@ -215,7 +215,7 @@ export default function RentalDetail() {
 											</div>
 											<div className="item-feature-car">
 												<div className="item-feature-car-inner">
-													<div className="feature-image"> <img src="/assets/imgs/page/car/seat.png" alt="Travila" /></div>
+													<div className="feature-image"> <img src="/assets/imgs/page/car/seat.png" alt="T7wisa" /></div>
 													<div className="feature-info">
 														<p className="text-md-medium neutral-1000">7 seats</p>
 													</div>
@@ -223,7 +223,7 @@ export default function RentalDetail() {
 											</div>
 											<div className="item-feature-car">
 												<div className="item-feature-car-inner">
-													<div className="feature-image"> <img src="/assets/imgs/page/car/bag.png" alt="Travila" /></div>
+													<div className="feature-image"> <img src="/assets/imgs/page/car/bag.png" alt="T7wisa" /></div>
 													<div className="feature-info">
 														<p className="text-md-medium neutral-1000">3 Large bags</p>
 													</div>
@@ -231,7 +231,7 @@ export default function RentalDetail() {
 											</div>
 											<div className="item-feature-car">
 												<div className="item-feature-car-inner">
-													<div className="feature-image"> <img src="/assets/imgs/page/car/suv.png" alt="Travila" /></div>
+													<div className="feature-image"> <img src="/assets/imgs/page/car/suv.png" alt="T7wisa" /></div>
 													<div className="feature-info">
 														<p className="text-md-medium neutral-1000">SUVs</p>
 													</div>
@@ -239,7 +239,7 @@ export default function RentalDetail() {
 											</div>
 											<div className="item-feature-car">
 												<div className="item-feature-car-inner">
-													<div className="feature-image"> <img src="/assets/imgs/page/car/door.png" alt="Travila" /></div>
+													<div className="feature-image"> <img src="/assets/imgs/page/car/door.png" alt="T7wisa" /></div>
 													<div className="feature-info">
 														<p className="text-md-medium neutral-1000">4 Doors</p>
 													</div>
@@ -247,7 +247,7 @@ export default function RentalDetail() {
 											</div>
 											<div className="item-feature-car">
 												<div className="item-feature-car-inner">
-													<div className="feature-image"> <img src="/assets/imgs/page/car/lit.png" alt="Travila" /></div>
+													<div className="feature-image"> <img src="/assets/imgs/page/car/lit.png" alt="T7wisa" /></div>
 													<div className="feature-info">
 														<p className="text-md-medium neutral-1000">2.5L</p>
 													</div>
@@ -340,7 +340,7 @@ export default function RentalDetail() {
 															<div className="review-info-inner">
 																<h6 className="neutral-1000">4.95 / 5</h6>
 																<p className="text-sm-medium neutral-400">(672 reviews)</p>
-																<div className="review-rate"> <img src="/assets/imgs/page/tour-detail/star.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="Travila" /></div>
+																<div className="review-rate"> <img src="/assets/imgs/page/tour-detail/star.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star.svg" alt="T7wisa" /></div>
 															</div>
 														</div>
 														<div className="review-right">
@@ -429,13 +429,13 @@ export default function RentalDetail() {
 													<div className="list-reviews">
 														<div className="item-review">
 															<div className="head-review">
-																<div className="author-review"> <img src="/assets/imgs/page/tour-detail/avatar.png" alt="Travila" />
+																<div className="author-review"> <img src="/assets/imgs/page/tour-detail/avatar.png" alt="T7wisa" />
 																	<div className="author-info">
 																		<p className="text-lg-bold">Sarah Johnson</p>
 																		<p className="text-sm-medium neutral-500">December 4, 2024 at 3:12 pm</p>
 																	</div>
 																</div>
-																<div className="rate-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></div>
+																<div className="rate-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></div>
 															</div>
 															<div className="content-review">
 																<p className="text-sm-medium neutral-800">The views from The High Roller were absolutely stunning! It's a fantastic way to see the Strip and the surrounding area. The cabins are spacious and comfortable, and the audio commentary adds an extra layer of enjoyment. Highly recommend!</p>
@@ -443,13 +443,13 @@ export default function RentalDetail() {
 														</div>
 														<div className="item-review">
 															<div className="head-review">
-																<div className="author-review"> <img src="/assets/imgs/page/tour-detail/avatar.png" alt="Travila" />
+																<div className="author-review"> <img src="/assets/imgs/page/tour-detail/avatar.png" alt="T7wisa" />
 																	<div className="author-info">
 																		<p className="text-lg-bold">Sarah Johnson</p>
 																		<p className="text-sm-medium neutral-500">December 4, 2024 at 3:12 pm</p>
 																	</div>
 																</div>
-																<div className="rate-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></div>
+																<div className="rate-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></div>
 															</div>
 															<div className="content-review">
 																<p className="text-sm-medium neutral-800">The views from The High Roller were absolutely stunning! It's a fantastic way to see the Strip and the surrounding area. The cabins are spacious and comfortable, and the audio commentary adds an extra layer of enjoyment. Highly recommend!</p>
@@ -457,13 +457,13 @@ export default function RentalDetail() {
 														</div>
 														<div className="item-review">
 															<div className="head-review">
-																<div className="author-review"> <img src="/assets/imgs/page/tour-detail/avatar.png" alt="Travila" />
+																<div className="author-review"> <img src="/assets/imgs/page/tour-detail/avatar.png" alt="T7wisa" />
 																	<div className="author-info">
 																		<p className="text-lg-bold">Sarah Johnson</p>
 																		<p className="text-sm-medium neutral-500">December 4, 2024 at 3:12 pm</p>
 																	</div>
 																</div>
-																<div className="rate-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></div>
+																<div className="rate-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></div>
 															</div>
 															<div className="content-review">
 																<p className="text-sm-medium neutral-800">The views from The High Roller were absolutely stunning! It's a fantastic way to see the Strip and the surrounding area. The cabins are spacious and comfortable, and the audio commentary adds an extra layer of enjoyment. Highly recommend!</p>
@@ -505,31 +505,31 @@ export default function RentalDetail() {
 															<div className="col-lg-4">
 																<div className="box-type-review">
 																	<p className="text-sm-bold text-type-rv">Price</p>
-																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></p>
+																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></p>
 																</div>
 																<div className="box-type-review">
 																	<p className="text-sm-bold text-type-rv">Service</p>
-																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></p>
+																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></p>
 																</div>
 															</div>
 															<div className="col-lg-4">
 																<div className="box-type-review">
 																	<p className="text-sm-bold text-type-rv">Safety</p>
-																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></p>
+																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></p>
 																</div>
 																<div className="box-type-review">
 																	<p className="text-sm-bold text-type-rv">Entertainment</p>
-																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></p>
+																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></p>
 																</div>
 															</div>
 															<div className="col-lg-4">
 																<div className="box-type-review">
 																	<p className="text-sm-bold text-type-rv">Accessibility</p>
-																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></p>
+																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></p>
 																</div>
 																<div className="box-type-review">
 																	<p className="text-sm-bold text-type-rv">Support</p>
-																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="Travila" /></p>
+																	<p className="rate-type-review"> <img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /><img src="/assets/imgs/page/tour-detail/star-big.svg" alt="T7wisa" /></p>
 																</div>
 															</div>
 														</div>
@@ -578,7 +578,7 @@ export default function RentalDetail() {
 										<div className="box-sidebar-content">
 											<div className="box-agent-support">
 												<div className="card-author">
-													<div className="card-author-image"> <img src="/assets/imgs/page/property/author.png" alt="Travila" /></div>
+													<div className="card-author-image"> <img src="/assets/imgs/page/property/author.png" alt="T7wisa" /></div>
 													<div className="card-author-info">
 														<p className="text-lg-bold neutral-1000">Emily Rose</p>
 														<p className="text-sm-medium neutral-500">Las Vegas, USA </p>
@@ -597,7 +597,7 @@ export default function RentalDetail() {
 												</svg></Link></div>
 										</div>
 									</div>
-									<div className="sidebar-banner"> <Link href="#"><img src="/assets/imgs/page/car/banner-ads.png" alt="Travila" /></Link></div>
+									<div className="sidebar-banner"> <Link href="#"><img src="/assets/imgs/page/car/banner-ads.png" alt="T7wisa" /></Link></div>
 								</div>
 							</div>
 						</div>
@@ -608,7 +608,7 @@ export default function RentalDetail() {
 								<div className="col-lg-6">
 									<h3 className="neutral-1000 wow fadeInUp">How It Work ?</h3>
 									<p className="text-xl-medium neutral-500 wow fadeInUp">Just 4 easy and quick steps</p>
-									<div className="box-image-how wow fadeInUp"> <img src="/assets/imgs/page/homepage8/img-how.png" alt="Travila" /><span className="img-arrow"> <img src="/assets/imgs/page/homepage8/img-arrow.png" alt="Travila" /></span><span className="img-dot"> <img src="/assets/imgs/page/homepage8/dot-img.png" alt="Travila" /></span></div>
+									<div className="box-image-how wow fadeInUp"> <img src="/assets/imgs/page/homepage8/img-how.png" alt="T7wisa" /><span className="img-arrow"> <img src="/assets/imgs/page/homepage8/img-arrow.png" alt="T7wisa" /></span><span className="img-dot"> <img src="/assets/imgs/page/homepage8/dot-img.png" alt="T7wisa" /></span></div>
 								</div>
 								<div className="col-lg-6">
 									<ul className="list-steps wow fadeInUp">
@@ -663,7 +663,7 @@ export default function RentalDetail() {
 								<div className="row">
 									<div className="col-xl-3 col-lg-4 col-md-6 wow fadeInDown">
 										<div className="card-spot background-card">
-											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service.png" alt="Travila" /></Link></div>
+											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service.png" alt="T7wisa" /></Link></div>
 											<div className="card-info background-card">
 												<div className="card-left">
 													<div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">Chauffeur Hailing</Link></div>
@@ -680,7 +680,7 @@ export default function RentalDetail() {
 									</div>
 									<div className="col-xl-3 col-lg-4 col-md-6 wow fadeInDown">
 										<div className="card-spot background-card">
-											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service2.png" alt="Travila" /></Link></div>
+											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service2.png" alt="T7wisa" /></Link></div>
 											<div className="card-info background-card">
 												<div className="card-left">
 													<div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">Airport Transfer</Link></div>
@@ -697,7 +697,7 @@ export default function RentalDetail() {
 									</div>
 									<div className="col-xl-3 col-lg-4 col-md-6 wow fadeInDown">
 										<div className="card-spot background-card">
-											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service3.png" alt="Travila" /></Link></div>
+											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service3.png" alt="T7wisa" /></Link></div>
 											<div className="card-info background-card">
 												<div className="card-left">
 													<div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">Corporate Fleet</Link></div>
@@ -714,7 +714,7 @@ export default function RentalDetail() {
 									</div>
 									<div className="col-xl-3 col-lg-4 col-md-6 wow fadeInDown">
 										<div className="card-spot background-card">
-											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service4.png" alt="Travila" /></Link></div>
+											<div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage8/service4.png" alt="T7wisa" /></Link></div>
 											<div className="card-info background-card">
 												<div className="card-left">
 													<div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">One-Way Rentals</Link></div>
@@ -734,7 +734,7 @@ export default function RentalDetail() {
 						</div>
 					</section>
 					<section className="section-box box-media background-body">
-						<div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media2.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media3.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media4.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media5.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media6.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media7.png" alt="Travila" /></div>
+						<div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" /></div>
 					</section>
 				</main>
 

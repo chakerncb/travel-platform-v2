@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 // Authentication routes
 
 Route::post('register', 'App\Http\Controllers\AuthController@register');
+Route::post('oauth/register', 'App\Http\Controllers\AuthController@oauthRegister');
 Route::post('login', 'App\Http\Controllers\AuthController@login');
 Route::get('login', function (Request $request) {
     return response()->json([
@@ -47,6 +48,21 @@ Route::prefix('v1')->group(function () {
     
     // Tours
     Route::apiResource('tours', App\Http\Controllers\Api\TourController::class);
+    
+    // Tour Reviews (public read, authenticated write)
+    Route::get('tours/{tourId}/reviews', [App\Http\Controllers\Api\ReviewController::class, 'index']);
+    Route::get('tours/{tourId}/reviews/check', [App\Http\Controllers\Api\ReviewController::class, 'checkUserReview']);
+    
+    // Newsletter subscription (public)
+    Route::post('newsletter/subscribe', [App\Http\Controllers\Api\NewsletterController::class, 'subscribe']);
+    Route::post('newsletter/unsubscribe', [App\Http\Controllers\Api\NewsletterController::class, 'unsubscribe']);
+    Route::get('newsletter/unsubscribe', [App\Http\Controllers\Api\NewsletterController::class, 'unsubscribe']); // For email links
+    
+    // Blog routes (public)
+    Route::get('blogs', [App\Http\Controllers\Api\BlogController::class, 'index']);
+    Route::get('blogs/categories', [App\Http\Controllers\Api\BlogController::class, 'getCategories']);
+    Route::get('blogs/{slug}', [App\Http\Controllers\Api\BlogController::class, 'show']);
+    Route::post('blogs/{slug}/comments', [App\Http\Controllers\Api\BlogController::class, 'addComment']);
     
     // Custom Tour Bookings (public submission)
     Route::post('custom-tour-bookings', [App\Http\Controllers\Api\CustomTourBookingController::class, 'store']);
@@ -111,7 +127,54 @@ Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
         Route::get('/upcoming', [App\Http\Controllers\UserTourController::class, 'upcoming']);
         Route::get('/past', [App\Http\Controllers\UserTourController::class, 'past']);
     });
+
+    // Chat routes
+    Route::prefix('chat')->group(function () {
+        Route::get('/room', [App\Http\Controllers\Api\ChatController::class, 'getOrCreateRoom']);
+        Route::get('/room/{roomId}/messages', [App\Http\Controllers\Api\ChatController::class, 'getMessages']);
+        Route::post('/room/{roomId}/messages', [App\Http\Controllers\Api\ChatController::class, 'sendMessage']);
+        Route::post('/room/{roomId}/read', [App\Http\Controllers\Api\ChatController::class, 'markAsRead']);
+        Route::get('/unread-count', [App\Http\Controllers\Api\ChatController::class, 'getUnreadCount']);
+    });
+
+    // Tour Reviews (authenticated only)
+    Route::prefix('tours/{tourId}/reviews')->group(function () {
+        Route::post('/', [App\Http\Controllers\Api\ReviewController::class, 'store']);
+        Route::put('/{reviewId}', [App\Http\Controllers\Api\ReviewController::class, 'update']);
+        Route::delete('/{reviewId}', [App\Http\Controllers\Api\ReviewController::class, 'destroy']);
+    });
+
+    // Newsletter management (admin only - add middleware later)
+    Route::prefix('newsletters')->group(function () {
+        Route::get('/', function () {
+            return response()->json([
+                'status' => true,
+                'newsletters' => \App\Models\Newsletter::with('creator')->orderBy('created_at', 'desc')->paginate(20),
+            ]);
+        });
+        Route::post('/', function (\Illuminate\Http\Request $request) {
+            $validated = $request->validate([
+                'subject' => 'required|string|max:255',
+                'content' => 'required|string',
+                'status' => 'sometimes|in:draft,scheduled,sent',
+                'scheduled_at' => 'nullable|date',
+            ]);
+            
+            $user = \Illuminate\Support\Facades\Auth::user();
+            $validated['created_by'] = $user ? $user->id : null;
+            $newsletter = \App\Models\Newsletter::create($validated);
+            
+            return response()->json([
+                'status' => true,
+                'message' => 'Newsletter created successfully.',
+                'newsletter' => $newsletter,
+            ], 201);
+        });
+        Route::post('/{id}/send', [App\Http\Controllers\Api\NewsletterController::class, 'sendNewsletter']);
+        Route::get('/subscribers', [App\Http\Controllers\Api\NewsletterController::class, 'getSubscribers']);
+    });
 });
+
 
 
 

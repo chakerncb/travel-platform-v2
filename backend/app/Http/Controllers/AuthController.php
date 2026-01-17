@@ -49,6 +49,70 @@ class AuthController extends Controller
          'message' => 'User registered successfully, please verify your email',
          ]);
    }
+
+   /**
+    * Register or login user via OAuth (Google, GitHub, etc.)
+    * Email is already verified by the OAuth provider
+    */
+   public function oauthRegister(Request $request)
+   {
+      $request->validate([
+         'email' => 'required|email',
+         'name' => 'required|string',
+         'provider' => 'required|string|in:google,github',
+         'provider_id' => 'required|string',
+      ]);
+
+      // Check if user already exists
+      $user = User::where('email', $request->email)->first();
+
+      if ($user) {
+         // User exists, generate token and return
+         $token = $user->createToken('auth_token')->plainTextToken;
+
+         return response()->json([
+            'status' => true,
+            'message' => 'Login successful',
+            'token' => $token,
+            'User' => $user
+         ]);
+      }
+
+      // User doesn't exist, create new user
+      // Split name into first and last name
+      $nameParts = explode(' ', $request->name, 2);
+      $firstName = $nameParts[0];
+      $lastName = $nameParts[1] ?? '';
+
+      $user = new User();
+      $user->f_name = $firstName;
+      $user->l_name = $lastName;
+      $user->email = $request->email;
+      $user->password = Hash::make(bin2hex(random_bytes(16))); // Random password for OAuth users
+      $user->phone = $request->phone ?? ''; // Optional
+      $user->address = $request->address ?? '';
+      $user->is_admin = false;
+      $user->email_verified_at = now(); // OAuth providers verify email
+      $user->save();
+
+      if (!$user) {
+         return response()->json([
+            'status' => false,
+            'message' => 'User registration failed'
+         ], 500);
+      }
+
+      // Generate token for the new user
+      $token = $user->createToken('auth_token')->plainTextToken;
+
+      return response()->json([
+         'status' => true,
+         'message' => 'User registered successfully via OAuth',
+         'token' => $token,
+         'User' => $user
+      ]);
+   }
+   
    public function login(LoginRequest $request){
 
       $user = User::where('email', $request->email)->first();

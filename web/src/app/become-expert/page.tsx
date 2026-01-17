@@ -40,7 +40,7 @@ export default function BecomeExpert() {
 								<div className="row">
 									<div className="col-lg-3 col-md-6">
 										<div className="card-why-travel card-business background-card wow fadeInUp">
-											<div className="card-image"> <img src="/assets/imgs/page/pages/earth.png" alt="Travila" /></div>
+											<div className="card-image"> <img src="/assets/imgs/page/pages/earth.png" alt="T7wisa" /></div>
 											<div className="card-info"> <Link className="text-xl-bold card-title" href="#">Attractions  Tours</Link>
 												<p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data security through encryption and secure payment practices</p><Link className="text-sm-medium card-link" href="#">Learn More
 													<svg width={11} height={10} viewBox="0 0 11 10" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,7 @@ export default function BecomeExpert() {
 									</div>
 									<div className="col-lg-3 col-md-6">
 										<div className="card-why-travel card-business background-card wow fadeInUp">
-											<div className="card-image"> <img src="/assets/imgs/page/pages/tour.png" alt="Travila" /></div>
+											<div className="card-image"> <img src="/assets/imgs/page/pages/tour.png" alt="T7wisa" /></div>
 											<div className="card-info"> <Link className="text-xl-bold card-title" href="#">Group Tours</Link>
 												<p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data security through encryption and secure payment practices</p><Link className="text-sm-medium card-link" href="#">Learn More
 													<svg width={11} height={10} viewBox="0 0 11 10" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +62,7 @@ export default function BecomeExpert() {
 									</div>
 									<div className="col-lg-3 col-md-6">
 										<div className="card-why-travel card-business background-card wow fadeInUp">
-											<div className="card-image"> <img src="/assets/imgs/page/pages/custom.png" alt="Travila" /></div>
+											<div className="card-image"> <img src="/assets/imgs/page/pages/custom.png" alt="T7wisa" /></div>
 											<div className="card-info"> <Link className="text-xl-bold card-title" href="#">Custom Trips</Link>
 												<p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data security through encryption and secure payment practices</p><Link className="text-sm-medium card-link" href="#">Learn More
 													<svg width={11} height={10} viewBox="0 0 11 10" xmlns="http://www.w3.org/2000/svg">
@@ -73,7 +73,7 @@ export default function BecomeExpert() {
 									</div>
 									<div className="col-lg-3 col-md-6">
 										<div className="card-why-travel card-business background-card wow fadeInUp">
-											<div className="card-image"> <img src="/assets/imgs/page/pages/car.png" alt="Travila" /></div>
+											<div className="card-image"> <img src="/assets/imgs/page/pages/car.png" alt="T7wisa" /></div>
 											<div className="card-info"> <Link className="text-xl-bold card-title" href="#">Car Rentals</Link>
 												<p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data security through encryption and secure payment practices</p><Link className="text-sm-medium card-link" href="#">Learn More
 													<svg width={11} height={10} viewBox="0 0 11 10" xmlns="http://www.w3.org/2000/svg">
@@ -84,7 +84,7 @@ export default function BecomeExpert() {
 									</div>
 									<div className="col-lg-3 col-md-6">
 										<div className="card-why-travel card-business background-card wow fadeInUp">
-											<div className="card-image"> <img src="/assets/imgs/page/pages/local.png" alt="Travila" /></div>
+											<div className="card-image"> <img src="/assets/imgs/page/pages/local.png" alt="T7wisa" /></div>
 											<div className="card-info"> <Link className="text-xl-bold card-title" href="#">Local Guides</Link>
 												<p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data security through encryption and secure payment practices</p><Link className="text-sm-medium card-link" href="#">Learn More
 													<svg width={11} height={10} viewBox="0 0 11 10" xmlns="http://www.w3.org/2000/svg">
@@ -95,7 +95,7 @@ export default function BecomeExpert() {
 									</div>
 									<div className="col-lg-3 col-md-6">
 										<div className="card-why-travel card-business background-card wow fadeInUp">
-											<div className="card-image"> <img src="/assets/imgs/page/pages/themed.png" alt="Travila" /></div>
+											<div className="card-image"> <img src="/assets/imgs/page/pages/themed.png" alt="T7wisa" /></div>
 											<div className="card-info"> <Link className="text-xl-bold card-title" href="#">Themed Tours</Link>
 												<p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data security through encryption and secure payment practices</p><Link className="text-sm-medium card-link" href="#">Learn More
 													<svg width={11} height={10} viewBox="0 0 11 10" xmlns="http://www.w3.org/2000/svg">
@@ -106,7 +106,7 @@ export default function BecomeExpert() {
 									</div>
 									<div className="col-lg-3 col-md-6">
 										<div className="card-why-travel card-business background-card wow fadeInUp">
-											<div className="card-image"> <img src="/assets/imgs/page/pages/ride.png" alt="Travila" /></div>
+											<div className="card-image"> <img src="/assets/imgs/page/pages/ride.png" alt="T7wisa" /></div>
 											<div className="card-info"> <Link className="text-xl-bold card-title" href="#">Ride hailing</Link>
 												<p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data security through encryption and secure payment practices</p><Link className="text-sm-medium card-link" href="#">Learn More
 													<svg width={11} height={10} viewBox="0 0 11 10" xmlns="http://www.w3.org/2000/svg">
@@ -117,7 +117,7 @@ export default function BecomeExpert() {
 									</div>
 									<div className="col-lg-3 col-md-6">
 										<div className="card-why-travel card-business background-card wow fadeInUp">
-											<div className="card-image"> <img src="/assets/imgs/page/pages/visas.png" alt="Travila" /></div>
+											<div className="card-image"> <img src="/assets/imgs/page/pages/visas.png" alt="T7wisa" /></div>
 											<div className="card-info"> <Link className="text-xl-bold card-title" href="#">Visas</Link>
 												<p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data security through encryption and secure payment practices</p><Link className="text-sm-medium card-link" href="#">Learn More
 													<svg width={11} height={10} viewBox="0 0 11 10" xmlns="http://www.w3.org/2000/svg">
@@ -172,7 +172,7 @@ export default function BecomeExpert() {
 							</div>
 						</div>
 					</section>
-					<section className="section-box box-why-book-travila-3 background-body">
+					<section className="section-box box-why-book-T7wisa-3 background-body">
 						<div className="container">
 							<div className="text-center">
 								<h2 className="neutral-1000"> <span>Why Should You </span>Choose Us?</h2>
@@ -315,13 +315,13 @@ export default function BecomeExpert() {
 							<div className="block-install-apps">
 								<div className="row align-items-center">
 									<div className="col-lg-6 mb-40 wow fadeInLeft"><span className="btn btn-tag">Install APP   Get  discount code</span>
-										<h2 className="title-why neutral-1000">Discover Seamless Travel with Travila</h2>
-										<p className="text-xl-medium neutral-500">Embark on a journey like never before with Travila – your ultimate travel companion.</p>
-										<div className="download-apps"> <Link href="#"><img src="/assets/imgs/template/googleplay.png" alt="Travila" /></Link><Link href="#"><img src="/assets/imgs/template/appstore.png" alt="Travila" /></Link></div>
+										<h2 className="title-why neutral-1000">Discover Seamless Travel with T7wisa</h2>
+										<p className="text-xl-medium neutral-500">Embark on a journey like never before with T7wisa – your ultimate travel companion.</p>
+										<div className="download-apps"> <Link href="#"><img src="/assets/imgs/template/googleplay.png" alt="T7wisa" /></Link><Link href="#"><img src="/assets/imgs/template/appstore.png" alt="T7wisa" /></Link></div>
 									</div>
 									<div className="col-lg-6 mb-40 text-end wow fadeInRight">
-										<div className="box-images-apps"> <img className="img-phone" src="/assets/imgs/page/homepage4/phone.png" alt="Travila" /><img className="img-laptop" src="/assets/imgs/page/homepage4/laptop.png" alt="Travila" />
-											<div className="shape"> <img className="ml-40 mb-10" src="/assets/imgs/page/homepage4/arrow-big.png" alt="Travila" /><img src="/assets/imgs/page/homepage4/arrow-sm.png" alt="Travila" /></div>
+										<div className="box-images-apps"> <img className="img-phone" src="/assets/imgs/page/homepage4/phone.png" alt="T7wisa" /><img className="img-laptop" src="/assets/imgs/page/homepage4/laptop.png" alt="T7wisa" />
+											<div className="shape"> <img className="ml-40 mb-10" src="/assets/imgs/page/homepage4/arrow-big.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage4/arrow-sm.png" alt="T7wisa" /></div>
 										</div>
 									</div>
 								</div>
@@ -329,7 +329,7 @@ export default function BecomeExpert() {
 						</div>
 					</section>
 					<section className="section-box box-media background-body">
-						<div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media2.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media3.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media4.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media5.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media6.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media7.png" alt="Travila" /></div>
+						<div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" /></div>
 					</section>
 				</main>
 

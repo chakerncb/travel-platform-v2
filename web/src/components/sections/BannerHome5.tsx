@@ -12,7 +12,7 @@ export default function BannerHome5() {
 							<div className="d-flex justify-content-center"><span className="btn btn-brand-secondary"> <img className="mr-10" src="/assets/imgs/page/homepage4/earth.svg" alt="Travile" />Explore the
 								World</span></div>
 							<h2 className="mt-20 mb-20 color-white">Your Gateway to Extraordinary Adventures</h2>
-							<h6 className="heading-6-medium color-white mb-30">Pack your bags and let Travila redefine your
+							<h6 className="heading-6-medium color-white mb-30">Pack your bags and let T7wisa redefine your
 								travel experience. Where<br className="d-none d-md-block" />every journey is a story waiting to be
 								told</h6>
 						</div>

@@ -310,20 +310,20 @@ export default function TourMap({ destinations, airports = [], showFlightRoutes 
 		map.on('zoomend', createMarkers)
 
 		// Create plane icon for flight segments
-		// const createPlaneIcon = () => {
-		// 	return L.divIcon({
-		// 		html: `
-		// 			<div style="
-		// 				font-size: 20px;
-		// 				transform: rotate(45deg);
-		// 				text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-		// 			">✈️</div>
-		// 		`,
-		// 		iconSize: [30, 20],
-		// 		iconAnchor: [10, 10],
-		// 		className: 'plane-icon'
-		// 	})
-		// }
+		const createPlaneIcon = () => {
+			return L.divIcon({
+				html: `
+					<div style="
+						font-size: 20px;
+						transform: rotate(45deg);
+						text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+					">✈️</div>
+				`,
+				iconSize: [30, 20],
+				iconAnchor: [10, 10],
+				className: 'plane-icon'
+			})
+		}
 
 		// Fetch routes with flight detection
 		const fetchRoute = async () => {
@@ -340,25 +340,27 @@ export default function TourMap({ destinations, airports = [], showFlightRoutes 
 				
 				const isDifferentCountry = currentDest.country !== nextDest.country
 				
-				if (!isDifferentCountry) {
-				// 	// Draw flight path (dashed line with plane icon)
-				// 	if (mapRef.current) {
-				// 		// Draw dashed line for flight
-				// 		L.polyline([currentCoord, nextCoord], {
-				// 			color: '#f59e0b',
-				// 			weight: 3,
-				// 			opacity: 0.7,
-				// 			dashArray: '10, 15',
-				// 			lineJoin: 'round'
-				// 		}).addTo(mapRef.current)
+				if (isDifferentCountry) {
+					if (airports.length === 0 || !showFlightRoutes) {
+					// Draw flight path (dashed line with plane icon)
+					if (mapRef.current) {
+						// Draw dashed line for flight
+						L.polyline([currentCoord, nextCoord], {
+							color: '#f59e0b',
+							weight: 3,
+							opacity: 0.7,
+							dashArray: '10, 15',
+							lineJoin: 'round'
+						}).addTo(mapRef.current)
 						
-				// 		// Add plane icon at midpoint
-				// 		const midLat = (currentCoord[0] + nextCoord[0]) / 2
-				// 		const midLng = (currentCoord[1] + nextCoord[1]) / 2
-				// 		const planeMarker = L.marker([midLat, midLng], { icon: createPlaneIcon() })
-				// 		planeMarker.addTo(mapRef.current)
-				// 	}
-				// } else {
+						// Add plane icon at midpoint
+						const midLat = (currentCoord[0] + nextCoord[0]) / 2
+						const midLng = (currentCoord[1] + nextCoord[1]) / 2
+						const planeMarker = L.marker([midLat, midLng], { icon: createPlaneIcon() })
+						planeMarker.addTo(mapRef.current)
+					}
+				}
+				} else {
 					// Same country - fetch road route
 					try {
 						const coordsString = `${currentCoord[1]},${currentCoord[0]};${nextCoord[1]},${nextCoord[0]}`

@@ -37,7 +37,7 @@ export default function Contact() {
                                                 <path d="M6.00016 0.5C2.805 0.5 0.205566 3.09944 0.205566 6.29456C0.205566 10.2598 5.39116 16.081 5.61194 16.3269C5.81932 16.5579 6.18138 16.5575 6.38838 16.3269C6.60916 16.081 11.7948 10.2598 11.7948 6.29456C11.7947 3.09944 9.19529 0.5 6.00016 0.5ZM6.00016 9.20997C4.3926 9.20997 3.08478 7.90212 3.08478 6.29456C3.08478 4.687 4.39263 3.37919 6.00016 3.37919C7.60769 3.37919 8.9155 4.68703 8.9155 6.29459C8.9155 7.90216 7.60769 9.20997 6.00016 9.20997Z" />
                                             </svg>Our Location
                                         </p>
-                                        <p className="text-md-medium neutral-500">4517 Washington Ave. Manchester, Kentucky 39495</p>
+                                        <p className="text-md-medium neutral-500">Algeria, Guelma, Guelaat Bou Sbaa</p>
                                     </div>
                                 </div>
                             </div>
@@ -190,9 +190,9 @@ export default function Contact() {
                                             <div className="col-sm-6">
                                                 <div className="banner-img-contact">
                                                     <div className="box-traveled-in">
-                                                        <p className="text-xl-medium mb-20">1684 people used <strong>Travila </strong>in the last <strong>24 hours</strong></p>
+                                                        <p className="text-xl-medium mb-20">1684 people used <strong>T7wisa </strong>in the last <strong>24 hours</strong></p>
                                                         <div className="box-authors-partner wow fadeInUp">
-                                                            <div className="authors-partner-left"><img src="/assets/imgs/page/homepage5/author.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/author2.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/author3.png" alt="Travila" /><span className="item-author">
+                                                            <div className="authors-partner-left"><img src="/assets/imgs/page/homepage5/author.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/author2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/author3.png" alt="T7wisa" /><span className="item-author">
                                                                 <svg width={18} height={18} viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
                                                                     <rect x="0.5" y="7.448" width={17} height="2.31818" fill="black" />
                                                                     <rect x="7.84082" y="17.1072" width={17} height="2.31818" transform="rotate(-90 7.84082 17.1072)" fill="black" />
@@ -219,12 +219,12 @@ export default function Contact() {
                         <div className="container">
                             <div className="text-center wow fadeInUp">
                                 <div className="d-flex justify-content-center">
-                                    <div className="box-author-testimonials"> <img src="/assets/imgs/page/homepage1/testimonial.png" alt="Travila" /><img src="/assets/imgs/page/homepage1/testimonial2.png" alt="Travila" /><img src="/assets/imgs/page/homepage1/testimonial3.png" alt="Travila" />Testimonials</div>
+                                    <div className="box-author-testimonials"> <img src="/assets/imgs/page/homepage1/testimonial.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage1/testimonial2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage1/testimonial3.png" alt="T7wisa" />Testimonials</div>
                                 </div>
                                 <h2 className="mt-8 mb-35 neutral-1000">Don't take our word for it</h2>
                             </div>
                             <div className="row align-items-center wow fadeInUp">
-                                <div className="col-lg-6 mb-30"><img className="light-mode" src="/assets/imgs/page/homepage7/img-testimonial.png" alt="Travila" /><img className="dark-mode" src="/assets/imgs/page/homepage7/img-testimonial-dark.png" alt="Travila" /></div>
+                                <div className="col-lg-6 mb-30"><img className="light-mode" src="/assets/imgs/page/homepage7/img-testimonial.png" alt="T7wisa" /><img className="dark-mode" src="/assets/imgs/page/homepage7/img-testimonial-dark.png" alt="T7wisa" /></div>
                                 <div className="col-lg-6 mb-30">
                                     <div className="box-swiper box-swiper-home7">
                                         <div className="swiper-container swiper-group-testimonials-1 swiper-group-journey pb-0">
@@ -237,13 +237,13 @@ export default function Contact() {
                                                         </div>
                                                         <div className="card-top">
                                                             <div className="card-author">
-                                                                <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="Travila" /></div>
+                                                                <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="T7wisa" /></div>
                                                                 <div className="card-info">
                                                                     <p className="text-lg-bold neutral-1000">Sara Mohamed</p>
                                                                     <p className="text-sm neutral-1000">Jakatar</p>
                                                                 </div>
                                                             </div>
-                                                            <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /></div>
+                                                            <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
                                                         </div>
                                                     </div>
                                                 </SwiperSlide>
@@ -255,13 +255,13 @@ export default function Contact() {
                                                         </div>
                                                         <div className="card-top">
                                                             <div className="card-author">
-                                                                <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="Travila" /></div>
+                                                                <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="T7wisa" /></div>
                                                                 <div className="card-info">
                                                                     <p className="text-lg-bold neutral-1000">Atend John</p>
                                                                     <p className="text-sm neutral-1000">Califonia</p>
                                                                 </div>
                                                             </div>
-                                                            <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /></div>
+                                                            <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
                                                         </div>
                                                     </div>
                                                 </SwiperSlide>
@@ -273,13 +273,13 @@ export default function Contact() {
                                                         </div>
                                                         <div className="card-top">
                                                             <div className="card-author">
-                                                                <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="Travila" /></div>
+                                                                <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="T7wisa" /></div>
                                                                 <div className="card-info">
                                                                     <p className="text-lg-bold neutral-1000">Sara Mohamed</p>
                                                                     <p className="text-sm neutral-1000">Jakatar</p>
                                                                 </div>
                                                             </div>
-                                                            <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /></div>
+                                                            <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
                                                         </div>
                                                     </div>
                                                 </SwiperSlide>
@@ -291,13 +291,13 @@ export default function Contact() {
                                                         </div>
                                                         <div className="card-top">
                                                             <div className="card-author">
-                                                                <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="Travila" /></div>
+                                                                <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="T7wisa" /></div>
                                                                 <div className="card-info">
                                                                     <p className="text-lg-bold neutral-1000">Sara Mohamed</p>
                                                                     <p className="text-sm neutral-1000">Jakatar</p>
                                                                 </div>
                                                             </div>
-                                                            <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /><img src="/assets/imgs/template/icons/star.svg" alt="Travila" /></div>
+                                                            <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
                                                         </div>
                                                     </div>
                                                 </SwiperSlide>
@@ -322,17 +322,17 @@ export default function Contact() {
                         <div className="container">
                             <div className="box-footer-col-3">
                                 <div className="footer-col-1">
-                                    <div className="box-footer-help"><img className="light-mode" alt="Travila" src="/assets/imgs/template/icons/help-w.svg" /><img className="dark-mode" alt="Travila" src="/assets/imgs/page/homepage6/help.svg" />
+                                    <div className="box-footer-help"><img className="light-mode" alt="T7wisa" src="/assets/imgs/template/icons/help-w.svg" /><img className="dark-mode" alt="T7wisa" src="/assets/imgs/page/homepage6/help.svg" />
                                         <div className="box-info-support">
-                                            <p className="text-md-medium mb-5 neutral-1000">Need help? Call us</p><Link className="heading-6 phone-support neutral-1000" href="/tel:1-800-222-8888">1-800-222-8888</Link>
+                                            <p className="text-md-medium mb-5 neutral-1000">Need help? Call us</p><Link className="heading-6 phone-support neutral-1000" href="/tel:05-00-00-00-00">05-00-00-00-00</Link>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="footer-col-2">
-                                    <div className="box-join"><img className="light-mode" alt="Travila" src="/assets/imgs/template/icons/join-w.svg" /><img className="dark-mode" alt="Travila" src="/assets/imgs/page/homepage6/join.svg" /><span className="neutral-1000">Join Travila Affiliate Program Today !</span></div>
+                                    <div className="box-join"><img className="light-mode" alt="T7wisa" src="/assets/imgs/template/icons/join-w.svg" /><img className="dark-mode" alt="T7wisa" src="/assets/imgs/page/homepage6/join.svg" /><span className="neutral-1000">Join T7wisa Affiliate Program Today !</span></div>
                                 </div>
                                 <div className="footer-col-3">
-                                    <div className="box-send-message"> <img className="light-mode" alt="Travila" src="/assets/imgs/template/icons/send-msg-w.svg" /><img className="dark-mode" alt="Travila" src="/assets/imgs/page/homepage6/msg.svg" />
+                                    <div className="box-send-message"> <img className="light-mode" alt="T7wisa" src="/assets/imgs/template/icons/send-msg-w.svg" /><img className="dark-mode" alt="T7wisa" src="/assets/imgs/page/homepage6/msg.svg" />
                                         <div className="box-info-msg">
                                             <p className="text-xl-bold neutral-1000">Send us a message</p>
                                             <p className="text-xs-medium neutral-1000">Contact our agents about your booking, and we'll reply as soon as possible.</p>
@@ -343,7 +343,7 @@ export default function Contact() {
                         </div>
                     </section>
                     <section className="section-box box-media background-body">
-                        <div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media2.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media3.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media4.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media5.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media6.png" alt="Travila" /><img src="/assets/imgs/page/homepage5/media7.png" alt="Travila" /></div>
+                        <div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" /></div>
                     </section>
                 </main>
 
