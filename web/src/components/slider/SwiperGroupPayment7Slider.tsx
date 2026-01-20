@@ -7,46 +7,46 @@ export default function SwiperGroupPayment7Slider() {
 		<>
 			<Swiper {...swiperGroupPayment7}>
 				<SwiperSlide>
-					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/paypal.png" alt="T7wisa" /></div>
+					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/paypal.png" alt="TOURZ" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/stripe.png" alt="T7wisa" /></div>
+					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/stripe.png" alt="TOURZ" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/payoneer.png" alt="T7wisa" /></div>
+					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/payoneer.png" alt="TOURZ" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/visa.png" alt="T7wisa" /></div>
+					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/visa.png" alt="TOURZ" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/cashapp.png" alt="T7wisa" /></div>
+					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/cashapp.png" alt="TOURZ" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/bitcoin.png" alt="T7wisa" /></div>
+					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/bitcoin.png" alt="TOURZ" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/discover.png" alt="T7wisa" /></div>
+					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/discover.png" alt="TOURZ" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/paypal.png" alt="T7wisa" /></div>
+					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/paypal.png" alt="TOURZ" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/stripe.png" alt="T7wisa" /></div>
+					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/stripe.png" alt="TOURZ" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/payoneer.png" alt="T7wisa" /></div>
+					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/payoneer.png" alt="TOURZ" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/visa.png" alt="T7wisa" /></div>
+					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/visa.png" alt="TOURZ" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/cashapp.png" alt="T7wisa" /></div>
+					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/cashapp.png" alt="TOURZ" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/bitcoin.png" alt="T7wisa" /></div>
+					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/bitcoin.png" alt="TOURZ" /></div>
 				</SwiperSlide>
 				<SwiperSlide>
-					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/discover.png" alt="T7wisa" /></div>
+					<div className="item-logo-payment"> <img src="/assets/imgs/page/destination/discover.png" alt="TOURZ" /></div>
 				</SwiperSlide>
 			</Swiper>
 		</>

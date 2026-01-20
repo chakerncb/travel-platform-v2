@@ -145,7 +145,7 @@ export default function PopupSignup({ isLogin, handleLogin, isRegister, handleRe
             <div className="popup-signup" style={{ display: `${isRegister ? "block" : "none"}` }}>
                 <div className="popup-container">
                     <div className="popup-content" style={{ maxHeight: '90vh', overflowY: 'auto' }}> <a className="close-popup-signup" onClick={handleRegister} />
-                        <div className="d-flex gap-2 align-items-center"><Link href="#"><img src="/assets/imgs/template/popup/logo.svg" alt="T7wisa" /></Link>
+                        <div className="d-flex gap-2 align-items-center"><Link href="#"><img src="/assets/imgs/template/popup/logo.svg" alt="TOURZ" /></Link>
                             <h4 className="neutral-1000">Register</h4>
                         </div>
                         <div className="box-button-logins"> 
@@ -155,7 +155,7 @@ export default function PopupSignup({ isLogin, handleLogin, isRegister, handleRe
                                 onClick={handleGoogleSignIn}
                                 disabled={loading}
                             >
-                                <img src="/assets/imgs/template/popup/google.svg" alt="T7wisa" />
+                                <img src="/assets/imgs/template/popup/google.svg" alt="TOURZ" />
                                 <span className="text-sm-bold">Sign up with Google</span>
                             </button>
                         </div>
@@ -173,7 +173,7 @@ export default function PopupSignup({ isLogin, handleLogin, isRegister, handleRe
                                             <input 
                                                 className="form-control" 
                                                 type="text" 
-                                                placeholder="John" 
+                                                placeholder="chaker" 
                                                 value={firstName}
                                                 onChange={(e) => setFirstName(e.target.value)}
                                                 required
@@ -187,7 +187,7 @@ export default function PopupSignup({ isLogin, handleLogin, isRegister, handleRe
                                             <input 
                                                 className="form-control" 
                                                 type="text" 
-                                                placeholder="Doe" 
+                                                placeholder="necibi" 
                                                 value={lastName}
                                                 onChange={(e) => setLastName(e.target.value)}
                                                 required

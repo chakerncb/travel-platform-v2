@@ -10,12 +10,12 @@ export default function Testimonials5() {
                 <div className="container">
                     <div className="text-center wow fadeInUp">
                         <div className="d-flex justify-content-center">
-                            <div className="box-author-testimonials"> <img src="/assets/imgs/page/homepage1/testimonial.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage1/testimonial2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage1/testimonial3.png" alt="T7wisa" />Testimonials</div>
+                            <div className="box-author-testimonials"> <img src="/assets/imgs/page/homepage1/testimonial.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage1/testimonial2.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage1/testimonial3.png" alt="TOURZ" />Testimonials</div>
                         </div>
                         <h2 className="mt-8 mb-35 neutral-1000">Don't take our word for it</h2>
                     </div>
                     <div className="row align-items-center wow fadeInUp">
-                        <div className="col-lg-6 mb-30"><img className="light-mode" src="/assets/imgs/page/homepage7/img-testimonial.png" alt="T7wisa" /><img className="dark-mode" src="/assets/imgs/page/homepage7/img-testimonial-dark.png" alt="T7wisa" /></div>
+                        <div className="col-lg-6 mb-30"><img className="light-mode" src="/assets/imgs/page/homepage7/img-testimonial.png" alt="TOURZ" /><img className="dark-mode" src="/assets/imgs/page/homepage7/img-testimonial-dark.png" alt="TOURZ" /></div>
                         <div className="col-lg-6 mb-30">
                             <div className="box-swiper box-swiper-home7">
                                 <div className="swiper-container swiper-group-testimonials-1 swiper-group-journey pb-0">
@@ -32,14 +32,14 @@ export default function Testimonials5() {
                                                 </div>
                                                 <div className="card-top">
                                                     <div className="card-author">
-                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="T7wisa" />
+                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="TOURZ" />
                                                         </div>
                                                         <div className="card-info">
                                                             <p className="text-lg-bold neutral-1000">Sara Mohamed</p>
                                                             <p className="text-sm neutral-1000">Jakatar</p>
                                                         </div>
                                                     </div>
-                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
+                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /></div>
                                                 </div>
                                             </div>
                                         </SwiperSlide>
@@ -55,14 +55,14 @@ export default function Testimonials5() {
                                                 </div>
                                                 <div className="card-top">
                                                     <div className="card-author">
-                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="T7wisa" />
+                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="TOURZ" />
                                                         </div>
                                                         <div className="card-info">
                                                             <p className="text-lg-bold neutral-1000">Atend John</p>
                                                             <p className="text-sm neutral-1000">Califonia</p>
                                                         </div>
                                                     </div>
-                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
+                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /></div>
                                                 </div>
                                             </div>
                                         </SwiperSlide>
@@ -78,14 +78,14 @@ export default function Testimonials5() {
                                                 </div>
                                                 <div className="card-top">
                                                     <div className="card-author">
-                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="T7wisa" />
+                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="TOURZ" />
                                                         </div>
                                                         <div className="card-info">
                                                             <p className="text-lg-bold neutral-1000">Sara Mohamed</p>
                                                             <p className="text-sm neutral-1000">Jakatar</p>
                                                         </div>
                                                     </div>
-                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
+                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /></div>
                                                 </div>
                                             </div>
                                         </SwiperSlide>
@@ -101,14 +101,14 @@ export default function Testimonials5() {
                                                 </div>
                                                 <div className="card-top">
                                                     <div className="card-author">
-                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="T7wisa" />
+                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="TOURZ" />
                                                         </div>
                                                         <div className="card-info">
                                                             <p className="text-lg-bold neutral-1000">Sara Mohamed</p>
                                                             <p className="text-sm neutral-1000">Jakatar</p>
                                                         </div>
                                                     </div>
-                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
+                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /></div>
                                                 </div>
                                             </div>
                                         </SwiperSlide>

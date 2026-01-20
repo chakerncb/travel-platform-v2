@@ -17,23 +17,23 @@ export default function VideoGallery() {
 					<div className="row mt-65">
 						<div className="col-lg-5 wow fadeInUp">
 							<div className="card-video">
-								<div className="card-image"><VideoPopup vdocls="btn btn-play popup-youtube" /><img src="/assets/imgs/page/homepage3/video.png" alt="T7wisa" /></div>
+								<div className="card-image"><VideoPopup vdocls="btn btn-play popup-youtube" /><img src="/assets/imgs/page/homepage3/video.png" alt="TOURZ" /></div>
 							</div>
 						</div>
 						<div className="col-lg-3 wow fadeInUp">
 							<div className="card-video card-video-small">
-								<div className="card-image"><VideoPopup vdocls="btn btn-play popup-youtube" /><img src="/assets/imgs/page/homepage3/video2.png" alt="T7wisa" /></div>
+								<div className="card-image"><VideoPopup vdocls="btn btn-play popup-youtube" /><img src="/assets/imgs/page/homepage3/video2.png" alt="TOURZ" /></div>
 							</div>
 							<div className="card-video card-video-small">
-								<div className="card-image"><VideoPopup vdocls="btn btn-play popup-youtube" /><img src="/assets/imgs/page/homepage3/video3.png" alt="T7wisa" /></div>
+								<div className="card-image"><VideoPopup vdocls="btn btn-play popup-youtube" /><img src="/assets/imgs/page/homepage3/video3.png" alt="TOURZ" /></div>
 							</div>
 						</div>
 						<div className="col-lg-4 wow fadeInUp">
 							<div className="card-video card-video-small">
-								<div className="card-image"><VideoPopup vdocls="btn btn-play popup-youtube" /><img src="/assets/imgs/page/homepage3/video4.png" alt="T7wisa" /></div>
+								<div className="card-image"><VideoPopup vdocls="btn btn-play popup-youtube" /><img src="/assets/imgs/page/homepage3/video4.png" alt="TOURZ" /></div>
 							</div>
 							<div className="card-video card-video-small">
-								<div className="card-image"><VideoPopup vdocls="btn btn-play popup-youtube" /><img src="/assets/imgs/page/homepage3/video5.png" alt="T7wisa" /></div>
+								<div className="card-image"><VideoPopup vdocls="btn btn-play popup-youtube" /><img src="/assets/imgs/page/homepage3/video5.png" alt="TOURZ" /></div>
 							</div>
 						</div>
 					</div>

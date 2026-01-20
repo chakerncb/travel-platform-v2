@@ -6,11 +6,11 @@ export default function Footer2() {
             <footer className="footer footer-type-3 background-body">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-4 mb-30"> <Link className="d-inline-block mb-20" href="/"><img className="light-mode" alt="T7wisa" src="/assets/imgs/template/logo-footer2.svg" /><img className="dark-mode" alt="T7wisa" src="/assets/imgs/template/logo-footer.svg" /></Link>
+                        <div className="col-md-4 mb-30"> <Link className="d-inline-block mb-20" href="/"><img className="light-mode" alt="TOURZ" src="/assets/imgs/template/logo-footer2.svg" /><img className="dark-mode" alt="TOURZ" src="/assets/imgs/template/logo-footer.svg" /></Link>
                             <div className="box-info-contact mt-0">
                                 <p className="text-md neutral-400 icon-address">Algeria, Guelma, Guelaat Bou Sbaa</p>
                                 <p className="text-md neutral-400 icon-worktime">Hours: 8:00 - 17:00, Mon - Sat</p>
-                                <p className="text-md neutral-400 icon-email">support@T7wisa.com</p>
+                                <p className="text-md neutral-400 icon-email">support@TOURZ.com</p>
                             </div>
                         </div>
                         <div className="col-md-4 mb-30">
@@ -81,7 +81,7 @@ export default function Footer2() {
                     <div className="footer-bottom">
                         <div className="row align-items-center">
                             <div className="col-md-6 text-md-start text-center mb-20">
-                                <p className="text-sm neutral-500">© {new Date().getFullYear()} T7wisa Inc. All rights reserved.</p>
+                                <p className="text-sm neutral-500">© {new Date().getFullYear()} TOURZ Inc. All rights reserved.</p>
                             </div>
                             <div className="col-md-6 text-md-end text-center mb-20">
                                 <ul className="menu-bottom-footer">

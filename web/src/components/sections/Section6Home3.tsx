@@ -15,7 +15,7 @@ export default function Section6Home3() {
                                     <p className="text-sm-medium">We are here to help, before, during, and even after your trip.
                                     </p>
                                 </div>
-                                <div className="card-image"> <img src="/assets/imgs/page/homepage3/support.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage3/support2.png" alt="T7wisa" />
+                                <div className="card-image"> <img src="/assets/imgs/page/homepage3/support.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage3/support2.png" alt="TOURZ" />
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@ export default function Section6Home3() {
                         </div>
                         <div className="col-xl-5 col-lg-4 wow fadeInUp">
                             <div className="card-image-promotion">
-                                <div className="card-image"> <img src="/assets/imgs/page/homepage3/img-travel.png" alt="T7wisa" />
+                                <div className="card-image"> <img src="/assets/imgs/page/homepage3/img-travel.png" alt="TOURZ" />
                                 </div>
                                 <div className="card-info">
                                     <div className="box-price">

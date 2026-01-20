@@ -2,6 +2,9 @@
 import { useState, useEffect } from 'react'
 import { TourDto } from '@/src/types/api'
 import { bookingService } from '@/src/services/bookingService'
+import { authService } from '@/src/services'
+import { useSession } from 'next-auth/react'
+import { set } from 'animejs'
 
 interface BookingModalProps {
 	tour: TourDto
@@ -28,6 +31,9 @@ export default function BookingModal({ tour, userSession, adults, children, addi
 	const [step, setStep] = useState(1) // 1: Main contact, 2: Passengers, 3: Review
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState('')
+	const [use_points, setUsePoints] = useState(false);
+	const [pointsToUse, setPointsToUse] = useState(0);
+	const [availablePoints, setAvailablePoints] = useState(0);
 
     console.log('BookingModal userSession:', userSession);
 	
@@ -59,18 +65,40 @@ export default function BookingModal({ tour, userSession, adults, children, addi
 	const [specialRequests, setSpecialRequests] = useState('')
 	const [agreedToTerms, setAgreedToTerms] = useState(false)
 
-	// Pre-populate form with user session data
+	// Calculate discount based on points
+	const calculateDiscount = (points: number) => {
+		const discountPercentage = (points / 100) * 10; // 10% per 100 points
+		const cappedPercentage = Math.min(discountPercentage, 100); // Cap at 100%
+		return (cappedPercentage / 100) * parseFloat(totalPrice);
+	}
+
+	const discountAmount = use_points ? calculateDiscount(pointsToUse) : 0;
+	const finalPrice = Math.max(parseFloat(totalPrice) - discountAmount, 0);
+
+	const { data: session, status } = useSession();
+	const [userEcoPoints, setUserEcoPoints] = useState<number>(0);
+
+	const getEcoPoints = () => {
+		const res = authService.getProfile()
+		res.then((data) => {
+			setAvailablePoints(data.user.eco_points || 0);
+			return data.user.eco_points || 0;
+		}).catch((error) => {
+			console.error("Error fetching user profile:", error);
+			return 0;
+		});
+	}
+
 	useEffect(() => {
-		if (userSession?.user) {
-			setMainContact(prev => ({
-				...prev,
-				firstName: userSession.user.f_name || prev.firstName,
-				lastName: userSession.user.l_name || prev.lastName,
-				email: userSession.user.email || prev.email,
-				phone: userSession.user.phone || prev.phone
-			}))
+		if (status === 'authenticated') {
+			// Use session eco points if available, otherwise fetch
+			if (session?.user?.ecoPoints !== undefined) {
+				setUserEcoPoints(session.user.ecoPoints);
+			} else {
+				getEcoPoints();
+			}
 		}
-	}, [userSession])
+	}, [status, session]);
 
 	const handleMainContactChange = (field: keyof PassengerInfo, value: string) => {
 		setMainContact(prev => ({ ...prev, [field]: value }))
@@ -80,6 +108,19 @@ export default function BookingModal({ tour, userSession, adults, children, addi
 		const updated = [...passengers]
 		updated[index] = { ...updated[index], [field]: value }
 		setPassengers(updated)
+	}
+
+	const handlePointsChange = (value: number) => {
+		// Ensure points don't exceed available points
+		const validPoints = Math.min(Math.max(0, value), availablePoints);
+		setPointsToUse(validPoints);
+	}
+
+	const handleUsePointsToggle = (checked: boolean) => {
+		setUsePoints(checked);
+		if (!checked) {
+			setPointsToUse(0); // Reset points when disabled
+		}
 	}
 
 	const validateMainContact = () => {
@@ -119,7 +160,9 @@ export default function BookingModal({ tour, userSession, adults, children, addi
 				tour_id: tour.id,
 				adults_count: adults,
 				children_count: children,
-				total_price: parseFloat(totalPrice),
+				total_price: finalPrice, // Use final price after discount
+				use_points: use_points,
+				points_to_use: pointsToUse,
 				main_contact: mainContact,
 				passengers: passengers,
 				special_requests: specialRequests,
@@ -132,7 +175,7 @@ export default function BookingModal({ tour, userSession, adults, children, addi
 			// Check if the response indicates success
 			if (response.success && response.data) {
 				// Show success message
-				alert(`🎉 Booking created successfully!\n\nYour booking reference is: ${response.data.booking_reference}\n\nWe've sent a confirmation email to ${mainContact.email}`)
+				alert(`Booking created successfully!\n\nYour booking reference is: ${response.data.booking_reference}\n\nWe've sent a confirmation email to ${mainContact.email}`)
 				
 				// Call success callback if provided
 				if (onSuccess) {
@@ -140,9 +183,6 @@ export default function BookingModal({ tour, userSession, adults, children, addi
 				} else {
 					onClose()
 				}
-				
-				// Optionally redirect to booking confirmation page
-				// window.location.href = `/booking-confirmation/${response.data.booking_reference}`
 			} else {
 				throw new Error(response.message || 'Failed to create booking')
 			}
@@ -192,12 +232,12 @@ export default function BookingModal({ tour, userSession, adults, children, addi
 							<h6 className="mb-2">{tour.title}</h6>
 							<div className="d-flex justify-content-between small">
 								<span>
-									👤 {adults} Adult{adults > 1 ? 's' : ''} 
+									 {adults} Adult{adults > 1 ? 's' : ''} 
 									{children > 0 && `, ${children} Child${children > 1 ? 'ren' : ''}`}
 									{additionalPeople > 0 && `, ${additionalPeople} Additional`}
 								</span>
-								<span>📅 {tour.start_date && new Date(tour.start_date).toLocaleDateString()}</span>
-								<span className="fw-bold">💰 ${totalPrice}</span>
+								<span>{tour.start_date && new Date(tour.start_date).toLocaleDateString()}</span>
+								<span className="fw-bold"> ${totalPrice}</span>
 							</div>
 						</div>
 
@@ -384,6 +424,64 @@ export default function BookingModal({ tour, userSession, adults, children, addi
 									</div>
 								)}
 
+								{/* Eco Points Usage Box */}
+								{availablePoints > 0 && (
+									<div className="card mb-3 border-success">
+										<div className="card-body">
+											<div className="d-flex justify-content-between align-items-center mb-3">
+												<h6 className="mb-0">Use Eco Points</h6>
+												<div className="form-check form-switch">
+													<input
+														className="form-check-input"
+														type="checkbox"
+														disabled={availablePoints < 100}
+														id="usePointsSwitch"
+														checked={use_points}
+														onChange={(e) => handleUsePointsToggle(e.target.checked)}
+													/>
+													<label className="form-check-label" htmlFor="usePointsSwitch">
+														Enable
+													</label>
+												</div>
+											</div>
+
+											<p className="small text-muted mb-2">
+												Available Points: <span className="fw-bold text-success">{availablePoints.toLocaleString()}</span> - <span className="text-danger"> {availablePoints < 100 ? '(you must have minimum 100 point)' : ''}</span>
+											</p>
+
+											{use_points && (
+												<>
+													<div className="mb-3">
+														<label className="form-label">Points to Use (100 points = 10% off)</label>
+														<input
+															type="number"
+															className="form-control"
+															min="0"
+															max={availablePoints}
+															step="100"
+															value={pointsToUse}
+															onChange={(e) => handlePointsChange(parseInt(e.target.value) || 0)}
+														/>
+														<div className="form-text">
+															Maximum: {availablePoints} points
+														</div>
+													</div>
+
+													{pointsToUse > 0 && (
+														<div className="alert alert-success py-2 mb-0">
+															<small>
+																<strong>Discount:</strong> {((pointsToUse / 100) * 10).toFixed(1)}% 
+																= ${discountAmount.toFixed(2)} off
+															</small>
+														</div>
+													)}
+												</>
+											)}
+										</div>
+									</div>
+								)}
+            /////////////////
+								{/* Booking Summary */}
 								<div className="card mb-3">
 									<div className="card-body">
 										<h6>Booking Summary</h6>
@@ -404,9 +502,22 @@ export default function BookingModal({ tour, userSession, adults, children, addi
 											</div>
 										)}
 										<hr />
+										<div className="d-flex justify-content-between">
+											<span>Subtotal</span>
+											<span>${totalPrice}</span>
+										</div>
+										{use_points && discountAmount > 0 && (
+											<>
+												<div className="d-flex justify-content-between text-success">
+													<span>Eco Points Discount ({pointsToUse} points)</span>
+													<span>-${discountAmount.toFixed(2)}</span>
+												</div>
+												<hr />
+											</>
+										)}
 										<div className="d-flex justify-content-between fw-bold">
 											<span>Total</span>
-											<span>${totalPrice}</span>
+											<span>${finalPrice.toFixed(2)}</span>
 										</div>
 									</div>
 								</div>
@@ -452,7 +563,7 @@ export default function BookingModal({ tour, userSession, adults, children, addi
 								onClick={handleSubmitBooking}
 								disabled={loading || !agreedToTerms}
 							>
-								{loading ? 'Processing...' : 'Confirm Booking'}
+								{loading ? 'Processing...' : `Confirm Booking - $${finalPrice.toFixed(2)}`}
 							</button>
 						)}
 					</div>

@@ -60,7 +60,7 @@ export default function BlogGrid() {
 								<div className="col-lg-6 mb-30">
 									<h1 className="text-86-bold neutral-1000">Inspiration </h1>
 									<h2 className="text-64-medium neutral-1000">for Your Next Trips</h2>
-									<h6 className="neutral-500">Discover the World's Treasures with T7wisa </h6>
+									<h6 className="neutral-500">Discover the World's Treasures with TOURZ </h6>
 								</div>
 							</div>
 						</div>
@@ -197,13 +197,13 @@ export default function BlogGrid() {
 
 					<section className="section-box box-media background-body">
 						<div className="container-media wow fadeInUp">
-							<img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" />
-							<img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" />
-							<img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" />
-							<img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" />
-							<img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" />
-							<img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" />
-							<img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" />
+							<img src="/assets/imgs/page/homepage5/media.png" alt="TOURZ" />
+							<img src="/assets/imgs/page/homepage5/media2.png" alt="TOURZ" />
+							<img src="/assets/imgs/page/homepage5/media3.png" alt="TOURZ" />
+							<img src="/assets/imgs/page/homepage5/media4.png" alt="TOURZ" />
+							<img src="/assets/imgs/page/homepage5/media5.png" alt="TOURZ" />
+							<img src="/assets/imgs/page/homepage5/media6.png" alt="TOURZ" />
+							<img src="/assets/imgs/page/homepage5/media7.png" alt="TOURZ" />
 						</div>
 					</section>
 				</main>

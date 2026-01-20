@@ -90,7 +90,6 @@ Route::prefix('v1')->group(function () {
 // Bookings routes (some public, some protected)
 Route::prefix('bookings')->group(function () {
     // Public routes
-    Route::post('/', [App\Http\Controllers\BookingController::class, 'store']);
     Route::get('/reference/{reference}', [App\Http\Controllers\BookingController::class, 'getByReference']);
     Route::get('/tours/{tourId}/availability', [App\Http\Controllers\BookingController::class, 'getTourAvailability']);
     Route::get('/tours/{tourId}/check-user-booking', [App\Http\Controllers\BookingController::class, 'checkUserBooking']);
@@ -98,6 +97,8 @@ Route::prefix('bookings')->group(function () {
     
     // Protected routes (require authentication)
     Route::middleware(['auth:sanctum'])->group(function () {
+            Route::post('/', [App\Http\Controllers\BookingController::class, 'store']);
+
         Route::get('/', [App\Http\Controllers\BookingController::class, 'index']);
         Route::get('/{id}', [App\Http\Controllers\BookingController::class, 'show']);
         Route::put('/{id}', [App\Http\Controllers\BookingController::class, 'update']);

@@ -10,6 +10,8 @@ declare module "next-auth" {
       role?: string;
       roles?: string[];
       accessToken?: string;
+      ecoPoints?: number;
+
     },
     accessToken?: string;
   }
@@ -20,6 +22,7 @@ declare module "next-auth" {
     name?: string;
     token?: string;
     roles?: string[];
+    ecoPoints?: number;
   }
 }
 

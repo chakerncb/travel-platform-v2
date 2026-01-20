@@ -281,12 +281,12 @@ export default function CustomTourBanner() {
                     <div className="box-image-banner-home4">
                         <img src="/assets/imgs/page/homepage4/banner.png" alt="Custom Tour" />
                         <div className="shape-rate">
-                            <img className="light-mode" src="/assets/imgs/page/homepage4/review.png" alt="T7wisa" />
-                            <img className="dark-mode" src="/assets/imgs/page/homepage4/review-dark.png" alt="T7wisa" />
+                            <img className="light-mode" src="/assets/imgs/page/homepage4/review.png" alt="TOURZ" />
+                            <img className="dark-mode" src="/assets/imgs/page/homepage4/review-dark.png" alt="TOURZ" />
                         </div>
                         <div className="shape-phone">
-                            <img className="light-mode" src="/assets/imgs/page/homepage4/hotline.png" alt="T7wisa" />
-                            <img className="dark-mode" src="/assets/imgs/page/homepage4/hotline-dark.png" alt="T7wisa" />
+                            <img className="light-mode" src="/assets/imgs/page/homepage4/hotline.png" alt="TOURZ" />
+                            <img className="dark-mode" src="/assets/imgs/page/homepage4/hotline-dark.png" alt="TOURZ" />
                         </div>
                     </div>
                 </div>

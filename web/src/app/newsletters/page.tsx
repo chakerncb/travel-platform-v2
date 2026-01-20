@@ -224,13 +224,13 @@ export default function NewslettersPage() {
           {/* Media Section */}
           <section className="section-box box-media background-body">
             <div className="container-media wow fadeInUp">
-              <img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" />
-              <img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" />
-              <img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" />
-              <img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" />
-              <img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" />
-              <img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" />
-              <img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" />
+              <img src="/assets/imgs/page/homepage5/media.png" alt="TOURZ" />
+              <img src="/assets/imgs/page/homepage5/media2.png" alt="TOURZ" />
+              <img src="/assets/imgs/page/homepage5/media3.png" alt="TOURZ" />
+              <img src="/assets/imgs/page/homepage5/media4.png" alt="TOURZ" />
+              <img src="/assets/imgs/page/homepage5/media5.png" alt="TOURZ" />
+              <img src="/assets/imgs/page/homepage5/media6.png" alt="TOURZ" />
+              <img src="/assets/imgs/page/homepage5/media7.png" alt="TOURZ" />
             </div>
           </section>
         </main>

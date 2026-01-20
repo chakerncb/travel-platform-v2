@@ -14,7 +14,7 @@ export default function WhyTravelUs() {
 					<div className="row mt-55">
 						<div className="col-lg-3 col-md-6">
 							<div className="card-why-travel background-2 hover-up">
-								<div className="card-image"> <img src="/assets/imgs/page/homepage2/security.svg" alt="T7wisa" />
+								<div className="card-image"> <img src="/assets/imgs/page/homepage2/security.svg" alt="TOURZ" />
 								</div>
 								<div className="card-info"> <Link className="text-xl-bold card-title" href="#">Security Assurance</Link>
 									<p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data
@@ -27,7 +27,7 @@ export default function WhyTravelUs() {
 						</div>
 						<div className="col-lg-3 col-md-6">
 							<div className="card-why-travel background-7 hover-up">
-								<div className="card-image"> <img src="/assets/imgs/page/homepage2/support.svg" alt="T7wisa" />
+								<div className="card-image"> <img src="/assets/imgs/page/homepage2/support.svg" alt="TOURZ" />
 								</div>
 								<div className="card-info"> <Link className="text-xl-bold card-title" href="#">Security Assurance</Link>
 									<p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data
@@ -40,7 +40,7 @@ export default function WhyTravelUs() {
 						</div>
 						<div className="col-lg-3 col-md-6">
 							<div className="card-why-travel background-3 hover-up">
-								<div className="card-image"> <img src="/assets/imgs/page/homepage2/policy.svg" alt="T7wisa" />
+								<div className="card-image"> <img src="/assets/imgs/page/homepage2/policy.svg" alt="TOURZ" />
 								</div>
 								<div className="card-info"> <Link className="text-xl-bold card-title" href="#">Security Assurance</Link>
 									<p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data
@@ -53,7 +53,7 @@ export default function WhyTravelUs() {
 						</div>
 						<div className="col-lg-3 col-md-6">
 							<div className="card-why-travel background-8 hover-up">
-								<div className="card-image"> <img src="/assets/imgs/page/homepage2/repu.svg" alt="T7wisa" /></div>
+								<div className="card-image"> <img src="/assets/imgs/page/homepage2/repu.svg" alt="TOURZ" /></div>
 								<div className="card-info"> <Link className="text-xl-bold card-title" href="#">Security Assurance</Link>
 									<p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to user data
 										security through encryption and secure payment practices</p><Link className="text-sm-medium card-link" href="#">Learn More

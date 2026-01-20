@@ -1,5 +1,5 @@
 /***
- Theme Name: T7wisa
+ Theme Name: TOURZ
  Description: Board Finder HTML template
  Version: 1.0
  License: GNU General Public License v2 or later
@@ -10043,7 +10043,7 @@ a.icon-socials:hover svg {
   position: relative;
 }
 
-.box-why-book-T7wisa {
+.box-why-book-TOURZ {
   padding: 100px 0px;
 }
 
@@ -10175,7 +10175,7 @@ a.icon-socials:hover svg {
   margin-right: 8px;
 }
 
-.box-why-book-T7wisa-2 {
+.box-why-book-TOURZ-2 {
   padding: 140px 0px 100px 0px;
 }
 
@@ -10341,7 +10341,7 @@ a.icon-socials:hover svg {
   padding: 90px 0px 10px 0px;
 }
 
-.box-why-book-T7wisa-4 {
+.box-why-book-TOURZ-4 {
   padding: 0px 0px 44px 0px;
 }
 
@@ -10954,7 +10954,7 @@ h1 span {
   padding-left: 40px;
 }
 
-.box-why-book-T7wisa-3 {
+.box-why-book-TOURZ-3 {
   padding: 100px 0px 60px 0px;
 }
 
@@ -13816,7 +13816,7 @@ a.link-black:hover svg {
   padding: 63px 0px 91px 0px;
 }
 
-.box-why-book-T7wisa-5 {
+.box-why-book-TOURZ-5 {
   padding: 90px 0px;
 }
 
@@ -15429,3 +15429,129 @@ h2 span {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.eco-background-card {
+  background: linear-gradient(135deg, #f0f9f4 0%, #e8f5e9 100%);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.1);
+}
+
+.eco-background-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(129, 199, 132, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* .border-eco-friendly {
+  border: 2px solid #81c784;
+  border-image: linear-gradient(135deg, #4caf50, #81c784, #66bb6a) 1;
+  position: relative;
+}
+
+.border-eco-friendly::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, #4caf50, #81c784, #66bb6a);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.8;
+} */
+
+/* Eco leaf accent (optional) */
+.eco-background-card::after {
+  content: '🌿';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 20px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Hover effect for eco cards */
+.eco-background-card:hover {
+  box-shadow: 0 8px 30px rgba(76, 175, 80, 0.2);
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+
+/* Alternative solid green background */
+.eco-background-card.solid {
+  background: #e8f5e9;
+}
+
+/* Light eco theme */
+.eco-background-card.light {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
+}
+
+/* Dark eco theme */
+.eco-background-card.dark {
+  background: linear-gradient(135deg, #2e7d32 0%, #388e3c 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(46, 125, 50, 0.3);
+}
+
+/* Animated border glow */
+.border-eco-friendly.glow {
+  animation: ecoGlow 2s ease-in-out infinite;
+}
+
+@keyframes ecoGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.6), 0 0 30px rgba(76, 175, 80, 0.4);
+  }
+}
+
+/* Eco badge/label */
+.eco-badge {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.eco-badge::before {
+  content: '🌿';
+  font-size: 14px;
+}
+
+/* Nature-inspired pattern overlay */
+.eco-pattern {
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(76, 175, 80, 0.03) 10px, rgba(76, 175, 80, 0.03) 20px);
+}
+
+/* Sustainable colors palette */
+:root {
+  --eco-green-primary: #4caf50;
+  --eco-green-light: #81c784;
+  --eco-green-lighter: #c8e6c9;
+  --eco-green-dark: #388e3c;
+  --eco-green-darker: #2e7d32;
+  --eco-leaf: #66bb6a;
+  --eco-forest: #1b5e20;
+  --eco-sage: #8bc34a;
+  --eco-mint: #e8f5e9;
+  --eco-earth: #795548;
+}

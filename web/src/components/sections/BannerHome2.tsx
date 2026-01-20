@@ -25,7 +25,7 @@ export default function BannerHome2() {
 												<li>Expert Destination Knowledge</li>
 												<li>Exceptional Customer Service</li>
 											</ul>
-											<div className="download-apps"> <Link href="#"><img src="/assets/imgs/template/googleplay.png" alt="T7wisa" /></Link><Link href="#"><img src="/assets/imgs/template/appstore.png" alt="T7wisa" /></Link>
+											<div className="download-apps"> <Link href="#"><img src="/assets/imgs/template/googleplay.png" alt="TOURZ" /></Link><Link href="#"><img src="/assets/imgs/template/appstore.png" alt="TOURZ" /></Link>
 											</div>
 										</div>
 									</div>
@@ -41,7 +41,7 @@ export default function BannerHome2() {
 												<li>Expert Destination Knowledge</li>
 												<li>Exceptional Customer Service</li>
 											</ul>
-											<div className="download-apps"> <Link href="#"><img src="/assets/imgs/template/googleplay.png" alt="T7wisa" /></Link><Link href="#"><img src="/assets/imgs/template/appstore.png" alt="T7wisa" /></Link>
+											<div className="download-apps"> <Link href="#"><img src="/assets/imgs/template/googleplay.png" alt="TOURZ" /></Link><Link href="#"><img src="/assets/imgs/template/appstore.png" alt="TOURZ" /></Link>
 											</div>
 										</div>
 									</div>
@@ -57,7 +57,7 @@ export default function BannerHome2() {
 												<li>Expert Destination Knowledge</li>
 												<li>Exceptional Customer Service</li>
 											</ul>
-											<div className="download-apps"><Link href="#"><img src="/assets/imgs/template/googleplay.png" alt="T7wisa" /></Link><Link href="#"><img src="/assets/imgs/template/appstore.png" alt="T7wisa" /></Link>
+											<div className="download-apps"><Link href="#"><img src="/assets/imgs/template/googleplay.png" alt="TOURZ" /></Link><Link href="#"><img src="/assets/imgs/template/appstore.png" alt="TOURZ" /></Link>
 											</div>
 										</div>
 									</div>

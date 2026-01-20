@@ -5,7 +5,7 @@ export default function TourCard1({ tour }: any) {
 		<>
 			<div className="card-journey-small background-card">
 				<div className="card-image"> <Link className="label" href="#">Top Rated</Link>
-				<img src={`/assets/imgs/page/tour/${tour?.image}`} alt="T7wisa" />
+				<img src={`/assets/imgs/page/tour/${tour?.image}`} alt="TOURZ" />
 				</div>
 				<div className="card-info background-card">
 					<div className="card-rating">

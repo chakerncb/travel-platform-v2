@@ -20,7 +20,7 @@ const merienda_init = Merienda({
 })
 
 export const metadata: Metadata = {
-    title: "T7wisa - Travel Platform ",
+    title: "TOURZ - Travel Platform ",
     description: "Multipurpose Travel Platform",
 }
 

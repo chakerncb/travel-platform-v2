@@ -21,7 +21,7 @@ export default function BannerHome4() {
 									</div>
 								</div>
 							</div>
-							<div className="box-image-banner-home5 wow fadeInUp"><img src="/assets/imgs/page/homepage5/banner.png" alt="T7wisa" /></div>
+							<div className="box-image-banner-home5 wow fadeInUp"><img src="/assets/imgs/page/homepage5/banner.png" alt="TOURZ" /></div>
 						</div>
 					</div>
 				</div>

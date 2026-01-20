@@ -31,7 +31,7 @@ export default function Privacy() {
                             <div className="box-image-video mb-45"> <img className="bdrd-16" src="/assets/imgs/page/pages/banner-privacy.png" alt="Travilla" /></div>
                             <div className="box-mw-824">
                                 <div className="box-detail-info">
-                                    <p>At T7wisa, we take your privacy seriously and are committed to  protecting your personal information. This Privacy Policy outlines how  we collect, use, disclose, and safeguard your data when you use our  website or services.</p>
+                                    <p>At TOURZ, we take your privacy seriously and are committed to  protecting your personal information. This Privacy Policy outlines how  we collect, use, disclose, and safeguard your data when you use our  website or services.</p>
                                     <p> <strong>Information Collection: </strong>We may collect personal information such as your name, contact details,  payment information, and browsing activity when you interact with our  website or make a reservation.</p>
                                     <p> <strong>Use of Information: </strong>We use the information collected to process your bookings, provide  customer support, improve our services, and communicate with you about  promotions or updates.</p>
                                     <p> <strong>Disclosure of Information:</strong>We may share your information with third-party service providers,  business partners, or affiliates for purposes such as payment  processing, customer service, or marketing activities.</p>
@@ -40,7 +40,7 @@ export default function Privacy() {
                                     <p> <strong>Third-Party Links: </strong>Our website may contain links to third-party websites or services. We  are not responsible for the privacy practices or content of these  websites.</p>
                                     <p> <strong>Children's Privacy: </strong>Our services are not directed to individuals under the age of 18. We do  not knowingly collect personal information from children without  parental consent.</p>
                                     <p> <strong>Changes to Privacy Policy: </strong>We reserve the right to update or modify this Privacy Policy at any  time. Any changes will be effective immediately upon posting on our  website.</p>
-                                    <p>If you have any questions or concerns about our Privacy Policy or the  handling of your personal information, please contact us at contact@T7wisa.com.</p>
+                                    <p>If you have any questions or concerns about our Privacy Policy or the  handling of your personal information, please contact us at contact@TOURZ.com.</p>
                                     <h6>Thank you for visiting!</h6>
                                     <p>By using our website or services, you consent to the terms of this  Privacy Policy. Please review this policy periodically for updates or  changes.</p>
                                 </div>
@@ -62,13 +62,13 @@ export default function Privacy() {
                                                 </svg></Link></div>
                                     </div>
                                     <p className="text-lg-medium neutral-500">Best regards, </p>
-                                    <p className="text-lg-bold neutral-1000">T7wisa Team</p>
+                                    <p className="text-lg-bold neutral-1000">TOURZ Team</p>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <section className="section-box box-media background-body">
-                        <div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" /></div>
+                        <div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media2.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media3.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media4.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media5.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media6.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media7.png" alt="TOURZ" /></div>
                     </section>
                 </main>
 

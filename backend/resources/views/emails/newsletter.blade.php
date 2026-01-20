@@ -50,7 +50,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>T7wisa Newsletter</h1>
+            <h1>TOURZ Newsletter</h1>
         </div>
         
         <div class="content">
@@ -58,7 +58,7 @@
         </div>
         
         <div class="footer">
-            <p>&copy; {{ date('Y') }} T7wisa. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} TOURZ. All rights reserved.</p>
             <div class="unsubscribe">
                 <p>Don't want to receive these emails? <a href="{{ $unsubscribeUrl }}">Unsubscribe</a></p>
             </div>

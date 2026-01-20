@@ -33,7 +33,7 @@ class BlogSeeder extends Seeder
         if (!$author) {
             $author = User::create([
                 'name' => 'Travel Writer',
-                'email' => 'writer@t7wisa.com',
+                'email' => 'writer@TOURZ.com',
                 'password' => bcrypt('password'),
                 'email_verified_at' => now(),
             ]);

@@ -35,7 +35,7 @@ export default function BestSell() {
                             <div className="box-list-flights">
                                 <div className="item-flight background-card border-1">
                                     <div className="flight-route">
-                                        <div className="flight-name"> <img src="/assets/imgs/page/homepage10/logo1.png" alt="T7wisa" />
+                                        <div className="flight-name"> <img src="/assets/imgs/page/homepage10/logo1.png" alt="TOURZ" />
                                             <div className="flight-info">
                                                 <p className="text-md-bold neutral-1000">New York (JFK)</p>
                                                 <p className="text-sm-medium time-flight"> <span className="neutral-1000">20:00
@@ -66,7 +66,7 @@ export default function BestSell() {
                                 </div>
                                 <div className="item-flight background-card border-1">
                                     <div className="flight-route">
-                                        <div className="flight-name"> <img src="/assets/imgs/page/homepage10/tokyo.png" alt="T7wisa" />
+                                        <div className="flight-name"> <img src="/assets/imgs/page/homepage10/tokyo.png" alt="TOURZ" />
                                             <div className="flight-info">
                                                 <p className="text-md-bold neutral-1000">Tokyo (HND)</p>
                                                 <p className="text-sm-medium time-flight"> <span className="neutral-1000">20:00
@@ -97,7 +97,7 @@ export default function BestSell() {
                                 </div>
                                 <div className="item-flight background-card border-1">
                                     <div className="flight-route">
-                                        <div className="flight-name"> <img src="/assets/imgs/page/homepage10/sydney.png" alt="T7wisa" />
+                                        <div className="flight-name"> <img src="/assets/imgs/page/homepage10/sydney.png" alt="TOURZ" />
                                             <div className="flight-info">
                                                 <p className="text-md-bold neutral-1000">Sydney (SYD)</p>
                                                 <p className="text-sm-medium time-flight"> <span className="neutral-1000">20:00
@@ -128,7 +128,7 @@ export default function BestSell() {
                                 </div>
                                 <div className="item-flight background-card border-1">
                                     <div className="flight-route">
-                                        <div className="flight-name"> <img src="/assets/imgs/page/homepage10/dubai.png" alt="T7wisa" />
+                                        <div className="flight-name"> <img src="/assets/imgs/page/homepage10/dubai.png" alt="TOURZ" />
                                             <div className="flight-info">
                                                 <p className="text-md-bold neutral-1000">Dubai (DXB)</p>
                                                 <p className="text-sm-medium time-flight"> <span className="neutral-1000">20:00
@@ -159,7 +159,7 @@ export default function BestSell() {
                                 </div>
                                 <div className="item-flight background-card border-1">
                                     <div className="flight-route">
-                                        <div className="flight-name"> <img src="/assets/imgs/page/homepage10/los.png" alt="T7wisa" />
+                                        <div className="flight-name"> <img src="/assets/imgs/page/homepage10/los.png" alt="TOURZ" />
                                             <div className="flight-info">
                                                 <p className="text-md-bold neutral-1000">Los Angeles (LAX)</p>
                                                 <p className="text-sm-medium time-flight"> <span className="neutral-1000">20:00
@@ -190,7 +190,7 @@ export default function BestSell() {
                                 </div>
                                 <div className="item-flight background-card border-1">
                                     <div className="flight-route">
-                                        <div className="flight-name"> <img src="/assets/imgs/page/homepage10/paris.png" alt="T7wisa" />
+                                        <div className="flight-name"> <img src="/assets/imgs/page/homepage10/paris.png" alt="TOURZ" />
                                             <div className="flight-info">
                                                 <p className="text-md-bold neutral-1000">Paris (CDG)</p>
                                                 <p className="text-sm-medium time-flight"> <span className="neutral-1000">20:00

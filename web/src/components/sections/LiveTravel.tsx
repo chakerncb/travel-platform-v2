@@ -4,7 +4,7 @@ export default function LiveTravel() {
 
             <section className="section-box box-live-travel background-body">
                 <div className="container">
-                    <div className="text-center wow fadeInUp"> <img src="/assets/imgs/page/homepage6/banner-ads.png" alt="T7wisa" /></div>
+                    <div className="text-center wow fadeInUp"> <img src="/assets/imgs/page/homepage6/banner-ads.png" alt="TOURZ" /></div>
                 </div>
             </section>
         </>

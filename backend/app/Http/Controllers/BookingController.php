@@ -8,6 +8,7 @@ use App\Mail\BookingCreated;
 use App\Mail\BookingConfirmed;
 use App\Models\Booking;
 use App\Models\Tour;
+use App\Models\User;
 use App\Services\ChargilyPaymentService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -82,6 +83,19 @@ class BookingController extends Controller
                 ], 422);
             }
 
+            if($request->use_points){
+                $user = User::find(Auth::id());
+                if($user && $user->eco_points >= $request->points_to_use){
+                    $discount_percentage = ($request->points_to_use / 100) * 10; // 10% per 100 points
+                    $discount_amount = ($discount_percentage / 100) * $validated['total_price'];
+                    $validated['total_price'] -= $discount_amount;
+                }
+
+            }
+
+
+          
+
             // Create booking
             $booking = Booking::create([
                 'tour_id' => $validated['tour_id'],
@@ -91,6 +105,7 @@ class BookingController extends Controller
                 'adults_count' => $validated['adults_count'],
                 'children_count' => $validated['children_count'],
                 'total_price' => $validated['total_price'],
+                'discount_applied' => $request->use_points ? ($discount_amount ?? 0) : 0,
                 'contact_first_name' => $validated['main_contact']['firstName'],
                 'contact_last_name' => $validated['main_contact']['lastName'],
                 'contact_email' => $validated['main_contact']['email'],
@@ -103,6 +118,15 @@ class BookingController extends Controller
                 'status' => 'pending',
                 'payment_status' => 'pending',
             ]);
+
+              if ($tour->is_eco_friendly) {
+               $ecoPoints = 10 * $totalPassengers;
+               $user = User::find(Auth::id());
+               if ($user) {
+                   $user->increment('eco_points', $ecoPoints);
+               }
+
+            }
 
             DB::commit();
 

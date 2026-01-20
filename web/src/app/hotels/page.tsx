@@ -277,11 +277,11 @@ export default function HotelGrid() {
 				</section>
 
 				{/* Popular Destinations Slider */}
-				<section className="section-box box-popular-destinations background-body">
+				{/* <section className="section-box box-popular-destinations background-body">
 					<div className="container">
 						<div className="box-swiper box-swiper-pd mt-0 wow fadeInDown">
 							<div className="swiper-container swiper-group-8">
-								<SwiperGroup8Slider />
+								// {/* <SwiperGroup8Slider /> 
 							</div>
 							<div className="swiper-button-prev swiper-button-prev-style-1 swiper-button-prev-group-8">
 								<svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 16 16">
@@ -295,7 +295,7 @@ export default function HotelGrid() {
 							</div>
 						</div>
 					</div>
-				</section>
+				</section> */}
 
 				{/* Main Content Section */}
 				<section className="box-section block-content-tourlist background-body">
@@ -620,13 +620,13 @@ export default function HotelGrid() {
 										<span className="btn btn-brand-secondary">Install APP   Get  discount code</span>
 										<h5 className="mt-15 mb-30">Up to 55% Discount<br className="d-none d-lg-block" />and lots of special gifts</h5>
 										<div className="box-button-download">
-											<Link href="#"><img src="/assets/imgs/page/homepage6/googleplay.png" alt="T7wisa" /></Link>
-											<Link href="#"><img src="/assets/imgs/page/homepage6/appstore.png" alt="T7wisa" /></Link>
+											<Link href="#"><img src="/assets/imgs/page/homepage6/googleplay.png" alt="TOURZ" /></Link>
+											<Link href="#"><img src="/assets/imgs/page/homepage6/appstore.png" alt="TOURZ" /></Link>
 										</div>
 									</div>
 								</div>
 								<div className="col-lg-6">
-									<img className="wow fadeInUp" src="/assets/imgs/page/homepage6/img-download-app.png" alt="T7wisa" />
+									<img className="wow fadeInUp" src="/assets/imgs/page/homepage6/img-download-app.png" alt="TOURZ" />
 								</div>
 							</div>
 						</div>
@@ -638,13 +638,13 @@ export default function HotelGrid() {
 				{/* Media Section */}
 				<section className="section-box box-media background-body">
 					<div className="container-media wow fadeInUp">
-						<img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" />
-						<img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" />
-						<img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" />
-						<img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" />
-						<img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" />
-						<img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" />
-						<img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" />
+						<img src="/assets/imgs/page/homepage5/media.png" alt="TOURZ" />
+						<img src="/assets/imgs/page/homepage5/media2.png" alt="TOURZ" />
+						<img src="/assets/imgs/page/homepage5/media3.png" alt="TOURZ" />
+						<img src="/assets/imgs/page/homepage5/media4.png" alt="TOURZ" />
+						<img src="/assets/imgs/page/homepage5/media5.png" alt="TOURZ" />
+						<img src="/assets/imgs/page/homepage5/media6.png" alt="TOURZ" />
+						<img src="/assets/imgs/page/homepage5/media7.png" alt="TOURZ" />
 					</div>
 				</section>
 			</main>

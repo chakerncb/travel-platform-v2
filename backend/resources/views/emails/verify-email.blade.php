@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verify Your Email - T7wisa</title>
+    <title>Verify Your Email - TOURZ</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -98,8 +98,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">T7wisa</div>
-            <h1>Welcome to T7wisa!</h1>
+            <div class="logo">TOURZ</div>
+            <h1>Welcome to TOURZ!</h1>
             <p>Please verify your email address to get started</p>
         </div>
         
@@ -108,7 +108,7 @@
                 Hello <strong>{{ $userName }}</strong>,
             </div>
             
-            <p>Thank you for registering with T7wisa! We're excited to have you join our community of Travel lovers.</p>
+            <p>Thank you for registering with TOURZ! We're excited to have you join our community of Travel lovers.</p>
             
             <p>To complete your registration and start exploring New Places, please verify your email address by clicking the button below:</p>
             
@@ -131,18 +131,18 @@
             </div>
             
             <div class="security-notice">
-                <strong>🔒 Security Notice:</strong> If you did not create an account with T7wisa, please ignore this email. This verification link is only valid for 1 hour and can only be used once.
+                <strong>🔒 Security Notice:</strong> If you did not create an account with TOURZ, please ignore this email. This verification link is only valid for 1 hour and can only be used once.
             </div>
             <p>If you're having trouble with the verification link, you can request a new one from our app or contact our support team.</p>
             
-            <p>Thank you for choosing T7wisa!</p>
+            <p>Thank you for choosing TOURZ!</p>
             
             <p>Best regards,<br>
-            <strong>The T7wisa Team</strong></p>
+            <strong>The TOURZ Team</strong></p>
         </div>
         
         <div class="footer">
-            <p>© {{ date('Y') }} T7wisa. All rights reserved.</p>
+            <p>© {{ date('Y') }} TOURZ. All rights reserved.</p>
             <p>This email was sent to {{ $user->email }}. If you received this email by mistake, please ignore it.</p>
         </div>
     </div>

@@ -42,7 +42,7 @@ export default function CategoryGrid() {
                                 <div className="card-info">
                                     <div className="card-text">
                                         <p className="text-lg-bold color-white mt-90">Waking up in a far away place</p>
-                                        <div className="box-img-activity"><img src="/assets/imgs/page/homepage5/img-explore.png" alt="T7wisa" /></div><Link className="btn btn-brand-secondary" href="#">View More
+                                        <div className="box-img-activity"><img src="/assets/imgs/page/homepage5/img-explore.png" alt="TOURZ" /></div><Link className="btn btn-brand-secondary" href="#">View More
                                             <svg width={16} height={16} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M8 15L15 8L8 1M15 8L1 8" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                                             </svg></Link>

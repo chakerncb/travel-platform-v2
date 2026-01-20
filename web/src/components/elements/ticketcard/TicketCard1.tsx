@@ -6,7 +6,7 @@ export default function TicketCard1({ ticket }: any) {
 			<div className="item-flight background-card border-1">
 				<div className="flight-route flight-route-type-2">
 					<div className="flight-route-1">
-						<div className="flight-name"> <img src="/assets/imgs/page/homepage10/logo1.png" alt="T7wisa" />
+						<div className="flight-name"> <img src="/assets/imgs/page/homepage10/logo1.png" alt="TOURZ" />
 							<div className="flight-info">
 								<p className="text-md-bold neutral-1000">New York (JFK)</p>
 								<p className="text-sm-medium time-flight"> <span className="neutral-1000">20:00 </span>- 05 Jan 2024</p>
@@ -21,7 +21,7 @@ export default function TicketCard1({ ticket }: any) {
 						</div>
 					</div>
 					<div className="flight-route-2">
-						<div className="flight-name"> <img src="/assets/imgs/page/tickets/logo2.png" alt="T7wisa" />
+						<div className="flight-name"> <img src="/assets/imgs/page/tickets/logo2.png" alt="TOURZ" />
 							<div className="flight-info">
 								<p className="text-md-bold neutral-1000">New York (JFK)</p>
 								<p className="text-sm-medium time-flight"> <span className="neutral-1000">20:00 </span>- 05 Jan 2024</p>

@@ -9,13 +9,13 @@ export default function Partners1() {
                     <div className="row align-items-center">
                         <div className="col-lg-4 mb-20">
                             <div className="box-authors-partner wow fadeInUp">
-                                <div className="authors-partner-left"><img src="/assets/imgs/page/homepage5/author.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/author2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/author3.png" alt="T7wisa" /><span className="item-author">
+                                <div className="authors-partner-left"><img src="/assets/imgs/page/homepage5/author.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/author2.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/author3.png" alt="TOURZ" /><span className="item-author">
                                     <svg width={18} height={18} viewBox="0 0 18 18"  xmlns="http://www.w3.org/2000/svg">
                                         <rect x="0.5" y="7.448" width={17} height="2.31818" fill="black" />
                                         <rect x="7.84082" y="17.1072" width={17} height="2.31818" transform="rotate(-90 7.84082 17.1072)" fill="black" />
                                     </svg></span></div>
                                 <div className="authors-partner-right">
-                                    <p className="text-sm neutral-1000">1684 people used <strong>T7wisa </strong>in the last
+                                    <p className="text-sm neutral-1000">1684 people used <strong>TOURZ </strong>in the last
                                         <strong>24 hours</strong></p>
                                 </div>
                             </div>

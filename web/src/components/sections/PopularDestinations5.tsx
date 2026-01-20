@@ -20,7 +20,7 @@ export default function PopularDestinations5() {
 						<div className="row">
 							<div className="col-xl-4 col-md-6">
 								<div className="card-journey-small card-journey-small-type-2 background-card">
-									<div className="card-image"> <img src="/assets/imgs/page/homepage5/activity-big.png" alt="T7wisa" /></div>
+									<div className="card-image"> <img src="/assets/imgs/page/homepage5/activity-big.png" alt="TOURZ" /></div>
 									<div className="card-info">
 										<div className="card-rating">
 											<div className="card-left"> </div>
@@ -42,7 +42,7 @@ export default function PopularDestinations5() {
 							</div>
 							<div className="col-xl-4 col-md-6">
 								<div className="card-journey-small card-journey-small-type-2 background-card">
-									<div className="card-image"> <img src="/assets/imgs/page/homepage5/activity-big2.png" alt="T7wisa" /></div>
+									<div className="card-image"> <img src="/assets/imgs/page/homepage5/activity-big2.png" alt="TOURZ" /></div>
 									<div className="card-info">
 										<div className="card-rating">
 											<div className="card-left"> </div>
@@ -64,7 +64,7 @@ export default function PopularDestinations5() {
 							</div>
 							<div className="col-xl-4 col-md-6">
 								<div className="card-journey-small card-journey-small-type-2 background-card">
-									<div className="card-image"> <img src="/assets/imgs/page/homepage5/activity-big3.png" alt="T7wisa" /></div>
+									<div className="card-image"> <img src="/assets/imgs/page/homepage5/activity-big3.png" alt="TOURZ" /></div>
 									<div className="card-info">
 										<div className="card-rating">
 											<div className="card-left"> </div>
@@ -86,7 +86,7 @@ export default function PopularDestinations5() {
 							</div>
 							<div className="col-xl-4 col-md-6">
 								<div className="card-journey-small card-journey-small-type-2 background-card">
-									<div className="card-image"> <img src="/assets/imgs/page/homepage5/activity-big4.png" alt="T7wisa" /></div>
+									<div className="card-image"> <img src="/assets/imgs/page/homepage5/activity-big4.png" alt="TOURZ" /></div>
 									<div className="card-info">
 										<div className="card-rating">
 											<div className="card-left"> </div>
@@ -108,7 +108,7 @@ export default function PopularDestinations5() {
 							</div>
 							<div className="col-xl-4 col-md-6">
 								<div className="card-journey-small card-journey-small-type-2 background-card">
-									<div className="card-image"> <img src="/assets/imgs/page/homepage5/activity-big5.png" alt="T7wisa" /></div>
+									<div className="card-image"> <img src="/assets/imgs/page/homepage5/activity-big5.png" alt="TOURZ" /></div>
 									<div className="card-info">
 										<div className="card-rating">
 											<div className="card-left"> </div>
@@ -137,7 +137,7 @@ export default function PopularDestinations5() {
 												<path d="M8 15L15 8L8 1M15 8L1 8" stroke="" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
 											</svg></Link>
 									</div>
-									<div className="card-image"> <img src="/assets/imgs/page/homepage5/img-activity.png" alt="T7wisa" /></div>
+									<div className="card-image"> <img src="/assets/imgs/page/homepage5/img-activity.png" alt="TOURZ" /></div>
 								</div>
 							</div>
 						</div>

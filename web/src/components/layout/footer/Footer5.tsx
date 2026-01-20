@@ -20,12 +20,12 @@ export default function Footer5() {
 					</div>
 					<div className="row">
 						<div className="col-md-3 col-sm-12 footer-1">
-							<div className="mt-20 mb-20"><a className="d-inline-block mb-20" href="index.html"><img alt="T7wisa" src="assets/imgs/template/logo-footer.svg" /></a>
+							<div className="mt-20 mb-20"><a className="d-inline-block mb-20" href="index.html"><img alt="TOURZ" src="assets/imgs/template/logo-footer.svg" /></a>
 								<div className="box-info-contact mt-0">
 									<p className="text-md neutral-400 icon-address">Algeria, Guelma, Guelaat Bou Sbaa
 									</p>
 									<p className="text-md neutral-400 icon-worktime">Hours: 8:00 - 17:00, Mon - Sat</p>
-									<p className="text-md neutral-400 icon-email">support@T7wisa.com</p>
+									<p className="text-md neutral-400 icon-email">support@TOURZ.com</p>
 								</div>
 								<div className="box-need-help">
 									<p className="need-help text-md-medium mb-5">Need help? Call us</p><br /><a className="heading-6 phone-support" href="tel:05-00-00-00-00">05-00-00-00-00</a>
@@ -80,7 +80,7 @@ export default function Footer5() {
 					<div className="footer-bottom mt-50">
 						<div className="row align-items-center">
 							<div className="col-md-6 text-md-start text-center mb-20">
-								<p className="text-sm color-white">© 2024 T7wisa Inc. All rights reserved.</p>
+								<p className="text-sm color-white">© 2024 TOURZ Inc. All rights reserved.</p>
 							</div>
 							<div className="col-md-6 text-md-end text-center mb-20">
 								<div className="d-flex align-items-center justify-content-end">

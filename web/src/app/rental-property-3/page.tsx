@@ -57,7 +57,7 @@ export default function RentalProperty3() {
 					<section className="box-section block-banner-property">
 						<div className="container">
 							<div className="text-center">
-								<h3>Journey with T7wisa - Begin Your Story!</h3>
+								<h3>Journey with TOURZ - Begin Your Story!</h3>
 								<h6 className="heading-6-medium">Easily search for top tours offered by our professional network</h6>
 							</div>
 							<div className="box-search-advance box-search-advance-3 background-card wow fadeInUp">
@@ -187,11 +187,11 @@ export default function RentalProperty3() {
 						</div>
 					</section>
 					<section className="section-box block-ads background-body">
-						<div className="container wow fadeInUp"> <img src="/assets/imgs/page/homepage9/banner-ads.png" alt="T7wisa" /></div>
+						<div className="container wow fadeInUp"> <img src="/assets/imgs/page/homepage9/banner-ads.png" alt="TOURZ" /></div>
 					</section>
 					<div className="pb-110 background-body" />
 					<section className="section-box box-media background-body">
-						<div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" /></div>
+						<div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media2.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media3.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media4.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media5.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media6.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media7.png" alt="TOURZ" /></div>
 					</section>
 				</main>
 

@@ -1,5 +1,5 @@
 {
-  "name": "T7wisa",
+  "name": "TOURZ",
   "version": "1.0.0",
   "author": "alithemes.com",
   "private": true,
@@ -14,7 +14,9 @@
     "@headlessui/react": "^2.0.3",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/leaflet": "^1.9.21",
+    "animejs": "^4.2.2",
     "axios": "^1.13.2",
+    "gsap": "^3.14.2",
     "jsonwebtoken": "^9.0.3",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.562.0",
@@ -38,6 +40,7 @@
     "wowjs": "^1.1.3"
   },
   "devDependencies": {
+    "@types/animejs": "^3.1.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-datepicker": "^6.2.0",

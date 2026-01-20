@@ -21,7 +21,7 @@ export default function PopularSpots() {
                         <div className="row">
                             <div className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp">
                                 <div className="card-spot background-card">
-                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot.png" alt="T7wisa" /></Link></div>
+                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot.png" alt="TOURZ" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">Venice</Link></div>
@@ -38,7 +38,7 @@ export default function PopularSpots() {
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp">
                                 <div className="card-spot background-card">
-                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot2.png" alt="T7wisa" /></Link></div>
+                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot2.png" alt="TOURZ" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">New
@@ -56,7 +56,7 @@ export default function PopularSpots() {
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp">
                                 <div className="card-spot background-card">
-                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot3.png" alt="T7wisa" /></Link></div>
+                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot3.png" alt="TOURZ" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">Amsterdam</Link></div>
@@ -73,7 +73,7 @@ export default function PopularSpots() {
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp">
                                 <div className="card-spot background-card">
-                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot4.png" alt="T7wisa" /></Link></div>
+                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot4.png" alt="TOURZ" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">Budapest</Link></div>
@@ -90,7 +90,7 @@ export default function PopularSpots() {
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp">
                                 <div className="card-spot background-card">
-                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot5.png" alt="T7wisa" /></Link></div>
+                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot5.png" alt="TOURZ" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">Lisbon</Link></div>
@@ -107,7 +107,7 @@ export default function PopularSpots() {
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp">
                                 <div className="card-spot background-card">
-                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot6.png" alt="T7wisa" /></Link></div>
+                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot6.png" alt="TOURZ" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">London</Link></div>
@@ -124,7 +124,7 @@ export default function PopularSpots() {
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp">
                                 <div className="card-spot background-card">
-                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot7.png" alt="T7wisa" /></Link></div>
+                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot7.png" alt="TOURZ" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">Ottawa</Link></div>
@@ -141,7 +141,7 @@ export default function PopularSpots() {
                             </div>
                             <div className="col-xl-3 col-lg-4 col-md-6 wow fadeInUp">
                                 <div className="card-spot background-card">
-                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot8.png" alt="T7wisa" /></Link></div>
+                                    <div className="card-image"> <Link href="#"><img src="/assets/imgs/page/homepage4/spot8.png" alt="TOURZ" /></Link></div>
                                     <div className="card-info background-card">
                                         <div className="card-left">
                                             <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="#">Paris</Link>

@@ -10,14 +10,14 @@ export default function Testimonials7() {
                 <div className="container">
                     <div className="text-center wow fadeInUp">
                         <div className="d-flex justify-content-center">
-                            <div className="box-author-testimonials"> <img src="/assets/imgs/page/homepage1/testimonial.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage1/testimonial2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage1/testimonial3.png" alt="T7wisa" />Testimonials</div>
+                            <div className="box-author-testimonials"> <img src="/assets/imgs/page/homepage1/testimonial.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage1/testimonial2.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage1/testimonial3.png" alt="TOURZ" />Testimonials</div>
                         </div>
                         <h4 className="mt-8 mb-5 neutral-1000">What Our Clients Say</h4>
                     </div>
-                    <div className="box-img-test-1"> <img src="/assets/imgs/page/homepage10/img-test.png" alt="T7wisa" /></div>
-                    <div className="box-img-test-2"><img src="/assets/imgs/page/homepage10/img-test2.png" alt="T7wisa" /></div>
-                    <div className="box-img-test-3"> <img src="/assets/imgs/page/homepage10/img-test3.png" alt="T7wisa" /></div>
-                    <div className="box-img-test-4"> <img src="/assets/imgs/page/homepage10/img-test4.png" alt="T7wisa" /></div>
+                    <div className="box-img-test-1"> <img src="/assets/imgs/page/homepage10/img-test.png" alt="TOURZ" /></div>
+                    <div className="box-img-test-2"><img src="/assets/imgs/page/homepage10/img-test2.png" alt="TOURZ" /></div>
+                    <div className="box-img-test-3"> <img src="/assets/imgs/page/homepage10/img-test3.png" alt="TOURZ" /></div>
+                    <div className="box-img-test-4"> <img src="/assets/imgs/page/homepage10/img-test4.png" alt="TOURZ" /></div>
                     <div className="row align-items-center wow fadeInUp">
                         <div className="col-lg-8 offset-lg-2 mb-30">
                             <div className="box-swiper">
@@ -27,13 +27,13 @@ export default function Testimonials7() {
                                             <div className="card-testimonial card-testimonial-2">
                                                 <div className="card-top">
                                                     <div className="card-author">
-                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="T7wisa" />
+                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="TOURZ" />
                                                         </div>
                                                         <div className="card-info">
                                                             <p className="text-lg-bold neutral-1000">Sara Mohamed</p>
                                                         </div>
                                                     </div>
-                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
+                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /></div>
                                                 </div>
                                                 <div className="card-info">
                                                     <p className="neutral-1000 text-md">I've been using the hotel booking system
@@ -50,13 +50,13 @@ export default function Testimonials7() {
                                             <div className="card-testimonial card-testimonial-2">
                                                 <div className="card-top">
                                                     <div className="card-author">
-                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="T7wisa" />
+                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="TOURZ" />
                                                         </div>
                                                         <div className="card-info">
                                                             <p className="text-lg-bold neutral-1000">Atend John</p>
                                                         </div>
                                                     </div>
-                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
+                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /></div>
                                                 </div>
                                                 <div className="card-info">
                                                     <p className="neutral-1000 text-md">I've been using the hotel booking system
@@ -73,13 +73,13 @@ export default function Testimonials7() {
                                             <div className="card-testimonial card-testimonial-2">
                                                 <div className="card-top">
                                                     <div className="card-author">
-                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="T7wisa" />
+                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author.png" alt="TOURZ" />
                                                         </div>
                                                         <div className="card-info">
                                                             <p className="text-lg-bold neutral-1000">Sara Mohamed</p>
                                                         </div>
                                                     </div>
-                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
+                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /></div>
                                                 </div>
                                                 <div className="card-info">
                                                     <p className="neutral-1000 text-md">I've been using the hotel booking system
@@ -96,13 +96,13 @@ export default function Testimonials7() {
                                             <div className="card-testimonial card-testimonial-2">
                                                 <div className="card-top">
                                                     <div className="card-author">
-                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="T7wisa" />
+                                                        <div className="card-image"> <img src="/assets/imgs/page/homepage1/author2.png" alt="TOURZ" />
                                                         </div>
                                                         <div className="card-info">
                                                             <p className="text-lg-bold neutral-1000">Sara Mohamed</p>
                                                         </div>
                                                     </div>
-                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /><img src="/assets/imgs/template/icons/star.svg" alt="T7wisa" /></div>
+                                                    <div className="card-rate"> <img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /><img src="/assets/imgs/template/icons/star.svg" alt="TOURZ" /></div>
                                                 </div>
                                                 <div className="card-info">
                                                     <p className="neutral-1000 text-md">I've been using the hotel booking system

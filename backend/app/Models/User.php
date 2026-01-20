@@ -30,6 +30,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'is_admin',
         'image_path',
+        'eco_points',
     ];
 
     /**

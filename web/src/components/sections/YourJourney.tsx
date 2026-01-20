@@ -3,14 +3,17 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { swiperGroupAnimate } from "@/src/util/swiperOption"
 import Link from "next/link"
 import Countdown from '../elements/Countdown'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { tourService } from '@/src/services/tourService'
 import { TourApiResponse } from '@/src/types/api'
+import { gsap } from 'gsap'
 
 export default function YourJourney() {
 	const currentTime = new Date()
     const [tours, setTours] = useState<TourApiResponse[]>([])
     const [loading, setLoading] = useState(true)
+    const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+    const leavesContainerRefs = useRef<(HTMLDivElement | null)[]>([])
 
     useEffect(() => {
         const fetchTours = async () => {
@@ -27,6 +30,110 @@ export default function YourJourney() {
         
         fetchTours()
     }, [])
+
+    // Initialize falling leaves animation for eco-friendly cards
+    useEffect(() => {
+        if (tours.length === 0) return
+
+        tours.forEach((tour, index) => {
+            if (tour.is_eco_friendly && leavesContainerRefs.current[index]) {
+                createFallingLeaves(leavesContainerRefs.current[index]!, index)
+            }
+        })
+    }, [tours])
+
+    const createFallingLeaves = (container: HTMLDivElement, cardIndex: number) => {
+        const total = 15 // Number of leaves
+        const containerRect = container.getBoundingClientRect()
+        const w = containerRect.width
+        const h = containerRect.height
+
+        // Clear existing leaves
+        container.innerHTML = ''
+
+        const leafEmojis = ['🍃', '🍂', '🌿', '🌱']
+
+        for (let i = 0; i < total; i++) {
+            const leaf = document.createElement('div')
+            leaf.className = 'falling-leaf'
+            leaf.innerHTML = leafEmojis[Math.floor(Math.random() * leafEmojis.length)]
+            leaf.style.cssText = `
+                position: absolute;
+                font-size: ${R(17, 25)}px;
+                pointer-events: none;
+                z-index: 1;
+            `
+            
+            gsap.set(leaf, {
+                x: R(0, w),
+                y: R(-50, -20),
+                rotation: R(0, 360),
+                opacity: R(0.4, 0.8)
+            })
+
+            container.appendChild(leaf)
+            animateLeaf(leaf, h, w)
+        }
+    }
+
+    const animateLeaf = (leaf: HTMLElement, h: number, w: number) => {
+        gsap.to(leaf, {
+            y: h + 50,
+            duration: R(8, 15),
+            ease: "none",
+            repeat: -1,
+            delay: R(0, -15)
+        })
+
+        gsap.to(leaf, {
+            x: `+=${R(-50, 50)}`,
+            rotation: R(0, 360),
+            duration: R(4, 8),
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        })
+
+        gsap.to(leaf, {
+            rotationX: R(0, 360),
+            rotationY: R(0, 360),
+            duration: R(3, 8),
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            delay: R(0, -5)
+        })
+    }
+
+    const R = (min: number, max: number) => {
+        return min + Math.random() * (max - min)
+    }
+
+    const handleMouseEnter = (index: number) => {
+        const card = cardRefs.current[index]
+        if (card) {
+            gsap.to(card, {
+                scale: 1.05,
+                y: -10,
+                duration: 0.4,
+                ease: "power2.out",
+                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)"
+            })
+        }
+    }
+
+    const handleMouseLeave = (index: number) => {
+        const card = cardRefs.current[index]
+        if (card) {
+            gsap.to(card, {
+                scale: 1,
+                y: 0,
+                duration: 0.4,
+                ease: "power2.out",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)"
+            })
+        }
+    }
 
     if (loading) {
         return (
@@ -48,7 +155,7 @@ export default function YourJourney() {
                     <div className="row align-items-end">
                         <div className="col-md-9 mb-30">
                             <h1 className="neutral-1000 mb-15">Your Journey, Your Way</h1>
-                            <h6 className="heading-6-medium neutral-400">Discover the World's Treasures with T7wisa </h6>
+                            <h6 className="heading-6-medium neutral-400">Discover the World's Treasures with TOURZ </h6>
                         </div>
                         <div className="col-md-3 position-relative mb-30">
                             <div className="box-button-slider box-button-slider-team justify-content-end">
@@ -87,8 +194,29 @@ export default function YourJourney() {
                                         
                                         return (
                                         <SwiperSlide key={tour.id}>
-                                            <div className={"card-journey-small background-card"}>
+                                            <div 
+                                                ref={(el) => {
+                                                    cardRefs.current[index] = el
+                                                }}
+                                                className={tour.is_eco_friendly ? "card-journey-small eco-background-card border-eco-friendly" : "card-journey-small background-card"}
+                                                onMouseEnter={() => handleMouseEnter(index)}
+                                                onMouseLeave={() => handleMouseLeave(index)}
+                                                style={{ 
+                                                    transformOrigin: 'center center',
+                                                    cursor: 'pointer'
+                                                }}
+                                            >
                                                 <div className="card-image">
+                                                    {tour.is_eco_friendly && (
+                                                        <span className="eco-badge" style={{
+                                                            position: 'absolute',
+                                                            top: '12px',
+                                                            left: '12px',
+                                                            zIndex: 10
+                                                        }}>
+                                                            Eco-Friendly
+                                                        </span>
+                                                    )}
                                                     <Link className="wish" href={`/tour-detail/${tour.id}`}>
                                                         <svg width={20} height={18} viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M17.071 10.1422L11.4141 15.7991C10.6331 16.5801 9.36672 16.5801 8.58568 15.7991L2.92882 10.1422C0.9762 8.1896 0.9762 5.02378 2.92882 3.07116C4.88144 1.11853 8.04727 1.11853 9.99989 3.07116C11.9525 1.11853 15.1183 1.11853 17.071 3.07116C19.0236 5.02378 19.0236 8.1896 17.071 10.1422Z" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
@@ -99,52 +227,65 @@ export default function YourJourney() {
                                                         alt={imageAlt} 
                                                     />
                                                 </div>
-                                                <div className="card-info background-card">
-                                                    <div className="card-rating">
-                                                        <div className="card-left">
-                                                            {tourRating >= 4.8 && <span className="lightning">Exceptional</span>}
-                                                        </div>
-                                                        <div className="card-right">
-                                                            <span className="rating">
-                                                                {tourRating > 0 ? tourRating.toFixed(2) : 'No rating'}
-                                                                {reviewsCount > 0 && (
-                                                                    <span className="text-sm-medium neutral-500"> ({reviewsCount} reviews)</span>
-                                                                )}
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="card-title">
-                                                        <Link 
-                                                            className={"heading-6 neutral-1000"} 
-                                                            href={`/tour-detail/${tour.id}`}
-                                                        >
-                                                            {tour.title}
-                                                        </Link>
-                                                    </div>
-                                                    <div className="card-program">
-                                                        <div className="duration">
-                                                            <p className="text-md-medium neutral-500 mb-25">
-                                                                {tour.duration_days 
-                                                                    ? `${tour.duration_days} days`
-                                                                    : 'Duration varies'
-                                                                }
-                                                                {tour.difficulty_level && ` - ${tour.difficulty_level}`}
-                                                            </p>
-                                                            <div className="card-price">
-                                                                <h6 className="heading-6 neutral-1000">
-                                                                    ${tour.price}
-                                                                </h6>
-                                                                <p className="text-md-medium neutral-500">/ person</p>
+                                                <div className="card-info background-card" style={{ position: 'relative', overflow: 'hidden' }}>
+                                                    {/* Falling Leaves Container - Only for eco-friendly tours */}
+                                                    {tour.is_eco_friendly && (
+                                                        <div 
+                                                            ref={(el) => {
+                                                                leavesContainerRefs.current[index] = el
+                                                            }}
+                                                            className="leaves-container"
+                                                            style={{
+                                                                position: 'absolute',
+                                                                top: 0,
+                                                                left: 0,
+                                                                width: '100%',
+                                                                height: '100%',
+                                                                pointerEvents: 'none',
+                                                                overflow: 'hidden',
+                                                                zIndex: 1
+                                                            }}
+                                                        />
+                                                    )}
+                                                    
+                                                    <div style={{ position: 'relative', zIndex: 2 }}>
+                                                        <div className="card-rating">
+                                                            <div className="card-left">
+                                                                {tourRating >= 4.8 && <span className="lightning">Exceptional</span>}
+                                                            </div>
+                                                            <div className="card-right">
+                                                                <span className="rating">
+                                                                    {tourRating > 0 ? tourRating.toFixed(2) : 'No rating'}
+                                                                    {reviewsCount > 0 && (
+                                                                        <span className="text-sm-medium neutral-500"> ({reviewsCount} reviews)</span>
+                                                                    )}
+                                                                </span>
                                                             </div>
                                                         </div>
-                                                        {/* {index === 0 && tour.end_date && (
-                                                            <div className="endtime">
-                                                                <p className="text-sm-bold neutral-600">Promotion will end in</p>
-                                                                <div className="box-count box-count-square mb-0 mt-5 wow fadeInUp">
-                                                                    <Countdown endDateTime={new Date(tour.end_date).getTime()} />
+                                                        <div className="card-title">
+                                                            <Link 
+                                                                className={"heading-6 neutral-1000"} 
+                                                                href={`/tour-detail/${tour.id}`}
+                                                            >
+                                                                {tour.title}
+                                                            </Link>
+                                                        </div>
+                                                        <div className="card-program">
+                                                            <div className="duration">
+                                                                <p className="text-md-medium neutral-500 mb-25">
+                                                                    {tour.duration_days 
+                                                                        ? `${tour.duration_days} days`
+                                                                        : 'Duration varies'
+                                                                    }
+                                                                    {tour.difficulty_level && ` - ${tour.difficulty_level}`}
+                                                                </p>
+                                                                <div className="card-price">
+                                                                    <h6 className="heading-6 neutral-1000">
+                                                                        ${tour.price}
+                                                                    </h6>
+                                                                    <p className="text-md-medium neutral-500">/ person</p>
                                                                 </div>
                                                             </div>
-                                                        )} */}
                                                             <div className="endtime">
                                                                 <div className="card-button">
                                                                     <Link className="btn btn-gray" href={`/tour-detail/${tour.id}`}>
@@ -152,6 +293,7 @@ export default function YourJourney() {
                                                                     </Link>
                                                                 </div>
                                                             </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

@@ -36,7 +36,7 @@ export default function PropertiesArea() {
                                 <Swiper {...swiperGroup4}>
                                     <SwiperSlide>
                                         <div className="card-spot background-card wow fadeInDown">
-                                            <div className="card-image"> <Link href="/rental-property-2"><img src="/assets/imgs/page/homepage9/area.png" alt="T7wisa" /></Link></div>
+                                            <div className="card-image"> <Link href="/rental-property-2"><img src="/assets/imgs/page/homepage9/area.png" alt="TOURZ" /></Link></div>
                                             <div className="card-info background-card">
                                                 <div className="card-left">
                                                     <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="/rental-property-2">Venice</Link></div>
@@ -54,7 +54,7 @@ export default function PropertiesArea() {
                                     </SwiperSlide>
                                     <SwiperSlide>
                                         <div className="card-spot background-card wow fadeInDown">
-                                            <div className="card-image"> <Link href="/rental-property-2"><img src="/assets/imgs/page/homepage9/area2.png" alt="T7wisa" /></Link></div>
+                                            <div className="card-image"> <Link href="/rental-property-2"><img src="/assets/imgs/page/homepage9/area2.png" alt="TOURZ" /></Link></div>
                                             <div className="card-info background-card">
                                                 <div className="card-left">
                                                     <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="/rental-property-2">New York</Link></div>
@@ -72,7 +72,7 @@ export default function PropertiesArea() {
                                     </SwiperSlide>
                                     <SwiperSlide>
                                         <div className="card-spot background-card wow fadeInDown">
-                                            <div className="card-image"> <Link href="/rental-property-2"><img src="/assets/imgs/page/homepage9/area3.png" alt="T7wisa" /></Link></div>
+                                            <div className="card-image"> <Link href="/rental-property-2"><img src="/assets/imgs/page/homepage9/area3.png" alt="TOURZ" /></Link></div>
                                             <div className="card-info background-card">
                                                 <div className="card-left">
                                                     <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="/rental-property-2">Amsterdam</Link></div>
@@ -90,7 +90,7 @@ export default function PropertiesArea() {
                                     </SwiperSlide>
                                     <SwiperSlide>
                                         <div className="card-spot background-card wow fadeInDown">
-                                            <div className="card-image"> <Link href="/rental-property-2"><img src="/assets/imgs/page/homepage9/area4.png" alt="T7wisa" /></Link></div>
+                                            <div className="card-image"> <Link href="/rental-property-2"><img src="/assets/imgs/page/homepage9/area4.png" alt="TOURZ" /></Link></div>
                                             <div className="card-info background-card">
                                                 <div className="card-left">
                                                     <div className="card-title"> <Link className="text-lg-bold neutral-1000" href="/rental-property-2">Budapest</Link></div>

@@ -26,7 +26,7 @@ export default function BookTicket() {
                     </section>
                     <section className="section-box block-banner-book-tickets background-card">
                         <div className="container">
-                            <div className="box-image-book"> <img src="/assets/imgs/page/tickets/banner-booking.png" alt="T7wisa" /><Link className="btn-logo" href="#"><img src="/assets/imgs/page/tickets/cathay.png" alt="T7wisa" /></Link></div>
+                            <div className="box-image-book"> <img src="/assets/imgs/page/tickets/banner-booking.png" alt="TOURZ" /><Link className="btn-logo" href="#"><img src="/assets/imgs/page/tickets/cathay.png" alt="TOURZ" /></Link></div>
                         </div>
                     </section>
                     <section className="section-box block-content-book-tickets background-card">
@@ -49,7 +49,7 @@ export default function BookTicket() {
                                                     </div>
                                                 </div>
                                                 <div className="item-info-flight">
-                                                    <div className="logo-flight"> <img src="/assets/imgs/page/tickets/cathay.png" alt="T7wisa" /></div>
+                                                    <div className="logo-flight"> <img src="/assets/imgs/page/tickets/cathay.png" alt="TOURZ" /></div>
                                                     <div className="flight-code">
                                                         <p className="text-sm-medium neutral-500">CX-831 • Economy</p>
                                                     </div>
@@ -126,7 +126,7 @@ export default function BookTicket() {
                                             </div>
                                         </div>
                                         <div className="box-stop">
-                                            <div className="box-stop-left"><Link className="close-stop" href="#"><img src="/assets/imgs/page/tickets/close-stop.png" alt="T7wisa" /></Link></div>
+                                            <div className="box-stop-left"><Link className="close-stop" href="#"><img src="/assets/imgs/page/tickets/close-stop.png" alt="TOURZ" /></Link></div>
                                             <div className="box-stop-right">
                                                 <p className="text-sm-bold neutral-1000">Stop to change planes in Hong Kong (6h 35m)</p>
                                                 <p className="text-sm-medium neutral-1000">At this stop, you need to: Prepare transit visa if required</p>
@@ -145,7 +145,7 @@ export default function BookTicket() {
                                                     </div>
                                                 </div>
                                                 <div className="item-info-flight">
-                                                    <div className="logo-flight"> <img src="/assets/imgs/page/tickets/cathay.png" alt="T7wisa" /></div>
+                                                    <div className="logo-flight"> <img src="/assets/imgs/page/tickets/cathay.png" alt="TOURZ" /></div>
                                                     <div className="flight-code">
                                                         <p className="text-sm-medium neutral-500">CX-831 • Economy</p>
                                                     </div>
@@ -230,14 +230,14 @@ export default function BookTicket() {
                                         </div>
                                         <BookingForm />
                                     </div>
-                                    <div className="sidebar-banner"> <Link href="#"><img src="/assets/imgs/page/tour-detail/banner-ads.png" alt="T7wisa" /></Link></div>
-                                    <div className="sidebar-banner"> <Link href="#"><img src="/assets/imgs/page/tour-detail/banner-ads2.png" alt="T7wisa" /></Link></div>
+                                    <div className="sidebar-banner"> <Link href="#"><img src="/assets/imgs/page/tour-detail/banner-ads.png" alt="TOURZ" /></Link></div>
+                                    <div className="sidebar-banner"> <Link href="#"><img src="/assets/imgs/page/tour-detail/banner-ads2.png" alt="TOURZ" /></Link></div>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <section className="section-box box-media background-body">
-                        <div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" /><img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" /></div>
+                        <div className="container-media wow fadeInUp"> <img src="/assets/imgs/page/homepage5/media.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media2.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media3.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media4.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media5.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media6.png" alt="TOURZ" /><img src="/assets/imgs/page/homepage5/media7.png" alt="TOURZ" /></div>
                     </section>
                 </main>
 

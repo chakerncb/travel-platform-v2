@@ -16,10 +16,10 @@ export default function BannerHome7() {
 										the World Every Day</h2>
 									<h6 className="heading-6-medium neutral-500 mb-30">Travel Without Limits Browse, Book,
 										Explore</h6>
-									<div className="download-apps"> <Link href="#"><img src="/assets/imgs/template/googleplay.png" alt="T7wisa" /></Link><Link href="#"><img src="/assets/imgs/template/appstore.png" alt="T7wisa" /></Link></div>
+									<div className="download-apps"> <Link href="#"><img src="/assets/imgs/template/googleplay.png" alt="TOURZ" /></Link><Link href="#"><img src="/assets/imgs/template/appstore.png" alt="TOURZ" /></Link></div>
 								</div>
 							</div>
-							<div className="box-image-banner-home8"><img src="/assets/imgs/page/homepage8/car.png" alt="T7wisa" /><span className="dot-banner"><img src="/assets/imgs/page/homepage8/dot.png" alt="T7wisa" /></span></div>
+							<div className="box-image-banner-home8"><img src="/assets/imgs/page/homepage8/car.png" alt="TOURZ" /><span className="dot-banner"><img src="/assets/imgs/page/homepage8/dot.png" alt="TOURZ" /></span></div>
 						</div>
 					</div>
 				</div>

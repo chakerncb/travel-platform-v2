@@ -147,7 +147,7 @@ export default function TourGrid3() {
 					<section className="box-section block-banner-tourlist" style={{ backgroundImage: 'url(assets/imgs/page/tour/banner5.png)' }}>
 						<div className="container">
 							<div className="text-center">
-								<h3>Journey with T7wisa - Begin Your Story!</h3>
+								<h3>Journey with TOURZ - Begin Your Story!</h3>
 								<h6 className="heading-6-medium">Easily search for top tours offered by our professional network</h6>
 							</div>
 						</div>
@@ -293,13 +293,13 @@ export default function TourGrid3() {
 					</section>
 					<section className="section-box box-media background-body">
 						<div className="container-media wow fadeInUp">
-							 <img src="/assets/imgs/page/homepage5/media.png" alt="T7wisa" />
-							 <img src="/assets/imgs/page/homepage5/media2.png" alt="T7wisa" />
-							 <img src="/assets/imgs/page/homepage5/media3.png" alt="T7wisa" />
-							 <img src="/assets/imgs/page/homepage5/media4.png" alt="T7wisa" />
-							 <img src="/assets/imgs/page/homepage5/media5.png" alt="T7wisa" />
-							 <img src="/assets/imgs/page/homepage5/media6.png" alt="T7wisa" />
-							 <img src="/assets/imgs/page/homepage5/media7.png" alt="T7wisa" />
+							 <img src="/assets/imgs/page/homepage5/media.png" alt="TOURZ" />
+							 <img src="/assets/imgs/page/homepage5/media2.png" alt="TOURZ" />
+							 <img src="/assets/imgs/page/homepage5/media3.png" alt="TOURZ" />
+							 <img src="/assets/imgs/page/homepage5/media4.png" alt="TOURZ" />
+							 <img src="/assets/imgs/page/homepage5/media5.png" alt="TOURZ" />
+							 <img src="/assets/imgs/page/homepage5/media6.png" alt="TOURZ" />
+							 <img src="/assets/imgs/page/homepage5/media7.png" alt="TOURZ" />
 							 </div>
 					</section>
 				</main>

@@ -15,18 +15,18 @@ export default function Payments4() {
 									<div className="card-video card-video-type-2">
 										<div className="card-image">
 											<VideoPopup vdocls="btn btn-play popup-youtube" />
-											<img src="/assets/imgs/page/homepage6/payment.png" alt="T7wisa" /></div>
+											<img src="/assets/imgs/page/homepage6/payment.png" alt="TOURZ" /></div>
 									</div>
 									<div className="card-video card-video-type-2">
-										<div className="card-image"><img src="/assets/imgs/page/homepage6/payment3.png" alt="T7wisa" /></div>
+										<div className="card-image"><img src="/assets/imgs/page/homepage6/payment3.png" alt="TOURZ" /></div>
 									</div>
 								</div>
 								<div className="col-lg-6 col-sm-6 box-image-payment-right">
 									<div className="card-video card-video-type-2">
-										<div className="card-image"><img src="/assets/imgs/page/homepage6/payment2.png" alt="T7wisa" /></div>
+										<div className="card-image"><img src="/assets/imgs/page/homepage6/payment2.png" alt="TOURZ" /></div>
 									</div>
 									<div className="card-video card-video-type-2">
-										<div className="card-image"><img src="/assets/imgs/page/homepage6/payment4.png" alt="T7wisa" /></div>
+										<div className="card-image"><img src="/assets/imgs/page/homepage6/payment4.png" alt="TOURZ" /></div>
 									</div>
 								</div>
 							</div>

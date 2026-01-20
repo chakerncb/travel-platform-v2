@@ -466,6 +466,7 @@ export interface UserDto {
   status?: boolean;
   imageUrl?: string;
   isIntern?: boolean;
+  ecoPoints?: number;
 }
 
 export interface LoginDto {

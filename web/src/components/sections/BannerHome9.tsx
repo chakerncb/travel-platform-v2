@@ -8,7 +8,7 @@ export default function BannerHome9() {
 
 			<section className="box-section block-banner-home10">
 				<div className="container">
-					<p className="text-with-img mb-30"> <img src="/assets/imgs/page/homepage10/earth.png" alt="T7wisa" />The Best
+					<p className="text-with-img mb-30"> <img src="/assets/imgs/page/homepage10/earth.png" alt="TOURZ" />The Best
 						Booking System</p>
 					<h1 className="color-white mb-20">Find The Best Flight <br className="d-none d-lg-block" />For The Amazing Places
 					</h1>

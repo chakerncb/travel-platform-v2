@@ -8,7 +8,7 @@ export default function LoveUs() {
                 <div className="box-love-us-inner">
                     <div className="container">
                         <div className="row align-items-center">
-                            <div className="col-lg-5 wow fadeInLeft"><img src="/assets/imgs/page/homepage3/img-love.png" alt="T7wisa" /></div>
+                            <div className="col-lg-5 wow fadeInLeft"><img src="/assets/imgs/page/homepage3/img-love.png" alt="TOURZ" /></div>
                             <div className="col-lg-7 wow fadeInRight">
                                 <h2 className="neutral-1000">You will love us</h2>
                                 <p className="text-xl-medium neutral-500">Because more than 268 other customers have loved us
@@ -16,7 +16,7 @@ export default function LoveUs() {
                                 <div className="row mt-65">
                                     <div className="col-lg-6 col-md-6">
                                         <div className="card-why-travel card-love-us hover-up">
-                                            <div className="card-image"> <img src="/assets/imgs/page/homepage2/security.svg" alt="T7wisa" /></div>
+                                            <div className="card-image"> <img src="/assets/imgs/page/homepage2/security.svg" alt="TOURZ" /></div>
                                             <div className="card-info"> <Link className="text-xl-bold card-title" href="#">Security
                                                 Assurance</Link>
                                                 <p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to
@@ -29,7 +29,7 @@ export default function LoveUs() {
                                     </div>
                                     <div className="col-lg-6 col-md-6">
                                         <div className="card-why-travel card-love-us hover-up">
-                                            <div className="card-image"> <img src="/assets/imgs/page/homepage2/support.svg" alt="T7wisa" /></div>
+                                            <div className="card-image"> <img src="/assets/imgs/page/homepage2/support.svg" alt="TOURZ" /></div>
                                             <div className="card-info"> <Link className="text-xl-bold card-title" href="#">Customer
                                                 Support</Link>
                                                 <p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to
@@ -42,7 +42,7 @@ export default function LoveUs() {
                                     </div>
                                     <div className="col-lg-6 col-md-6">
                                         <div className="card-why-travel card-love-us hover-up">
-                                            <div className="card-image"> <img src="/assets/imgs/page/homepage2/policy.svg" alt="T7wisa" /></div>
+                                            <div className="card-image"> <img src="/assets/imgs/page/homepage2/policy.svg" alt="TOURZ" /></div>
                                             <div className="card-info"> <Link className="text-xl-bold card-title" href="#">Transparent
                                                 Policies</Link>
                                                 <p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to
@@ -55,7 +55,7 @@ export default function LoveUs() {
                                     </div>
                                     <div className="col-lg-6 col-md-6">
                                         <div className="card-why-travel card-love-us hover-up">
-                                            <div className="card-image"> <img src="/assets/imgs/page/homepage2/repu.svg" alt="T7wisa" /></div>
+                                            <div className="card-image"> <img src="/assets/imgs/page/homepage2/repu.svg" alt="TOURZ" /></div>
                                             <div className="card-info"> <Link className="text-xl-bold card-title" href="#">Reputable
                                                 Affiliations</Link>
                                                 <p className="text-sm-medium neutral-500 card-desc">Demonstrates commitment to
