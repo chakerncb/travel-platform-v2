@@ -46,6 +46,7 @@ class NewsletterForm
                                 
                                 DateTimePicker::make('scheduled_at')
                                     ->label('Schedule For')
+                                    ->default(time().now())
                                     ->helperText('Set a date and time to schedule this newsletter')
                                     ->nullable()
                                     ->native(false),

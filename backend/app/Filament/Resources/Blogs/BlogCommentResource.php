@@ -11,12 +11,14 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class BlogCommentResource extends Resource
 {
     protected static ?string $model = BlogComment::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChatBubbleLeftRight;
+    protected static string | UnitEnum | null $navigationGroup = 'Blogs';
 
     protected static ?string $navigationLabel = 'Blog Comments';
 

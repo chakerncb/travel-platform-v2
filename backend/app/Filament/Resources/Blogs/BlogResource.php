@@ -11,12 +11,15 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class BlogResource extends Resource
 {
     protected static ?string $model = Blog::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedNewspaper;
+
+    protected static string | UnitEnum | null $navigationGroup = 'Blogs';
 
     protected static ?string $navigationLabel = 'Blog Posts';
 
