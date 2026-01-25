@@ -5,27 +5,57 @@ class Constants {
 
   // API Configuration
   // Use 10.0.2.2 for Android emulator, localhost for iOS simulator, or your computer's IP for physical devices
-  static String apiBaseUrl = "http://192.168.1.26:8000/api";
-  static String apiUrl = "http://192.168.1.26:8000/api/v1";
+  static String apiBaseUrl = "http://10.0.2.2:8000/api";
+  static String apiUrl = "http://10.0.2.2:8000/api/v1";
 
-  //Colors for theme
-  static Color lightPrimary = Color(0xfffcfcff);
-  static Color darkPrimary = Colors.black;
-  static Color lightAccent = Colors.blueGrey[900]!;
-  static Color darkAccent = Colors.white;
-  static Color lightBG = Color(0xfffcfcff);
-  static Color darkBG = Colors.black;
-  static Color badgeColor = Colors.red;
+  // Light Glass Theme Colors
+  static Color lightPrimary = Color(0xff96C1B1); // Mint Green
+  static Color lightAccent = Color(
+    0xff417492,
+  ); // Transparent Dark Blue (used as accent)
+  static Color lightBackground = Color(0xffFcfcff); // Off-white/pale blue tint
+  static Color lightGlass = Color(
+    0xffF4E7AC,
+  ).withOpacity(0.3); // Champagne with opacity
+
+  static Color lightBG = Color(0xffFcfcff);
+  static Color ratingBG = Color(0xfff4e7ac); // Champagne
+
+  // Dark Glass Theme Colors
+  static Color darkPrimary = Color(0xff655E95); // Deep Blue-Gray
+  static Color darkAccent = Color(0xff417492); // Transparent Dark Blue
+  static Color darkBackground = Color(0xff121212); // Dark Grey
+  static Color darkGlass = Color(
+    0xff417492,
+  ).withOpacity(0.3); // Transparent Dark Blue with opacity
+
+  static Color darkBG = Color(0xff121212);
+  static Color badgeColor = Color(0xffFFD700); // Gold
 
   static ThemeData lightTheme = ThemeData(
     primaryColor: lightPrimary,
-    scaffoldBackgroundColor: lightBG,
-    colorScheme: ColorScheme.light(secondary: lightAccent, background: lightBG),
+    scaffoldBackgroundColor: lightBackground,
+    cardColor: Colors.white.withOpacity(0.7), // Glassy card
+    colorScheme: ColorScheme.light(
+      primary: lightPrimary,
+      secondary: lightAccent,
+      background: lightBackground,
+      surface: Colors.white.withOpacity(0.7),
+    ),
     appBarTheme: AppBarTheme(
+      backgroundColor: Colors.transparent,
       elevation: 0,
       titleTextStyle: TextStyle(
-        color: darkBG,
-        fontSize: 18.0,
+        color: Colors.black,
+        fontSize: 20,
+        fontWeight: FontWeight.w800,
+      ),
+      iconTheme: IconThemeData(color: Colors.black),
+    ),
+    textTheme: TextTheme(
+      titleLarge: TextStyle(
+        color: Colors.black,
+        fontSize: 20,
         fontWeight: FontWeight.w800,
       ),
     ),
@@ -34,15 +64,7 @@ class Constants {
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     primaryColor: darkPrimary,
-    scaffoldBackgroundColor: darkBG,
-    colorScheme: ColorScheme.dark(secondary: darkAccent, background: darkBG),
-    appBarTheme: AppBarTheme(
-      elevation: 0,
-      titleTextStyle: TextStyle(
-        color: lightBG,
-        fontSize: 18.0,
-        fontWeight: FontWeight.w800,
-      ),
-    ),
+    scaffoldBackgroundColor: darkBackground,
+    cardColor: Colors.black.withOpacity(0.5), // Glassy dark card
   );
 }

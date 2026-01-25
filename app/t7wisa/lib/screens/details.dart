@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:t7wisa/util/places.dart';
-import 'package:t7wisa/widgets/icon_badge.dart';
+import 'package:TOURZ/util/places.dart';
+import 'package:TOURZ/widgets/icon_badge.dart';
 
 class Details extends StatelessWidget {
   const Details({Key? key}) : super(key: key);

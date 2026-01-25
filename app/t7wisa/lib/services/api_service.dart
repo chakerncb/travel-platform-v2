@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:t7wisa/models/tour.dart';
-import 'package:t7wisa/util/const.dart';
+import 'package:TOURZ/models/tour.dart';
+import 'package:TOURZ/util/const.dart';
 
 class ApiService {
   static Future<List<Tour>> fetchTours({

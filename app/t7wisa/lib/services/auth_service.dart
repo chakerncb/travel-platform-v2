@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:t7wisa/models/user.dart';
-import 'package:t7wisa/util/const.dart';
+import 'package:TOURZ/models/user.dart';
+import 'package:TOURZ/util/const.dart';
 
 class AuthService {
   static const String _tokenKey = 'auth_token';

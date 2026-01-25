@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:t7wisa/models/user.dart';
-import 'package:t7wisa/screens/login.dart';
-import 'package:t7wisa/services/auth_service.dart';
+import 'package:TOURZ/models/user.dart';
+import 'package:TOURZ/screens/login.dart';
+import 'package:TOURZ/services/auth_service.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -69,17 +70,33 @@ class _ProfileState extends State<Profile> {
     }
   }
 
+  // Fake user for skeleton loading
+  User get _fakeUser => User(
+    id: 0,
+    fName: 'John',
+    lName: 'Doe',
+    email: 'john.doe@example.com',
+    phone: '+1 234 567 8900',
+    address: '123 Fake Street, City, Country',
+    isAdmin: false,
+    createdAt: DateTime.now(),
+  );
+
   @override
   Widget build(BuildContext context) {
     if (isLoading) {
-      return Center(child: CircularProgressIndicator());
+      // Show skeleton with fake user data
+      return Skeletonizer(
+        enabled: true,
+        child: _buildProfileContent(_fakeUser),
+      );
     }
 
     if (user == null) {
       return _buildLoginPrompt();
     }
 
-    return _buildProfile();
+    return _buildProfileContent(user!);
   }
 
   Widget _buildLoginPrompt() {
@@ -123,9 +140,15 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  Widget _buildProfile() {
+  // Extracted profile building logic to verify against fake user
+  Widget _buildProfileContent(User userData) {
     return ListView(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.only(
+        top: MediaQuery.of(context).padding.top + 92,
+        left: 20,
+        right: 20,
+        bottom: 100,
+      ),
       children: [
         SizedBox(height: 20),
         Center(
@@ -135,7 +158,8 @@ class _ProfileState extends State<Profile> {
                 radius: 50,
                 backgroundColor: Theme.of(context).colorScheme.secondary,
                 child: Text(
-                  '${user!.fName[0]}${user!.lName[0]}'.toUpperCase(),
+                  '${userData.fName.isNotEmpty ? userData.fName[0] : ''}${userData.lName.isNotEmpty ? userData.lName[0] : ''}'
+                      .toUpperCase(),
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,
@@ -145,15 +169,15 @@ class _ProfileState extends State<Profile> {
               ),
               SizedBox(height: 16),
               Text(
-                user!.fullName,
+                userData.fullName,
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 8),
               Text(
-                user!.email,
+                userData.email,
                 style: TextStyle(fontSize: 16, color: Colors.grey[600]),
               ),
-              if (user!.emailVerifiedAt != null) ...[
+              if (userData.emailVerifiedAt != null) ...[
                 SizedBox(height: 8),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -181,16 +205,16 @@ class _ProfileState extends State<Profile> {
           ),
         ),
         SizedBox(height: 40),
-        _buildInfoCard('Phone', user!.phone ?? 'Not provided', Icons.phone),
+        _buildInfoCard('Phone', userData.phone ?? 'Not provided', Icons.phone),
         _buildInfoCard(
           'Address',
-          user!.address ?? 'Not provided',
+          userData.address ?? 'Not provided',
           Icons.location_on,
         ),
         _buildInfoCard(
           'Member Since',
-          user!.createdAt != null
-              ? '${user!.createdAt!.day}/${user!.createdAt!.month}/${user!.createdAt!.year}'
+          userData.createdAt != null
+              ? '${userData.createdAt!.day}/${userData.createdAt!.month}/${userData.createdAt!.year}'
               : 'N/A',
           Icons.calendar_today,
         ),
@@ -229,19 +253,22 @@ class _ProfileState extends State<Profile> {
         ),
         Divider(),
         SizedBox(height: 20),
-        ElevatedButton.icon(
-          onPressed: handleLogout,
-          icon: Icon(Icons.logout),
-          label: Text('Logout'),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.red,
-            foregroundColor: Colors.white,
-            padding: EdgeInsets.symmetric(vertical: 16),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-        ),
+        // Hide logout button in skeleton mode or make it non-interactive
+        isLoading
+            ? SizedBox.shrink()
+            : ElevatedButton.icon(
+                onPressed: handleLogout,
+                icon: Icon(Icons.logout),
+                label: Text('Logout'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  foregroundColor: Colors.white,
+                  padding: EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
       ],
     );
   }

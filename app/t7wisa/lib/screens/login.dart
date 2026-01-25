@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:t7wisa/screens/register.dart';
-import 'package:t7wisa/services/auth_service.dart';
-import 'package:t7wisa/screens/main_screen.dart';
+import 'package:TOURZ/screens/register.dart';
+import 'package:TOURZ/services/auth_service.dart';
+import 'package:TOURZ/screens/main_screen.dart';
 
 class Login extends StatefulWidget {
   @override

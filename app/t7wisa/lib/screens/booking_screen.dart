@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:t7wisa/models/booking.dart';
-import 'package:t7wisa/models/tour.dart';
-import 'package:t7wisa/services/booking_service.dart';
-import 'package:t7wisa/services/auth_service.dart';
+import 'package:TOURZ/models/booking.dart';
+import 'package:TOURZ/models/tour.dart';
+import 'package:TOURZ/services/booking_service.dart';
+import 'package:TOURZ/services/auth_service.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BookingScreen extends StatefulWidget {
@@ -82,21 +82,24 @@ class _BookingScreenState extends State<BookingScreen> {
   }
 
   Future<void> _checkExistingBooking() async {
-    try {
-      final email = _emailController.text;
-      final hasBooking = await BookingService.checkUserBooking(
-        widget.tour.id,
-        email: email.isNotEmpty ? email : null,
-      );
-      setState(() {
-        _hasExistingBooking = hasBooking;
-        _checkingBooking = false;
-      });
-    } catch (e) {
-      setState(() {
-        _checkingBooking = false;
-      });
-    }
+    // try {
+    //   final email = _emailController.text;
+    //   final hasBooking = await BookingService.checkUserBooking(
+    //     widget.tour.id,
+    //     email: email.isNotEmpty ? email : null,
+    //   );
+    //   setState(() {
+    //     _hasExistingBooking = hasBooking;
+    //     _checkingBooking = false;
+    //   });
+    // } catch (e) {
+    //   setState(() {
+    //     _checkingBooking = false;
+    //   });
+    // }
+    setState(() {
+      _checkingBooking = false;
+    });
   }
 
   double get _totalPrice {

@@ -27,7 +27,7 @@ class VerticalPlaceItem extends StatelessWidget {
   String _getFormattedPrice() {
     final price = double.tryParse(place['price']?.toString() ?? '0') ?? 0;
     final days = place['duration_days'] ?? 1;
-    return 'DZD ${price.toStringAsFixed(0)}/${days}d';
+    return '${price.toStringAsFixed(0)} DA /${days}d';
   }
 
   @override
@@ -112,7 +112,7 @@ class VerticalPlaceItem extends StatelessWidget {
                         child: BackdropFilter(
                           filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                           child: Container(
-                            padding: EdgeInsets.all(16),
+                            padding: EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 begin: Alignment.topLeft,
@@ -132,44 +132,50 @@ class VerticalPlaceItem extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisSize: MainAxisSize.min,
                               children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "${place["title"]}",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16.0,
-                                        color: Colors.black87,
+                                Flexible(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        "${place["title"]}",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15.0,
+                                          color: Colors.black87,
+                                        ),
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
                                       ),
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                    SizedBox(height: 6.0),
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.location_on,
-                                          size: 14.0,
-                                          color: Colors.blue[700],
-                                        ),
-                                        SizedBox(width: 4.0),
-                                        Expanded(
-                                          child: Text(
-                                            _getLocation(),
-                                            style: TextStyle(
-                                              fontSize: 13.0,
-                                              color: Colors.grey[600],
-                                            ),
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
+                                      SizedBox(height: 4.0),
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            Icons.location_on,
+                                            size: 13.0,
+                                            color: Colors.blue[700],
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                          SizedBox(width: 3.0),
+                                          Expanded(
+                                            child: Text(
+                                              _getLocation(),
+                                              style: TextStyle(
+                                                fontSize: 12.0,
+                                                color: Colors.grey[600],
+                                              ),
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
+                                SizedBox(height: 4),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -178,48 +184,48 @@ class VerticalPlaceItem extends StatelessWidget {
                                       _getFormattedPrice(),
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 18.0,
+                                        fontSize: 12.0,
                                         color: Colors.blue[700],
                                       ),
                                     ),
-                                    if (place['is_eco_friendly'] == true)
-                                      Container(
-                                        padding: EdgeInsets.symmetric(
-                                          horizontal: 8,
-                                          vertical: 4,
-                                        ),
-                                        decoration: BoxDecoration(
-                                          color: Colors.green.withOpacity(0.2),
-                                          borderRadius: BorderRadius.circular(
-                                            12,
-                                          ),
-                                          border: Border.all(
-                                            color: Colors.green.withOpacity(
-                                              0.5,
-                                            ),
-                                            width: 1,
-                                          ),
-                                        ),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Icon(
-                                              Icons.eco,
-                                              size: 12,
-                                              color: Colors.green,
-                                            ),
-                                            SizedBox(width: 4),
-                                            Text(
-                                              'Eco',
-                                              style: TextStyle(
-                                                color: Colors.green[700],
-                                                fontSize: 10,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
+                                    // if (place['is_eco_friendly'] == true)
+                                    // Container(
+                                    //   padding: EdgeInsets.symmetric(
+                                    //     horizontal: 8,
+                                    //     vertical: 4,
+                                    //   ),
+                                    //   decoration: BoxDecoration(
+                                    //     color: Colors.green.withOpacity(0.2),
+                                    //     borderRadius: BorderRadius.circular(
+                                    //       12,
+                                    //     ),
+                                    //     border: Border.all(
+                                    //       color: Colors.green.withOpacity(
+                                    //         0.5,
+                                    //       ),
+                                    //       width: 1,
+                                    //     ),
+                                    //   ),
+                                    //   child: Row(
+                                    //     mainAxisSize: MainAxisSize.min,
+                                    //     children: [
+                                    //       Icon(
+                                    //         Icons.eco,
+                                    //         size: 10,
+                                    //         color: Colors.green,
+                                    //       ),
+                                    //       SizedBox(width: 4),
+                                    //       Text(
+                                    //         'Eco',
+                                    //         style: TextStyle(
+                                    //           color: Colors.green[700],
+                                    //           fontSize: 7,
+                                    //           fontWeight: FontWeight.bold,
+                                    //         ),
+                                    //       ),
+                                    //     ],
+                                    //   ),
+                                    // ),
                                   ],
                                 ),
                               ],

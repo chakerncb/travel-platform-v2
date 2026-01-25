@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:t7wisa/models/booking.dart';
-import 'package:t7wisa/services/auth_service.dart';
-import 'package:t7wisa/util/const.dart';
+import 'package:TOURZ/models/booking.dart';
+import 'package:TOURZ/services/auth_service.dart';
+import 'package:TOURZ/util/const.dart';
 
 class BookingService {
   // Create a new booking
@@ -174,24 +174,32 @@ class BookingService {
   // Check if user has already booked this tour
   static Future<bool> checkUserBooking(int tourId, {String? email}) async {
     try {
+      final token = await AuthService.getToken();
       String url =
           '${Constants.apiBaseUrl}/bookings/tours/$tourId/check-user-booking';
-      if (email != null) {
+
+      // Add query parameters
+      if (email != null && email.isNotEmpty) {
         url += '?email=${Uri.encodeComponent(email)}';
       }
 
-      final response = await http.get(
-        Uri.parse(url),
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-      );
+      final headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      };
+
+      // Add auth token if available (same as createUser logic)
+      if (token != null) {
+        headers['Authorization'] = 'Bearer $token';
+      }
+
+      final response = await http.get(Uri.parse(url), headers: headers);
 
       if (response.statusCode == 200) {
         final jsonData = json.decode(response.body);
         return jsonData['data']['has_booking'] ?? false;
       } else {
+        print('Error checking booking status: ${response.statusCode}');
         return false;
       }
     } catch (e) {
