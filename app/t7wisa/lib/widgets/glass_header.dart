@@ -74,7 +74,6 @@ class _GlassHeaderState extends State<GlassHeader>
               child: AnimatedContainer(
                 duration: Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
-                child: _buildGlassSearchBar(),
               ),
             ),
             SizedBox(width: 12),

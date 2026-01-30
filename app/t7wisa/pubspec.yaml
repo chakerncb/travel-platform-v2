@@ -19,6 +19,7 @@ dependencies:
   flutter_map: ^7.0.2
   latlong2: ^0.9.1
   google_maps_flutter: ^2.2.3
+  cached_network_image: ^3.4.1
   hydro_glass_nav_bar: ^1.0.0-pre.3
   skeletonizer: ^2.1.2
 

@@ -112,7 +112,10 @@ class VerticalPlaceItem extends StatelessWidget {
                         child: BackdropFilter(
                           filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                           child: Container(
-                            padding: EdgeInsets.all(10),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 8,
+                            ),
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 begin: Alignment.topLeft,
@@ -131,8 +134,7 @@ class VerticalPlaceItem extends StatelessWidget {
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Flexible(
                                   child: Column(
@@ -150,7 +152,7 @@ class VerticalPlaceItem extends StatelessWidget {
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
                                       ),
-                                      SizedBox(height: 4.0),
+                                      SizedBox(height: 2.0),
                                       Row(
                                         children: [
                                           Icon(
@@ -175,7 +177,6 @@ class VerticalPlaceItem extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                SizedBox(height: 4),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,

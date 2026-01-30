@@ -4,6 +4,7 @@ import 'package:TOURZ/screens/profile.dart';
 import 'package:TOURZ/screens/all_tours_screen.dart';
 import 'package:TOURZ/widgets/glass_header.dart';
 import 'package:hydro_glass_nav_bar/hydro_glass_nav_bar.dart';
+import 'package:TOURZ/screens/custom_tour_screen.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -34,16 +35,7 @@ class _MainScreenState extends State<MainScreen>
           // Main content area with tabs
           TabBarView(
             controller: _tabController,
-            children: [
-              Home(),
-              AllToursScreen(),
-              _buildPlaceholderScreen(
-                icon: Icons.mode_comment,
-                title: 'Messages',
-                subtitle: 'Your messages and notifications',
-              ),
-              Profile(),
-            ],
+            children: [Home(), AllToursScreen(), CustomTourScreen(), Profile()],
           ),
 
           // Global glass morphism header (search + notifications)
@@ -64,9 +56,9 @@ class _MainScreenState extends State<MainScreen>
                 selectedIcon: Icons.explore,
               ),
               HydroGlassNavItem(
-                label: 'Messages',
-                icon: Icons.mode_comment_outlined,
-                selectedIcon: Icons.mode_comment,
+                label: 'Custom Tour',
+                icon: Icons.calendar_month_outlined,
+                selectedIcon: Icons.calendar_month,
               ),
               HydroGlassNavItem(
                 label: 'Profile',
